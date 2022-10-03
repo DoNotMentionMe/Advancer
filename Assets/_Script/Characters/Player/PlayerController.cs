@@ -7,8 +7,11 @@ namespace Adv
     public class PlayerController : MonoBehaviour
     {
         public float LocalScaleX => mTransform.localScale.x;
+        //------作废-----
         [SerializeField] float moveSpeed = 15f;
+        //--------------
 
+        [SerializeField] GameObject upAttack;
         [SerializeField] GameObject rightAttack;
         [SerializeField] GameObject leftAttack;
 
@@ -21,7 +24,6 @@ namespace Adv
             mTransform = transform;
             mRigidbody = GetComponent<Rigidbody2D>();
         }
-
         private void OnDestroy()
         {
             mTransform = null;
@@ -41,23 +43,44 @@ namespace Adv
             mRigidbody.velocity = Vector2.zero;
         }
 
+        /// <summary>
+        /// direction-1\2\3\4，对应左上右下
+        /// </summary>
+        /// <param name="direction"></param>
         public void AttackStart(int direction)
         {
             if (direction == 1)
             {
-                rightAttack.SetActive(true);
-                currentAttack = rightAttack;
-            }
-            else if (direction == -1)
-            {
                 leftAttack.SetActive(true);
-                currentAttack = leftAttack;
+            }
+            else if (direction == 2)
+            {
+                upAttack.SetActive(true);
+            }
+            else if (direction == 3)
+            {
+                rightAttack.SetActive(true);
             }
         }
 
-        public void AttackEnd()
+        /// <summary>
+        /// direction-1\2\3\4，对应左上右下
+        /// </summary>
+        /// <param name="direction"></param>
+        public void AttackEnd(int direction)
         {
-            currentAttack.SetActive(false);
+            if (direction == 1)
+            {
+                leftAttack.SetActive(false);
+            }
+            else if (direction == 2)
+            {
+                upAttack.SetActive(false);
+            }
+            else if (direction == 3)
+            {
+                rightAttack.SetActive(false);
+            }
         }
     }
 }

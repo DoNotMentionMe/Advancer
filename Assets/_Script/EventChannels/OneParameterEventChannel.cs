@@ -4,6 +4,7 @@ namespace Adv
 {
     public class OneParameterEventChannel<T> : ScriptableObject
     {
+        [SerializeField, TextArea(2, 5)] string comment;
         event System.Action<T> Delegate;
 
         public void Broadcast(T obj)

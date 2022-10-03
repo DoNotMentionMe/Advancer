@@ -5,6 +5,7 @@ namespace Adv
     [CreateAssetMenu(menuName = "Data/EventChannels/VoidEventChannels", fileName = "VoidEventChannel_")]
     public class VoidEventChannel : ScriptableObject
     {
+        [SerializeField, TextArea(2, 5)] string comment;
         event System.Action Delegate;
 
         public void Broadcast()

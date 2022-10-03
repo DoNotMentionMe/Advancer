@@ -7,34 +7,17 @@ namespace Adv
     public class PlayerState_Attack : PlayerState
     {
 
-        private int currentAxesX;
-        private int currentAxesY;
-
         public override void Enter()
         {
             base.Enter();
-
-            currentAxesX = playerInput.axesX;
-
-            if (currentAxesX != 0)
-            {
-                playerController.AttackStart(playerInput.axesX);
-            }
-            else
-            {
-                playerController.AttackStart((int)playerController.LocalScaleX);
-            }
         }
 
-        public override void PhysicUpdate()
+        public override void LogicUpdate()
         {
-            base.PhysicUpdate();
+            base.LogicUpdate();
 
-            //playerController.MoveX((int)playerController.LocalScaleX, 0.3f);
-
-            if (stateFixedFrameCount >= 10)
+            if (!playerInput.Attack)
             {
-                playerController.AttackEnd();
                 FSM.SwitchState(typeof(PlayerState_Idle));
             }
         }

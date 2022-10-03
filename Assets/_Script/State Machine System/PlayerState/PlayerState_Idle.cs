@@ -11,7 +11,7 @@ namespace Adv
             base.Enter();
 
             //暂时
-            playerController.Stop();
+            //playerController.Stop();
         }
 
         public override void LogicUpdate()
@@ -23,10 +23,27 @@ namespace Adv
             //     FSM.SwitchState(typeof(PlayerState_Move));
             // }
             // else 
-            if (playerInput.Attack)
-            {
-                FSM.SwitchState(typeof(PlayerState_Attack));
-            }
+            // if (playerInput.Attack)
+            // {
+            //     FSM.SwitchState(typeof(PlayerState_Attack));
+            // }
+
+            if (playerInput.Left)
+                playerController.AttackStart(1);
+            else
+                playerController.AttackEnd(1);
+
+            if (playerInput.Up)
+                playerController.AttackStart(2);
+            else
+                playerController.AttackEnd(2);
+
+            if (playerInput.Right)
+                playerController.AttackStart(3);
+            else
+                playerController.AttackEnd(3);
+
+
         }
     }
 }
