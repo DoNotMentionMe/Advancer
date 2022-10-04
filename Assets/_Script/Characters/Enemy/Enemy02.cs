@@ -6,17 +6,23 @@ namespace Adv
 {
     public class Enemy02 : MonoBehaviour
     {
+        private const string ThunderBallName = "Thunder Ball(Clone)";
+        private Vector3 ThunderBallReleasePos = new Vector3(-0.00800000038f, 2.2650001f, 0);
+
         [SerializeField] float moveSpeed;
-        [SerializeField] float attackInterval = 1f;
+        [SerializeField] float attackStartInterval = 1f;
+        [SerializeField] float attackInterval = 2f;
         [SerializeField] GameObject ThunderBallPrefab;
 
         private Transform mTransform;
         private Coroutine AttackCoro;
+        private WaitForSeconds waitForAttackStartInterval;
         private WaitForSeconds waitForAttackInterval;
 
         private void Awake()
         {
             mTransform = transform;
+            waitForAttackStartInterval = new WaitForSeconds(attackStartInterval);
             waitForAttackInterval = new WaitForSeconds(attackInterval);
         }
 
@@ -49,13 +55,27 @@ namespace Adv
                 yield return null;
             }
 
-            yield return waitForAttackInterval;
+            yield return waitForAttackStartInterval;
 
-            PoolManager.Instance.Release(ThunderBallPrefab, mTransform.position);
+            //不断循环放球，直到被击中
+            while (true)
+            {
+                PoolManager.Instance.Release(ThunderBallPrefab, ThunderBallReleasePos);
+                yield return waitForAttackInterval;
+            }
 
-            AttackCoro = null;
 
-            gameObject.SetActive(false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.name.Equals(ThunderBallName))
+            {
+                StopCoroutine(AttackCoro);
+                AttackCoro = null;
+                col.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

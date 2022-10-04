@@ -11,6 +11,9 @@ namespace Adv
         [SerializeField] float moveSpeed = 15f;
         //--------------
 
+        public float AttackStartTime;//攻击前摇
+        public float EffectiveAttackTime;
+        public float AttackEndTime;//攻击后摇
         [SerializeField] GameObject upAttack;
         [SerializeField] GameObject rightAttack;
         [SerializeField] GameObject leftAttack;
@@ -41,6 +44,20 @@ namespace Adv
         public void Stop()
         {
             mRigidbody.velocity = Vector2.zero;
+        }
+
+        /// <summary>
+        /// direction=-1/1，对应要转向左/右
+        /// </summary>
+        /// <param name="direction"></param>
+        public void ChangeScale(int direction)
+        {
+            if (mTransform.localScale.x * direction < 0)
+            {
+                var scale = mTransform.localScale;
+                scale.x *= -1;
+                mTransform.localScale = scale;
+            }
         }
 
         /// <summary>

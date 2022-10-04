@@ -29,19 +29,22 @@ namespace Adv
             // }
 
             if (playerInput.Left)
-                playerController.AttackStart(1);
-            else
-                playerController.AttackEnd(1);
+            {
+                FSM.SwitchState(typeof(PlayerState_LeftAttack));
+                playerInput.Left = false;
+            }
 
             if (playerInput.Up)
-                playerController.AttackStart(2);
-            else
-                playerController.AttackEnd(2);
+            {
+                FSM.SwitchState(typeof(PlayerState_UpAttack));
+                playerInput.Up = false;
+            }
 
             if (playerInput.Right)
-                playerController.AttackStart(3);
-            else
-                playerController.AttackEnd(3);
+            {
+                FSM.SwitchState(typeof(PlayerState_RightAttack));
+                playerInput.Right = false;
+            }
 
 
         }

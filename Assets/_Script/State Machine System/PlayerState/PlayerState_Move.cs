@@ -23,7 +23,7 @@ namespace Adv
             }
             else if (playerInput.Attack)
             {
-                FSM.SwitchState(typeof(PlayerState_Attack));
+                FSM.SwitchState(typeof(PlayerState_RightAttack));
             }
         }
     }

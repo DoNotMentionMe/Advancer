@@ -6,20 +6,29 @@ namespace Adv
 {
     public class Enemy01 : Enemy
     {
+        public enum EnemyState
+        {
+            Run, Died
+        }
         public bool IsGrounded => groundedDetector.IsGrounded;
         public bool IsFalling => mRigidbody2D.velocity.y < 0f && !IsGrounded;
 
         [SerializeField] FloatEventChannel attackHit;
+        [SerializeField] VoidEventChannel AttackHit;
         [SerializeField] float moveSpeed;
-        [SerializeField] float hitBackSpeedX;
-        [SerializeField] float hitBackSpeedY;
+        [SerializeField] float minHitBackSpeedX;
+        [SerializeField] float maxHitBackSpeedX;
+        [SerializeField] float minHitBackSpeedY;
+        [SerializeField] float maxHitBackSpeedY;
 
         private float moveDirection;
 
         private Rigidbody2D mRigidbody2D;
         private Transform mTransform;
         private GroundedDetector groundedDetector;
-        private Coroutine DetectGroundedStateCor;
+        private Coroutine DetectGroundedAndRunCor;
+        private Coroutine DetectGroundedAndDiedCor;
+        private SimpleFSM<EnemyState> mFSM = new SimpleFSM<EnemyState>();
 
         //Test
         [SerializeField] bool IsFixedPositin = false;
@@ -35,6 +44,51 @@ namespace Adv
             {
                 fixedPosition = mTransform.position;
             }
+
+            mFSM.State(EnemyState.Run)
+                .OnEnter(() =>
+                {
+                    if (IsFixedPositin)
+                    {
+                        mTransform.position = fixedPosition;
+                    }
+
+                    if (mTransform.localPosition.x > 0)
+                    {
+                        moveDirection = -1;
+                    }
+                    else
+                    {
+                        moveDirection = 1;
+                    }
+                    if (mTransform.localScale.x * moveDirection < 0)
+                    {
+                        var Scale = mTransform.localScale;
+                        Scale.x *= -1;
+                        mTransform.localScale = Scale;
+                    }
+                    if (DetectGroundedAndRunCor == null)
+                        DetectGroundedAndRunCor = StartCoroutine(nameof(DetectGroundedAndRun));
+                })
+                .OnUpdate(() =>
+                {
+                    if (health <= 0)
+                    {
+                        if (DetectGroundedAndDiedCor == null)
+                            DetectGroundedAndDiedCor = StartCoroutine(nameof(DetectGroundedAndDied));
+                    }
+                });
+
+            mFSM.State(EnemyState.Died)
+                .OnEnter(() =>
+                {
+                    //死亡动画
+                    //击退
+                    var backDirection = -moveDirection;
+                    var hitBackSpeedX = Random.Range(minHitBackSpeedX, maxHitBackSpeedX);
+                    var hitBackSpeedY = Random.Range(minHitBackSpeedY, maxHitBackSpeedY);
+                    mRigidbody2D.velocity = Vector2.right * backDirection * hitBackSpeedX + Vector2.up * hitBackSpeedY;
+                });
         }
 
         protected override void OnEnable()
@@ -42,37 +96,18 @@ namespace Adv
             //attackHit.AddListener(Hited);
             base.OnEnable();
 
-            if (IsFixedPositin)
-            {
-                mTransform.position = fixedPosition;
-            }
-
-            if (mTransform.localPosition.x > 0)
-            {
-                moveDirection = -1;
-            }
-            else
-            {
-                moveDirection = 1;
-            }
-            if (mTransform.localScale.x * moveDirection < 0)
-            {
-                var Scale = mTransform.localScale;
-                Scale.x *= -1;
-                mTransform.localScale = Scale;
-            }
-            if (DetectGroundedStateCor == null)
-                DetectGroundedStateCor = StartCoroutine(nameof(DetectGroundedState));
+            mFSM.StartState(EnemyState.Run);
         }
 
         private void OnDisable()
         {
             StopAllCoroutines();
-            DetectGroundedStateCor = null;
+            DetectGroundedAndRunCor = null;
         }
 
         private void Update()
         {
+            mFSM.Update();
             if (mTransform.position.x < -11)
             {
                 gameObject.SetActive(false);
@@ -81,7 +116,11 @@ namespace Adv
             {
                 gameObject.SetActive(false);
             }
+        }
 
+        private void FixedUpdate()
+        {
+            mFSM.FixedUpdate();
         }
 
         private void OnDestroy()
@@ -92,14 +131,20 @@ namespace Adv
 
         public override void Hitted(float damage)
         {
+            AttackHit.Broadcast();
             var backDirection = -moveDirection;
-            mRigidbody2D.velocity = Vector2.right * backDirection * hitBackSpeedX + Vector2.up * hitBackSpeedY;
-            if (DetectGroundedStateCor == null)
-                DetectGroundedStateCor = StartCoroutine(nameof(DetectGroundedState));
+            mRigidbody2D.velocity = Vector2.right * backDirection * minHitBackSpeedX + Vector2.up * minHitBackSpeedY;
+            if (DetectGroundedAndRunCor == null)
+                DetectGroundedAndRunCor = StartCoroutine(nameof(DetectGroundedAndRun));
             base.Hitted(damage);
         }
 
-        IEnumerator DetectGroundedState()
+        protected override void Died()
+        {
+            health = 0;
+        }
+
+        IEnumerator DetectGroundedAndRun()
         {
             while (!IsFalling)
             {
@@ -110,10 +155,22 @@ namespace Adv
                 yield return null;
             }
             mRigidbody2D.velocity = Vector2.right * moveDirection * moveSpeed;
-            DetectGroundedStateCor = null;
+            DetectGroundedAndRunCor = null;
         }
 
-
+        IEnumerator DetectGroundedAndDied()
+        {
+            while (!IsFalling)
+            {
+                yield return null;
+            }
+            while (!IsGrounded)
+            {
+                yield return null;
+            }
+            gameObject.SetActive(false);
+            DetectGroundedAndDiedCor = null;
+        }
 
 
     }

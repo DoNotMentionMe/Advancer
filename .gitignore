@@ -74,5 +74,11 @@ crashlytics-build.properties
 /Assets/Art/Font/*
 /Assets/Art/Font.meta
 
+/Assets/Art/*
+/Assets/Art.meta
+
+/Assets/ArtSource/*
+/Assets/ArtSource.meta
+
 /Assets/Art/Sounds/*
 /Assets/Art/Sounds.meta

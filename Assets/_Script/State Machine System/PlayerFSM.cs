@@ -13,6 +13,8 @@ namespace Adv
 
         [SerializeField] PlayerController playerController;
         [SerializeField] PlayerInput playerInput;
+        [SerializeField] Animator anim;
+
 
         private void Awake()
         {
@@ -28,7 +30,9 @@ namespace Adv
 
             Register(new PlayerState_Idle());
             Register(new PlayerState_Move());
-            Register(new PlayerState_Attack());
+            Register(new PlayerState_RightAttack());
+            Register(new PlayerState_LeftAttack());
+            Register(new PlayerState_UpAttack());
         }
 
         private void OnEnable()
@@ -44,7 +48,7 @@ namespace Adv
 
         public void Register(PlayerState newState)
         {
-            newState.Initialize(playerController, playerInput, this);
+            newState.Initialize(playerController, playerInput, anim, this);
             stateTable.Add(newState.GetType(), newState);
         }
 

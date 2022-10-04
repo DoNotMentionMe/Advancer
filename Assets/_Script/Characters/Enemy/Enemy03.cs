@@ -6,11 +6,16 @@ namespace Adv
 {
     public class Enemy03 : MonoBehaviour
     {
+        [SerializeField] VoidEventChannel attackHit;
         [SerializeField] float attack;
         [SerializeField] float moveSpeed;
         [SerializeField] float JumpForce;
+        [SerializeField] float AirStandStill;
+        [SerializeField] float AttackFallStartSpeed;
         [SerializeField] float LeaveJumpForce;
+        [SerializeField] float HitBackJumpForce;
         [SerializeField] float AttackMoveSpeed;
+        [SerializeField] float HitBackMoveSpeed;
         private const string Idle = "Idle";
         private const string Jump = "Jump";
         private const string Attack = "Attack";
@@ -22,6 +27,7 @@ namespace Adv
         private Collider2D mCollider2D;
         private GroundedDetector groundedDetector;
         private Coroutine AttackCorotine;
+        private WaitForSeconds waitForAirStandstill;
 
 
         private void Awake()
@@ -31,7 +37,7 @@ namespace Adv
             mRigidbody2D = GetComponent<Rigidbody2D>();
             mCollider2D = GetComponent<Collider2D>();
             groundedDetector = GetComponentInChildren<GroundedDetector>();
-
+            waitForAirStandstill = new WaitForSeconds(AirStandStill);
         }
 
         private void OnDestroy()
@@ -69,6 +75,7 @@ namespace Adv
 
         IEnumerator AttackCor()
         {
+            mCollider2D.enabled = false;
             int moveDirection;
             //面向玩家，并移动
             if (mTransform.position.x > 0)
@@ -82,31 +89,50 @@ namespace Adv
                 mTransform.localScale = scale;
             }
             mRigidbody2D.velocity = Vector2.right * moveSpeed * moveDirection;
-            //接近一定距离时跳起
+            //距离5时跳起
             while (Mathf.Abs(mTransform.position.x) > 5)
             {
                 yield return null;
             }
-            //跳起，落点为玩家位置
+            //跳起，落点为玩家位置前一个单位
             //--落地时间
-            var t = 2 * JumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
-            mRigidbody2D.velocity = Vector2.up * JumpForce + Vector2.right * moveDirection * (5 / t);
+            //1
+            //var t = 2 * JumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
+            //2
+            var t = JumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
+            mRigidbody2D.velocity = Vector2.up * JumpForce + Vector2.right * moveDirection * (4 / t);
             anim.Play(Jump);
             //速度小于0时,转为攻击状态
             while (mRigidbody2D.velocity.y > 0)
             {
                 yield return null;
             }
+            mRigidbody2D.velocity = Vector2.zero;
+            //空中停顿一下
+            yield return waitForAirStandstill;
             anim.Play(Attack);
+            //2
+            mRigidbody2D.velocity = Vector2.down * AttackFallStartSpeed;
             mCollider2D.enabled = true;
-            //落地，转为Jump跳到屏幕另一边
+            //检测落地，跳到屏幕边
             while (!groundedDetector.IsGrounded)
             {
+                //未落地且被击中
+                if (!mCollider2D.enabled)
+                {
+                    break;
+                }
                 yield return null;
             }
-            anim.Play(Idle);
+            if (!mCollider2D.enabled)//被击中
+                anim.Play(Jump);
+            else
+                anim.Play(Idle);
             t = 2 * LeaveJumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
-            mRigidbody2D.velocity = Vector2.up * LeaveJumpForce + Vector2.right * moveDirection * (8 / t);
+            var StartPoint = mCollider2D.enabled ? 8 : 5f;
+            var backJumpForce = mCollider2D.enabled ? LeaveJumpForce : HitBackJumpForce;
+            var distanceToStartPoint = Mathf.Abs(-moveDirection * StartPoint - mTransform.position.x);
+            mRigidbody2D.velocity = Vector2.up * backJumpForce + Vector2.right * -moveDirection * (distanceToStartPoint / t);
             //直线攻击
             while (mRigidbody2D.velocity.y > 0)
             {
@@ -116,16 +142,20 @@ namespace Adv
             {
                 yield return null;
             }
+            anim.Play(Idle);
+            mRigidbody2D.velocity = Vector2.zero;
+            yield return new WaitForSeconds(0.5f);
             anim.Play(Attack);
             mCollider2D.enabled = true;
-            moveDirection *= -1;
-            if (mTransform.localScale.x * moveDirection < 0)
-            {
-                var scale = mTransform.localScale;
-                scale.x *= -1;
-                mTransform.localScale = scale;
-            }
             mRigidbody2D.velocity = Vector2.right * AttackMoveSpeed * moveDirection;
+
+            while (mCollider2D.enabled)
+            {
+                yield return null;
+            }
+
+            anim.Play(Jump);
+            mRigidbody2D.velocity = Vector2.right * HitBackMoveSpeed * -moveDirection;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -137,8 +167,9 @@ namespace Adv
                     playerProperty.Hitted(attack);
                 }
             }
-            if (col.tag.Equals(PlayerAttackTag))
+            if (col.tag.Equals(PlayerAttackTag))//被命中
             {
+                attackHit.Broadcast();
                 mCollider2D.enabled = false;
             }
         }

@@ -122,11 +122,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30efd23a637ef1f4b85164db834d1d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
   attack: 1
   moveSpeed: 7
-  JumpForce: 7.5
-  LeaveJumpForce: 5
-  AttackMoveSpeed: 10
+  JumpForce: 10
+  AirStandStill: 0.15
+  AttackFallStartSpeed: 6
+  LeaveJumpForce: 3
+  HitBackJumpForce: 4
+  AttackMoveSpeed: 8
+  HitBackMoveSpeed: 20
 --- !u!50 &379383038444346967
 Rigidbody2D:
   serializedVersion: 4
@@ -146,7 +151,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &379383038444346966
 BoxCollider2D:
@@ -161,7 +166,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1655827, y: -0.20834148}
+  m_Offset: {x: 1.1315227, y: -0.21989322}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,7 +177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25763988, y: 0.18010402}
+  m_Size: {x: 0.13197994, y: 0.09203434}
   m_EdgeRadius: 0
 --- !u!1 &379383038480134969
 GameObject:

@@ -8,13 +8,21 @@ namespace Adv
     {
         public float ATK => attack;
 
+        //----作废----
         public float PerfectDefenceFrame = 7;
+        //-----------
 
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] float attack;
         [SerializeField] float Maxhealth;
 
         private float health;
+        private PlayerAudio playerAudio;
+
+        private void Awake()
+        {
+            playerAudio = GetComponent<PlayerAudio>();
+        }
 
         private void OnEnable()
         {
@@ -26,6 +34,7 @@ namespace Adv
         {
             health -= damage;
             healtChange.Broadcast(health);
+            AudioManager.Instance.PlaySFX(playerAudio.BeHittedAudio);
         }
 
 

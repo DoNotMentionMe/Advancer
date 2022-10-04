@@ -19,9 +19,9 @@ namespace Adv
         //-----------
 
         public bool Attack => attack;
-        public bool Up => up;
-        public bool Right => right;
-        public bool Left => left;
+        public bool Up { get => up; set => up = value; }
+        public bool Right { get => right; set => right = value; }
+        public bool Left { get => left; set => left = value; }
         private bool attack;
         private bool up;
         private bool right;

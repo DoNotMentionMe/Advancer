@@ -6,8 +6,10 @@ namespace Adv
 {
     public class ThunderBall : MonoBehaviour
     {
+        [SerializeField] VoidEventChannel attackHit;
         [SerializeField] float attack = 1f;
         [SerializeField] float moveSpeed = 3f;
+        [SerializeField] float hitBackSpeed = 6f;
 
         private string PlayerTag = "Player";
         private string PlayerAttackTag = "PlayerAttack";
@@ -23,9 +25,10 @@ namespace Adv
                     gameObject.SetActive(false);
                 }
             }
-            if (col.tag.Equals(PlayerAttackTag))
+            if (col.tag.Equals(PlayerAttackTag))//被命中
             {
-                gameObject.SetActive(false);
+                attackHit.Broadcast();
+                mRigidbody2D.velocity = Vector2.up * hitBackSpeed;
             }
         }
 
@@ -37,6 +40,14 @@ namespace Adv
         private void OnEnable()
         {
             mRigidbody2D.velocity = Vector2.down * moveSpeed;
+        }
+
+        private void Update()
+        {
+            if (transform.position.y > 7)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         private void OnDestroy()
