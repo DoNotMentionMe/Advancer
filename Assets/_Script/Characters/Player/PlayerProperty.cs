@@ -13,6 +13,9 @@ namespace Adv
         //-----------
 
         [SerializeField] FloatEventChannel healtChange;
+        [SerializeField] VoidEventChannel Fail;
+        [SerializeField] VoidEventChannel Level1ButtonClick;
+        [SerializeField] VoidEventChannel Level2ButtonClick;
         [SerializeField] float attack;
         [SerializeField] float Maxhealth;
 
@@ -22,6 +25,16 @@ namespace Adv
         private void Awake()
         {
             playerAudio = GetComponent<PlayerAudio>();
+            Level1ButtonClick.AddListener(() =>
+            {
+                health = Maxhealth;
+                healtChange.Broadcast(health);
+            });
+            Level2ButtonClick.AddListener(() =>
+            {
+                health = Maxhealth;
+                healtChange.Broadcast(health);
+            });
         }
 
         private void OnEnable()
@@ -33,6 +46,10 @@ namespace Adv
         public void Hitted(float damage)
         {
             health -= damage;
+            if (health <= 0)
+            {
+                Fail.Broadcast();
+            }
             healtChange.Broadcast(health);
             AudioManager.Instance.PlaySFX(playerAudio.BeHittedAudio);
         }

@@ -13,6 +13,8 @@ namespace Adv
         [SerializeField] float attackStartInterval = 1f;
         [SerializeField] float attackInterval = 2f;
         [SerializeField] GameObject ThunderBallPrefab;
+        [SerializeField] VoidEventChannel Fail;
+        [SerializeField] GameObjectEventChannel EnemyDied;
 
         private Transform mTransform;
         private Coroutine AttackCoro;
@@ -28,12 +30,15 @@ namespace Adv
 
         private void OnEnable()
         {
+            Fail.AddListener(SetActiveFalse);
             if (AttackCoro == null)
                 AttackCoro = StartCoroutine(nameof(AirAttack));
         }
 
         private void OnDisable()
         {
+            Fail.RemoveListenner(SetActiveFalse);
+            EnemyDied.Broadcast(gameObject);
             StopAllCoroutines();
             AttackCoro = null;
         }
@@ -41,6 +46,11 @@ namespace Adv
         private void OnDestroy()
         {
             mTransform = null;
+        }
+
+        private void SetActiveFalse()
+        {
+            gameObject.SetActive(false);
         }
 
         IEnumerator AirAttack()

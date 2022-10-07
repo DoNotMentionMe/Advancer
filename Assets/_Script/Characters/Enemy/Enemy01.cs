@@ -13,8 +13,10 @@ namespace Adv
         public bool IsGrounded => groundedDetector.IsGrounded;
         public bool IsFalling => mRigidbody2D.velocity.y < 0f && !IsGrounded;
 
+        [SerializeField] GameObjectEventChannel EnemyDied;
         [SerializeField] FloatEventChannel attackHit;
         [SerializeField] VoidEventChannel AttackHit;
+        [SerializeField] VoidEventChannel Fail;
         [SerializeField] float moveSpeed;
         [SerializeField] float minHitBackSpeedX;
         [SerializeField] float maxHitBackSpeedX;
@@ -39,6 +41,7 @@ namespace Adv
             mTransform = transform;
             mRigidbody2D = GetComponent<Rigidbody2D>();
             groundedDetector = GetComponentInChildren<GroundedDetector>();
+
 
             if (IsFixedPositin)
             {
@@ -97,10 +100,14 @@ namespace Adv
             base.OnEnable();
 
             mFSM.StartState(EnemyState.Run);
+
+            Fail.AddListener(SetActiveFalse);
         }
 
         private void OnDisable()
         {
+            EnemyDied.Broadcast(gameObject);
+            Fail.RemoveListenner(SetActiveFalse);
             StopAllCoroutines();
             DetectGroundedAndRunCor = null;
         }
@@ -142,6 +149,11 @@ namespace Adv
         protected override void Died()
         {
             health = 0;
+        }
+
+        private void SetActiveFalse()
+        {
+            gameObject.SetActive(false);
         }
 
         IEnumerator DetectGroundedAndRun()

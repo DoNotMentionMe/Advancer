@@ -7,6 +7,8 @@ namespace Adv
     public class Enemy03 : MonoBehaviour
     {
         [SerializeField] VoidEventChannel attackHit;
+        [SerializeField] VoidEventChannel Fail;
+        [SerializeField] GameObjectEventChannel EnemyDied;
         [SerializeField] float attack;
         [SerializeField] float moveSpeed;
         [SerializeField] float JumpForce;
@@ -51,12 +53,15 @@ namespace Adv
 
         private void OnEnable()
         {
+            Fail.AddListener(SetActiveFalse);
             if (AttackCorotine == null)
                 AttackCorotine = StartCoroutine(nameof(AttackCor));
         }
 
         private void OnDisable()
         {
+            Fail.RemoveListenner(SetActiveFalse);
+            EnemyDied.Broadcast(gameObject);
             StopCoroutine(AttackCorotine);
             AttackCorotine = null;
         }
@@ -71,6 +76,11 @@ namespace Adv
             {
                 gameObject.SetActive(false);
             }
+        }
+
+        private void SetActiveFalse()
+        {
+            gameObject.SetActive(false);
         }
 
         IEnumerator AttackCor()

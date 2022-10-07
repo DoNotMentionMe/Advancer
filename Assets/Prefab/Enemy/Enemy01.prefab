@@ -102,8 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 0
+  EnemyDied: {fileID: 11400000, guid: ba84da47cc825f44584ff06585758e39, type: 2}
   attackHit: {fileID: 11400000, guid: 86b7296c3b2e9da4d9ab23a3b6a85d8a, type: 2}
   AttackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
+  Fail: {fileID: 11400000, guid: 1bde66d5b7b9db348a70b9c81e23015f, type: 2}
   moveSpeed: 5
   minHitBackSpeedX: 15
   maxHitBackSpeedX: 20
