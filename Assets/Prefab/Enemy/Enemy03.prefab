@@ -132,7 +132,7 @@ MonoBehaviour:
   AttackFallStartSpeed: 6
   LeaveJumpForce: 3
   HitBackJumpForce: 4
-  AttackMoveSpeed: 8
+  AttackMoveSpeed: 9
   HitBackMoveSpeed: 20
 --- !u!50 &379383038444346967
 Rigidbody2D:

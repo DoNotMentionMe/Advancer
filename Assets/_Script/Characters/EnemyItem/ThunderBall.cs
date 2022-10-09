@@ -32,6 +32,7 @@ namespace Adv
             }
         }
 
+
         private void Awake()
         {
             mRigidbody2D = GetComponent<Rigidbody2D>();

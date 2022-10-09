@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  attackStartInterval: 0.5
+  attackStartInterval: 0
   attackInterval: 2
   ThunderBallPrefab: {fileID: 689416981511372009, guid: 64d2824ee95d34248970ae39457fd81a, type: 3}
   Fail: {fileID: 11400000, guid: 1bde66d5b7b9db348a70b9c81e23015f, type: 2}

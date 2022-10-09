@@ -9,6 +9,7 @@ namespace Adv
     public class InterfaceUI : MonoBehaviour
     {
         [SerializeField] VoidEventChannel Level1Achieve;
+        [SerializeField] VoidEventChannel Level2Achieve;
         [SerializeField] VoidEventChannel Fail;
         [SerializeField] VoidEventChannel Level1ButtonClick;
         [SerializeField] VoidEventChannel Level2ButtonClick;
@@ -29,6 +30,10 @@ namespace Adv
             Level1Achieve.AddListener(() =>
             {
                 level1IsAchieve = true;
+                SetTrueAllButton();
+            });
+            Level2Achieve.AddListener(() =>
+            {
                 SetTrueAllButton();
             });
             if (!level1IsAchieve)

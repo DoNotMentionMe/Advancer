@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
+  Fail: {fileID: 11400000, guid: 1bde66d5b7b9db348a70b9c81e23015f, type: 2}
   bossTageChange: {fileID: 11400000, guid: 972a009db7c80b548b3926cfa1b5cb5f, type: 2}
   attack: 1
   UpMoveSpeed: 0
@@ -207,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3327456327657334454
 Transform:
   m_ObjectHideFlags: 0
@@ -373,6 +374,7 @@ MonoBehaviour:
   bossTageChange: {fileID: 11400000, guid: 972a009db7c80b548b3926cfa1b5cb5f, type: 2}
   Fail: {fileID: 11400000, guid: 1bde66d5b7b9db348a70b9c81e23015f, type: 2}
   Level2Achieve: {fileID: 11400000, guid: 9aa5e2138fe7ae546aeab99d3ccdd55d, type: 2}
+  EnemyDied: {fileID: 11400000, guid: ba84da47cc825f44584ff06585758e39, type: 2}
   TageTwoChange: 0
   TageThreeChange: 0
   bossTage: 0

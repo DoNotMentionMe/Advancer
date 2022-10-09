@@ -12,6 +12,7 @@ namespace Adv
         }
         [SerializeField] WeaponType weaponType = WeaponType.Normal;
         [SerializeField] VoidEventChannel attackHit;
+        [SerializeField] VoidEventChannel Fail;
         [SerializeField] FloatEventChannel bossTageChange;
         [SerializeField] float attack = 1f;
         [SerializeField] float UpMoveSpeed;
@@ -35,10 +36,15 @@ namespace Adv
             leftQuaternion = mTransform.localRotation;
             rightQuaternion = leftQuaternion * new Quaternion(0, 0, 180, 0);
             bossTageChange.AddListener(TageChange);
-            initalUpMoveSpeed = UpMoveSpeed;
-            initalLeftMoveSpeed = LeftMoveSpeed;
+            initalUpMoveSpeed = 8;
+            initalLeftMoveSpeed = 8;
             initalRotation = mTransform.rotation;
             initalPosition = mTransform.position;
+            Fail.AddListener(() =>
+            {
+                if (weaponType != WeaponType.Normal)
+                    gameObject.SetActive(false);
+            });
         }
 
         private void OnEnable()

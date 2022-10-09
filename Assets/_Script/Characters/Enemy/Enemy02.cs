@@ -20,6 +20,7 @@ namespace Adv
         private Coroutine AttackCoro;
         private WaitForSeconds waitForAttackStartInterval;
         private WaitForSeconds waitForAttackInterval;
+        private GameObject MyBall;
 
         private void Awake()
         {
@@ -64,6 +65,7 @@ namespace Adv
                 mTransform.position -= Time.deltaTime * moveSpeed * Vector3.up;
                 yield return null;
             }
+            mTransform.position = Vector3.up * 2.5f;
 
             yield return waitForAttackStartInterval;
 

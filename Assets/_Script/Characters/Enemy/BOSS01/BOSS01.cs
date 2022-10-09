@@ -28,6 +28,7 @@ namespace Adv
         [SerializeField] FloatEventChannel bossTageChange;
         [SerializeField] VoidEventChannel Fail;
         [SerializeField] VoidEventChannel Level2Achieve;
+        [SerializeField] GameObjectEventChannel EnemyDied;
 
         private const string IdleName = "Idle";
         private const string WalkName = "Walk";
@@ -46,6 +47,7 @@ namespace Adv
         private Transform mTransform;
         private Rigidbody2D mRigidbody2D;
         private SpriteRenderer mRenderer;
+        private GameObject self;
         [SerializeField] BossTage bossTage = BossTage.One;
 
         private WaitForSeconds waitForAttackLeft1;
@@ -61,13 +63,14 @@ namespace Adv
             mRigidbody2D = GetComponent<Rigidbody2D>();
             groundedDetector = GetComponentInChildren<GroundedDetector>();
             mRenderer = GetComponent<SpriteRenderer>();
+            self = gameObject;
 
             waitForAttackLeft1 = new WaitForSeconds(AttackLeft1Length);
             waitForAttackUp1 = new WaitForSeconds(AttackUp1Length);
             waitForAttackLeft2Interval = new WaitForSeconds(AttackLeft2Interval);
             waitForTageChangeInterval = new WaitForSeconds(TageChangeInterval);
 
-            Fail.AddListener(() => { gameObject.SetActive(false); });
+            Fail.AddListener(() => { Destroy(self); });
         }
 
         private void OnDisable()
@@ -87,6 +90,12 @@ namespace Adv
 
         private void OnEnable()
         {
+            anim.speed = 1f;
+            bossTageChange.Broadcast(1);
+            TageThreeChange = false;
+            TageTwoChange = false;
+            bossTage = BossTage.One;
+
             PorcessSkillSequence();
 
             //出现在初始位置
@@ -180,8 +189,8 @@ namespace Adv
                 yield return StartCoroutine(PorcessSkillIndex(random));
             }
 
-            Level2Achieve.Broadcast();
-
+            EnemyDied.Broadcast(gameObject);
+            Destroy(gameObject);
             currentCor = null;
         }
 
@@ -203,7 +212,6 @@ namespace Adv
 
         IEnumerator Appearance()
         {
-            Debug.Log(groundedDetector.IsGrounded);
             //等待落地
             while (!groundedDetector.IsGrounded)
             {
@@ -227,7 +235,7 @@ namespace Adv
         //1,劈左
         IEnumerator AttackLeft1()
         {
-            Debug.Log("1、劈左");
+            //Debug.Log("1、劈左");
             childrenColl.enabled = true;
             anim.Play(AttackLeft1Name);
             yield return waitForAttackLeft1;
@@ -236,7 +244,7 @@ namespace Adv
         //2，劈上
         IEnumerator AttackUp1()
         {
-            Debug.Log("2、劈上");
+            //Debug.Log("2、劈上");
             childrenColl.enabled = true;
             anim.Play(AttackUp1Name);
             yield return waitForAttackUp1;
@@ -245,7 +253,7 @@ namespace Adv
         //3，掉斧头
         IEnumerator AttackUp2()
         {
-            Debug.Log("3、掉斧头");
+            //Debug.Log("3、掉斧头");
             var moveDistance = Mathf.Abs(mTransform.position.x) * 2;
             var t = 2 * JumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
             mRigidbody2D.velocity = Vector2.up * JumpForce + Vector2.right * moveDirection * (moveDistance / t);
@@ -270,7 +278,7 @@ namespace Adv
         //4，飞斧头 
         IEnumerator AttackLeft2()
         {
-            Debug.Log("4、飞斧头");
+            //Debug.Log("4、飞斧头");
             Vector2 releasePos;
             if (mTransform.position.x > 0)
                 releasePos = AttackLeft2ReleasePos;

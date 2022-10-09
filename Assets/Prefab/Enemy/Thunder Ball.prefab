@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
   attack: 1
-  moveSpeed: 3
-  hitBackSpeed: 15
+  moveSpeed: 5
+  hitBackSpeed: 25
 --- !u!58 &689416981511372005
 CircleCollider2D:
   m_ObjectHideFlags: 0
