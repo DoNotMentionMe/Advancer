@@ -16,13 +16,14 @@ namespace Adv
     }
     public enum CurrentLevel
     {
-        Level1, Level2
+        Level0, Level1, Level2, Rest
     }
     /// <summary>
-    /// 管理敌人生成、管理关卡（未实施）
+    /// (已作废）管理敌人生成、管理关卡
     /// </summary>
     public class EnemyManager : MonoBehaviour
     {
+        public static CurrentLevel currentLevel;
 
         [Header("===== EnemyPrefabs =====")]
         [SerializeField] GameObject Enemy01;
@@ -44,10 +45,11 @@ namespace Adv
         [SerializeField] Text Level2WinText;
         [SerializeField] GameObject 通关界面;
         [SerializeField] Text 用时;
-        //[SerializeField] Text LevelTime;
         [SerializeField] VoidEventChannel Fail;
+        [SerializeField] VoidEventChannel Level0Achieve;
         [SerializeField] VoidEventChannel Level1Achieve;
         [SerializeField] VoidEventChannel Level2Achieve;
+        [SerializeField] VoidEventChannel Level0ButtonClick;
         [SerializeField] VoidEventChannel Level1ButtonClick;
         [SerializeField] VoidEventChannel Level2ButtonClick;
         [SerializeField] GameObjectEventChannel EnemyDied;
@@ -67,29 +69,11 @@ namespace Adv
 
         private List<GameObject> liveEnemyList = new List<GameObject>();
         private float LevelStartTime;
-        private GameObject LastEnemy;
-        private CurrentLevel currentLevel;
+        //private GameObject LastEnemy;
+
         private WaitForSeconds waitForReleaseInterval;
 
-        IEnumerator LevelProcessing(List<EnemyGenerationInformation> level)
-        {
-            LevelStartTime = Time.time;
-            int currentOrder = 0;
-            while (level.Count > currentOrder)
-            {
-                var generationTime = level[currentOrder].GenrationTimePoint;
-                while (generationTime > (Time.time - LevelStartTime))
-                {
-                    yield return null;
-                }
-                RelaseEnemy(level[currentOrder]);
-                currentOrder++;
-                if (currentOrder == level.Count)
-                {
-                    StartCoroutine(nameof(DetectEnemyIsDied));
-                }
-            }
-        }
+
 
         IEnumerator RandomReleaseLevel1Enemy()
         {
@@ -131,30 +115,7 @@ namespace Adv
             StartCoroutine(nameof(DetectEnemyIsDied));
         }
 
-        private void RelaseEnemy(EnemyGenerationInformation information)
-        {
-            GameObject obj = null;
-            GameObject GenerationPos = null;
-            if (information.GenerationObj == GenerationObj.Enemy01)
-                obj = Enemy01;
-            else if (information.GenerationObj == GenerationObj.Enemy02)
-                obj = Enemy02;
-            else if (information.GenerationObj == GenerationObj.Enemy03)
-                obj = Enemy03;
-            else if (information.GenerationObj == GenerationObj.BOSS01)
-                obj = BOSS01;
 
-            if (information.GenerationPosition == Adv.GenerationPos.Left)
-                GenerationPos = EnemyGenerationPosition1;
-            else if (information.GenerationPosition == Adv.GenerationPos.Up)
-                GenerationPos = EnemyGenerationPosition2;
-            else if (information.GenerationPosition == Adv.GenerationPos.Right)
-                GenerationPos = EnemyGenerationPosition3;
-
-            //LastEnemy = PoolManager.Instance.Release(obj, GenerationPos.transform.position);
-            liveEnemyList.Add(PoolManager.Instance.Release(obj, GenerationPos.transform.position));
-            //Debug.Log("释放" + obj.name + "于" + GenerationPos.transform.position + "位置");
-        }
 
         IEnumerator DetectEnemyIsDied()
         {
@@ -163,14 +124,21 @@ namespace Adv
                 yield return null;
             }
             ShowTextEnable(true);
-            if (currentLevel == CurrentLevel.Level1)
+            if (currentLevel == CurrentLevel.Level0)
             {
+                currentLevel = CurrentLevel.Rest;
+                Level0Achieve.Broadcast();
+            }
+            else if (currentLevel == CurrentLevel.Level1)
+            {
+                currentLevel = CurrentLevel.Rest;
                 Level1Achieve.Broadcast();
                 Level1Win++;
                 Level1WinText.text = "Level1通关次数: " + Level1Win;
             }
             else if (currentLevel == CurrentLevel.Level2)
             {
+                currentLevel = CurrentLevel.Rest;
                 Level2Achieve.Broadcast();
                 Level2Win++;
                 Level2WinText.text = "Level2通关次数: " + Level2Win;
@@ -185,21 +153,7 @@ namespace Adv
                     用时.text = "总用时: " + min + "分 " + sec + "秒";
                 }
             }
-            //LevelTime.text = ((int)60).ToString();
         }
-
-        // IEnumerator CountDown()
-        // {
-        //     var timer = 60f;
-        //     while (timer > 0)
-        //     {
-        //         timer -= Time.deltaTime;
-        //         LevelTime.text = ((int)timer).ToString();
-        //         yield return null;
-        //     }
-        //     LevelTime.text = ((int)60).ToString();
-        // }
-
 
         private void Awake()
         {
@@ -207,6 +161,7 @@ namespace Adv
 
             waitForReleaseInterval = new WaitForSeconds(Level1ReleaseInterval);
 
+            Level0ButtonClick.AddListener(StartLevel0);
             Level1ButtonClick.AddListener(StartLevel1);
             Level2ButtonClick.AddListener(StartLevel2);
             EnemyDied.AddListener((gameObject) =>
@@ -219,13 +174,19 @@ namespace Adv
             {
                 StopAllCoroutines();
                 ShowTextEnable(true);
-                if (currentLevel == CurrentLevel.Level1)
+                if (currentLevel == CurrentLevel.Level0)
                 {
+                    currentLevel = CurrentLevel.Rest;
+                }
+                else if (currentLevel == CurrentLevel.Level1)
+                {
+                    currentLevel = CurrentLevel.Rest;
                     Level1Deaths++;
                     Level1DeathsText.text = "Level1失败次数: " + Level1Deaths.ToString();
                 }
                 else if (currentLevel == CurrentLevel.Level2)
                 {
+                    currentLevel = CurrentLevel.Rest;
                     Level2Deaths++;
                     Level2DeathsText.text = "Level2失败次数: " + Level2Deaths.ToString();
                 }
@@ -242,8 +203,14 @@ namespace Adv
 
         private void OnDestroy()
         {
+            Level0ButtonClick.RemoveListenner(StartLevel0);
             Level1ButtonClick.RemoveListenner(StartLevel1);
             Level1ButtonClick.RemoveListenner(StartLevel2);
+        }
+
+        private void StartLevel0()
+        {
+
         }
 
         private void StartLevel1()
@@ -270,6 +237,9 @@ namespace Adv
             ShowTextEnable(false);
         }
 
+        /// <summary>
+        /// 开关文本UI
+        /// </summary>
         private void ShowTextEnable(bool enable)
         {
             Level1ChallengeCountText.enabled = enable;
@@ -278,6 +248,54 @@ namespace Adv
             Level2DeathsText.enabled = enable;
             Level1WinText.enabled = enable;
             Level2WinText.enabled = enable;
+        }
+
+        //===========================================================
+
+        //暂没使用
+        IEnumerator LevelProcessing(List<EnemyGenerationInformation> level)
+        {
+            LevelStartTime = Time.time;
+            int currentOrder = 0;
+            while (level.Count > currentOrder)
+            {
+                var generationTime = level[currentOrder].GenrationTimePoint;
+                while (generationTime > (Time.time - LevelStartTime))
+                {
+                    yield return null;
+                }
+                RelaseEnemy(level[currentOrder]);
+                currentOrder++;
+                if (currentOrder == level.Count)
+                {
+                    StartCoroutine(nameof(DetectEnemyIsDied));
+                }
+            }
+        }
+        //暂没使用
+        private void RelaseEnemy(EnemyGenerationInformation information)
+        {
+            GameObject obj = null;
+            GameObject GenerationPos = null;
+            if (information.GenerationObj == GenerationObj.Enemy01)
+                obj = Enemy01;
+            else if (information.GenerationObj == GenerationObj.Enemy02)
+                obj = Enemy02;
+            else if (information.GenerationObj == GenerationObj.Enemy03)
+                obj = Enemy03;
+            else if (information.GenerationObj == GenerationObj.BOSS01)
+                obj = BOSS01;
+
+            if (information.GenerationPosition == Adv.GenerationPos.Left)
+                GenerationPos = EnemyGenerationPosition1;
+            else if (information.GenerationPosition == Adv.GenerationPos.Up)
+                GenerationPos = EnemyGenerationPosition2;
+            else if (information.GenerationPosition == Adv.GenerationPos.Right)
+                GenerationPos = EnemyGenerationPosition3;
+
+            //LastEnemy = PoolManager.Instance.Release(obj, GenerationPos.transform.position);
+            liveEnemyList.Add(PoolManager.Instance.Release(obj, GenerationPos.transform.position));
+            //Debug.Log("释放" + obj.name + "于" + GenerationPos.transform.position + "位置");
         }
     }
 }

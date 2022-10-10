@@ -8,44 +8,23 @@ namespace Adv
 {
     public class InterfaceUI : MonoBehaviour
     {
-        [SerializeField] VoidEventChannel Level1Achieve;
-        [SerializeField] VoidEventChannel Level2Achieve;
-        [SerializeField] VoidEventChannel Fail;
-        [SerializeField] VoidEventChannel Level1ButtonClick;
-        [SerializeField] VoidEventChannel Level2ButtonClick;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] Text HealthShow;
+        [SerializeField] GameObject Level0;
         [SerializeField] GameObject Level1;
         [SerializeField] GameObject Level2;
 
         private string healthShowFont = "Health:";
+        private bool level0IsAchieve = false;
         private bool level1IsAchieve = false;
 
         private void OnEnable()
         {
             healtChange.AddListener(ShowHealth);
-            Level1ButtonClick.AddListener(SetFalseAllButton);
-            Level2ButtonClick.AddListener(SetFalseAllButton);
-            Fail.AddListener(SetTrueAllButton);
-            Level1Achieve.AddListener(() =>
-            {
-                level1IsAchieve = true;
-                SetTrueAllButton();
-            });
-            Level2Achieve.AddListener(() =>
-            {
-                SetTrueAllButton();
-            });
-            if (!level1IsAchieve)
-            {
-                Level2.SetActive(false);
-            }
         }
 
         private void OnDisable()
         {
-            Level1ButtonClick.RemoveListenner(SetFalseAllButton);
-            Level2ButtonClick.RemoveListenner(SetFalseAllButton);
             healtChange.RemoveListenner(ShowHealth);
         }
 
@@ -56,15 +35,17 @@ namespace Adv
 
         private void SetFalseAllButton()
         {
+            Level0.SetActive(false);
             Level1.SetActive(false);
             Level2.SetActive(false);
         }
 
         private void SetTrueAllButton()
         {
+            if (!level0IsAchieve) return;
             Level1.SetActive(true);
-            if (level1IsAchieve)
-                Level2.SetActive(true);
+            if (!level1IsAchieve) return;
+            Level2.SetActive(true);
         }
     }
 }

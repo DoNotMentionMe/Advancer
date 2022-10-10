@@ -20,7 +20,7 @@ namespace Adv
 
         private Rigidbody2D mRigidbody;
         private Transform mTransform;
-        private GameObject currentAttack;
+        //private GameObject currentAttack;
 
         private void Awake()
         {
@@ -31,7 +31,7 @@ namespace Adv
         {
             mTransform = null;
             mRigidbody = null;
-            currentAttack = null;
+            //currentAttack = null;
         }
 
         public void MoveX(int direction, float speedRatio)

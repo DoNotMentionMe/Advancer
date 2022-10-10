@@ -373,6 +373,7 @@ MonoBehaviour:
   childrenColl: {fileID: 3327456326011397567}
   bossTageChange: {fileID: 11400000, guid: 972a009db7c80b548b3926cfa1b5cb5f, type: 2}
   Fail: {fileID: 11400000, guid: 1bde66d5b7b9db348a70b9c81e23015f, type: 2}
+  LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
   Level2Achieve: {fileID: 11400000, guid: 9aa5e2138fe7ae546aeab99d3ccdd55d, type: 2}
   EnemyDied: {fileID: 11400000, guid: ba84da47cc825f44584ff06585758e39, type: 2}
   TageTwoChange: 0

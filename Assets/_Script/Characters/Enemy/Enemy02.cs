@@ -13,7 +13,7 @@ namespace Adv
         [SerializeField] float attackStartInterval = 1f;
         [SerializeField] float attackInterval = 2f;
         [SerializeField] GameObject ThunderBallPrefab;
-        [SerializeField] VoidEventChannel Fail;
+        [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] GameObjectEventChannel EnemyDied;
 
         private Transform mTransform;
@@ -21,6 +21,7 @@ namespace Adv
         private WaitForSeconds waitForAttackStartInterval;
         private WaitForSeconds waitForAttackInterval;
         private GameObject MyBall;
+        private Dictionary<GameObject, GameObject> MyReleasedDic = new Dictionary<GameObject, GameObject>();
 
         private void Awake()
         {
@@ -31,14 +32,16 @@ namespace Adv
 
         private void OnEnable()
         {
-            Fail.AddListener(SetActiveFalse);
+            // Fail.AddListener(SetActiveFalse);
+            LevelEnd.AddListener(SetActiveFalse);
             if (AttackCoro == null)
                 AttackCoro = StartCoroutine(nameof(AirAttack));
         }
 
         private void OnDisable()
         {
-            Fail.RemoveListenner(SetActiveFalse);
+            // Fail.RemoveListenner(SetActiveFalse);
+            LevelEnd.RemoveListenner(SetActiveFalse);
             EnemyDied.Broadcast(gameObject);
             StopAllCoroutines();
             AttackCoro = null;
@@ -72,17 +75,23 @@ namespace Adv
             //不断循环放球，直到被击中
             while (true)
             {
-                PoolManager.Instance.Release(ThunderBallPrefab, ThunderBallReleasePos);
+                var obj = PoolManager.Instance.Release(ThunderBallPrefab, ThunderBallReleasePos);
+                if (!MyReleasedDic.ContainsKey(obj))
+                    MyReleasedDic.Add(obj, gameObject);
                 yield return waitForAttackInterval;
             }
 
 
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.name.Equals(ThunderBallName))
             {
+                if (!MyReleasedDic.ContainsKey(col.gameObject)) return;
+                if (!MyReleasedDic[col.gameObject].Equals(gameObject)) return;
+
+                MyReleasedDic.Clear();
                 StopCoroutine(AttackCoro);
                 AttackCoro = null;
                 col.gameObject.SetActive(false);

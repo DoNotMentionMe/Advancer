@@ -14,9 +14,8 @@ namespace Adv
         public bool IsFalling => mRigidbody2D.velocity.y < 0f && !IsGrounded;
 
         [SerializeField] GameObjectEventChannel EnemyDied;
-        [SerializeField] FloatEventChannel attackHit;
         [SerializeField] VoidEventChannel AttackHit;
-        [SerializeField] VoidEventChannel Fail;
+        [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] float moveSpeed;
         [SerializeField] float minHitBackSpeedX;
         [SerializeField] float maxHitBackSpeedX;
@@ -101,13 +100,15 @@ namespace Adv
 
             mFSM.StartState(EnemyState.Run);
 
-            Fail.AddListener(SetActiveFalse);
+            //Fail.AddListener(SetActiveFalse);
+            LevelEnd.AddListener(SetActiveFalse);
         }
 
         private void OnDisable()
         {
             EnemyDied.Broadcast(gameObject);
-            Fail.RemoveListenner(SetActiveFalse);
+            //Fail.RemoveListenner(SetActiveFalse);
+            LevelEnd.RemoveListenner(SetActiveFalse);
             StopAllCoroutines();
             DetectGroundedAndRunCor = null;
         }

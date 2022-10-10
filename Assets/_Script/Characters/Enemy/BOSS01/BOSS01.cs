@@ -27,6 +27,7 @@ namespace Adv
         [SerializeField] Collider2D childrenColl;
         [SerializeField] FloatEventChannel bossTageChange;
         [SerializeField] VoidEventChannel Fail;
+        [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel Level2Achieve;
         [SerializeField] GameObjectEventChannel EnemyDied;
 
@@ -70,7 +71,8 @@ namespace Adv
             waitForAttackLeft2Interval = new WaitForSeconds(AttackLeft2Interval);
             waitForTageChangeInterval = new WaitForSeconds(TageChangeInterval);
 
-            Fail.AddListener(() => { Destroy(self); });
+            //Fail.AddListener(() => { Destroy(self); });
+            LevelEnd.AddListener(() => Destroy(self));
         }
 
         private void OnDisable()
