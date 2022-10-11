@@ -24,6 +24,7 @@ namespace Adv
 
         private void HitAudioPlay()
         {
+            PlayerProperty.AddCombo();
             AudioManager.Instance.PlaySFX(HitAudio);
         }
     }

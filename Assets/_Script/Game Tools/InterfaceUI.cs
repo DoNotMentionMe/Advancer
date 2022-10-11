@@ -1,3 +1,4 @@
+using System;
 using System.Net.Mime;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,15 +9,43 @@ namespace Adv
 {
     public class InterfaceUI : MonoBehaviour
     {
+        [SerializeField] VoidEventChannel LevelStart;
+        [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] FloatEventChannel healtChange;
+        [SerializeField] FloatEventChannel ComboChange;
         [SerializeField] Text HealthShow;
-        [SerializeField] GameObject Level0;
-        [SerializeField] GameObject Level1;
-        [SerializeField] GameObject Level2;
+        [SerializeField] Text ComboShow;
+        [SerializeField] GameObject 胜利界面;
+        [SerializeField] GameObject 失败界面;
+        [SerializeField] GameObject 教程完成界面;
 
-        private string healthShowFont = "Health:";
-        private bool level0IsAchieve = false;
-        private bool level1IsAchieve = false;
+        private const string healthShowFont = "Health:";
+        private const string ComboShowFont = "Combo ";
+
+        private void Awake()
+        {
+            LevelStart.AddListener(() =>
+            {
+                ComboShow.enabled = true;
+            });
+            LevelEnd.AddListener(() =>
+            {
+                ComboShow.enabled = false;
+                if (BaseLevelModule.IsVictory)
+                {
+                    if (BaseLevelModule.currentRunningLevelKey.Equals(nameof(Level0)))
+                        教程完成界面.SetActive(true);
+                    else
+                        胜利界面.SetActive(true);
+                }
+                else
+                    失败界面.SetActive(true);
+            });
+            ComboChange.AddListener((Combo) =>
+            {
+                ComboShow.text = string.Concat(ComboShowFont, Combo);
+            });
+        }
 
         private void OnEnable()
         {
@@ -31,21 +60,6 @@ namespace Adv
         private void ShowHealth(float health)
         {
             HealthShow.text = healthShowFont + health;
-        }
-
-        private void SetFalseAllButton()
-        {
-            Level0.SetActive(false);
-            Level1.SetActive(false);
-            Level2.SetActive(false);
-        }
-
-        private void SetTrueAllButton()
-        {
-            if (!level0IsAchieve) return;
-            Level1.SetActive(true);
-            if (!level1IsAchieve) return;
-            Level2.SetActive(true);
         }
     }
 }

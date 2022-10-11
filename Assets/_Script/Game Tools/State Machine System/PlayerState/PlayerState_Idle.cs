@@ -30,20 +30,20 @@ namespace Adv
 
             if (playerInput.Left)
             {
-                FSM.SwitchState(typeof(PlayerState_LeftAttack));
                 playerInput.Left = false;
+                FSM.SwitchState(typeof(PlayerState_LeftAttack));
             }
 
             if (playerInput.Up)
             {
-                FSM.SwitchState(typeof(PlayerState_UpAttack));
                 playerInput.Up = false;
+                FSM.SwitchState(typeof(PlayerState_UpAttack));
             }
 
             if (playerInput.Right)
             {
-                FSM.SwitchState(typeof(PlayerState_RightAttack));
                 playerInput.Right = false;
+                FSM.SwitchState(typeof(PlayerState_RightAttack));
             }
 
 

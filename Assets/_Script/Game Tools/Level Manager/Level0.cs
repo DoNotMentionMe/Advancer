@@ -81,7 +81,6 @@ namespace Adv
                 else if (random == 3)
                 {
                     var Enemy03Count = CheckLiveListTheEnemyCount(Enemy03.name);
-                    Debug.Log("Enemy03Count: " + Enemy03Count);
                     if (Enemy03Count >= 1)
                         obj = Enemy01;
                     else

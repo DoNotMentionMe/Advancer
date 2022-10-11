@@ -7,10 +7,12 @@ namespace Adv
     public class PlayerController : MonoBehaviour
     {
         public float LocalScaleX => mTransform.localScale.x;
+        public bool AttackCanBreak => attackCanBreak;
+
         //------作废-----
         [SerializeField] float moveSpeed = 15f;
         //--------------
-
+        [SerializeField] bool attackCanBreak = true;
         public float AttackStartTime;//攻击前摇
         public float EffectiveAttackTime;
         public float AttackEndTime;//攻击后摇

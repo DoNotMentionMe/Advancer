@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Adv
 {
-    public class Level1 : BaseLevelModule
+    public class Level1Pro : BaseLevelModule
     {
         public override string Key { get; } = nameof(Level1);
 
@@ -37,7 +37,7 @@ namespace Adv
             GameObject obj = null;
             GameObject GenerationPos = null;
             var startTime = Time.time;
-            float currentDuration = 0;
+            //float currentDuration = 0;
             while (Time.time - startTime < Level1Duration)
             {
                 int random = 0;
@@ -45,24 +45,29 @@ namespace Adv
 
                 if (random >= 3)
                 {
-                    currentDuration = Time.time - startTime;
-                    //根据当前Enemy03数量选择召唤敌人类型
-                    if (currentDuration < Level1Duration / 4
-                        && CheckLiveListTheEnemyCount(Enemy03.name) < 1)
-                        obj = Enemy03;
-                    else if (currentDuration > Level1Duration / 4
-                        && currentDuration < Level1Duration * 1 / 2
-                        && CheckLiveListTheEnemyCount(Enemy03.name) < 2)
-                        obj = Enemy03;
-                    else if (currentDuration > Level1Duration * 1 / 2
-                        && currentDuration < Level1Duration * 3 / 4
-                        && CheckLiveListTheEnemyCount(Enemy03.name) < 3)
-                        obj = Enemy03;
-                    else if (currentDuration > Level1Duration * 3 / 4
-                        && CheckLiveListTheEnemyCount(Enemy03.name) < 4)
+                    if (CheckLiveListTheEnemyCount(Enemy03.name) < 4)
                         obj = Enemy03;
                     else
                         random = Random.Range(1, 3);
+
+                    // currentDuration = Time.time - startTime;
+                    // //根据当前Enemy03数量选择召唤敌人类型
+                    // if (currentDuration < Level1Duration / 4
+                    //     && CheckLiveListTheEnemyCount(Enemy03.name) < 1)
+                    //     obj = Enemy03;
+                    // else if (currentDuration > Level1Duration / 4
+                    //     && currentDuration < Level1Duration * 1 / 2
+                    //     && CheckLiveListTheEnemyCount(Enemy03.name) < 2)
+                    //     obj = Enemy03;
+                    // else if (currentDuration > Level1Duration * 1 / 2
+                    //     && currentDuration < Level1Duration * 3 / 4
+                    //     && CheckLiveListTheEnemyCount(Enemy03.name) < 3)
+                    //     obj = Enemy03;
+                    // else if (currentDuration > Level1Duration * 3 / 4
+                    //     && CheckLiveListTheEnemyCount(Enemy03.name) < 4)
+                    //     obj = Enemy03;
+                    // else
+                    //     random = Random.Range(1, 3);
                 }
                 if (random == 1)
                     obj = Enemy01;

@@ -5,18 +5,20 @@ using UnityEngine;
 namespace Adv
 {
     /// <summary>
-    /// 可服用的关卡管理器
+    /// 可复用的关卡管理器
+    /// 目前功能：管理关卡的解锁条件(包含解锁功能)
     /// </summary>
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] List<BaseLevelModule> Level = new List<BaseLevelModule>();
+        public List<BaseLevelModule> Level = new List<BaseLevelModule>();
 
         private void Awake()
         {
             //加载关卡解锁条件
-            Level[0].VisibleCondition = self => !self.IsPassed;
+            Level[0].VisibleCondition = _ => true;
             Level[1].VisibleCondition = _ => Level[0].IsPassed;
             Level[2].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
+            Level[3].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
             CheckAllLevelIsUnLocked();
         }
 

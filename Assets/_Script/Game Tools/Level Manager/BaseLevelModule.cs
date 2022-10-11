@@ -11,14 +11,18 @@ namespace Adv
     /// </summary>
     public abstract class BaseLevelModule : MonoBehaviour
     {
+        public static bool IsVictory = false;//胜利时必须要LevelEnd之前置1
         public static string currentRunningLevelKey;
         public const string EndKey = "EndKey";
 
         public abstract string Key { get; }
 
+        public int LevelMaxCombo = 0;
         [SerializeField] GameObjectEventChannel EnemyDied;
+        //这两个事件用来 1、协调所有Level需要同时改变的事件 以及 2、方便其他对象的调用
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        //=======================================================================
         [SerializeField] LevelManager levelManager;
         [SerializeField] protected GameObject EnemyGenerationPosition1;
         [SerializeField] protected GameObject EnemyGenerationPosition2;
@@ -47,17 +51,25 @@ namespace Adv
             });
             LevelStart.AddListener(() =>
             {
+                IsVictory = false;
                 ButtonImage.enabled = false;
                 ButtonText.enabled = false;
                 levelButton.enabled = false;
             });
             LevelEnd.AddListener(() =>
             {
+
                 currentRunningLevelKey = EndKey;
                 StopAllCoroutines();
                 ButtonImage.enabled = true;
                 ButtonText.enabled = true;
                 levelButton.enabled = true;
+                if (PlayerProperty.CurrentMaxCombo < PlayerProperty.Combo)
+                    PlayerProperty.CurrentMaxCombo = PlayerProperty.Combo;
+                if (LevelMaxCombo < PlayerProperty.CurrentMaxCombo)
+                {
+                    LevelMaxCombo = PlayerProperty.CurrentMaxCombo;
+                }
             });
         }
         private void OnDestroy()
@@ -126,6 +138,8 @@ namespace Adv
             {
                 yield return null;
             }
+            //胜利
+            IsVictory = true;//必须要LevelEnd之前
             LevelEnd.Broadcast();
             IsPassed = true;
             RunAfterEnemysDied();
