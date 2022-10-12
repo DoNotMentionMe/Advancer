@@ -6,7 +6,7 @@ namespace Adv
 {
     public class Level1Pro : BaseLevelModule
     {
-        public override string Key { get; } = nameof(Level1);
+        public override string Key { get; } = nameof(Level1Pro);
 
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟

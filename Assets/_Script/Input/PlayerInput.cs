@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Adv
@@ -18,6 +19,8 @@ namespace Adv
         private Vector2 axes;
         //-----------
 
+        public event UnityAction onLeft_Long = delegate { };
+        public event UnityAction onRight_Long = delegate { };
         public bool Attack => attack;
         public bool Up { get => up; set => up = value; }
         public bool Right { get => right; set => right = value; }
@@ -113,6 +116,22 @@ namespace Adv
             else if (context.canceled)
             {
                 left = false;
+            }
+        }
+
+        public void OnLeft_Long(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onLeft_Long.Invoke();
+            }
+        }
+
+        public void OnRight_Long(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onRight_Long.Invoke();
             }
         }
         #endregion

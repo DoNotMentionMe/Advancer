@@ -18,6 +18,7 @@ namespace Adv
         [SerializeField] float HitBackJumpForce;
         [SerializeField] float AttackMoveSpeed;
         [SerializeField] float HitBackMoveSpeed;
+        [SerializeField] Collider2D mCollider2D;
         private const string Idle = "Idle";
         private const string Jump = "Jump";
         private const string Attack = "Attack";
@@ -26,7 +27,6 @@ namespace Adv
         private Animator anim;
         private Transform mTransform;
         private Rigidbody2D mRigidbody2D;
-        private Collider2D mCollider2D;
         private GroundedDetector groundedDetector;
         private Coroutine AttackCorotine;
         private WaitForSeconds waitForAirStandstill;
@@ -37,7 +37,6 @@ namespace Adv
             anim = GetComponent<Animator>();
             mTransform = transform;
             mRigidbody2D = GetComponent<Rigidbody2D>();
-            mCollider2D = GetComponent<Collider2D>();
             groundedDetector = GetComponentInChildren<GroundedDetector>();
             waitForAirStandstill = new WaitForSeconds(AirStandStill);
         }
@@ -47,7 +46,6 @@ namespace Adv
             anim = null;
             mTransform = null;
             mRigidbody2D = null;
-            mCollider2D = null;
             groundedDetector = null;
         }
 
@@ -177,6 +175,7 @@ namespace Adv
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(attack);
+                    mCollider2D.enabled = false;
                 }
             }
             if (col.tag.Equals(PlayerAttackTag))//被命中

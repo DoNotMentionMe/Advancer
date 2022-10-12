@@ -10,9 +10,9 @@ namespace Adv
         //1
         [SerializeField] Pool[] Enemy;
         [SerializeField] Pool[] EnemyItem;
+        [SerializeField] Pool[] PlayerItem;
 
         static Dictionary<GameObject, Pool> dictionary;
-
 
         protected override void Awake()
         {
@@ -22,6 +22,7 @@ namespace Adv
             //2
             Initialize(Enemy);
             Initialize(EnemyItem);
+            Initialize(PlayerItem);
         }
 #if UNITY_EDITOR
         private void OnDestroy()
@@ -29,6 +30,7 @@ namespace Adv
             //3
             CheckPoolSize(Enemy);
             CheckPoolSize(EnemyItem);
+            CheckPoolSize(PlayerItem);
         }
 #endif
 

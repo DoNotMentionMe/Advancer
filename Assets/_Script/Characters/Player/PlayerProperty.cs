@@ -14,6 +14,8 @@ namespace Adv
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel Charge;
         [SerializeField] float attack;
         [SerializeField] float Maxhealth;
 
@@ -29,13 +31,12 @@ namespace Adv
             LevelStart.AddListener(() =>
             {
                 Combo = 0;
+                ComboChange.Broadcast(Combo);
                 health = Maxhealth;
                 healtChange.Broadcast(health);
             });
             LevelEnd.AddListener(() =>
             {
-                if (CurrentMaxCombo < Combo)
-                    CurrentMaxCombo = Combo;
                 health = Maxhealth;
                 healtChange.Broadcast(health);
             });
@@ -50,7 +51,7 @@ namespace Adv
 
         public void Hitted(float damage)
         {
-            if (BaseLevelModule.currentRunningLevelKey.Equals(BaseLevelModule.EndKey)) return;
+            if (BaseLevelModule.CurrentRunningLevelKey.Equals(BaseLevelModule.EndKey)) return;
             ResetCombo();
             health -= damage;
             healtChange.Broadcast(health);
@@ -58,6 +59,7 @@ namespace Adv
             {
                 //失败
                 LevelEnd.Broadcast();
+                LevelClosing.Broadcast();
             }
             AudioManager.Instance.PlaySFX(playerAudio.BeHittedAudio);
         }

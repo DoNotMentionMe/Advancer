@@ -14,12 +14,16 @@ namespace Adv
         {
             // if (PlayerProperty.CurrentMaxCombo < PlayerProperty.Combo)
             //     PlayerProperty.CurrentMaxCombo = PlayerProperty.Combo;
-            // for (var i = 0; i < levelManager.Level.Count;i++)
-            // {
-            //     if(levelManager.Level[i].Key==BaseLevelModule.currentRunningLevelKey)
-            // }
-            //     var levelMaxCombo =
-            //     详细.text = BaseLevelModule.currentRunningLevelKey + "\n本次最高连击数 " + PlayerProperty.CurrentMaxCombo + "\n历史最高连击数" +
+            int historicHighCombo = 0;
+            for (var i = 0; i < levelManager.Level.Count; i++)
+            {
+                if (levelManager.Level[i].Key == BaseLevelModule.LastLevelKey)
+                {
+                    historicHighCombo = levelManager.Level[i].LevelMaxCombo;
+                }
+            }
+
+            详细.text = BaseLevelModule.LastLevelKey + "\n本次最高连击数 " + PlayerProperty.CurrentMaxCombo + "\n历史最高连击数 " + historicHighCombo;
         }
     }
 }

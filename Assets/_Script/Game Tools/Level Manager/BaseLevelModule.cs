@@ -12,7 +12,8 @@ namespace Adv
     public abstract class BaseLevelModule : MonoBehaviour
     {
         public static bool IsVictory = false;//胜利时必须要LevelEnd之前置1
-        public static string currentRunningLevelKey;
+        public static string CurrentRunningLevelKey = EndKey;
+        public static string LastLevelKey;
         public const string EndKey = "EndKey";
 
         public abstract string Key { get; }
@@ -22,6 +23,7 @@ namespace Adv
         //这两个事件用来 1、协调所有Level需要同时改变的事件 以及 2、方便其他对象的调用
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] VoidEventChannel LevelClosing;
         //=======================================================================
         [SerializeField] LevelManager levelManager;
         [SerializeField] protected GameObject EnemyGenerationPosition1;
@@ -58,8 +60,7 @@ namespace Adv
             });
             LevelEnd.AddListener(() =>
             {
-
-                currentRunningLevelKey = EndKey;
+                CurrentRunningLevelKey = EndKey;
                 StopAllCoroutines();
                 ButtonImage.enabled = true;
                 ButtonText.enabled = true;
@@ -120,7 +121,8 @@ namespace Adv
 
         private void OnClickEvent()
         {
-            currentRunningLevelKey = Key;
+            CurrentRunningLevelKey = Key;
+            LastLevelKey = Key;
             LevelStart.Broadcast();
             liveEnemyList.Clear();
             ReleaseEnemyEvent();
@@ -141,6 +143,7 @@ namespace Adv
             //胜利
             IsVictory = true;//必须要LevelEnd之前
             LevelEnd.Broadcast();
+            LevelClosing.Broadcast();
             IsPassed = true;
             RunAfterEnemysDied();
             levelManager.CheckAllLevelIsUnLocked();

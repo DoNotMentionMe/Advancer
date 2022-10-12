@@ -11,6 +11,7 @@ namespace Adv
     {
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] VoidEventChannel LevelClosing;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
         [SerializeField] Text HealthShow;
@@ -28,12 +29,17 @@ namespace Adv
             {
                 ComboShow.enabled = true;
             });
+
             LevelEnd.AddListener(() =>
             {
                 ComboShow.enabled = false;
+            });
+
+            LevelClosing.AddListener(() =>
+            {
                 if (BaseLevelModule.IsVictory)
                 {
-                    if (BaseLevelModule.currentRunningLevelKey.Equals(nameof(Level0)))
+                    if (BaseLevelModule.CurrentRunningLevelKey.Equals(nameof(Level0)))
                         教程完成界面.SetActive(true);
                     else
                         胜利界面.SetActive(true);
@@ -41,6 +47,7 @@ namespace Adv
                 else
                     失败界面.SetActive(true);
             });
+
             ComboChange.AddListener((Combo) =>
             {
                 ComboShow.text = string.Concat(ComboShowFont, Combo);

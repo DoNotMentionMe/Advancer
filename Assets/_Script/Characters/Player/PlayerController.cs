@@ -8,17 +8,26 @@ namespace Adv
     {
         public float LocalScaleX => mTransform.localScale.x;
         public bool AttackCanBreak => attackCanBreak;
+        public bool DoubleAttack => doubleAttack;
+        public float DoubleAttackEffectiveTime => doubleAttackEffectiveTime;
 
         //------作废-----
-        [SerializeField] float moveSpeed = 15f;
+        //[SerializeField] float moveSpeed = 15f;
         //--------------
-        [SerializeField] bool attackCanBreak = true;
+        [SerializeField] bool attackCanBreak;
+        [SerializeField] bool doubleAttack;
+        [SerializeField] bool LongAttack;
+        [SerializeField] float doubleAttackEffectiveTime;
         public float AttackStartTime;//攻击前摇
         public float EffectiveAttackTime;
         public float AttackEndTime;//攻击后摇
+        [SerializeField] Vector3 LongAttackReleasePos;
         [SerializeField] GameObject upAttack;
         [SerializeField] GameObject rightAttack;
         [SerializeField] GameObject leftAttack;
+        [SerializeField] GameObject LeftLongAttack;
+        [SerializeField] GameObject RightLongAttack;
+        [SerializeField] PlayerInput Input;
 
         private Rigidbody2D mRigidbody;
         private Transform mTransform;
@@ -28,24 +37,29 @@ namespace Adv
         {
             mTransform = transform;
             mRigidbody = GetComponent<Rigidbody2D>();
+            Input.onLeft_Long += LeftLong;
+            Input.onRight_Long += RightLong;
         }
+
         private void OnDestroy()
         {
             mTransform = null;
             mRigidbody = null;
             //currentAttack = null;
+            Input.onLeft_Long -= LeftLong;
+            Input.onRight_Long -= RightLong;
         }
 
-        public void MoveX(int direction, float speedRatio)
+        private void LeftLong()
         {
-            if (direction != 0)
-                mTransform.localScale = Vector3.up + Vector3.right * direction + Vector3.forward;
-            mRigidbody.velocity = direction * moveSpeed * Vector2.right;
+            if (LongAttack)
+                PoolManager.Instance.Release(LeftLongAttack, LongAttackReleasePos);
         }
 
-        public void Stop()
+        private void RightLong()
         {
-            mRigidbody.velocity = Vector2.zero;
+            if (LongAttack)
+                PoolManager.Instance.Release(RightLongAttack, LongAttackReleasePos);
         }
 
         /// <summary>
@@ -101,5 +115,17 @@ namespace Adv
                 rightAttack.SetActive(false);
             }
         }
+
+        // public void MoveX(int direction, float speedRatio)
+        // {
+        //     if (direction != 0)
+        //         mTransform.localScale = Vector3.up + Vector3.right * direction + Vector3.forward;
+        //     mRigidbody.velocity = direction * moveSpeed * Vector2.right;
+        // }
+
+        // public void Stop()
+        // {
+        //     mRigidbody.velocity = Vector2.zero;
+        // }
     }
 }

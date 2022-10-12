@@ -6,12 +6,14 @@ namespace Adv
 {
     public class PlayerState_RightAttack : PlayerState
     {
+        private bool ICache = false;
         private int StartCombo = 0;
         private float AttackStartTime;//攻击前摇
         private float EffectiveAttackTime;
         private float AttackEndTime;//攻击后摇
+        private float AttackStateStartTime;
+        private float AttackStateDurationTime => Time.time - AttackStateStartTime;
         private AttackStates attackState;
-        private bool ICache = false;
         private CacheType cacheType;
 
         public enum AttackStates
@@ -36,6 +38,7 @@ namespace Adv
 
             if (attackState == AttackStates.Not)
             {
+                AttackStateStartTime = Time.time;
                 anim.Play(RightAttackStart);
                 attackState = AttackStates.Start;
             }
@@ -46,40 +49,54 @@ namespace Adv
             base.LogicUpdate();
 
             //指令缓存 只在关闭AttackCanBreak情况有有效
-            if (playerInput.Left && attackState == AttackStates.End)
+            if (playerController.DoubleAttack && StateDuration < playerController.DoubleAttackEffectiveTime)
             {
-                ICache = true;
-                playerInput.Left = false;
-                cacheType = CacheType.Left;
+                if (playerInput.Up)
+                {
+                    anim.Play(Idle);
+                    attackState = AttackStates.Not;
+                    playerController.AttackEnd(3);
+                    FSM.SwitchState(typeof(PlayerState_RightUpAttack));
+                }
             }
-            else if (playerInput.Up && attackState == AttackStates.End)
+            else if (!playerController.DoubleAttack)
             {
-                ICache = true;
-                playerInput.Up = false;
-                cacheType = CacheType.Up;
+                if (playerInput.Left && attackState == AttackStates.End)
+                {
+                    ICache = true;
+                    playerInput.Left = false;
+                    cacheType = CacheType.Left;
+                }
+                else if (playerInput.Up && attackState == AttackStates.End)
+                {
+                    ICache = true;
+                    playerInput.Up = false;
+                    cacheType = CacheType.Up;
+                }
             }
-            else if (playerInput.Right && attackState == AttackStates.End)
+            if (playerInput.Right && attackState == AttackStates.End)
             {
                 ICache = true;
                 playerInput.Right = false;
                 cacheType = CacheType.Right;
             }
 
-            if (attackState == AttackStates.Start && StateDuration >= AttackStartTime)
+            //状态管理
+            if (attackState == AttackStates.Start && AttackStateDurationTime >= AttackStartTime)
             {
                 anim.Play(RightAttack);
                 attackState = AttackStates.Ing;
                 playerController.AttackStart(3);//右
-                stateStartTime = Time.time;//重置时间
+                AttackStateStartTime = Time.time;//重置时间
             }
-            else if (attackState == AttackStates.Ing && StateDuration >= EffectiveAttackTime)
+            else if (attackState == AttackStates.Ing && AttackStateDurationTime >= EffectiveAttackTime)
             {
                 anim.Play(RightAttackEnd);
                 attackState = AttackStates.End;
                 playerController.AttackEnd(3);
-                stateStartTime = Time.time;//重置时间
+                AttackStateStartTime = Time.time;//重置时间
             }
-            else if (attackState == AttackStates.End && StateDuration >= AttackEndTime)
+            else if (attackState == AttackStates.End && AttackStateDurationTime >= AttackEndTime)
             {
                 anim.Play(Idle);
                 attackState = AttackStates.Not;
@@ -101,6 +118,7 @@ namespace Adv
                     FSM.SwitchState(typeof(PlayerState_Idle));
             }
 
+            //能力-打断攻击
             if (!playerController.AttackCanBreak) return;
             if (playerInput.Left)
             {

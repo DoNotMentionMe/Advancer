@@ -20,6 +20,8 @@ namespace Adv
         protected PlayerInput playerInput;
         protected PlayerFSM FSM;
         protected Animator anim;
+        protected Animator anim2;
+        protected GameObject anim2Obj;
 
         protected float stateFixedFrameCount = 0;
 
@@ -29,11 +31,15 @@ namespace Adv
                                 PlayerController playerController,
                                 PlayerInput playerInput,
                                 Animator anim,
+                                Animator anim2,
+                                GameObject anim2Obj,
                                 PlayerFSM FSM)
         {
             this.playerController = playerController;
             this.playerInput = playerInput;
             this.anim = anim;
+            this.anim2 = anim2;
+            this.anim2Obj = anim2Obj;
             this.FSM = FSM;
         }
 
