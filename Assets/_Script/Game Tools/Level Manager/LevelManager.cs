@@ -19,6 +19,8 @@ namespace Adv
             Level[1].VisibleCondition = _ => Level[0].IsPassed;
             Level[2].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
             Level[3].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
+            Level[4].VisibleCondition = _ => true;
+            Level[5].VisibleCondition = _ => true;
             CheckAllLevelIsUnLocked();
         }
 

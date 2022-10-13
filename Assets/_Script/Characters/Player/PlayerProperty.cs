@@ -30,6 +30,7 @@ namespace Adv
             playerAudio = GetComponent<PlayerAudio>();
             LevelStart.AddListener(() =>
             {
+                CurrentMaxCombo = 0;
                 Combo = 0;
                 ComboChange.Broadcast(Combo);
                 health = Maxhealth;
