@@ -17,13 +17,13 @@ namespace Adv
             int historicHighCombo = 0;
             for (var i = 0; i < levelManager.Level.Count; i++)
             {
-                if (levelManager.Level[i].Key == BaseLevelModule.LastLevelKey)
+                if (levelManager.Level[i].Key == BaseLevelModule.CurrentRunningLevelKey)
                 {
                     historicHighCombo = levelManager.Level[i].LevelMaxCombo;
                 }
             }
 
-            详细.text = BaseLevelModule.LastLevelKey + "\n本次最高连击数 " + PlayerProperty.CurrentMaxCombo + "\n历史最高连击数 " + historicHighCombo;
+            详细.text = BaseLevelModule.CurrentRunningLevelKey + "\n本次最高连击数 " + PlayerProperty.CurrentMaxCombo + "\n历史最高连击数 " + historicHighCombo;
         }
     }
 }

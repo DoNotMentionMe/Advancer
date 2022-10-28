@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c0bbf6a166a5942b2502728c0c207c, type: 3}
-  m_Name: PlayerInput
+  m_Script: {fileID: 11500000, guid: 16df01810267ff74c8f998d49a25bd5c, type: 3}
+  m_Name: VoidEventChannel_ClearingUIClose
   m_EditorClassIdentifier: 
-  LevelStart: {fileID: 11400000, guid: eba6fd05f17c67a4abd8f918ac4dbf16, type: 2}
-  LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
+  comment: 

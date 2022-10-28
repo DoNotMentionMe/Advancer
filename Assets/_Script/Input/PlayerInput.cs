@@ -11,6 +11,8 @@ namespace Adv
                 ScriptableObject,
                 PlayerInputActions.IGameplayActions
     {
+        [SerializeField] VoidEventChannel LevelStart;
+        [SerializeField] VoidEventChannel LevelEnd;
         PlayerInputActions playerInput;
 
         //---作废-----
@@ -36,7 +38,16 @@ namespace Adv
 
             playerInput.Gameplay.SetCallbacks(this);
 
-            EnableGameplayInput();
+            LevelStart.AddListener(() =>
+            {
+                EnableGameplayInput();
+            });
+            LevelEnd.AddListener(() =>
+            {
+                DisableAllInputs();
+            });
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnDisable()

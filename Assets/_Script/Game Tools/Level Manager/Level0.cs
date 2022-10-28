@@ -53,12 +53,7 @@ namespace Adv
             yield return waitForReleaseInterval1;
             ReleaseEnemy(Enemy01, EnemyGenerationPosition3.transform.position);
             yield return waitForReleaseInterval1;
-            ReleaseEnemy(Enemy02, EnemyGenerationPosition3.transform.position);
-            yield return waitForReleaseInterval1;
-            ReleaseEnemy(Enemy03, EnemyGenerationPosition1.transform.position);
-            yield return waitForReleaseInterval1;
-            var obj1 = ReleaseEnemy(Enemy03, EnemyGenerationPosition3.transform.position);
-            yield return waitForReleaseInterval1;
+            var obj1 = ReleaseEnemy(Enemy02, EnemyGenerationPosition2.transform.position);
             //2
             while (obj1.activeSelf == true)
             {
@@ -78,15 +73,16 @@ namespace Adv
                     obj = Enemy02;
                     GenerationPos = EnemyGenerationPosition2;
                 }
-                else if (random == 3)
-                {
-                    var Enemy03Count = CheckLiveListTheEnemyCount(Enemy03.name);
-                    if (Enemy03Count >= 1)
-                        obj = Enemy01;
-                    else
-                        obj = Enemy03;
-                }
-                if (random == 1 || random == 3)
+                // else if (random == 3)
+                // {
+                //     var Enemy03Count = CheckLiveListTheEnemyCount(Enemy03.name);
+                //     if (Enemy03Count >= 1)
+                //         obj = Enemy01;
+                //     else
+                //         obj = Enemy03;
+                // }
+                //if (random == 1 || random == 3)
+                if (random == 1)
                     random = Random.Range(1, 3);
                 if (random == 1)
                     GenerationPos = EnemyGenerationPosition1;

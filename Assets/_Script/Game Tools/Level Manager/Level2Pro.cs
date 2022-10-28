@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Adv
 {
-
-    public class Level2 : BaseLevelModule
+    public class Level2Pro : BaseLevelModule
     {
-        public override string Key => nameof(Level2);
+        public override string Key => nameof(Level2Pro);
 
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟
@@ -77,31 +76,5 @@ namespace Adv
 
             liveEnemyList.Remove(nullObj);
         }
-
-
     }
-
-    //BOSS关
-    // public class Level2 : BaseLevelModule
-    // {
-    //     public override string Key => nameof(Level2);
-
-    //     [SerializeField] GameObject BOSS01;
-    //     [SerializeField] GameObject 通关界面;
-    //     private bool FirstLevel2Success = true;
-
-    //     protected override void ReleaseEnemyEvent()
-    //     {
-    //         InstantiateEnemy(BOSS01);
-    //     }
-
-    //     protected override void RunAfterEnemysDied()
-    //     {
-    //         if (FirstLevel2Success)
-    //         {
-    //             FirstLevel2Success = false;
-    //             通关界面.SetActive(true);
-    //         }
-    //     }
-    // }
 }

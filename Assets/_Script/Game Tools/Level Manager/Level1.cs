@@ -8,22 +8,29 @@ namespace Adv
     {
         public override string Key { get; } = nameof(Level1);
 
+
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟
         [SerializeField] GameObject Enemy03;//刀客
+        [SerializeField, Range(1, 40)] int tageCount = 1;
         [SerializeField] float Level1Duration;
-        [SerializeField] float Level1ReleaseInterval;
+        [SerializeField] float CurrentInterval;
+        [SerializeField] float Level1ReleaseIntervalStart;
+        [SerializeField] float Level1ReleaseIntervalEnd;
 
+        private float LevelStartTime;
         private WaitForSeconds waitForReleaseInterval;
 
         protected override void Awake()
         {
             base.Awake();
-            waitForReleaseInterval = new WaitForSeconds(Level1ReleaseInterval);
+            CurrentInterval = Level1ReleaseIntervalStart;
+            waitForReleaseInterval = new WaitForSeconds(Level1ReleaseIntervalStart);
         }
 
         protected override void ReleaseEnemyEvent()
         {
+            StartCoroutine(nameof(ChangeReleaseInterval));
             StartCoroutine(nameof(RandomReleaseLevel1Enemy));
         }
 
@@ -36,16 +43,15 @@ namespace Adv
         {
             GameObject obj = null;
             GameObject GenerationPos = null;
-            var startTime = Time.time;
             float currentDuration = 0;
-            while (Time.time - startTime < Level1Duration)
+            while (Time.time - LevelStartTime < Level1Duration)
             {
                 int random = 0;
                 random = Random.Range(1, 5);//通过增加右边的值提高Enemy03出现概率
 
                 if (random >= 3)
                 {
-                    currentDuration = Time.time - startTime;
+                    currentDuration = Time.time - LevelStartTime;
                     //根据当前Enemy03数量选择召唤敌人类型
                     if (currentDuration < Level1Duration / 4
                         && CheckLiveListTheEnemyCount(Enemy03.name) < 1)
@@ -81,6 +87,24 @@ namespace Adv
                 //liveEnemyList.Add(PoolManager.Instance.Release(obj, GenerationPos.transform.position));
                 ReleaseEnemy(obj, GenerationPos.transform.position);
                 yield return waitForReleaseInterval;
+            }
+        }
+
+        IEnumerator ChangeReleaseInterval()
+        {
+            LevelStartTime = Time.time;
+            CurrentInterval = Level1ReleaseIntervalStart;
+
+            var difference = Level1ReleaseIntervalStart - Level1ReleaseIntervalEnd;
+            difference /= tageCount - 1;
+            for (var i = 1; i < tageCount; i++)
+            {
+                while (Time.time - LevelStartTime < i * Level1Duration / tageCount)
+                {
+                    yield return null;
+                }
+                CurrentInterval -= difference;
+                waitForReleaseInterval = new WaitForSeconds(CurrentInterval);
             }
         }
     }

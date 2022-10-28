@@ -121,14 +121,17 @@ namespace Adv
                 {
                     playerProperty.Hitted(attack);
                     mColl.enabled = false;
-                    anim.Play("Idle");
-                    faceList.Add(faceRandom);
-                    Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
-                    gameObject.SetActive(false);
+                    //碰到玩家时已经时生命周期结尾了 不需要在做一个次结尾
+                    //StopAllCoroutines();
+                    // anim.Play("Idle");
+                    //faceList.Add(faceRandom);
+                    // Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
+                    // gameObject.SetActive(false);
                 }
             }
-            if (col.tag.Equals(PlayerAttackTag))//被命中
+            else if (col.tag.Equals(PlayerAttackTag))//被命中
             {
+                StopAllCoroutines();
                 attackHit.Broadcast();
                 mColl.enabled = false;
                 anim.Play("Idle");

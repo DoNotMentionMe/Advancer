@@ -24,6 +24,7 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel ClearingUIClose;
         //=======================================================================
         [SerializeField] LevelManager levelManager;
         [SerializeField] protected GameObject EnemyGenerationPosition1;
@@ -60,17 +61,20 @@ namespace Adv
             });
             LevelEnd.AddListener(() =>
             {
-                CurrentRunningLevelKey = EndKey;
                 StopAllCoroutines();
-                ButtonImage.enabled = true;
-                ButtonText.enabled = true;
-                levelButton.enabled = true;
                 if (PlayerProperty.CurrentMaxCombo < PlayerProperty.Combo)
                     PlayerProperty.CurrentMaxCombo = PlayerProperty.Combo;
-                if (LevelMaxCombo < PlayerProperty.CurrentMaxCombo)
+                if (CurrentRunningLevelKey == Key && LevelMaxCombo < PlayerProperty.CurrentMaxCombo)
                 {
                     LevelMaxCombo = PlayerProperty.CurrentMaxCombo;
                 }
+            });
+            ClearingUIClose.AddListener(() =>
+            {
+                CurrentRunningLevelKey = EndKey;
+                ButtonImage.enabled = true;
+                ButtonText.enabled = true;
+                levelButton.enabled = true;
             });
         }
         private void OnDestroy()
