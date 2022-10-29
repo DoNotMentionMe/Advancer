@@ -89,6 +89,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Esc"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca443d35-17d9-47ab-93fe-bbe3587837cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -168,6 +177,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Right_Long"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecd33698-bc5f-42be-9cad-e94a43c182ec"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -183,6 +203,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Left = m_Gameplay.FindAction("Left", throwIfNotFound: true);
         m_Gameplay_Left_Long = m_Gameplay.FindAction("Left_Long", throwIfNotFound: true);
         m_Gameplay_Right_Long = m_Gameplay.FindAction("Right_Long", throwIfNotFound: true);
+        m_Gameplay_Esc = m_Gameplay.FindAction("Esc", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Left;
     private readonly InputAction m_Gameplay_Left_Long;
     private readonly InputAction m_Gameplay_Right_Long;
+    private readonly InputAction m_Gameplay_Esc;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Left => m_Wrapper.m_Gameplay_Left;
         public InputAction @Left_Long => m_Wrapper.m_Gameplay_Left_Long;
         public InputAction @Right_Long => m_Wrapper.m_Gameplay_Right_Long;
+        public InputAction @Esc => m_Wrapper.m_Gameplay_Esc;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -290,6 +313,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Right_Long.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRight_Long;
                 @Right_Long.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRight_Long;
                 @Right_Long.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRight_Long;
+                @Esc.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
+                @Esc.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
+                @Esc.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -315,6 +341,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Right_Long.started += instance.OnRight_Long;
                 @Right_Long.performed += instance.OnRight_Long;
                 @Right_Long.canceled += instance.OnRight_Long;
+                @Esc.started += instance.OnEsc;
+                @Esc.performed += instance.OnEsc;
+                @Esc.canceled += instance.OnEsc;
             }
         }
     }
@@ -328,5 +357,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnLeft_Long(InputAction.CallbackContext context);
         void OnRight_Long(InputAction.CallbackContext context);
+        void OnEsc(InputAction.CallbackContext context);
     }
 }

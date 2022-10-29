@@ -104,8 +104,9 @@ namespace Adv
             LevelEnd.AddListener(SetActiveFalse);
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             EnemyDied.Broadcast(gameObject);
             //Fail.RemoveListenner(SetActiveFalse);
             LevelEnd.RemoveListenner(SetActiveFalse);

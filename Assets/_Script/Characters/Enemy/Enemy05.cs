@@ -25,7 +25,7 @@ namespace Adv
         private const string PlayerTag = "Player";
         private const string PlayerAttackTag = "PlayerAttack";
 
-        private int faceRandom;
+        private int faceRandom = 0;
         private int faceDirection = 0;
         private float AttackLength;
         private string AttackName;
@@ -58,6 +58,11 @@ namespace Adv
         {
             LevelEnd.RemoveListenner(SetActiveFalse);
             EnemyDied.Broadcast(gameObject);
+            if (faceRandom != 0)
+            {
+                faceList.Add(faceRandom);
+                faceRandom = 0;
+            }
         }
 
         private void OnDestroy()
@@ -98,15 +103,19 @@ namespace Adv
             }
             var startTime = Time.time;
             anim.Play(AttackName);
-            while (Time.time - startTime < AttackLength * 3 / 8)
+            while (Time.time - startTime < AttackLength * 1 / 8)
             { yield return null; }
             mColl.enabled = true;
             while (Time.time - startTime < AttackLength)
             { yield return null; }
             mColl.enabled = false;
             anim.Play("Idle");
-            faceList.Add(faceRandom);
-            Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
+            if (faceRandom != 0)
+            {
+                faceList.Add(faceRandom);
+                Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
+                faceRandom = 0;
+            }
 
             if (!DontSetFalse)
                 gameObject.SetActive(false);
@@ -117,10 +126,10 @@ namespace Adv
         {
             if (col.tag.Equals(PlayerTag))
             {
+                mColl.enabled = false;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(attack);
-                    mColl.enabled = false;
                     //碰到玩家时已经时生命周期结尾了 不需要在做一个次结尾
                     //StopAllCoroutines();
                     // anim.Play("Idle");
@@ -135,7 +144,11 @@ namespace Adv
                 attackHit.Broadcast();
                 mColl.enabled = false;
                 anim.Play("Idle");
-                faceList.Add(faceRandom);
+                if (faceRandom != 0)
+                {
+                    faceList.Add(faceRandom);
+                    faceRandom = 0;
+                }
                 Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
                 gameObject.SetActive(false);
             }

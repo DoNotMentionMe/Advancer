@@ -7,20 +7,25 @@ namespace Adv
     /// <summary>
     /// 可复用的关卡管理器
     /// 目前功能：管理关卡的解锁条件(包含解锁功能)
+    ///          选择指定Key的按钮
     /// </summary>
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : PersistentSingleton<LevelManager>
     {
         public List<BaseLevelModule> Level = new List<BaseLevelModule>();
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             //加载关卡解锁条件
-            Level[0].VisibleCondition = _ => true;
-            Level[1].VisibleCondition = _ => Level[0].IsPassed;
-            Level[2].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
-            Level[3].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;
-            Level[4].VisibleCondition = _ => true;
-            Level[5].VisibleCondition = _ => true;
+            Level[0].VisibleCondition = _ => true;//Level0
+            Level[1].VisibleCondition = _ => Level[0].IsPassed;//Level1
+            Level[2].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;//Level1Pro
+            Level[3].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;//Level2
+            Level[4].VisibleCondition = _ => true;//Level2Pro
+            Level[5].VisibleCondition = _ => true;//Level3
+            Level[6].VisibleCondition = _ => true;//Level3Pro
+            Level[7].VisibleCondition = _ => true;//Level KIA 1
+            Level[8].VisibleCondition = _ => true;//Level4
             CheckAllLevelIsUnLocked();
         }
 
@@ -36,5 +41,16 @@ namespace Adv
             }
         }
 
+        public void SelectButtonWithKey(string Key)
+        {
+            for (var i = 0; i < Level.Count; i++)
+            {
+                if (Level[i].Key == Key)
+                {
+                    Level[i].levelButton.Select();
+                    break;
+                }
+            }
+        }
     }
 }

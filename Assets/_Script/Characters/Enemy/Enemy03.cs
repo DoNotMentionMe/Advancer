@@ -172,10 +172,10 @@ namespace Adv
         {
             if (col.tag.Equals(PlayerTag))
             {
+                mCollider2D.enabled = false;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(attack);
-                    mCollider2D.enabled = false;
                 }
             }
             if (col.tag.Equals(PlayerAttackTag))//被命中

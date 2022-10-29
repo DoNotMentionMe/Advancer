@@ -10,11 +10,13 @@ namespace Adv
         [SerializeField] bool LevelStartSet = false;
         [SerializeField] bool LevelEndSet = false;
         [SerializeField] bool LevelClosingSet = true;
+        [SerializeField] bool EarlyOutLevelSet = true;
         [SerializeField] bool ClearingUICloseSet = true;
         [SerializeField] List<Behaviour> ComponentList = new List<Behaviour>();
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel ClearingUIClose;
 
         private void Awake()
@@ -22,6 +24,7 @@ namespace Adv
             LevelStart.AddListener(LevelStartSeting);
             LevelEnd.AddListener(LevelEndSeting);
             LevelClosing.AddListener(LevelClosingSeting);
+            EarlyOutLevel.AddListener(EarlyOutLevelSeting);
             ClearingUIClose.AddListener(ClearingUICloseSeting);
         }
 
@@ -30,6 +33,7 @@ namespace Adv
             LevelStart.RemoveListenner(LevelStartSeting);
             LevelEnd.RemoveListenner(LevelEndSeting);
             LevelClosing.RemoveListenner(LevelClosingSeting);
+            EarlyOutLevel.RemoveListenner(EarlyOutLevelSeting);
             ClearingUIClose.RemoveListenner(ClearingUICloseSeting);
         }
 
@@ -56,6 +60,15 @@ namespace Adv
                 ComponentList[i].enabled = LevelClosingSet;
             }
         }
+
+        private void EarlyOutLevelSeting()
+        {
+            for (var i = 0; i < ComponentList.Count; i++)
+            {
+                ComponentList[i].enabled = EarlyOutLevelSet;
+            }
+        }
+
         private void ClearingUICloseSeting()
         {
             for (var i = 0; i < ComponentList.Count; i++)

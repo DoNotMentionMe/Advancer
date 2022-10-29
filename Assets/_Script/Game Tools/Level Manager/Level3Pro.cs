@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Adv
 {
-    public class Level3 : BaseLevelModule
+    public class Level3Pro : BaseLevelModule
     {
-        public override string Key => nameof(Level3);
+        public override string Key => nameof(Level3Pro);
 
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟
@@ -65,7 +65,7 @@ namespace Adv
                         GenerationPos = EnemyGenerationPosition3;
 
                     ReleaseEnemy(obj, GenerationPos.transform.position);
-                    if (CheckLiveListTheEnemyCount(Enemy03.name) == 0)
+                    if (CheckLiveListTheEnemyCount(Enemy05.name) == 0)
                     {
                         StartCoroutine(nameof(ReleaseEnemy05));
                     }
@@ -75,7 +75,7 @@ namespace Adv
                     obj = Enemy02;
                     GenerationPos = EnemyGenerationPosition2;
                     ReleaseEnemy(obj, GenerationPos.transform.position);
-                    if (CheckLiveListTheEnemyCount(Enemy03.name) == 0)
+                    if (CheckLiveListTheEnemyCount(Enemy05.name) == 0)
                     {
                         StartCoroutine(nameof(ReleaseEnemy05));
                     }
@@ -90,7 +90,7 @@ namespace Adv
                         GenerationPos = EnemyGenerationPosition3;
 
                     ReleaseEnemy(obj, GenerationPos.transform.position);
-                    if (CheckLiveListTheEnemyCount(Enemy03.name) <= 1)
+                    if (CheckLiveListTheEnemyCount(Enemy05.name) == 0)
                     {
                         StartCoroutine(nameof(ReleaseEnemy05));
                     }

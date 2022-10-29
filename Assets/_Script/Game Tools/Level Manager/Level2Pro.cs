@@ -46,7 +46,7 @@ namespace Adv
             while (Time.time - LevelStartTime < Level2Duration)
             {
                 int random = 0;
-                random = Random.Range(1, 5);
+                random = Random.Range(2, 9);
                 if (random == 1)
                     obj = Enemy01;
                 else if (random == 2)
@@ -54,16 +54,16 @@ namespace Adv
                     obj = Enemy02;
                     GenerationPos = EnemyGenerationPosition2;
                 }
-                else if (random == 3)
+                else if (random == 3 || random == 4 || random == 5)
                 {
                     obj = Enemy03;
                 }
-                else if (random == 4)
+                else if (random == 6 || random == 7 || random == 8)
                 {
                     obj = Enemy04;
                 }
 
-                if (random == 1 || random >= 3)
+                if (random == 1 || random >= 3)//排除雷鸟情况
                     random = Random.Range(1, 3);//第二次随机用于释放位置
                 if (random == 1)
                     GenerationPos = EnemyGenerationPosition1;

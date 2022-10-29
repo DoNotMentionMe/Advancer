@@ -13,17 +13,19 @@ namespace Adv
     {
         public static bool IsVictory = false;//胜利时必须要LevelEnd之前置1
         public static string CurrentRunningLevelKey = EndKey;
-        public static string LastLevelKey;
+        public static string LastLevelKey = EndKey;
         public const string EndKey = "EndKey";
 
         public abstract string Key { get; }
 
         public int LevelMaxCombo = 0;
+        [HideInInspector] public Button levelButton;
         [SerializeField] GameObjectEventChannel EnemyDied;
         //这两个事件用来 1、协调所有Level需要同时改变的事件 以及 2、方便其他对象的调用
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel ClearingUIClose;
         //=======================================================================
         [SerializeField] LevelManager levelManager;
@@ -38,7 +40,6 @@ namespace Adv
 
         private const string CloneString = "(Clone)";
 
-        private Button levelButton;
         private Image ButtonImage;
         private Text ButtonText;
 
@@ -68,6 +69,13 @@ namespace Adv
                 {
                     LevelMaxCombo = PlayerProperty.CurrentMaxCombo;
                 }
+            });
+            EarlyOutLevel.AddListener(() =>
+            {
+                CurrentRunningLevelKey = EndKey;
+                ButtonImage.enabled = true;
+                ButtonText.enabled = true;
+                levelButton.enabled = true;
             });
             ClearingUIClose.AddListener(() =>
             {
@@ -146,8 +154,8 @@ namespace Adv
             }
             //胜利
             IsVictory = true;//必须要LevelEnd之前
-            LevelEnd.Broadcast();
-            LevelClosing.Broadcast();
+            LevelEnd.Broadcast();//
+            LevelClosing.Broadcast();//
             IsPassed = true;
             RunAfterEnemysDied();
             levelManager.CheckAllLevelIsUnLocked();

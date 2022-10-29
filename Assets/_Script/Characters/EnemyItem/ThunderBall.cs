@@ -22,8 +22,8 @@ namespace Adv
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(attack);
-                    gameObject.SetActive(false);
                 }
+                gameObject.SetActive(false);
             }
             if (col.tag.Equals(PlayerAttackTag))//被命中
             {

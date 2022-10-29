@@ -23,6 +23,7 @@ namespace Adv
 
         public event UnityAction onLeft_Long = delegate { };
         public event UnityAction onRight_Long = delegate { };
+        public event UnityAction onEsc = delegate { };
         public bool Attack => attack;
         public bool Up { get => up; set => up = value; }
         public bool Right { get => right; set => right = value; }
@@ -143,6 +144,14 @@ namespace Adv
             if (context.started)
             {
                 onRight_Long.Invoke();
+            }
+        }
+
+        public void OnEsc(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onEsc?.Invoke();
             }
         }
         #endregion

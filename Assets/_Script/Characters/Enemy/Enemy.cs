@@ -9,12 +9,19 @@ namespace Adv
         [SerializeField] protected float maxHealth = 5;
         [SerializeField] protected float health;
 
+        private bool HasAttacked = false;
         private string PlayerTag = "Player";
 
         protected virtual void OnEnable()
         {
             health = maxHealth;
         }
+
+        protected virtual void OnDisable()
+        {
+            HasAttacked = false;
+        }
+
         public virtual void Hitted(float damage)
         {
             health -= damage;
@@ -33,8 +40,9 @@ namespace Adv
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.tag.Equals(PlayerTag))
+            if (!HasAttacked && col.tag.Equals(PlayerTag))
             {
+                HasAttacked = true;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(1);
