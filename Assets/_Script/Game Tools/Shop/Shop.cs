@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace Adv
 {
-    public class PlayerAsset : MonoBehaviour
+    public class Shop : MonoBehaviour
     {
-        public static float Money = 0;
 
     }
 }

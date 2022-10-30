@@ -14,20 +14,26 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelClosing;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
+        [SerializeField] FloatEventChannel MoneyChange;
         [SerializeField] Text HealthShow;
         [SerializeField] Text ComboShow;
+        [SerializeField] Text MoneyShow;
         [SerializeField] GameObject 胜利界面;
         [SerializeField] GameObject 失败界面;
         [SerializeField] GameObject 教程完成界面;
+        [SerializeField] GameObject 生存结束界面;
+        [SerializeField] GameObject CurrentLiveTimeShow;
 
-        private const string healthShowFont = "Health:";
+        private const string healthShowFont = "Health: ";
         private const string ComboShowFont = "Combo ";
+        private const string MoneyShowFont = "Money: ";
 
         private void Awake()
         {
             LevelStart.AddListener(() =>
             {
                 ComboShow.enabled = true;
+                CurrentLiveTimeShow.SetActive(true);
             });
 
             LevelEnd.AddListener(() =>
@@ -44,6 +50,11 @@ namespace Adv
                     else
                         胜利界面.SetActive(true);
                 }
+                else if (BaseLevelModule.CurrentRunningLevelKey.Equals(nameof(LevelInfinite)))
+                {
+                    生存结束界面.SetActive(true);
+                    CurrentLiveTimeShow.SetActive(false);
+                }
                 else
                     失败界面.SetActive(true);
             });
@@ -52,6 +63,12 @@ namespace Adv
             {
                 ComboShow.text = string.Concat(ComboShowFont, Combo);
             });
+
+            MoneyChange.AddListener((Money) =>
+            {
+                MoneyShow.text = string.Concat(MoneyShowFont, Money);
+            });
+            MoneyChange.Broadcast(PlayerAsset.Money);
         }
 
         private void OnEnable()

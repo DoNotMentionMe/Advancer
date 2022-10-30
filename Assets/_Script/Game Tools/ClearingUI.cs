@@ -10,6 +10,7 @@ namespace Adv
     {
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel ClearingUIClose;
+        [SerializeField] FloatEventChannel MoneyChange;
         [SerializeField] Button CloseButton;
 
         private Button LastSelected;

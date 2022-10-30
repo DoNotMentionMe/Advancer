@@ -4,32 +4,40 @@ using UnityEngine;
 
 namespace Adv
 {
-    public class Level4 : BaseLevelModule
+    public class LevelInfinite : BaseLevelModule
     {
-        public override string Key => nameof(Level4);
+        public override string Key => nameof(LevelInfinite);
 
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟
         [SerializeField] GameObject Enemy03;//刀客
         [SerializeField] GameObject Enemy04;//弓箭手
         [SerializeField] GameObject Enemy05;//枪兵
-        [SerializeField] float Level4Duration;
-        [SerializeField] float Level4ReleaseInterval;
-        [SerializeField] float Enemy05RelaseInterval;
+        [SerializeField] float CurrentInterval;
+        [SerializeField] float Enemy05CurrentRelaseInterval;
+        [SerializeField] float DurationPerTage;
+        [SerializeField] float DifferencePerTage;
+        [SerializeField] float LevelInfiniteIntervalStart;
+        [SerializeField] float Enemy05ReleaseIntervalStart;
 
-        private WaitForSeconds waitForReleaseInterval;
+        private float LevelStartTime;
+        private float CurrentTageDuration;
+        private WaitForSeconds waitforReleaseInterval;
         private WaitForSeconds waitForEnemy05RelaseInterval;
 
         protected override void Awake()
         {
             base.Awake();
-            waitForReleaseInterval = new WaitForSeconds(Level4ReleaseInterval);
-            waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05RelaseInterval);
+            CurrentInterval = LevelInfiniteIntervalStart;
+            Enemy05CurrentRelaseInterval = Enemy05ReleaseIntervalStart;
+            waitforReleaseInterval = new WaitForSeconds(CurrentInterval);
+            waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05CurrentRelaseInterval);
         }
 
         protected override void ReleaseEnemyEvent()
         {
-            StartCoroutine(nameof(ReleaseEnemy));
+            StartCoroutine(nameof(ChangeReleaseInterval));
+            StartCoroutine(nameof(RandomReleaseLevel1Enemy));
         }
 
         protected override void RunAfterEnemysDied()
@@ -37,16 +45,14 @@ namespace Adv
 
         }
 
-        IEnumerator ReleaseEnemy()
+        IEnumerator RandomReleaseLevel1Enemy()
         {
-            //GameObject GenerationPos = null;
             var nullObj = new GameObject();
             liveEnemyList.Add(nullObj);//防止提前结束
 
             GameObject obj = null;
             GameObject GenerationPos = null;
-            var startTime = Time.time;
-            while (Time.time - startTime < Level4Duration)
+            while (true)
             {
                 int random = 0;
                 random = Random.Range(1, 4);
@@ -106,11 +112,33 @@ namespace Adv
                     }
                 }
 
-                yield return waitForReleaseInterval;
-
+                yield return waitforReleaseInterval;
             }
 
-            liveEnemyList.Remove(nullObj);//去除空对象
+            // liveEnemyList.Remove(nullObj);//去除空对象
+        }
+
+        IEnumerator ChangeReleaseInterval()
+        {
+            LevelStartTime = Time.time;
+            CurrentTageDuration = Time.time;
+            CurrentInterval = LevelInfiniteIntervalStart;
+            Enemy05CurrentRelaseInterval = Enemy05ReleaseIntervalStart;
+            waitforReleaseInterval = new WaitForSeconds(CurrentInterval);
+            waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05CurrentRelaseInterval);
+
+            while (true)
+            {
+                while (Time.time - CurrentTageDuration < DurationPerTage)
+                {
+                    yield return null;
+                }
+                CurrentTageDuration = Time.time;
+                CurrentInterval *= (1 - DifferencePerTage);
+                Enemy05CurrentRelaseInterval *= (1 - DifferencePerTage);
+                waitforReleaseInterval = new WaitForSeconds(CurrentInterval);
+                waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05CurrentRelaseInterval);
+            }
         }
 
         IEnumerator ReleaseEnemy05()

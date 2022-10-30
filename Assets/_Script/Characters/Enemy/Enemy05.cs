@@ -8,7 +8,7 @@ namespace Adv
     {
         private static List<int> faceList = new List<int>() { 1, 2, 3 };
 
-
+        [SerializeField] bool DebugText;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] GameObjectEventChannel EnemyDied;
         [SerializeField] bool DontSetFalse;
@@ -87,7 +87,8 @@ namespace Adv
                 faceRandom = 0;
                 faceList.Remove(faceRandom);
             }
-            Debug.Log("取出位置：" + faceRandom + "faceList: " + ForEachList(faceList));
+            if (DebugText)
+                Debug.Log("取出位置：" + faceRandom + "faceList: " + ForEachList(faceList));
             SetAppearPos(faceRandom);
             mColl.enabled = false;
             anim.Play("Idle");
@@ -113,7 +114,8 @@ namespace Adv
             if (faceRandom != 0)
             {
                 faceList.Add(faceRandom);
-                Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
+                if (DebugText)
+                    Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
                 faceRandom = 0;
             }
 
@@ -143,13 +145,14 @@ namespace Adv
                 StopAllCoroutines();
                 attackHit.Broadcast();
                 mColl.enabled = false;
-                anim.Play("Idle");
+                //anim.Play("Idle");
                 if (faceRandom != 0)
                 {
                     faceList.Add(faceRandom);
+                    if (DebugText)
+                        Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
                     faceRandom = 0;
                 }
-                Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
                 gameObject.SetActive(false);
             }
         }
