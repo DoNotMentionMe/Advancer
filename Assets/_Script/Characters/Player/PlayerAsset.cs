@@ -7,6 +7,5 @@ namespace Adv
     public class PlayerAsset : MonoBehaviour
     {
         public static float Money = 0;
-
     }
 }

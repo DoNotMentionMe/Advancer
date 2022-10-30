@@ -11,6 +11,7 @@ namespace Adv
     {
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel LevelClosing;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
@@ -39,6 +40,14 @@ namespace Adv
             LevelEnd.AddListener(() =>
             {
                 ComboShow.enabled = false;
+            });
+
+            EarlyOutLevel.AddListener(() =>
+            {
+                if (BaseLevelModule.LastLevelKey.Equals(nameof(LevelInfinite)))
+                {
+                    CurrentLiveTimeShow.SetActive(false);
+                }
             });
 
             LevelClosing.AddListener(() =>

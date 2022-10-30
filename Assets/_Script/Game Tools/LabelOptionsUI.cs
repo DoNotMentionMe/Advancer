@@ -43,6 +43,7 @@ namespace Adv
                 PageSwitch(!isOpen);
                 IsOpen = !isOpen;
             });
+
         }
 
         private void PageSwitch(bool Switch)

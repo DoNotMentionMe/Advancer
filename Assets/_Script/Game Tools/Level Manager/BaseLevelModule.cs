@@ -25,7 +25,7 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
-        [SerializeField] VoidEventChannel EarlyOutLevel;
+        [SerializeField] protected VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel ClearingUIClose;
         //=======================================================================
         [SerializeField] LevelManager levelManager;
@@ -33,7 +33,7 @@ namespace Adv
         [SerializeField] protected GameObject EnemyGenerationPosition2;
         [SerializeField] protected GameObject EnemyGenerationPosition3;
 
-        public bool IsPassed = false;
+        public bool IsPassed = false;//TODO 存档
         public Func<BaseLevelModule, bool> VisibleCondition = _ => false;
 
         protected List<GameObject> liveEnemyList = new List<GameObject>();

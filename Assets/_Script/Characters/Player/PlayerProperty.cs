@@ -20,10 +20,10 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelClosing;
         [SerializeField] VoidEventChannel Charge;
         [SerializeField] GameObject Shield;
-        [SerializeField] bool CanGetShield;
-        [SerializeField] int CountComboToGetShield;
+        public bool CanGetShield;
+        public int CountComboToGetShield;
         [SerializeField] float attack;
-        [SerializeField] float Maxhealth;
+        [SerializeField] float maxhealth;
 
         private bool IsHitted = false;//用于护盾功能连击
         private float health;
@@ -65,23 +65,29 @@ namespace Adv
                 CurrentMaxCombo = 0;
                 Combo = 0;
                 ComboChange.Broadcast(Combo);
-                health = Maxhealth;
-                healtChange.Broadcast(health);
+                health = maxhealth;
+                healtChange.Broadcast(maxhealth);
             });
             LevelEnd.AddListener(() =>
             {
-                health = Maxhealth;
-                healtChange.Broadcast(health);
+                health = maxhealth;
+                healtChange.Broadcast(maxhealth);
                 ShieldCombo = 0;
                 IsHitted = false;
             });
-
         }
 
         private void OnEnable()
         {
-            health = Maxhealth;
-            healtChange.Broadcast(health);
+            health = maxhealth;
+            healtChange.Broadcast(maxhealth);
+        }
+
+        public void MaxHealthPlus1()
+        {
+            maxhealth += 1;
+            health = maxhealth;
+            healtChange.Broadcast(maxhealth);
         }
 
         public void Hitted(float damage)

@@ -30,6 +30,11 @@ namespace Adv
             waitForReleaseInterval1 = new WaitForSeconds(ReleaseInterval1);
             waitForReleaseInterval2 = new WaitForSeconds(ReleaseInterval2);
             waitForTipsShowTime = new WaitForSeconds(TipsShowTime);
+
+            EarlyOutLevel.AddListener(() =>
+            {
+                Tips.enabled = false;
+            });
         }
 
         protected override void ReleaseEnemyEvent()
