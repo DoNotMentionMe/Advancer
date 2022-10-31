@@ -22,5 +22,10 @@ namespace Adv
         {
             Delegate -= action;
         }
+
+        public void RemoveAllListenners()
+        {
+            Delegate = delegate { };
+        }
     }
 }

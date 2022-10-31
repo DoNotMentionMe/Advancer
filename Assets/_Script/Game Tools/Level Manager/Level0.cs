@@ -99,6 +99,7 @@ namespace Adv
             }
 
             liveEnemyList.Remove(nullObj);//去除空对象
+            Destroy(nullObj);
         }
 
         IEnumerator ShowTipsSeconds(string tips)

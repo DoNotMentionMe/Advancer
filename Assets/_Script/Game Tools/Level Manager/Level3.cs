@@ -118,6 +118,7 @@ namespace Adv
             }
 
             liveEnemyList.Remove(nullObj);
+            Destroy(nullObj);
         }
 
         IEnumerator ReleaseEnemy05()

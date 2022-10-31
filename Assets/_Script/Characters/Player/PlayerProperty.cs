@@ -75,6 +75,18 @@ namespace Adv
                 ShieldCombo = 0;
                 IsHitted = false;
             });
+
+        }
+
+        private void Start()
+        {
+            GameSaver.Instance.SaveDataEventCall(() =>
+            {
+                BayatGames.SaveGameFree.SaveGame.Save<bool>("CanGetShield", CanGetShield);
+                BayatGames.SaveGameFree.SaveGame.Save<int>("CountComboToGetShield", CountComboToGetShield);
+                BayatGames.SaveGameFree.SaveGame.Save<float>("maxHealth", maxhealth);
+            });
+
         }
 
         private void OnEnable()

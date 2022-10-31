@@ -20,6 +20,19 @@ namespace Adv
         private const string liveTimeShowStart = "生存时间: ";
         private const string liveTimeShowEnd = " 秒";
 
+        private void Awake()
+        {
+
+        }
+
+        private void Start()
+        {
+            GameSaver.Instance.SaveDataEventCall(() =>
+            {
+                BayatGames.SaveGameFree.SaveGame.Save<float>("MaxLiveTime", MaxLiveTime);
+            });
+        }
+
         private void OnEnable()
         {
             //获取生存时间CurrentLevelLiveTime

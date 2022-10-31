@@ -10,6 +10,7 @@ namespace Adv
     {
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel ClearingUIClose;
+        [SerializeField] VoidEventChannel SaveDataEvent;
         [SerializeField] FloatEventChannel MoneyChange;
         [SerializeField] Button CloseButton;
 
@@ -26,6 +27,7 @@ namespace Adv
             {
                 ClearingUIClose.Broadcast();
                 LastSelected.Select();
+                GameSaver.Instance.SaveAllData();//最后保存数据
                 gameObject.SetActive(false);
             });
 
@@ -36,6 +38,11 @@ namespace Adv
         {
             CloseButton.Select();
             CloseButton.OnSelect(null);
+        }
+
+        private void OnDisable()
+        {
+
         }
     }
 }

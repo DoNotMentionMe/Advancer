@@ -62,6 +62,7 @@ namespace Adv
             {
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
+                GameSaver.Instance.SaveAllData();//购买后顺便保存游戏
                 return true;
             }
             return false;

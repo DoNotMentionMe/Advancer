@@ -20,6 +20,7 @@ namespace Adv
         [SerializeField] float LevelInfiniteIntervalStart;
         [SerializeField] float Enemy05ReleaseIntervalStart;
 
+        private GameObject nullObj = null;
         private float LevelStartTime;
         private float CurrentTageDuration;
         private WaitForSeconds waitforReleaseInterval;
@@ -42,12 +43,12 @@ namespace Adv
 
         protected override void RunAfterEnemysDied()
         {
-
+            Destroy(nullObj);
         }
 
         IEnumerator RandomReleaseLevel1Enemy()
         {
-            var nullObj = new GameObject();
+            nullObj = new GameObject();
             liveEnemyList.Add(nullObj);//防止提前结束
 
             GameObject obj = null;

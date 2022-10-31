@@ -10,6 +10,20 @@ namespace Adv
         [SerializeField] PlayerProperty playerProperty;
         [SerializeField] Goods_ShieldLevelUp shieldLevelUp;
 
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
+        private void Start()
+        {
+            GameSaver.Instance.SaveDataEventCall(() =>
+            {
+                BayatGames.SaveGameFree.SaveGame.Save<bool>(nameof(Goods_Shield) + "_IsUnlocked", IsUnlocked);
+                BayatGames.SaveGameFree.SaveGame.Save<int>(nameof(Goods_Shield) + "_CurrentLevel", CurrentLevel);
+            });
+        }
+
         protected override void GoodsFunction()
         {
             playerProperty.CanGetShield = true;
@@ -22,6 +36,7 @@ namespace Adv
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
                 shieldLevelUp.IsUnlocked = true;
+                GameSaver.Instance.SaveAllData();
                 return true;
             }
             return false;

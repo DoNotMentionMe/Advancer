@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelClosing;
         [SerializeField] protected VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel ClearingUIClose;
+        [SerializeField] VoidEventChannel SaveDataEvent;
         //=======================================================================
         [SerializeField] LevelManager levelManager;
         [SerializeField] protected GameObject EnemyGenerationPosition1;
@@ -87,6 +89,21 @@ namespace Adv
                 ButtonImage.enabled = true;
                 ButtonText.enabled = true;
                 levelButton.enabled = true;
+            });
+
+            //存档预处理，关卡结算时真正保存
+            // GameSaver.Instance.SaveCache<bool>(Key + "_IsPassed", IsPassed);
+            // GameSaver.Instance.SaveCache<int>(Key + "_LevelMaxCombo", LevelMaxCombo);
+
+        }
+
+        private void Start()
+        {
+
+            GameSaver.Instance.SaveDataEventCall(() =>
+            {
+                SaveGame.Save<bool>(Key + "_IsPassed", IsPassed);
+                SaveGame.Save<int>(Key + "_LevelMaxCombo", LevelMaxCombo);
             });
         }
         private void OnDestroy()
@@ -158,9 +175,9 @@ namespace Adv
             }
             //胜利
             IsVictory = true;//必须要LevelEnd之前
+            IsPassed = true;
             LevelEnd.Broadcast();//
             LevelClosing.Broadcast();//
-            IsPassed = true;
             RunAfterEnemysDied();
 
         }

@@ -39,6 +39,16 @@ namespace Adv
             mRigidbody = GetComponent<Rigidbody2D>();
             Input.onLeft_Long += LeftLong;
             Input.onRight_Long += RightLong;
+            //GameSaver.Instance.SaveCache<bool>("AttackCanBreak", attackCanBreak);
+        }
+
+        private void Start()
+        {
+
+            GameSaver.Instance.SaveDataEventCall(() =>
+            {
+                BayatGames.SaveGameFree.SaveGame.Save<bool>("AttackCanBreak", attackCanBreak);
+            });
         }
 
         private void OnDestroy()

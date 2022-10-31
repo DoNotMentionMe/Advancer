@@ -76,6 +76,7 @@ namespace Adv
             }
 
             liveEnemyList.Remove(nullObj);
+            Destroy(nullObj);
         }
 
 
