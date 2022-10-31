@@ -9,6 +9,8 @@ namespace Adv
     {
         public static float Money = 0;
 
+        [SerializeField] FloatEventChannel MoneyChange;
+
         private void Awake()
         {
             //GameSaver.Instance.SaveCache<float>("PlayerMoney", Money);
@@ -16,6 +18,13 @@ namespace Adv
 
         private void Start()
         {
+            //读取数据
+            if (GameSaver.Instance.Exists("PlayerMoney"))
+            {
+                Money = GameSaver.Instance.Load<float>("PlayerMoney");
+                MoneyChange.Broadcast(Money);
+            }
+
             GameSaver.Instance.SaveDataEventCall(() =>
             {
                 SaveGame.Save<float>("PlayerMoney", Money);

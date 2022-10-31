@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Adv
 {
@@ -19,6 +20,8 @@ namespace Adv
         [SerializeField] float DifferencePerTage;
         [SerializeField] float LevelInfiniteIntervalStart;
         [SerializeField] float Enemy05ReleaseIntervalStart;
+        [SerializeField] LiveEndUI liveEndUI;
+        [SerializeField] Text MaxLiveTimeShow;
 
         private GameObject nullObj = null;
         private float LevelStartTime;
@@ -33,6 +36,17 @@ namespace Adv
             Enemy05CurrentRelaseInterval = Enemy05ReleaseIntervalStart;
             waitforReleaseInterval = new WaitForSeconds(CurrentInterval);
             waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05CurrentRelaseInterval);
+        }
+
+        public override void LoadData()
+        {
+            base.LoadData();
+            if (GameSaver.Instance.Exists("MaxLiveTime"))
+            {
+                liveEndUI.MaxLiveTime = GameSaver.Instance.Load<float>("MaxLiveTime");
+                //失效，可能是因为加载时，Text组件时关闭状态
+                MaxLiveTimeShow.text = $"最长存活: {liveEndUI.MaxLiveTime} 秒";
+            }
         }
 
         protected override void ReleaseEnemyEvent()

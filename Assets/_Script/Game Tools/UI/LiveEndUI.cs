@@ -15,18 +15,16 @@ namespace Adv
         [SerializeField] int MoneyRate;
         private float CurrentLevelLiveTime;
         //奖励==LiveTime * LiveTime * MoneyRate
-        private float MaxLiveTime = 0;//TODO 存档
+        public float MaxLiveTime = 0;//TODO 存档
 
         private const string liveTimeShowStart = "生存时间: ";
         private const string liveTimeShowEnd = " 秒";
 
-        private void Awake()
-        {
-
-        }
-
         private void Start()
         {
+            //不能在这里读取MaxLiveTime，因为会在这之前就关闭该对象
+            //实际MaxLiveTime最佳声明位置应该在LevelInfinite脚本中
+
             GameSaver.Instance.SaveDataEventCall(() =>
             {
                 BayatGames.SaveGameFree.SaveGame.Save<float>("MaxLiveTime", MaxLiveTime);
@@ -35,7 +33,7 @@ namespace Adv
 
         private void OnEnable()
         {
-            //获取生存时间CurrentLevelLiveTime
+            //获取当局生存时间CurrentLevelLiveTime
             CurrentLevelLiveTime = currentLiveTimeShow.liveTime;
             //显示时间
             LiveTimeShow.text = string.Concat(liveTimeShowStart, CurrentLevelLiveTime, liveTimeShowEnd);
@@ -43,6 +41,8 @@ namespace Adv
             if (CurrentLevelLiveTime > MaxLiveTime)
             {
                 MaxLiveTime = CurrentLevelLiveTime;
+                //start在Onenable之后执行，新纪录会被本地的旧记录覆盖掉
+                //BayatGames.SaveGameFree.SaveGame.Save<float>("MaxLiveTime", CurrentLevelLiveTime);
                 //显示
                 MaxLiveTimeShow.text = $"最长存活: {MaxLiveTime} 秒";
             }
@@ -60,6 +60,8 @@ namespace Adv
                 PlayerAsset.Money += plusMoney;
                 MoneyChange.Broadcast(PlayerAsset.Money);
             }
+
+            GameSaver.Instance.SaveAllData();
         }
     }
 }

@@ -25,9 +25,14 @@ namespace Adv
             return SaveGame.Load<T>(identifier, SaveGamePath.DataPath);
         }
 
+        public bool Exists(string identifier)
+        {
+            return SaveGame.Exists(identifier, SaveGamePath.DataPath);
+        }
+
         public void Clear()
         {
-            SaveGame.Clear();
+            SaveGame.Clear(SaveGamePath.DataPath);
         }
 
         private void OnDestroy()

@@ -14,6 +14,20 @@ namespace Adv
             base.Awake();
         }
 
+        public override void LoadData()
+        {
+            if (GameSaver.Instance.Exists(nameof(HealthPlus1) + "_IsUnlocked"))
+            {
+                IsUnlocked = GameSaver.Instance.Load<bool>(nameof(HealthPlus1) + "_IsUnlocked");
+                CheckBugCount();
+            }
+            if (GameSaver.Instance.Exists(nameof(HealthPlus1) + "_CurrentLevel"))
+            {
+                CurrentLevel = GameSaver.Instance.Load<int>(nameof(HealthPlus1) + "_CurrentLevel");
+            }
+            base.LoadData();
+        }
+
         private void Start()
         {
 

@@ -28,6 +28,16 @@ namespace Adv
             Level[8].VisibleCondition = _ => Level[5].IsPassed;//Level4
             Level[9].VisibleCondition = _ => Level[8].IsPassed;//Level4 Pro
             Level[10].VisibleCondition = _ => Level[8].IsPassed;//Level 无限
+
+        }
+
+        private void Start()
+        {
+            //读取关卡存档信息
+            for (var i = 0; i < Level.Count; i++)
+            {
+                Level[i].LoadData();
+            }
             CheckAllLevelIsUnLocked();
         }
 

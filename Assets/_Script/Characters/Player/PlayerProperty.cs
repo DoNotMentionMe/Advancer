@@ -80,6 +80,16 @@ namespace Adv
 
         private void Start()
         {
+            if (GameSaver.Instance.Exists("CanGetShield"))
+                CanGetShield = GameSaver.Instance.Load<bool>("CanGetShield");
+            if (GameSaver.Instance.Exists("CountComboToGetShield"))
+                CountComboToGetShield = GameSaver.Instance.Load<int>("CountComboToGetShield");
+            if (GameSaver.Instance.Exists("maxHealth"))
+            {
+                maxhealth = GameSaver.Instance.Load<float>("maxHealth");
+                health = maxhealth;
+                healtChange.Broadcast(maxhealth);
+            }
             GameSaver.Instance.SaveDataEventCall(() =>
             {
                 BayatGames.SaveGameFree.SaveGame.Save<bool>("CanGetShield", CanGetShield);

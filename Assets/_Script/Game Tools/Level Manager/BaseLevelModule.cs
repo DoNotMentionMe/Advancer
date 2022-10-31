@@ -90,16 +90,18 @@ namespace Adv
                 ButtonText.enabled = true;
                 levelButton.enabled = true;
             });
+        }
 
-            //存档预处理，关卡结算时真正保存
-            // GameSaver.Instance.SaveCache<bool>(Key + "_IsPassed", IsPassed);
-            // GameSaver.Instance.SaveCache<int>(Key + "_LevelMaxCombo", LevelMaxCombo);
-
+        public virtual void LoadData()
+        {
+            if (GameSaver.Instance.Exists(Key + "_IsPassed"))
+                IsPassed = GameSaver.Instance.Load<bool>(Key + "_IsPassed");
+            if (GameSaver.Instance.Exists(Key + "_LevelMaxCombo"))
+                LevelMaxCombo = GameSaver.Instance.Load<int>(Key + "_LevelMaxCombo");
         }
 
         private void Start()
         {
-
             GameSaver.Instance.SaveDataEventCall(() =>
             {
                 SaveGame.Save<bool>(Key + "_IsPassed", IsPassed);

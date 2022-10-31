@@ -27,17 +27,26 @@ namespace Adv
             });
         }
 
-        private void OnEnable()
+        private void Start()
         {
+            //读取商品存档
+            for (var i = 0; i < Goods.Count; i++)
+            {
+                Goods[i].LoadData();
+            }
             CheckAllLevelIsUnLocked();
         }
+
         public void CheckAllLevelIsUnLocked()
         {
             //检查解锁情况，判断关卡开关是否打开
             for (var i = 0; i < Goods.Count; i++)
             {
                 if (Goods[i].CheckUnLcock())
+                {
                     Goods[i].SetActive(true);
+                    //Goods[i].CheckBugCount();
+                }
                 else
                     Goods[i].SetActive(false);
                 if (EventSystem.current.currentSelectedGameObject == Goods[i].BugButton.gameObject && !Goods[i].gameObject.activeSelf)

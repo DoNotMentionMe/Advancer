@@ -44,14 +44,16 @@ namespace Adv
                     GoodsFunction();
                     CheckBugCount();
                     shop.CheckAllLevelIsUnLocked();
+                    GameSaver.Instance.SaveAllData();//购买后顺便保存游戏
                 }
             });
         }
 
-        private void OnEnable()
+        public virtual void LoadData()
         {
-            CheckBugCount();
+            Value.text = (Mathf.Pow(ValueIncreaseRate, CurrentLevel) * InitalValue).ToString();
         }
+
 
         /// <summary>
         /// 判断是否达到购买上限，是则返回true
@@ -62,7 +64,6 @@ namespace Adv
             {
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
-                GameSaver.Instance.SaveAllData();//购买后顺便保存游戏
                 return true;
             }
             return false;
@@ -70,7 +71,7 @@ namespace Adv
 
         public virtual bool CheckUnLcock()
         {
-            return VisibleCondition(this);
+            return VisibleCondition(this) && !(CanDestroy && CurrentLevel >= DestroyCount);
         }
 
         public virtual void SetActive(bool enabled)

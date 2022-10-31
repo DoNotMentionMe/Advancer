@@ -44,6 +44,9 @@ namespace Adv
 
         private void Start()
         {
+            //读取数据
+            if (GameSaver.Instance.Exists("AttackCanBreak"))
+                attackCanBreak = GameSaver.Instance.Load<bool>("AttackCanBreak");
 
             GameSaver.Instance.SaveDataEventCall(() =>
             {

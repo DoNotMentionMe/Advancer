@@ -15,6 +15,19 @@ namespace Adv
             base.Awake();
         }
 
+        public override void LoadData()
+        {
+            if (GameSaver.Instance.Exists(nameof(Goods_Shield) + "_IsUnlocked"))
+            {
+                IsUnlocked = GameSaver.Instance.Load<bool>(nameof(Goods_Shield) + "_IsUnlocked");
+                CheckBugCount();
+            }
+            if (GameSaver.Instance.Exists(nameof(Goods_Shield) + "_CurrentLevel"))
+                CurrentLevel = GameSaver.Instance.Load<int>(nameof(Goods_Shield) + "_CurrentLevel");
+
+            base.LoadData();
+        }
+
         private void Start()
         {
             GameSaver.Instance.SaveDataEventCall(() =>
@@ -36,10 +49,11 @@ namespace Adv
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
                 shieldLevelUp.IsUnlocked = true;
-                GameSaver.Instance.SaveAllData();
                 return true;
             }
             return false;
         }
+
+
     }
 }
