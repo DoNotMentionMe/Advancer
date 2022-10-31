@@ -82,3 +82,6 @@ crashlytics-build.properties
 
 /Assets/Art/Sounds/*
 /Assets/Art/Sounds.meta
+
+/Assets/SaveData/*
+/Assets/SaveData.meta
