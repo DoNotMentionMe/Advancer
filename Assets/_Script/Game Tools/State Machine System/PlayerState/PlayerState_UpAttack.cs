@@ -98,8 +98,12 @@ namespace Adv
                 anim.Play(Idle);
                 attackState = AttackStates.Not;
 
+                //没有命中
                 if (StartCombo == PlayerProperty.Combo)
+                {
+                    PlayerProperty.NotEmptyAttackCurrentLevel = false;
                     PlayerProperty.ResetCombo();
+                }
 
                 if (ICache)
                 {

@@ -7,7 +7,7 @@ namespace Adv
     public class PlayerController : MonoBehaviour
     {
         public float LocalScaleX => mTransform.localScale.x;
-        public bool AttackCanBreak => attackCanBreak;
+        public bool AttackCanBreak { get => attackCanBreak; set => attackCanBreak = value; }
         public bool DoubleAttack => doubleAttack;
         public float DoubleAttackEffectiveTime => doubleAttackEffectiveTime;
 

@@ -7,6 +7,8 @@ namespace Adv
     public class AttackObj : MonoBehaviour
     {
         [SerializeField] FloatEventChannel AttackHit;
+        [SerializeField] float ImpulseAmplitudeGain = 0.15f;
+        [SerializeField] float ImpulseFrequencyGain = 0.9f;
 
         //private int fixedFrameDuration;
         private string EnemyTag = "Enemy";
@@ -36,6 +38,19 @@ namespace Adv
         {
             playerProperty = null;
             EnemySet.Clear();
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.tag.Equals(EnemyTag) || col.tag.Equals(EnemyAttackTag))
+            {
+                //最近的点
+                var contactPoint = col.ClosestPoint(transform.position);
+                //震动
+                ImpulseController.Instance.ProduceImpulse(contactPoint, ImpulseAmplitudeGain, ImpulseFrequencyGain);
+                //特效
+                ParticleEffectController.Instance.PlayHitEffect(contactPoint);
+            }
         }
 
         private void OnTriggerStay2D(Collider2D col)

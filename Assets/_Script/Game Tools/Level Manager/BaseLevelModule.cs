@@ -73,6 +73,8 @@ namespace Adv
             EarlyOutLevel.AddListener(() =>
             {
                 CurrentRunningLevelKey = EndKey;
+                levelManager.CheckAllLevelIsUnLocked();
+                if (!gameObject.activeSelf) return;
                 ButtonImage.enabled = true;
                 ButtonText.enabled = true;
                 levelButton.enabled = true;
@@ -80,6 +82,8 @@ namespace Adv
             ClearingUIClose.AddListener(() =>
             {
                 CurrentRunningLevelKey = EndKey;
+                levelManager.CheckAllLevelIsUnLocked();
+                if (!gameObject.activeSelf) return;
                 ButtonImage.enabled = true;
                 ButtonText.enabled = true;
                 levelButton.enabled = true;
@@ -158,7 +162,7 @@ namespace Adv
             LevelClosing.Broadcast();//
             IsPassed = true;
             RunAfterEnemysDied();
-            levelManager.CheckAllLevelIsUnLocked();
+
         }
     }
 }

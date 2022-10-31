@@ -40,9 +40,9 @@ namespace Adv
                 {
                     ShieldCombo++;
                 }
-                else if (combo == 0 && !IsHitted)//攻击落空
+                else if (combo == 0 && !IsHitted)//攻击落空或开头
                 {
-                    NotEmptyAttackCurrentLevel = false;
+
                 }
                 else if (combo == 0 && IsHitted)//受伤
                 {

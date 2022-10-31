@@ -102,7 +102,10 @@ namespace Adv
                 attackState = AttackStates.Not;
 
                 if (StartCombo == PlayerProperty.Combo)
+                {
+                    PlayerProperty.NotEmptyAttackCurrentLevel = false;
                     PlayerProperty.ResetCombo();
+                }
 
                 if (ICache)
                 {

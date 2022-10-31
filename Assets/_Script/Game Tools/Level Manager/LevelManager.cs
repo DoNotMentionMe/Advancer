@@ -19,15 +19,15 @@ namespace Adv
             //加载关卡解锁条件
             Level[0].VisibleCondition = _ => true;//Level0
             Level[1].VisibleCondition = _ => Level[0].IsPassed;//Level1
-            Level[2].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;//Level1Pro
-            Level[3].VisibleCondition = _ => Level[0].IsPassed && Level[1].IsPassed;//Level2
-            Level[4].VisibleCondition = _ => true;//Level2 Pro
-            Level[5].VisibleCondition = _ => true;//Level3
-            Level[6].VisibleCondition = _ => true;//Level3 Pro
-            Level[7].VisibleCondition = _ => true;//Level KIA 1
-            Level[8].VisibleCondition = _ => true;//Level4
-            Level[9].VisibleCondition = _ => true;//Level4 Pro
-            Level[10].VisibleCondition = _ => true;//Level 无限
+            Level[2].VisibleCondition = _ => Level[1].IsPassed;//Level1Pro
+            Level[3].VisibleCondition = _ => Level[1].IsPassed;//Level2
+            Level[4].VisibleCondition = _ => Level[3].IsPassed;//Level2 Pro
+            Level[5].VisibleCondition = _ => Level[3].IsPassed;//Level3
+            Level[6].VisibleCondition = _ => Level[5].IsPassed;//Level3 Pro
+            Level[7].VisibleCondition = _ => Level[5].IsPassed;//Level KIA 1
+            Level[8].VisibleCondition = _ => Level[5].IsPassed;//Level4
+            Level[9].VisibleCondition = _ => Level[8].IsPassed;//Level4 Pro
+            Level[10].VisibleCondition = _ => Level[8].IsPassed;//Level 无限
             CheckAllLevelIsUnLocked();
         }
 

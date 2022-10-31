@@ -70,7 +70,7 @@ namespace Adv
             var startTime = Time.time;
             while (Time.time - startTime < Level0Tage2Duration)
             {
-                var random = Random.Range(1, 4);
+                var random = Random.Range(1, 3);
                 if (random == 1)
                     obj = Enemy01;
                 else if (random == 2)

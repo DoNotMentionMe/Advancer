@@ -12,19 +12,19 @@ namespace Adv
 
         public abstract bool IsUnlocked { get; set; }//TODO 存档
         protected abstract void GoodsFunction();
-        [SerializeField] bool CanDestroy;
-        [SerializeField] int DestroyCount;
+        [SerializeField] protected bool CanDestroy;
+        [SerializeField] protected int DestroyCount;
         [SerializeField] int MaxLevel;
         [SerializeField] int InitalValue;
         [SerializeField, Range(1f, 10f)] protected float ValueIncreaseRate = 1;
         public Button BugButton;
         [SerializeField] Text Value;
         [SerializeField] FloatEventChannel MoneyChange;
-        [SerializeField] Shop shop;
+        [SerializeField] protected Shop shop;
 
         protected int CurrentLevel = 0;//TODO 存档
 
-        private void Awake()
+        protected virtual void Awake()
         {
             //读档
 
@@ -34,7 +34,7 @@ namespace Adv
             {
                 var NeedMoney = 0f;
                 NeedMoney = Mathf.Pow(ValueIncreaseRate, CurrentLevel) * InitalValue;
-                if (PlayerAsset.Money > NeedMoney)
+                if (PlayerAsset.Money >= NeedMoney)
                 {
                     PlayerAsset.Money -= NeedMoney;
                     MoneyChange.Broadcast(PlayerAsset.Money);
@@ -53,13 +53,18 @@ namespace Adv
             CheckBugCount();
         }
 
-        protected void CheckBugCount()
+        /// <summary>
+        /// 判断是否达到购买上限，是则返回true
+        /// </summary>
+        public virtual bool CheckBugCount()
         {
             if (CanDestroy && CurrentLevel >= DestroyCount)
             {
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
+                return true;
             }
+            return false;
         }
 
         public virtual bool CheckUnLcock()

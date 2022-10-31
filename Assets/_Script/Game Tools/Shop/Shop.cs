@@ -10,13 +10,21 @@ namespace Adv
     {
         public List<Goods> Goods = new List<Goods>();
 
+        [SerializeField] VoidEventChannel Level4Passed;
+
         private void Awake()
         {
             Goods[0].VisibleCondition = _ => Goods[0].IsUnlocked;//血量
             Goods[1].VisibleCondition = _ => Goods[1].IsUnlocked;//护盾解锁
-            Goods[2].VisibleCondition = _ => !Goods[1].gameObject.activeSelf;//护盾升级
+            Goods[2].VisibleCondition = _ => Goods[2].IsUnlocked;//护盾升级，解锁后出现
+            Goods[3].VisibleCondition = _ => Goods[3].IsUnlocked;//攻击可打断
 
-
+            Level4Passed.AddListener(() =>
+            {
+                Goods[3].IsUnlocked = true;
+                Debug.Log(Goods[3].IsUnlocked);
+                CheckAllLevelIsUnLocked();
+            });
         }
 
         private void OnEnable()
