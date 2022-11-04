@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22230673, y: 0.91640913}
   m_EdgeRadius: 0
---- !u!1 &6918572147521882763
+--- !u!1 &3516955492070675879
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,42 +66,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6918572147521882870}
-  - component: {fileID: 6918572147521882869}
-  - component: {fileID: 6918572147521882868}
-  - component: {fileID: -2625502796260205017}
-  - component: {fileID: -1877093001535165117}
+  - component: {fileID: 7053058220647249832}
+  - component: {fileID: 1808595056774180167}
+  - component: {fileID: 8674921957943079255}
   m_Layer: 3
-  m_Name: Enemy01
-  m_TagString: Enemy
+  m_Name: "\u52A8\u753B"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6918572147521882870
+--- !u!4 &7053058220647249832
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918572147521882763}
+  m_GameObject: {fileID: 3516955492070675879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.04, y: -1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3619304253985412793}
-  - {fileID: 7699108323010335908}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Children: []
+  m_Father: {fileID: 6918572147521882870}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6918572147521882869
+--- !u!212 &1808595056774180167
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918572147521882763}
+  m_GameObject: {fileID: 3516955492070675879}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -147,6 +143,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8674921957943079255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516955492070675879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd052da31335ff45bf259fc92e137ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTransform: {fileID: 7053058220647249832}
+  PullDifference: 0.11
+  ChangePeriod: 0.85
+  RotateSpeed: 360
+--- !u!1 &6918572147521882763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6918572147521882870}
+  - component: {fileID: 6918572147521882868}
+  - component: {fileID: -2625502796260205017}
+  - component: {fileID: -1877093001535165117}
+  m_Layer: 3
+  m_Name: Enemy01
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6918572147521882870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918572147521882763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.04, y: -1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3619304253985412793}
+  - {fileID: 7699108323010335908}
+  - {fileID: 7053058220647249832}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6918572147521882868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +218,10 @@ MonoBehaviour:
   maxHitBackSpeedX: 20
   minHitBackSpeedY: 20
   maxHitBackSpeedY: 40
+  animController: {fileID: 8674921957943079255}
+  PigDied:
+    audioClip: {fileID: 8300000, guid: 6b5a70bd89447134d9ae530cdce2d718, type: 3}
+    volume: 1.4
   IsFixedPositin: 0
   fixedPosition: {x: 0, y: 0}
 --- !u!61 &-2625502796260205017

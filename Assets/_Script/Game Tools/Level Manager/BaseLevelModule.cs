@@ -95,9 +95,14 @@ namespace Adv
         public virtual void LoadData()
         {
             if (GameSaver.Instance.Exists(Key + "_IsPassed"))
+            {
+                Debug.Log($"加载关卡IsPassed");
                 IsPassed = GameSaver.Instance.Load<bool>(Key + "_IsPassed");
+            }
             if (GameSaver.Instance.Exists(Key + "_LevelMaxCombo"))
+            {
                 LevelMaxCombo = GameSaver.Instance.Load<int>(Key + "_LevelMaxCombo");
+            }
         }
 
         private void Start()

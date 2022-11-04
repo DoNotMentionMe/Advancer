@@ -21,6 +21,8 @@ namespace Adv
         [SerializeField] float maxHitBackSpeedX;
         [SerializeField] float minHitBackSpeedY;
         [SerializeField] float maxHitBackSpeedY;
+        [SerializeField] CharacterDynamicController animController;
+        [SerializeField] AudioData PigDied;
 
         private float moveDirection;
 
@@ -50,6 +52,10 @@ namespace Adv
             mFSM.State(EnemyState.Run)
                 .OnEnter(() =>
                 {
+
+                    //开始动画
+                    animController.StartDynamicChange();
+
                     if (IsFixedPositin)
                     {
                         mTransform.position = fixedPosition;
@@ -71,6 +77,7 @@ namespace Adv
                     }
                     if (DetectGroundedAndRunCor == null)
                         DetectGroundedAndRunCor = StartCoroutine(nameof(DetectGroundedAndRun));
+
                 })
                 .OnUpdate(() =>
                 {
@@ -84,7 +91,7 @@ namespace Adv
             mFSM.State(EnemyState.Died)
                 .OnEnter(() =>
                 {
-                    //死亡动画
+                    //死亡逆时针旋转
                     //击退
                     var backDirection = -moveDirection;
                     var hitBackSpeedX = Random.Range(minHitBackSpeedX, maxHitBackSpeedX);
@@ -140,6 +147,14 @@ namespace Adv
 
         public override void Hitted(float damage)
         {
+            //停止动画
+            animController.StopDynamicChange();
+            if (mTransform.localScale.x > 0)
+                animController.StartRotation(RotationDirection.Clockwise);
+            else
+                animController.StartRotation(RotationDirection.Anticlockwise);
+            //音效
+            AudioManager.Instance.PlayRandomSFX(PigDied);
             AttackHit.Broadcast();
             var backDirection = -moveDirection;
             mRigidbody2D.velocity = Vector2.right * backDirection * minHitBackSpeedX + Vector2.up * minHitBackSpeedY;

@@ -10,6 +10,7 @@ namespace Adv
         [SerializeField] float attack = 1f;
         [SerializeField] float moveSpeed = 3f;
         [SerializeField] float hitBackSpeed = 6f;
+        [SerializeField] AudioData hitBall;
 
         private string PlayerTag = "Player";
         private string PlayerAttackTag = "PlayerAttack";
@@ -28,6 +29,7 @@ namespace Adv
             if (col.tag.Equals(PlayerAttackTag))//被命中
             {
                 attackHit.Broadcast();
+                AudioManager.Instance.PlayRandomSFX(hitBall);
                 mRigidbody2D.velocity = Vector2.up * hitBackSpeed;
             }
         }

@@ -8,6 +8,7 @@ namespace Adv
     {
         [SerializeField] bool DontFalse;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] AudioData ShieldBroken;
         private const string EnemyTag = "Enemy";
         private const string EnemyAttackTag = "EnemyAttack";
 
@@ -24,14 +25,16 @@ namespace Adv
         {
             if (col.CompareTag(EnemyTag))
             {
-                //TODO播放音效
+                //播放音效
+                AudioManager.Instance.PlaySFX(ShieldBroken);
                 //关闭
                 if (!DontFalse)
                     gameObject.SetActive(false);
             }
             else if (col.CompareTag(EnemyAttackTag))
             {
-                //TODO播放音效
+                //播放音效
+                AudioManager.Instance.PlaySFX(ShieldBroken);
                 //关闭
                 col.gameObject.SetActive(false);
                 if (!DontFalse)

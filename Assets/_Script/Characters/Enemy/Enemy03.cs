@@ -19,6 +19,7 @@ namespace Adv
         [SerializeField] float AttackMoveSpeed;
         [SerializeField] float HitBackMoveSpeed;
         [SerializeField] Collider2D mCollider2D;
+        [SerializeField] AudioData HitKnife;
         private const string Idle = "Idle";
         private const string Jump = "Jump";
         private const string Attack = "Attack";
@@ -181,6 +182,7 @@ namespace Adv
             if (col.tag.Equals(PlayerAttackTag))//被命中
             {
                 attackHit.Broadcast();
+                AudioManager.Instance.PlayRandomSFX(HitKnife);
                 mCollider2D.enabled = false;
             }
         }

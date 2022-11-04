@@ -11,6 +11,7 @@ namespace Adv
 
         public void SaveDataEventCall(System.Action action)
         {
+            SaveGame.SavePath = SaveGamePath.DataPath;
             SaveDataEvent.AddListener(action);
         }
 
@@ -22,11 +23,13 @@ namespace Adv
 
         public T Load<T>(string identifier)
         {
+            SaveGame.SavePath = SaveGamePath.DataPath;
             return SaveGame.Load<T>(identifier, SaveGamePath.DataPath);
         }
 
         public bool Exists(string identifier)
         {
+            SaveGame.SavePath = SaveGamePath.DataPath;
             return SaveGame.Exists(identifier, SaveGamePath.DataPath);
         }
 

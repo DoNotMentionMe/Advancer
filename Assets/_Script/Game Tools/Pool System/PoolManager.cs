@@ -11,6 +11,7 @@ namespace Adv
         [SerializeField] Pool[] Enemy;
         [SerializeField] Pool[] EnemyItem;
         [SerializeField] Pool[] PlayerItem;
+        [SerializeField] Pool[] EnemyVFX;
 
         static Dictionary<GameObject, Pool> dictionary;
 
@@ -23,6 +24,7 @@ namespace Adv
             Initialize(Enemy);
             Initialize(EnemyItem);
             Initialize(PlayerItem);
+            Initialize(EnemyVFX);
         }
 #if UNITY_EDITOR
         private void OnDestroy()
@@ -31,6 +33,7 @@ namespace Adv
             CheckPoolSize(Enemy);
             CheckPoolSize(EnemyItem);
             CheckPoolSize(PlayerItem);
+            CheckPoolSize(EnemyVFX);
         }
 #endif
 
