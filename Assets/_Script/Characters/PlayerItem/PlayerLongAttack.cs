@@ -26,7 +26,6 @@ namespace Adv
             {
                 col.transform.parent.gameObject.SetActive(false);
                 gameObject.SetActive(false);
-                //TODO 消灭敌人爆炸音效
             }
         }
 
@@ -37,7 +36,7 @@ namespace Adv
             //     Debug.Log("触发");
             //     col.transform.parent.gameObject.SetActive(false);
             //     gameObject.SetActive(false);
-            //     //TODO 消灭敌人爆炸音效
+            //     //消灭敌人爆炸音效
             // }
 
             // if (col.tag.Equals(EnemyTag) && !EnemySet.Contains(col.gameObject))

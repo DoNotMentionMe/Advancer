@@ -10,7 +10,7 @@ namespace Adv
     {
         public Func<Goods, bool> VisibleCondition = _ => false;
 
-        public abstract bool IsUnlocked { get; set; }//TODO 存档
+        public abstract bool IsUnlocked { get; set; }
         protected abstract void GoodsFunction();
         [SerializeField] protected bool CanDestroy;
         [SerializeField] protected int DestroyCount;
@@ -22,7 +22,7 @@ namespace Adv
         [SerializeField] FloatEventChannel MoneyChange;
         [SerializeField] protected Shop shop;
 
-        protected int CurrentLevel = 0;//TODO 存档
+        protected int CurrentLevel = 0;
 
         protected virtual void Awake()
         {

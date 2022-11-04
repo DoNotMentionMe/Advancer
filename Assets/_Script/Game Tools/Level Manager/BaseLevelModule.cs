@@ -35,7 +35,7 @@ namespace Adv
         [SerializeField] protected GameObject EnemyGenerationPosition2;
         [SerializeField] protected GameObject EnemyGenerationPosition3;
 
-        public bool IsPassed = false;//TODO 存档
+        public bool IsPassed = false;
         public Func<BaseLevelModule, bool> VisibleCondition = _ => false;
 
         protected List<GameObject> liveEnemyList = new List<GameObject>();
@@ -96,7 +96,6 @@ namespace Adv
         {
             if (GameSaver.Instance.Exists(Key + "_IsPassed"))
             {
-                Debug.Log($"加载关卡IsPassed");
                 IsPassed = GameSaver.Instance.Load<bool>(Key + "_IsPassed");
             }
             if (GameSaver.Instance.Exists(Key + "_LevelMaxCombo"))

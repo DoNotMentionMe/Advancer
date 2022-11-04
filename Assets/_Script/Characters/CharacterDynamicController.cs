@@ -22,6 +22,7 @@ namespace Adv
     {
 
         [SerializeField] Transform mTransform;
+        [SerializeField] bool DontChangeScale = false;//置true时将无法进行动态拉扯
         [SerializeField] float PullDifference;
         [SerializeField] float ChangePeriod;
         [Space]
@@ -32,10 +33,12 @@ namespace Adv
 
         private void OnDisable()
         {
-            StopDynamicChange();//先关掉循环变化的协程
+            if (!DontChangeScale)
+                StopDynamicChange();//先关掉循环变化的协程
             StopRotation();
             StopAllCoroutines();
-            mTransform.localScale = Vector3.one;
+            if (!DontChangeScale)
+                mTransform.localScale = Vector3.one;
             mTransform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
@@ -45,20 +48,20 @@ namespace Adv
         /// </summary>
         public void StartDynamicChange()
         {
-            if (DynamicChangeCoroutine == null)
+            if (DynamicChangeCoroutine == null && !DontChangeScale)
                 DynamicChangeCoroutine = StartCoroutine(nameof(DynamicChange));
         }
 
         public void StopDynamicChange()
         {
             //停止协程
-            if (DynamicChangeCoroutine != null)
+            if (DynamicChangeCoroutine != null && !DontChangeScale)
             {
                 StopCoroutine(DynamicChangeCoroutine);
                 DynamicChangeCoroutine = null;
+                //Scale恢复原状
+                mTransform.localScale = Vector3.one;
             }
-            //Scale恢复原状
-            mTransform.localScale = Vector3.one;
         }
 
         IEnumerator DynamicChange()
@@ -170,7 +173,7 @@ namespace Adv
                 value = 1;
             }
 
-            mTransform.rotation = Quaternion.Euler(0, 0, 0);
+            //mTransform.rotation = Quaternion.Euler(0, 0, 0);
             while (true)
             {
                 mTransform.Rotate(Vector3.forward, value * RotateSpeed * Time.deltaTime);

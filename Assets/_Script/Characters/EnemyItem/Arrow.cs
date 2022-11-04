@@ -6,6 +6,9 @@ namespace Adv
 {
     public class Arrow : MonoBehaviour
     {
+        public enum AttackDirection
+        { Horizontal, Vertical }
+        [SerializeField] AttackDirection attackDirection;
         [SerializeField] VoidEventChannel attackHit;
         [SerializeField] float attack = 1f;
         [SerializeField] float moveSpeed;
@@ -31,6 +34,12 @@ namespace Adv
             }
             if (col.tag.Equals(PlayerAttackTag))//被命中
             {
+                //特效
+                var contactPoint = col.ClosestPoint(transform.position);
+                if (attackDirection == AttackDirection.Horizontal)
+                    ParticleEffectController.Instance.PlayBreakArrow_Horizontal(contactPoint, -(int)mTransform.localScale.x);
+                else
+                    ParticleEffectController.Instance.PlayBreakArrow_Vertical(contactPoint, -(int)mTransform.localScale.x);
                 attackHit.Broadcast();
                 gameObject.SetActive(false);
             }

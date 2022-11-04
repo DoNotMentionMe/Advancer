@@ -15,7 +15,7 @@ namespace Adv
         [SerializeField] int MoneyRate;
         private float CurrentLevelLiveTime;
         //奖励==LiveTime * LiveTime * MoneyRate
-        public float MaxLiveTime = 0;//TODO 存档
+        public float MaxLiveTime = 0;
 
         private const string liveTimeShowStart = "生存时间: ";
         private const string liveTimeShowEnd = " 秒";

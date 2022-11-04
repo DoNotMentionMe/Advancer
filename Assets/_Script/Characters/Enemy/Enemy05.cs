@@ -14,12 +14,17 @@ namespace Adv
         [SerializeField] bool DontSetFalse;
         [SerializeField] float attack;
         [SerializeField] float AppearTime;
+        [SerializeField] float HittedBackSpeed;
         [SerializeField] Vector2 AppearPosLeft;
         [SerializeField] Vector2 AppearPosRight;
         [SerializeField] Vector2 AppearPosUp;
         [SerializeField] AnimationClip AttackClip;
         [SerializeField] SpriteRenderer WeaponRenderer;
         [SerializeField] VoidEventChannel attackHit;
+        [SerializeField] GameObject HittedWeapon_right;
+        [SerializeField] GameObject HittedWeapon_left;
+        [SerializeField] GameObject HittedWeapon_upLeft;
+        [SerializeField] GameObject HittedWeapon_upRight;
 
         private const string Idle = "Idle";
         private const string PlayerTag = "Player";
@@ -31,10 +36,12 @@ namespace Adv
         private string AttackName;
         private Quaternion initalRota;
         private Transform mTransform;
+        private Transform playerTransform;
         private Animator anim;
         private SpriteRenderer spriteRenderer;
         private Collider2D mColl;
         private WaitForSeconds waitForAttackLength;
+        private Coroutine HittedBackCoroutine;
 
         private void Awake()
         {
@@ -52,6 +59,7 @@ namespace Adv
         {
             LevelEnd.AddListener(SetActiveFalse);
             StartCoroutine(nameof(AttackCor));
+            WeaponRenderer.enabled = true;
         }
 
         private void OnDisable()
@@ -63,6 +71,7 @@ namespace Adv
                 faceList.Add(faceRandom);
                 faceRandom = 0;
             }
+            HittedBackCoroutine = null;
         }
 
         private void OnDestroy()
@@ -146,14 +155,34 @@ namespace Adv
                 attackHit.Broadcast();
                 mColl.enabled = false;
                 //anim.Play("Idle");
+                int random = 0;
                 if (faceRandom != 0)
                 {
+                    random = faceRandom;
                     faceList.Add(faceRandom);
+                    faceRandom = 0;
                     if (DebugText)
                         Debug.Log("放回位置：" + faceRandom + "faceList: " + ForEachList(faceList));
-                    faceRandom = 0;
                 }
-                gameObject.SetActive(false);
+                //释放飞出的武器
+                if (random == 1)
+                    PoolManager.Instance.Release(HittedWeapon_left, mTransform.position, Quaternion.Euler(0, 0, 0));
+                else if (random == 2)
+                    PoolManager.Instance.Release(HittedWeapon_right, mTransform.position, Quaternion.Euler(0, 0, 0));
+                else if (random == 3)//playerScaleX==1，顺时针往左
+                {
+                    if (playerTransform == null)
+                        playerTransform = PlayerFSM.player.transform;
+                    if (playerTransform.localScale.x > 0)
+                        PoolManager.Instance.Release(HittedWeapon_upLeft, mTransform.position, Quaternion.Euler(0, 0, -90));
+                    else if (playerTransform.localScale.x < 0)
+                        PoolManager.Instance.Release(HittedWeapon_upRight, mTransform.position, Quaternion.Euler(0, 0, -90));
+                }
+
+                //击退效果
+                if (HittedBackCoroutine == null && gameObject.activeSelf)
+                    HittedBackCoroutine = StartCoroutine(HittedBack(random));
+
             }
         }
 
@@ -186,6 +215,30 @@ namespace Adv
                 Debug.Log("Enemy05没位置了");
                 gameObject.SetActive(false);
             }
+        }
+
+        IEnumerator HittedBack(int faceRandom)
+        {
+            WeaponRenderer.enabled = false;
+
+            float t = 0f;
+            var color = spriteRenderer.color;
+            while (t < 1f)
+            {
+                t += Time.deltaTime * 1.2f / AppearTime;
+                color.a = Mathf.Lerp(1f, 0f, t);
+                spriteRenderer.color = color;
+                if (faceRandom == 3)
+                    mTransform.Translate(Vector3.right * HittedBackSpeed * Time.deltaTime);
+                else if (faceRandom == 1)
+                    mTransform.Translate(Vector3.left * HittedBackSpeed * Time.deltaTime);
+                else if (faceRandom == 2)
+                    mTransform.Translate(Vector3.right * HittedBackSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            gameObject.SetActive(false);
+            HittedBackCoroutine = null;
         }
 
         private void SetLocalScale()

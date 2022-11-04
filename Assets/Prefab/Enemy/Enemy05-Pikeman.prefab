@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2695085471150049056
 Transform:
   m_ObjectHideFlags: 0
@@ -228,17 +228,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4b1f9fa2633934b835fe95d8c85ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugText: 0
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
   EnemyDied: {fileID: 11400000, guid: ba84da47cc825f44584ff06585758e39, type: 2}
   DontSetFalse: 0
   attack: 1
   AppearTime: 0.3
+  HittedBackSpeed: 5
   AppearPosLeft: {x: -2.55, y: -2.212}
   AppearPosRight: {x: 2.55, y: -2.212}
   AppearPosUp: {x: 0, y: 0.55}
   AttackClip: {fileID: 7400000, guid: e0abe00c5504eb64eb6a4b6b309668c8, type: 2}
   WeaponRenderer: {fileID: 2695085471258211723}
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
+  HittedWeapon_right: {fileID: 2981291749285030483, guid: d41c8b3cd0be7c8418bc0cdf0c34b1d1, type: 3}
+  HittedWeapon_left: {fileID: 20752358486125476, guid: fb8ccfd87e48b80408a359ce0bc8732c, type: 3}
+  HittedWeapon_upLeft: {fileID: 2595995627846025997, guid: 0d9650a5f4d981846bdf1bd272823a65, type: 3}
+  HittedWeapon_upRight: {fileID: 2943974098176852050, guid: 2259ce72d860f4e42a62ec1720929a0e, type: 3}
+  playerTransform: {fileID: 0}
 --- !u!58 &2695085471150049070
 CircleCollider2D:
   m_ObjectHideFlags: 0
