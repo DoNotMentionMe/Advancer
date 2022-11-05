@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 20752358486125483}
   - component: {fileID: 20752358486125486}
   - component: {fileID: 20752358486125487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u67AA\u5175\u6B66\u5668-Left"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d6caa0f0b7db3a34d8d9280662a81b61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -981181885
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6c133be420795a040af67a8dfb156536, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,8 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 20752358486125483}
   rotationDirection: 0
+  DisappearTime: 0.8
   flyForce: {x: -6, y: 4}
   mRigidbody2D: {fileID: 20752358486125486}
+  spriteRenderer: {fileID: 20752358486125481}
 --- !u!114 &20752358486125483
 MonoBehaviour:
   m_ObjectHideFlags: 0

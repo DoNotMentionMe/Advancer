@@ -11,6 +11,10 @@ namespace Adv
         public bool DoubleAttack => doubleAttack;
         public float DoubleAttackEffectiveTime => doubleAttackEffectiveTime;
 
+        public VoidEventChannel RightAttack;
+        public VoidEventChannel LeftAttack;
+        public VoidEventChannel UpAttack;
+
         //------作废-----
         //[SerializeField] float moveSpeed = 15f;
         //--------------
