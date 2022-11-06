@@ -12,7 +12,6 @@ namespace Adv
         [SerializeField] float ScrollXTimeEveryTime;
         [SerializeField] VoidEventChannel RightAttack;
         [SerializeField] VoidEventChannel LeftAttack;
-        [SerializeField] VoidEventChannel UpAttack;
 
         private Material material;
         private Coroutine ScrollXCoroutine;

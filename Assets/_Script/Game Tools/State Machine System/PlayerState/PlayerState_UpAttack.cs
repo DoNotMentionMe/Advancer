@@ -26,6 +26,8 @@ namespace Adv
         {
             base.Enter();
 
+            playerController.UpAttack.Broadcast();
+
             ICache = false;
             StartCombo = PlayerProperty.Combo;
 

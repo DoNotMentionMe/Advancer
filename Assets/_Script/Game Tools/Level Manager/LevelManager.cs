@@ -17,17 +17,24 @@ namespace Adv
         {
             base.Awake();
             //加载关卡解锁条件
-            Level[0].VisibleCondition = _ => true;//Level0
-            Level[1].VisibleCondition = _ => Level[0].IsPassed;//Level1
+            Level[0].VisibleCondition = _ => !Level[0].IsPassed;//Level0
+            Level[11].VisibleCondition = _ => Level[0].IsPassed;//Level1Easy
+            Level[1].VisibleCondition = _ => Level[11].IsPassed;//Level1
             Level[2].VisibleCondition = _ => Level[1].IsPassed;//Level1Pro
-            Level[3].VisibleCondition = _ => Level[1].IsPassed;//Level2
+            Level[12].VisibleCondition = _ => Level[0].IsPassed;//Level2Easy
+            Level[3].VisibleCondition = _ => Level[12].IsPassed;//Level2
             Level[4].VisibleCondition = _ => Level[3].IsPassed;//Level2 Pro
-            Level[5].VisibleCondition = _ => Level[3].IsPassed;//Level3
+            Level[13].VisibleCondition = _ => Level[0].IsPassed;//Level3Easy
+            Level[5].VisibleCondition = _ => Level[13].IsPassed;//Level3
             Level[6].VisibleCondition = _ => Level[5].IsPassed;//Level3 Pro
             Level[7].VisibleCondition = _ => Level[5].IsPassed;//Level KIA 1
-            Level[8].VisibleCondition = _ => Level[5].IsPassed;//Level4
+            Level[14].VisibleCondition = _ => Level[0].IsPassed;//Level4Easy
+            Level[8].VisibleCondition = _ => Level[14].IsPassed;//Level4
             Level[9].VisibleCondition = _ => Level[8].IsPassed;//Level4 Pro
-            Level[10].VisibleCondition = _ => Level[8].IsPassed;//Level 无限
+            Level[10].VisibleCondition = _ => Level[9].IsPassed
+                                           || Level[6].IsPassed
+                                           || Level[4].IsPassed
+                                           || Level[2].IsPassed;//Level 无限
 
         }
 

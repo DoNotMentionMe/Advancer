@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Adv
 {
-
-    public class Level2 : BaseLevelModule
+    public class Level2Easy : BaseLevelModule
     {
-        public override string Key => nameof(Level2);
+        public override string Key => nameof(Level2Easy);
 
         [SerializeField] GameObject Enemy01;//小猪
         [SerializeField] GameObject Enemy02;//雷鸟
@@ -47,22 +46,31 @@ namespace Adv
             while (Time.time - LevelStartTime < Level2Duration)
             {
                 int random = 0;
-                random = Random.Range(1, 7);
-                if (random == 1)
-                    obj = Enemy01;
-                else if (random == 2)
-                {
-                    obj = Enemy02;
-                    GenerationPos = EnemyGenerationPosition2;
-                }
-                else if (random == 3 || random == 4)
-                {
-                    obj = Enemy03;
-                }
-                else if (random == 5 || random == 6)
+                random = Random.Range(1, 3);
+                if (CheckLiveListTheEnemyCount(Enemy04.name) == 0)
                 {
                     obj = Enemy04;
                 }
+                else
+                {
+                    if (random == 1)
+                        obj = Enemy01;
+                    else if (random == 2)
+                    {
+                        obj = Enemy02;
+                        GenerationPos = EnemyGenerationPosition2;
+                    }
+
+                }
+
+                // else if (random == 3)
+                // {
+                //     obj = Enemy03;
+                // }
+                // else if (random == 3)
+                // {
+                //     obj = Enemy04;
+                // }
 
                 if (random == 1 || random >= 3)
                     random = Random.Range(1, 3);//第二次随机用于释放位置
@@ -78,31 +86,5 @@ namespace Adv
             liveEnemyList.Remove(nullObj);
             Destroy(nullObj);
         }
-
-
     }
-
-    //BOSS关
-    // public class Level2 : BaseLevelModule
-    // {
-    //     public override string Key => nameof(Level2);
-
-    //     [SerializeField] GameObject BOSS01;
-    //     [SerializeField] GameObject 通关界面;
-    //     private bool FirstLevel2Success = true;
-
-    //     protected override void ReleaseEnemyEvent()
-    //     {
-    //         InstantiateEnemy(BOSS01);
-    //     }
-
-    //     protected override void RunAfterEnemysDied()
-    //     {
-    //         if (FirstLevel2Success)
-    //         {
-    //             FirstLevel2Success = false;
-    //             通关界面.SetActive(true);
-    //         }
-    //     }
-    // }
 }

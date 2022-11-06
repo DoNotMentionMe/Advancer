@@ -22,7 +22,6 @@ namespace Adv
             Level4Passed.AddListener(() =>
             {
                 Goods[3].IsUnlocked = true;
-                Debug.Log(Goods[3].IsUnlocked);
                 CheckAllLevelIsUnLocked();
             });
         }

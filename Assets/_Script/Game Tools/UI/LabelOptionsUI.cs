@@ -8,6 +8,7 @@ namespace Adv
     public class LabelOptionsUI : MonoBehaviour
     {
         public bool IsOpen = false;
+        [SerializeField] bool CanSelectFirstSelectButton = true;
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] Button labelButton;
         [SerializeField] Button FirstSelectedWhenOpenLable;
@@ -54,7 +55,7 @@ namespace Adv
             {
                 ButtonsInLable[i].enabled = Switch;
             }
-            if (FirstSelectedWhenOpenLable.enabled)
+            if (FirstSelectedWhenOpenLable.enabled && CanSelectFirstSelectButton)
                 FirstSelectedWhenOpenLable.Select();
 
         }

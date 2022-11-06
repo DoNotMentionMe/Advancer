@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy03
+  m_Name: Enemy05
   m_Shader: {fileID: -6465566751694194690, guid: d0f0ad03c0a7ca84bb9a40528cfb9a11, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,5 +43,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.34509805, g: 0.34509805, b: 0.53333336, a: 0}
+    - _Color: {r: 5.992157, g: 4.67451, b: 3.827451, a: 0.4745098}
   m_BuildTextureStacks: []

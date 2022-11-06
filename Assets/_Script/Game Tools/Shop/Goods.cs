@@ -39,8 +39,14 @@ namespace Adv
                     PlayerAsset.Money -= NeedMoney;
                     MoneyChange.Broadcast(PlayerAsset.Money);
                     if (CurrentLevel < MaxLevel)
+                    {
                         CurrentLevel += 1;
-                    Value.text = (NeedMoney * ValueIncreaseRate).ToString();
+                        Value.text = (NeedMoney * ValueIncreaseRate).ToString();
+                    }
+                    else
+                    {
+                        Value.text = NeedMoney.ToString();
+                    }
                     GoodsFunction();
                     CheckBugCount();
                     shop.CheckAllLevelIsUnLocked();
