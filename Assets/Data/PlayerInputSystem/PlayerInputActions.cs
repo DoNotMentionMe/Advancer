@@ -136,6 +136,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7ef3bf8f-c311-42af-a0a9-741a01fb2c5b"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c68725cc-4662-4abd-b0ec-716a9f5d6bcc"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -147,8 +158,30 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""30b48fb1-50ae-4b2b-906c-786b33d513d1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8b0ffd0d-8b09-4f0a-a33f-f11df9144315"",
                     ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c53776d-6d09-40ab-8665-1c546f65d543"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -190,6 +223,130 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""af602779-0cd4-48b6-ab73-01c4c6b38d0d"",
+            ""actions"": [
+                {
+                    ""name"": ""Battle"",
+                    ""type"": ""Button"",
+                    ""id"": ""0facdec7-0722-482b-ad55-092ecaa44a7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shop"",
+                    ""type"": ""Button"",
+                    ""id"": ""92ba984b-fe46-4c63-aa0f-26a5a8f176d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""关闭界面"",
+                    ""type"": ""Button"",
+                    ""id"": ""28edd556-0a0e-4d80-8857-8e67856da524"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4c396140-974e-4b6b-9335-fa7b8e1bf738"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Battle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""209add0d-b7e8-43ac-a896-82ebbda3423f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d373693-6795-4159-9f75-db26065acd9f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""关闭界面"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Global"",
+            ""id"": ""60dca802-bb4c-4c18-bcb6-5b42de4d4c4b"",
+            ""actions"": [
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""e95622be-6fe3-451e-85b8-83dae2ce6eea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""63f8b8c5-dba7-47ae-9e77-27e18cbdbb11"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""QuitExitUI"",
+            ""id"": ""4ade878b-0d74-4d75-b16f-696f2574e85c"",
+            ""actions"": [
+                {
+                    ""name"": ""关闭"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0b9fba3-48e2-4ad8-9a04-9270c7aff480"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b3e92cf6-53d0-4b2c-81c9-ec8315e1e371"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""关闭"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -204,6 +361,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Left_Long = m_Gameplay.FindAction("Left_Long", throwIfNotFound: true);
         m_Gameplay_Right_Long = m_Gameplay.FindAction("Right_Long", throwIfNotFound: true);
         m_Gameplay_Esc = m_Gameplay.FindAction("Esc", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Battle = m_UI.FindAction("Battle", throwIfNotFound: true);
+        m_UI_Shop = m_UI.FindAction("Shop", throwIfNotFound: true);
+        m_UI_关闭界面 = m_UI.FindAction("关闭界面", throwIfNotFound: true);
+        // Global
+        m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
+        m_Global_Submit = m_Global.FindAction("Submit", throwIfNotFound: true);
+        // QuitExitUI
+        m_QuitExitUI = asset.FindActionMap("QuitExitUI", throwIfNotFound: true);
+        m_QuitExitUI_关闭 = m_QuitExitUI.FindAction("关闭", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +516,121 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Battle;
+    private readonly InputAction m_UI_Shop;
+    private readonly InputAction m_UI_关闭界面;
+    public struct UIActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Battle => m_Wrapper.m_UI_Battle;
+        public InputAction @Shop => m_Wrapper.m_UI_Shop;
+        public InputAction @关闭界面 => m_Wrapper.m_UI_关闭界面;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Battle.started -= m_Wrapper.m_UIActionsCallbackInterface.OnBattle;
+                @Battle.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnBattle;
+                @Battle.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnBattle;
+                @Shop.started -= m_Wrapper.m_UIActionsCallbackInterface.OnShop;
+                @Shop.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnShop;
+                @Shop.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnShop;
+                @关闭界面.started -= m_Wrapper.m_UIActionsCallbackInterface.On关闭界面;
+                @关闭界面.performed -= m_Wrapper.m_UIActionsCallbackInterface.On关闭界面;
+                @关闭界面.canceled -= m_Wrapper.m_UIActionsCallbackInterface.On关闭界面;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Battle.started += instance.OnBattle;
+                @Battle.performed += instance.OnBattle;
+                @Battle.canceled += instance.OnBattle;
+                @Shop.started += instance.OnShop;
+                @Shop.performed += instance.OnShop;
+                @Shop.canceled += instance.OnShop;
+                @关闭界面.started += instance.On关闭界面;
+                @关闭界面.performed += instance.On关闭界面;
+                @关闭界面.canceled += instance.On关闭界面;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
+
+    // Global
+    private readonly InputActionMap m_Global;
+    private IGlobalActions m_GlobalActionsCallbackInterface;
+    private readonly InputAction m_Global_Submit;
+    public struct GlobalActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public GlobalActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Submit => m_Wrapper.m_Global_Submit;
+        public InputActionMap Get() { return m_Wrapper.m_Global; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GlobalActions set) { return set.Get(); }
+        public void SetCallbacks(IGlobalActions instance)
+        {
+            if (m_Wrapper.m_GlobalActionsCallbackInterface != null)
+            {
+                @Submit.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnSubmit;
+                @Submit.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnSubmit;
+                @Submit.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnSubmit;
+            }
+            m_Wrapper.m_GlobalActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Submit.started += instance.OnSubmit;
+                @Submit.performed += instance.OnSubmit;
+                @Submit.canceled += instance.OnSubmit;
+            }
+        }
+    }
+    public GlobalActions @Global => new GlobalActions(this);
+
+    // QuitExitUI
+    private readonly InputActionMap m_QuitExitUI;
+    private IQuitExitUIActions m_QuitExitUIActionsCallbackInterface;
+    private readonly InputAction m_QuitExitUI_关闭;
+    public struct QuitExitUIActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public QuitExitUIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @关闭 => m_Wrapper.m_QuitExitUI_关闭;
+        public InputActionMap Get() { return m_Wrapper.m_QuitExitUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(QuitExitUIActions set) { return set.Get(); }
+        public void SetCallbacks(IQuitExitUIActions instance)
+        {
+            if (m_Wrapper.m_QuitExitUIActionsCallbackInterface != null)
+            {
+                @关闭.started -= m_Wrapper.m_QuitExitUIActionsCallbackInterface.On关闭;
+                @关闭.performed -= m_Wrapper.m_QuitExitUIActionsCallbackInterface.On关闭;
+                @关闭.canceled -= m_Wrapper.m_QuitExitUIActionsCallbackInterface.On关闭;
+            }
+            m_Wrapper.m_QuitExitUIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @关闭.started += instance.On关闭;
+                @关闭.performed += instance.On关闭;
+                @关闭.canceled += instance.On关闭;
+            }
+        }
+    }
+    public QuitExitUIActions @QuitExitUI => new QuitExitUIActions(this);
     public interface IGameplayActions
     {
         void OnAttack(InputAction.CallbackContext context);
@@ -358,5 +641,19 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLeft_Long(InputAction.CallbackContext context);
         void OnRight_Long(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnBattle(InputAction.CallbackContext context);
+        void OnShop(InputAction.CallbackContext context);
+        void On关闭界面(InputAction.CallbackContext context);
+    }
+    public interface IGlobalActions
+    {
+        void OnSubmit(InputAction.CallbackContext context);
+    }
+    public interface IQuitExitUIActions
+    {
+        void On关闭(InputAction.CallbackContext context);
     }
 }

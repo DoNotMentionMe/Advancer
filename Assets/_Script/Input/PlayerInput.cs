@@ -9,10 +9,15 @@ namespace Adv
     [CreateAssetMenu(menuName = "Data/PlayerInput", fileName = "PlayerInput")]
     public class PlayerInput :
                 ScriptableObject,
-                PlayerInputActions.IGameplayActions
+                PlayerInputActions.IGameplayActions,
+                PlayerInputActions.IUIActions,
+                PlayerInputActions.IGlobalActions,
+                PlayerInputActions.IQuitExitUIActions
     {
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] VoidEventChannel ClearingUIClose;
+        [SerializeField] VoidEventChannel EarlyOutLevel;
         PlayerInputActions playerInput;
 
         //---作废-----
@@ -24,6 +29,10 @@ namespace Adv
         public event UnityAction onLeft_Long = delegate { };
         public event UnityAction onRight_Long = delegate { };
         public event UnityAction onEsc = delegate { };
+        public event UnityAction onBattle = delegate { };
+        public event UnityAction onShop = delegate { };
+        public event UnityAction onCloseUI = delegate { };
+        public event UnityAction onExitInQuitExitUI = delegate { };
         public bool Attack => attack;
         public bool Up { get => up; set => up = value; }
         public bool Right { get => right; set => right = value; }
@@ -37,16 +46,32 @@ namespace Adv
         {
             playerInput = new PlayerInputActions();
 
+            playerInput.Global.SetCallbacks(this);
+            playerInput.Global.Enable();
             playerInput.Gameplay.SetCallbacks(this);
+            playerInput.UI.SetCallbacks(this);
+            playerInput.QuitExitUI.SetCallbacks(this);
+
+            EnableUIInput();
 
             LevelStart.AddListener(() =>
             {
+                DisableAllInputs();
                 EnableGameplayInput();
             });
             LevelEnd.AddListener(() =>
             {
                 DisableAllInputs();
             });
+            ClearingUIClose.AddListener(() =>
+            {
+                EnableUIInput();
+            });
+            EarlyOutLevel.AddListener(() =>
+            {
+                EnableUIInput();
+            });
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -57,10 +82,16 @@ namespace Adv
         }
 
         public void EnableGameplayInput() => playerInput.Gameplay.Enable();
+        public void EnableUIInput() => playerInput.UI.Enable();
+        public void EnableQuitExitUIInput() => playerInput.QuitExitUI.Enable();
+
+        public void DisableQuitExitUIInput() => playerInput.QuitExitUI.Disable();
 
         public void DisableAllInputs()
         {
             playerInput.Gameplay.Disable();
+            playerInput.UI.Disable();
+            playerInput.QuitExitUI.Disable();
         }
 
         #region Gameplay
@@ -152,6 +183,48 @@ namespace Adv
             if (context.started)
             {
                 onEsc?.Invoke();
+            }
+        }
+
+        public void OnBattle(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onBattle?.Invoke();
+            }
+        }
+
+        public void OnShop(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onShop?.Invoke();
+            }
+        }
+
+        public void On关闭界面(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onCloseUI?.Invoke();
+            }
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                var obj = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+                if (obj.activeSelf)
+                    obj.GetComponent<UnityEngine.UI.Button>().OnSubmit(null);
+            }
+        }
+
+        public void On关闭(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onExitInQuitExitUI?.Invoke();
             }
         }
         #endregion

@@ -20,6 +20,7 @@ namespace Adv
         private Quaternion InitRotation;
         private Rigidbody2D mRigidbody2D;
         private Transform mTransform;
+        private WaitForSeconds waitForLiveTime;
 
         private void OnTriggerEnter2D(Collider2D col)
         {
@@ -50,6 +51,7 @@ namespace Adv
             mRigidbody2D = GetComponent<Rigidbody2D>();
             mTransform = GetComponent<Transform>();
             InitRotation = new Quaternion(0, 0, 0, 0);
+            waitForLiveTime = new WaitForSeconds(2);
         }
 
         private void OnDestroy()
@@ -65,6 +67,7 @@ namespace Adv
             mTransform.rotation = InitRotation;
             mRigidbody2D.velocity = Vector2.right * moveDirection * moveSpeed;
             StartCoroutine(nameof(Rotation));
+            StartCoroutine(nameof(LiveTimeCount));
         }
 
         private void OnDisable()
@@ -97,6 +100,12 @@ namespace Adv
                 mTransform.rotation *= Quaternion.AngleAxis(Time.deltaTime * RotationSpeed * -moveDirection, Vector3.forward);
                 yield return null;
             }
+        }
+
+        IEnumerator LiveTimeCount()
+        {
+            yield return waitForLiveTime;
+            gameObject.SetActive(false);
         }
     }
 }

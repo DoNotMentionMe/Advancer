@@ -9,10 +9,12 @@ namespace Adv
     {
         public bool IsOpen = false;
         [SerializeField] bool CanSelectFirstSelectButton = true;
+        [SerializeField] VoidEventChannel SaveLastBtnBeforeCloseAllUI;
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] Button labelButton;
         [SerializeField] Button FirstSelectedWhenOpenLable;
-        [SerializeField] Canvas LabelCanvas;
+        [SerializeField] public Canvas LabelCanvas;
+        [SerializeField] PlayerInput input;
         [Header("===下面列表不用设置, 显示只用于Debug===")]
         [SerializeField] List<Button> ButtonsInLable = new List<Button>();
 
@@ -40,11 +42,19 @@ namespace Adv
             labelButton.onClick.AddListener(() =>
             {
                 var isOpen = IsOpen;//记录当前选项是否开启
-                CloseAllLabelOption.Broadcast(false);
+                SaveLastBtnBeforeCloseAllUI.Broadcast();
+                CloseAllLabelOption.Broadcast(false);//关闭所有UI
                 PageSwitch(!isOpen);
                 IsOpen = !isOpen;
             });
 
+
+        }
+
+        private void Start()
+        {
+            if (input != null)
+                input.onCloseUI += CloseAllUI;
         }
 
         private void PageSwitch(bool Switch)
@@ -58,6 +68,12 @@ namespace Adv
             if (FirstSelectedWhenOpenLable.enabled && CanSelectFirstSelectButton)
                 FirstSelectedWhenOpenLable.Select();
 
+        }
+
+        private void CloseAllUI()
+        {
+            SaveLastBtnBeforeCloseAllUI.Broadcast();
+            CloseAllLabelOption.Broadcast(false);//关闭所有UI
         }
     }
 }

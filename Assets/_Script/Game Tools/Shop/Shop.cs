@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Adv
 {
@@ -10,7 +11,17 @@ namespace Adv
     {
         public List<Goods> Goods = new List<Goods>();
 
+        [SerializeField] Image Background_Font;
         [SerializeField] VoidEventChannel Level4Passed;
+        [SerializeField] Button ShopBtn;
+        [SerializeField] GameObject HealthPlus1;
+        [SerializeField] PlayerInput input;
+        [SerializeField] BoolEventChannel CloseAllLabelOption;
+        [SerializeField] VoidEventChannel SaveLastBtnBeforeCloseAllUI;
+        [SerializeField] LabelOptionsUI ShopLabel;
+
+        private Button HealthPlus1Btn;
+        private Button LastSelectBtn;
 
         private void Awake()
         {
@@ -24,6 +35,40 @@ namespace Adv
                 Goods[3].IsUnlocked = true;
                 CheckAllLevelIsUnLocked();
             });
+
+            SaveLastBtnBeforeCloseAllUI.AddListener(() =>
+            {
+                if (ShopLabel.enabled && ShopLabel.IsOpen)
+                    LastSelectBtn = EventSystem.current.currentSelectedGameObject?.GetComponent<Button>();
+            });
+
+            CloseAllLabelOption.AddListener(IsOpen =>
+            {
+                Background_Font.enabled = IsOpen;
+            });
+
+            ShopBtn.onClick.AddListener(() =>
+            {
+                Background_Font.enabled = ShopLabel.IsOpen;
+
+                if (ShopLabel.IsOpen)
+                {
+                    if (LastSelectBtn != null)
+                    {
+                        LastSelectBtn.Select();
+                    }
+                    else if (HealthPlus1.activeSelf)
+                    {
+                        if (HealthPlus1Btn == null)
+                            HealthPlus1Btn = HealthPlus1.GetComponentInChildren<Button>();
+                        HealthPlus1Btn.Select();
+                    }
+                }
+                else
+                {
+                    LastSelectBtn = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+                }
+            });
         }
 
         private void Start()
@@ -34,6 +79,8 @@ namespace Adv
                 Goods[i].LoadData();
             }
             CheckAllLevelIsUnLocked();
+
+            input.onShop += OpenShop;
         }
 
         public void CheckAllLevelIsUnLocked()
@@ -57,6 +104,11 @@ namespace Adv
             // {
             //     Goods[0].BugButton.Select();
             // }
+        }
+
+        private void OpenShop()
+        {
+            ShopBtn.onClick.Invoke();
         }
 
     }

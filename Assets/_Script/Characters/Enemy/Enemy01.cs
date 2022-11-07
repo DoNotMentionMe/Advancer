@@ -103,6 +103,7 @@ namespace Adv
         protected override void OnEnable()
         {
             //attackHit.AddListener(Hited);
+            StopAllCoroutines();
             base.OnEnable();
 
             mFSM.StartState(EnemyState.Run);

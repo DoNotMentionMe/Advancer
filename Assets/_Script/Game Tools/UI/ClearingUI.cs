@@ -26,7 +26,10 @@ namespace Adv
             CloseButton.onClick.AddListener(() =>
             {
                 ClearingUIClose.Broadcast();
-                LastSelected.Select();
+                if (LastSelected.enabled)
+                    LastSelected.Select();
+                else
+                    LevelManager.Instance.SelectButtonWithKey(nameof(Level1Easy));
                 GameSaver.Instance.SaveAllData();//最后保存数据
                 gameObject.SetActive(false);
             });

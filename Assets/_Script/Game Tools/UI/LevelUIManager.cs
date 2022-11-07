@@ -1,30 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Adv
 {
     public class LevelUIManager : MonoBehaviour
     {
+        [SerializeField] Image Backgroun_Font;
         [SerializeField] Button LevelSelectLabelButton;
-        [SerializeField] Button Level0;
-        [SerializeField] Button Level1Easy;
+        [SerializeField] GameObject Level0;
+        [SerializeField] GameObject Level1Easy;
+        [SerializeField] LabelOptionsUI LevelLabel;
+        [SerializeField] PlayerInput input;
+        [SerializeField] BoolEventChannel CloseAllLabelOption;
+        [SerializeField] VoidEventChannel SaveLastBtnBeforeCloseAllUI;
+
+        private Button Level0Btn;
+        private Button Level1EasyBtn;
+        private Button LastSelectBtn;
 
 
         private void Awake()
         {
             LevelSelectLabelButton.onClick.AddListener(() =>
             {
-                if (!Level0.enabled)
+                Backgroun_Font.enabled = LevelLabel.IsOpen;
+
+                if (LevelLabel.IsOpen)
                 {
-                    Level1Easy.Select();
+                    if (LastSelectBtn != null)
+                    {
+                        LastSelectBtn.Select();
+                    }
+                    else if (Level0.activeSelf)
+                    {
+                        if (Level0Btn == null)
+                            Level0Btn = Level0.GetComponent<Button>();
+                        Level0Btn.Select();
+                    }
+                    else if (Level1Easy.activeSelf)
+                    {
+                        if (Level1EasyBtn == null)
+                            Level1EasyBtn = Level1Easy.GetComponent<Button>();
+                        Level1EasyBtn.Select();
+                    }
                 }
                 else
                 {
-                    Level0.Select();
+                    LastSelectBtn = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
                 }
             });
+
+            SaveLastBtnBeforeCloseAllUI.AddListener(() =>
+            {
+                if (LevelLabel.enabled && LevelLabel.IsOpen)
+                    LastSelectBtn = EventSystem.current.currentSelectedGameObject?.GetComponent<Button>();
+            });
+
+            CloseAllLabelOption.AddListener((IsOpen) =>
+            {
+                Backgroun_Font.enabled = IsOpen;
+            });
+        }
+
+        private void Start()
+        {
+            input.onBattle += OpenLevelUI;
+        }
+
+        private void OpenLevelUI()
+        {
+            LevelSelectLabelButton.onClick.Invoke();
         }
 
     }

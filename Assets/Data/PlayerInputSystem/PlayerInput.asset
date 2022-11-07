@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelStart: {fileID: 11400000, guid: eba6fd05f17c67a4abd8f918ac4dbf16, type: 2}
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
+  ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+  EarlyOutLevel: {fileID: 11400000, guid: 36568a88dd126b143a56b5ab1c9f71d8, type: 2}

@@ -14,6 +14,7 @@ namespace Adv
         [SerializeField] GameObject Enemy04;//弓箭手
         [SerializeField] float Level2Duration;
         [SerializeField] float CurrentInterval;
+        [SerializeField] VoidEventChannel Level4Passed;
 
         private float LevelStartTime;
         private WaitForSeconds waitForReleaseInterval;
@@ -31,7 +32,7 @@ namespace Adv
 
         protected override void RunAfterEnemysDied()
         {
-
+            Level4Passed.Broadcast();
         }
 
         IEnumerator RandomReleaseLevel2Enemy()
