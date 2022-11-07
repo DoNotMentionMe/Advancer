@@ -18,6 +18,8 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel EarlyOutLevel;
+        [SerializeField] VoidEventChannel ClearingUIClose;
         [SerializeField] VoidEventChannel Charge;
         [SerializeField] GameObject Shield;
         public bool CanGetShield;
@@ -74,6 +76,14 @@ namespace Adv
                 healtChange.Broadcast(maxhealth);
                 ShieldCombo = 0;
                 IsHitted = false;
+            });
+            ClearingUIClose.AddListener(() =>
+            {
+                health = maxhealth;
+            });
+            EarlyOutLevel.AddListener(() =>
+            {
+                health = maxhealth;
             });
 
         }
