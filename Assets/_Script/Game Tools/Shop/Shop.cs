@@ -12,6 +12,8 @@ namespace Adv
         public List<Goods> Goods = new List<Goods>();
 
         [SerializeField] Image Background_Font;
+        [SerializeField] Text Money;
+        [SerializeField] Text BtnTips;
         [SerializeField] VoidEventChannel Level4Passed;
         [SerializeField] Button ShopBtn;
         [SerializeField] GameObject HealthPlus1;
@@ -45,11 +47,15 @@ namespace Adv
             CloseAllLabelOption.AddListener(IsOpen =>
             {
                 Background_Font.enabled = IsOpen;
+                Money.enabled = IsOpen;
+                BtnTips.enabled = IsOpen;
             });
 
             ShopBtn.onClick.AddListener(() =>
             {
                 Background_Font.enabled = ShopLabel.IsOpen;
+                Money.enabled = ShopLabel.IsOpen;
+                BtnTips.enabled = ShopLabel.IsOpen;
 
                 if (ShopLabel.IsOpen)
                 {

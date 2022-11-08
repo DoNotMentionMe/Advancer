@@ -66,6 +66,7 @@ namespace Adv
 #if UNITY_EDITOR
             GUILayout.Label(currentState.GetType().ToString());
             GUILayout.Label(playerInput.axesX.ToString());
+            GUILayout.Label(Time.timeScale.ToString());
 #endif
         }
     }

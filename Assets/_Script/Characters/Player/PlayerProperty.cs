@@ -80,10 +80,12 @@ namespace Adv
             ClearingUIClose.AddListener(() =>
             {
                 health = maxhealth;
+                healtChange.Broadcast(maxhealth);
             });
             EarlyOutLevel.AddListener(() =>
             {
                 health = maxhealth;
+                healtChange.Broadcast(maxhealth);
             });
 
         }

@@ -91,6 +91,8 @@ namespace Adv
                 attackState = AttackStates.End;
                 playerController.AttackEnd(3);//左
                 AttackStateStartTime = Time.time;//重置时间
+                playerController.LeftAttackObj.StopAttackPauseCoroutine();
+                Time.timeScale = 1;
             }
             else if (attackState == AttackStates.End && AttackStateDurationTime >= AttackEndTime)
             {

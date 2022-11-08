@@ -27,7 +27,7 @@ namespace Adv
 
         private const string healthShowFont = "Health: ";
         private const string ComboShowFont = "Combo ";
-        private const string MoneyShowFont = "Money: ";
+        private const string MoneyShowFont = "Money:";
 
         private void Awake()
         {

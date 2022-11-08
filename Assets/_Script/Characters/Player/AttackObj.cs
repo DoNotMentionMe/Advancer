@@ -6,9 +6,10 @@ namespace Adv
 {
     public class AttackObj : MonoBehaviour
     {
-        [SerializeField] FloatEventChannel AttackHit;
         [SerializeField] float ImpulseAmplitudeGain = 0.15f;
         [SerializeField] float ImpulseFrequencyGain = 0.9f;
+        [SerializeField] float AttackPauseRecoverTime = 0.2f;
+        [SerializeField] VoidEventChannel ClearingUIClose;
 
         //private int fixedFrameDuration;
         private string EnemyTag = "Enemy";
@@ -16,11 +17,30 @@ namespace Adv
         private PlayerProperty playerProperty;
         private PlayerAudio playerAudio;
         private HashSet<GameObject> EnemySet = new HashSet<GameObject>();
+        private Coroutine AttackPauseCoroutine;
+
+        public void StopAttackPauseCoroutine()
+        {
+            if (AttackPauseCoroutine != null)
+            {
+                StopCoroutine(AttackPauseCoroutine);
+                AttackPauseCoroutine = null;
+            }
+        }
 
         private void Awake()
         {
             playerAudio = GetComponentInParent<PlayerAudio>();
             playerProperty = GetComponentInParent<PlayerProperty>();
+
+            ClearingUIClose.AddListener(() =>
+            {
+                if (AttackPauseCoroutine != null)
+                {
+                    StopCoroutine(AttackPauseCoroutine);
+                    AttackPauseCoroutine = null;
+                }
+            });
         }
 
         private void OnEnable()
@@ -50,6 +70,20 @@ namespace Adv
                 ImpulseController.Instance.ProduceImpulse(contactPoint, ImpulseAmplitudeGain, ImpulseFrequencyGain);
                 //特效
                 ParticleEffectController.Instance.PlayHitEffect(contactPoint);
+                //停顿
+                if (AttackPauseCoroutine == null)
+                {
+                    //StopCoroutine(AttackPauseCoroutine);
+                    Time.timeScale = 1;
+                    AttackPauseCoroutine = StartCoroutine(nameof(AttackPause));
+                }
+                else
+                {
+                    StopCoroutine(AttackPauseCoroutine);
+                    AttackPauseCoroutine = null;
+                    Time.timeScale = 1;
+                    AttackPauseCoroutine = StartCoroutine(nameof(AttackPause));
+                }
             }
         }
 
@@ -99,6 +133,20 @@ namespace Adv
             {
                 EnemySet.Remove(col.gameObject);
             }
+        }
+
+        IEnumerator AttackPause()
+        {
+            Time.timeScale = 0;
+            float i = 0f;
+            while (i < 1f)
+            {
+                i += Time.unscaledDeltaTime / AttackPauseRecoverTime;
+                Time.timeScale = Mathf.Lerp(0f, 1f, i);
+                yield return null;
+            }
+            Time.timeScale = 1;
+            AttackPauseCoroutine = null;
         }
     }
 }

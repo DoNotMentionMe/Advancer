@@ -9,6 +9,7 @@ namespace Adv
     public class LevelUIManager : MonoBehaviour
     {
         [SerializeField] Image Backgroun_Font;
+        [SerializeField] Text BtnTips;
         [SerializeField] Button LevelSelectLabelButton;
         [SerializeField] GameObject Level0;
         [SerializeField] GameObject Level1Easy;
@@ -27,6 +28,7 @@ namespace Adv
             LevelSelectLabelButton.onClick.AddListener(() =>
             {
                 Backgroun_Font.enabled = LevelLabel.IsOpen;
+                BtnTips.enabled = LevelLabel.IsOpen;
 
                 if (LevelLabel.IsOpen)
                 {
@@ -62,6 +64,7 @@ namespace Adv
             CloseAllLabelOption.AddListener((IsOpen) =>
             {
                 Backgroun_Font.enabled = IsOpen;
+                BtnTips.enabled = IsOpen;
             });
         }
 
