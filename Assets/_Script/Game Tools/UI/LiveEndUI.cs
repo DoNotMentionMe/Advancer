@@ -18,7 +18,9 @@ namespace Adv
         public float MaxLiveTime = 0;
 
         private const string liveTimeShowStart = "生存时间: ";
+        private const string liveTimeShowStart_English = "Survival Time: ";
         private const string liveTimeShowEnd = " 秒";
+        private const string liveTimeShowEnd_English = " Seconds";
 
         private void Start()
         {
@@ -36,7 +38,10 @@ namespace Adv
             //获取当局生存时间CurrentLevelLiveTime
             CurrentLevelLiveTime = currentLiveTimeShow.liveTime;
             //显示时间
-            LiveTimeShow.text = string.Concat(liveTimeShowStart, CurrentLevelLiveTime, liveTimeShowEnd);
+            if (ChineseEnglishShift.language == Language.Chinese)
+                LiveTimeShow.text = string.Concat(liveTimeShowStart, CurrentLevelLiveTime, liveTimeShowEnd);
+            else if (ChineseEnglishShift.language == Language.English)
+                LiveTimeShow.text = string.Concat(liveTimeShowStart_English, CurrentLevelLiveTime, liveTimeShowEnd_English);
             //比较是否超过最大生存时间
             if (CurrentLevelLiveTime > MaxLiveTime)
             {
@@ -44,7 +49,10 @@ namespace Adv
                 //start在Onenable之后执行，新纪录会被本地的旧记录覆盖掉
                 //BayatGames.SaveGameFree.SaveGame.Save<float>("MaxLiveTime", CurrentLevelLiveTime);
                 //显示
-                MaxLiveTimeShow.text = $"最长存活: {MaxLiveTime} 秒";
+                if (ChineseEnglishShift.language == Language.Chinese)
+                    MaxLiveTimeShow.text = $"最长存活: {MaxLiveTime} 秒";
+                else if (ChineseEnglishShift.language == Language.English)
+                    MaxLiveTimeShow.text = $"Longest survived: \n{MaxLiveTime} seconds";
             }
 
             if (BaseLevelModule.LastLevelKey == BaseLevelModule.EndKey)
@@ -56,7 +64,10 @@ namespace Adv
                 var plusMoney = ((int)CurrentLevelLiveTime);
                 plusMoney *= plusMoney * MoneyRate;
                 MoneyGetShow.text = "";
-                MoneyGetShow.text += "生存奖励: " + plusMoney;
+                if (ChineseEnglishShift.language == Language.Chinese)
+                    MoneyGetShow.text += "生存奖励: " + plusMoney;
+                else if (ChineseEnglishShift.language == Language.English)
+                    MoneyGetShow.text += "Bonus: " + plusMoney;
                 PlayerAsset.Money += plusMoney;
                 MoneyChange.Broadcast(PlayerAsset.Money);
             }

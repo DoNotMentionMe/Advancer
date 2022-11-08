@@ -22,6 +22,7 @@ namespace Adv
         [SerializeField] VoidEventChannel ClearingUIClose;
         [SerializeField] VoidEventChannel Charge;
         [SerializeField] GameObject Shield;
+        [SerializeField] HurtBlackFlash hurtBlackFlash;
         public bool CanGetShield;
         public int CountComboToGetShield;
         [SerializeField] float attack;
@@ -133,6 +134,7 @@ namespace Adv
             ShieldCombo = 0;
             health -= damage;
             healtChange.Broadcast(health);
+            hurtBlackFlash.StartBlackFlash();
             if (health <= 0)
             {
                 //失败

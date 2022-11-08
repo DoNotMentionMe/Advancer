@@ -86,17 +86,32 @@ namespace Adv
                 float plusMoney = 0;
                 var lastLevelKey = BaseLevelModule.LastLevelKey;
                 plusMoney += MoneyWithLevelKey[lastLevelKey];
-                MoneyGetShow.text = "";
-                MoneyGetShow.text += "通关奖励: " + MoneyWithLevelKey[lastLevelKey];
+                if (ChineseEnglishShift.language == Language.Chinese)
+                    MoneyGetShow.text = "奖励";
+                else if (ChineseEnglishShift.language == Language.English)
+                    MoneyGetShow.text = "Bonus";
+
+                if (ChineseEnglishShift.language == Language.Chinese)
+                    MoneyGetShow.text += "\n通关:" + MoneyWithLevelKey[lastLevelKey];
+                else if (ChineseEnglishShift.language == Language.English)
+                    MoneyGetShow.text += "\nClear:" + MoneyWithLevelKey[lastLevelKey];
+
                 if (PlayerProperty.NotEmptyAttackCurrentLevel)
                 {
                     plusMoney += ExtraMoneyWithLevelKey[lastLevelKey];
-                    MoneyGetShow.text += "\n全连奖励: " + ExtraMoneyWithLevelKey[lastLevelKey];
+                    if (ChineseEnglishShift.language == Language.Chinese)
+                        MoneyGetShow.text += "\n全连:" + ExtraMoneyWithLevelKey[lastLevelKey];
+                    else if (ChineseEnglishShift.language == Language.English)
+                        MoneyGetShow.text += "\nAll Combo:" + ExtraMoneyWithLevelKey[lastLevelKey];
                 }
+
                 if (PlayerProperty.NotHurtCurrentLevel)
                 {
                     plusMoney += ExtraMoneyWithLevelKey[lastLevelKey];
-                    MoneyGetShow.text += "\n无伤奖励: " + ExtraMoneyWithLevelKey[lastLevelKey];
+                    if (ChineseEnglishShift.language == Language.Chinese)
+                        MoneyGetShow.text += "\n无伤:" + ExtraMoneyWithLevelKey[lastLevelKey];
+                    else if (ChineseEnglishShift.language == Language.English)
+                        MoneyGetShow.text += "\nNo Damage:" + ExtraMoneyWithLevelKey[lastLevelKey];
                 }
 
                 PlayerAsset.Money += plusMoney;

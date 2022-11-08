@@ -52,8 +52,6 @@ namespace Adv
             playerInput.UI.SetCallbacks(this);
             playerInput.QuitExitUI.SetCallbacks(this);
 
-            EnableUIInput();
-
             LevelStart.AddListener(() =>
             {
                 DisableAllInputs();
@@ -71,9 +69,6 @@ namespace Adv
             {
                 EnableUIInput();
             });
-
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnDisable()

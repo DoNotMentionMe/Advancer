@@ -24,6 +24,7 @@ namespace Adv
         [SerializeField] GameObject 教程完成界面;
         [SerializeField] GameObject 生存结束界面;
         [SerializeField] GameObject CurrentLiveTimeShow;
+        [SerializeField] PlayerInput input;
 
         private const string healthShowFont = "Health: ";
         private const string ComboShowFont = "Combo ";
@@ -83,6 +84,9 @@ namespace Adv
         private void OnEnable()
         {
             healtChange.AddListener(ShowHealth);
+            input.EnableUIInput();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnDisable()

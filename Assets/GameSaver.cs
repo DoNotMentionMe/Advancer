@@ -7,7 +7,7 @@ namespace Adv
 {
     public class GameSaver : PersistentSingleton<GameSaver>
     {
-        public VoidEventChannel SaveDataEvent;//在ClearingUI关闭和商品购买时被执行
+        [SerializeField] VoidEventChannel SaveDataEvent;//在ClearingUI关闭和商品购买时被执行
 
         public void SaveDataEventCall(System.Action action)
         {
