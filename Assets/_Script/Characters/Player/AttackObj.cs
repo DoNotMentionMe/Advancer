@@ -10,6 +10,7 @@ namespace Adv
         [SerializeField] float ImpulseFrequencyGain = 0.9f;
         [SerializeField] float AttackPauseRecoverTime = 0.2f;
         [SerializeField] VoidEventChannel ClearingUIClose;
+        [SerializeField] float PauseStartTimeScale = 0.2f;
 
         //private int fixedFrameDuration;
         private string EnemyTag = "Enemy";
@@ -137,12 +138,12 @@ namespace Adv
 
         IEnumerator AttackPause()
         {
-            Time.timeScale = 0;
+            Time.timeScale = PauseStartTimeScale;
             float i = 0f;
             while (i < 1f)
             {
                 i += Time.unscaledDeltaTime / AttackPauseRecoverTime;
-                Time.timeScale = Mathf.Lerp(0f, 1f, i);
+                Time.timeScale = Mathf.Lerp(PauseStartTimeScale, 1f, i);
                 yield return null;
             }
             Time.timeScale = 1;

@@ -347,8 +347,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.2
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.06
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+  PauseStartTimeScale: 0.2
 --- !u!61 &11375828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12784,6 +12785,7 @@ MonoBehaviour:
   Level4Duration: 30
   Level4ReleaseInterval: 1.2
   Enemy05RelaseInterval: 0.2
+  Level4Passed: {fileID: 11400000, guid: ce72f9bf7ebc8404285290631cb09e7b, type: 2}
 --- !u!114 &487785332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28263,8 +28265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.2
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.06
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+  PauseStartTimeScale: 0.2
 --- !u!58 &1856046678
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29892,8 +29895,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.2
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.06
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+  PauseStartTimeScale: 0.2
 --- !u!58 &2057863986
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30223,8 +30227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.2
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.06
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+  PauseStartTimeScale: 0.2
 --- !u!70 &2133874443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

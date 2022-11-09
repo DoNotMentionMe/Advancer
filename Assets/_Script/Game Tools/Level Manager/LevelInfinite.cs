@@ -38,17 +38,26 @@ namespace Adv
             waitForEnemy05RelaseInterval = new WaitForSeconds(Enemy05CurrentRelaseInterval);
         }
 
+        private void Start()
+        {
+            if (ChineseEnglishShift.language == Language.Chinese)
+                MaxLiveTimeShow.text = $"最长存活: {liveEndUI.MaxLiveTime} 秒";
+            else if (ChineseEnglishShift.language == Language.English)
+                MaxLiveTimeShow.text = $"Longest survived: \n{liveEndUI.MaxLiveTime} seconds";
+        }
+
         public override void LoadData()
         {
             base.LoadData();
             if (GameSaver.Instance.Exists("MaxLiveTime"))
             {
                 liveEndUI.MaxLiveTime = GameSaver.Instance.Load<float>("MaxLiveTime");
+
                 //失效，可能是因为加载时，Text组件时关闭状态
-                if (ChineseEnglishShift.language == Language.Chinese)
-                    MaxLiveTimeShow.text = $"最长存活: {liveEndUI.MaxLiveTime} 秒";
-                else if (ChineseEnglishShift.language == Language.English)
-                    MaxLiveTimeShow.text = $"Longest survived: \n{liveEndUI.MaxLiveTime} seconds";
+                // if (ChineseEnglishShift.language == Language.Chinese)
+                //     MaxLiveTimeShow.text = $"最长存活: {liveEndUI.MaxLiveTime} 秒";
+                // else if (ChineseEnglishShift.language == Language.English)
+                //     MaxLiveTimeShow.text = $"Longest survived: \n{liveEndUI.MaxLiveTime} seconds";
             }
         }
 

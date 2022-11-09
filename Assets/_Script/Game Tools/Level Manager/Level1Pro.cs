@@ -30,7 +30,7 @@ namespace Adv
 
         protected override void RunAfterEnemysDied()
         {
-            Level4Passed.Broadcast();
+            //Level4Passed.Broadcast();
         }
 
         IEnumerator RandomReleaseLevel1Enemy()
