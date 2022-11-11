@@ -222,7 +222,7 @@ MonoBehaviour:
   animController: {fileID: 8674921957943079255}
   PigDied:
     audioClip: {fileID: 8300000, guid: 6b5a70bd89447134d9ae530cdce2d718, type: 3}
-    volume: 1.4
+    volume: 1.7
   IsFixedPositin: 0
   fixedPosition: {x: 0, y: 0}
 --- !u!61 &-2625502796260205017

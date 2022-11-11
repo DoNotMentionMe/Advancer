@@ -875,7 +875,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd190584d5add743b290bc3e79e6494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSFX: 1
+  canBGM: 1
   sFXPlayer: {fileID: 1088170243}
+  BGMPlayer: {fileID: 876548470}
 --- !u!4 &146581029
 Transform:
   m_ObjectHideFlags: 0
@@ -10374,7 +10377,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876548468}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 559c232a43caebe41870ce54786f604e, type: 3}
@@ -11191,6 +11194,16 @@ MonoBehaviour:
   Englishbtn: {fileID: 168812987}
   Chinesebtn: {fileID: 1360489981}
   LanguageChange: {fileID: 11400000, guid: d32b820e501c97a41a514d6deaa80476, type: 2}
+  FullScreen: {fileID: 0}
+  Windowed: {fileID: 0}
+  Resolution1920X1080: {fileID: 0}
+  Resolution1366X768: {fileID: 0}
+  controlText: []
+  controlImage: []
+  Display: {fileID: 0}
+  Hide: {fileID: 0}
+  MusicOn: {fileID: 0}
+  MusicOff: {fileID: 0}
 --- !u!224 &939529579
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11804,7 +11817,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088170242}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

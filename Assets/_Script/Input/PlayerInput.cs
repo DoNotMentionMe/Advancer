@@ -210,6 +210,7 @@ namespace Adv
             if (context.started)
             {
                 var obj = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+                if (obj == null) return;
                 if (obj.activeSelf)
                     obj.GetComponent<UnityEngine.UI.Button>().OnSubmit(null);
             }

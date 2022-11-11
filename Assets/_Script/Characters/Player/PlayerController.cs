@@ -38,6 +38,7 @@ namespace Adv
 
         private Rigidbody2D mRigidbody;
         private Transform mTransform;
+        private float GeneralAttackStartTime;
         //private GameObject currentAttack;
 
         private void Awake()
@@ -46,6 +47,7 @@ namespace Adv
             mRigidbody = GetComponent<Rigidbody2D>();
             Input.onLeft_Long += LeftLong;
             Input.onRight_Long += RightLong;
+            GeneralAttackStartTime = AttackStartTime;
             //GameSaver.Instance.SaveCache<bool>("AttackCanBreak", attackCanBreak);
         }
 
@@ -59,6 +61,18 @@ namespace Adv
             {
                 BayatGames.SaveGameFree.SaveGame.Save<bool>("AttackCanBreak", attackCanBreak);
             });
+
+
+            //SetAttackStartTime();
+
+        }
+
+        public void SetAttackStartTime()
+        {
+            if (attackCanBreak)
+                AttackStartTime = 0f;
+            else
+                AttackStartTime = GeneralAttackStartTime;
         }
 
         private void OnDestroy()

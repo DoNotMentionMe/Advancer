@@ -22,14 +22,18 @@ namespace Adv
         private void Awake()
         {
             SettingUICanvas.enabled = IsOpen;
+            SaveGame.SavePath = SaveGamePath.DataPath;
             AwakeCall_LanguageChange();
             AwakeCall_ScreenChange();
+            AwakeCall_InterfaceIcon();
+            AwakeCall_Music();
+            AwakeCall_SFX();
         }
 
         private void Start()
         {
             input.onCloseUI += SwitchSettingUI;
-            StartCall_ScreenChange();
+            StartCall_InterfaceIcon();
         }
 
         private void SwitchSettingUI()
@@ -57,7 +61,18 @@ namespace Adv
                 EvenSystem_Mouse.SetActive(IsOpen);
                 EvenSystem_NotMouse.SetActive(!IsOpen);
             }
-            SettingUISwitchCall(IsOpen);
+            Englishbtn.enabled = IsOpen;
+            Chinesebtn.enabled = IsOpen;
+            FullScreen.enabled = IsOpen;
+            Windowed.enabled = IsOpen;
+            Resolution1366X768.enabled = IsOpen;
+            Resolution1920X1080.enabled = IsOpen;
+            Display.enabled = IsOpen;
+            Hide.enabled = IsOpen;
+            MusicOff.enabled = IsOpen;
+            MusicOn.enabled = IsOpen;
+            SFXOff.enabled = IsOpen;
+            SFXOn.enabled = IsOpen;
         }
 
         private void OnDestroy()
@@ -67,6 +82,7 @@ namespace Adv
 
         #region LanguageChange
         [Space]
+        [Header("语言切换")]
         [SerializeField] Button Englishbtn;
         [SerializeField] Button Chinesebtn;
         [SerializeField] LanguageEventChannel LanguageChange;
@@ -77,7 +93,6 @@ namespace Adv
             Englishbtn.onClick.AddListener(() =>
             {
                 ChineseEnglishShift.language = Language.English;
-                SaveGame.SavePath = SaveGamePath.DataPath;
                 SaveGame.Save<Language>("language", ChineseEnglishShift.language);
                 LanguageChange.Broadcast(ChineseEnglishShift.language);
                 EventSystem.current.SetSelectedGameObject(null);
@@ -85,7 +100,6 @@ namespace Adv
             Chinesebtn.onClick.AddListener(() =>
             {
                 ChineseEnglishShift.language = Language.Chinese;
-                SaveGame.SavePath = SaveGamePath.DataPath;
                 SaveGame.Save<Language>("language", ChineseEnglishShift.language);
                 LanguageChange.Broadcast(ChineseEnglishShift.language);
                 EventSystem.current.SetSelectedGameObject(null);
@@ -96,16 +110,11 @@ namespace Adv
             Chinesebtn.enabled = false;
         }
 
-        private void SettingUISwitchCall(bool Switch)
-        {
-            Englishbtn.enabled = Switch;
-            Chinesebtn.enabled = Switch;
-        }
-
         #endregion
 
         #region 屏幕修改
         [Space]
+        [Header("屏幕修改")]
         [SerializeField] Button FullScreen;
         [SerializeField] Button Windowed;
         [SerializeField] Button Resolution1920X1080;
@@ -117,19 +126,21 @@ namespace Adv
 
         private void AwakeCall_ScreenChange()
         {
-            SaveGame.SavePath = SaveGamePath.DataPath;
+
 
             FullScreen.onClick.AddListener(() =>
             {
                 Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.FullScreenWindow);
                 currentScreenSet = FullScreenMode.FullScreenWindow;
                 SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
+                EventSystem.current.SetSelectedGameObject(null);
             });
             Windowed.onClick.AddListener(() =>
             {
                 Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.Windowed);
                 currentScreenSet = FullScreenMode.Windowed;
                 SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
+                EventSystem.current.SetSelectedGameObject(null);
             });
             Resolution1920X1080.onClick.AddListener(() =>
             {
@@ -138,6 +149,7 @@ namespace Adv
                 currentScreenHeight = 1080;
                 SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
                 SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
+                EventSystem.current.SetSelectedGameObject(null);
             });
             Resolution1366X768.onClick.AddListener(() =>
             {
@@ -146,15 +158,136 @@ namespace Adv
                 currentScreenHeight = 768;
                 SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
                 SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
+                EventSystem.current.SetSelectedGameObject(null);
             });
-        }
-
-        private void StartCall_ScreenChange()
-        {
-            //加载
+            FullScreen.enabled = false;
+            Windowed.enabled = false;
+            Resolution1366X768.enabled = false;
+            Resolution1920X1080.enabled = false;
         }
 
         #endregion
+
+        #region InterfaceIcon
+        [Space]
+        [Header("图标显示")]
+        [SerializeField] List<Text> controlText;
+        [SerializeField] List<Image> controlImage;
+        [SerializeField] Button Display;
+        [SerializeField] Button Hide;
+
+        private bool IsIconDisplay = true;
+
+        private void AwakeCall_InterfaceIcon()
+        {
+            Display.onClick.AddListener(() =>
+            {
+                DisplaySet(true);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+            Hide.onClick.AddListener(() =>
+            {
+                DisplaySet(false);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+            Display.enabled = false;
+            Hide.enabled = false;
+        }
+
+        private void StartCall_InterfaceIcon()
+        {
+            if (SaveGame.Exists("IsIconDisplay"))
+            {
+                IsIconDisplay = SaveGame.Load<bool>("IsIconDisplay");
+                for (var i = 0; i < controlText.Count; i++)
+                {
+                    var color = controlText[i].color;
+                    color.a = IsIconDisplay ? 1 : 0;
+                    controlText[i].color = color;
+                }
+                for (var j = 0; j < controlImage.Count; j++)
+                {
+                    var color = controlImage[j].color;
+                    color.a = IsIconDisplay ? 1 : 0;
+                    controlImage[j].color = color;
+                }
+            }
+        }
+
+        private void DisplaySet(bool IsDisplay)
+        {
+            IsIconDisplay = IsDisplay;
+            for (var i = 0; i < controlText.Count; i++)
+            {
+                var color = controlText[i].color;
+                color.a = IsDisplay ? 1 : 0;
+                controlText[i].color = color;
+            }
+            for (var j = 0; j < controlImage.Count; j++)
+            {
+                var color = controlImage[j].color;
+                color.a = IsDisplay ? 1 : 0;
+                controlImage[j].color = color;
+            }
+            SaveGame.Save<bool>("IsIconDisplay", IsIconDisplay);
+        }
+        #endregion
+
+        #region 音乐
+        [Space]
+        [Header("音乐")]
+        [SerializeField] Button MusicOn;
+        [SerializeField] Button MusicOff;
+
+        private void AwakeCall_Music()
+        {
+            MusicOn.onClick.AddListener(() =>
+            {
+                AudioManager.Instance.canBGM = true;
+                SaveGame.Save<bool>("canBGM", AudioManager.Instance.canBGM);
+                AudioManager.Instance.BGMSwitch(true);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+            MusicOff.onClick.AddListener(() =>
+            {
+                AudioManager.Instance.canBGM = false;
+                SaveGame.Save<bool>("canBGM", AudioManager.Instance.canBGM);
+                AudioManager.Instance.BGMSwitch(false);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+
+            MusicOn.enabled = false;
+            MusicOff.enabled = false;
+        }
+        #endregion 
+
+        #region 音效
+        [Space]
+        [Header("音效")]
+        [SerializeField] Button SFXOn;
+        [SerializeField] Button SFXOff;
+
+        private void AwakeCall_SFX()
+        {
+            SFXOn.onClick.AddListener(() =>
+            {
+                AudioManager.Instance.canSFX = true;
+                SaveGame.Save<bool>("canSFX", AudioManager.Instance.canSFX);
+                AudioManager.Instance.SFXSwitch(true);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+            SFXOff.onClick.AddListener(() =>
+            {
+                AudioManager.Instance.canSFX = false;
+                SaveGame.Save<bool>("canSFX", AudioManager.Instance.canSFX);
+                AudioManager.Instance.SFXSwitch(false);
+                EventSystem.current.SetSelectedGameObject(null);
+            });
+            SFXOn.enabled = false;
+            SFXOff.enabled = false;
+        }
+        #endregion 
+
 
     }
 }

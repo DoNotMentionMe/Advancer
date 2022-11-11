@@ -48,6 +48,7 @@ namespace Adv
         protected override void GoodsFunction()
         {
             playerController.AttackCanBreak = true;
+            //playerController.SetAttackStartTime();
         }
     }
 }
