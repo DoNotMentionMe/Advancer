@@ -29,6 +29,7 @@ namespace Adv
         private void Start()
         {
             input.onCloseUI += SwitchSettingUI;
+            StartCall_ScreenChange();
         }
 
         private void SwitchSettingUI()
@@ -104,11 +105,53 @@ namespace Adv
         #endregion
 
         #region 屏幕修改
+        [Space]
+        [SerializeField] Button FullScreen;
+        [SerializeField] Button Windowed;
+        [SerializeField] Button Resolution1920X1080;
+        [SerializeField] Button Resolution1366X768;
+
+        public static FullScreenMode currentScreenSet = FullScreenMode.Windowed;
+        public static int currentScreenWidth = 1366;
+        public static int currentScreenHeight = 768;
 
         private void AwakeCall_ScreenChange()
         {
-            //Screen.fullScreen = true;
-            //Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            SaveGame.SavePath = SaveGamePath.DataPath;
+
+            FullScreen.onClick.AddListener(() =>
+            {
+                Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.FullScreenWindow);
+                currentScreenSet = FullScreenMode.FullScreenWindow;
+                SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
+            });
+            Windowed.onClick.AddListener(() =>
+            {
+                Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.Windowed);
+                currentScreenSet = FullScreenMode.Windowed;
+                SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
+            });
+            Resolution1920X1080.onClick.AddListener(() =>
+            {
+                Screen.SetResolution(1920, 1080, currentScreenSet);
+                currentScreenWidth = 1920;
+                currentScreenHeight = 1080;
+                SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
+                SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
+            });
+            Resolution1366X768.onClick.AddListener(() =>
+            {
+                Screen.SetResolution(1366, 768, currentScreenSet);
+                currentScreenWidth = 1366;
+                currentScreenHeight = 768;
+                SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
+                SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
+            });
+        }
+
+        private void StartCall_ScreenChange()
+        {
+            //加载
         }
 
         #endregion

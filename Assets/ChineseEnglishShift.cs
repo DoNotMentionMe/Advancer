@@ -84,6 +84,15 @@ namespace Adv
                 //跳转主界面
                 SceneManager.LoadScene(MainScene);
             }
+
+            //读取分辨率
+            if (SaveGame.Exists("currentScreenSet") && SaveGame.Exists("currentScreenHeight") && SaveGame.Exists("currentScreenWidth"))
+            {
+                SettingUI.currentScreenSet = SaveGame.Load<FullScreenMode>("currentScreenSet");
+                SettingUI.currentScreenHeight = SaveGame.Load<int>("currentScreenHeight");
+                SettingUI.currentScreenWidth = SaveGame.Load<int>("currentScreenWidth");
+                Screen.SetResolution(SettingUI.currentScreenWidth, SettingUI.currentScreenHeight, SettingUI.currentScreenSet);
+            }
         }
 
         private void Update()
