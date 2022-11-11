@@ -25,10 +25,14 @@ namespace Adv
         [SerializeField] GameObject 生存结束界面;
         [SerializeField] GameObject CurrentLiveTimeShow;
         [SerializeField] PlayerInput input;
+        [SerializeField] LanguageEventChannel languageChange;
+        [SerializeField] PlayerProperty playerProperty;
 
         private const string healthShowFont = "Health: ";
+        private const string healthShowFont_Chinese = "生命值: ";
         private const string ComboShowFont = "Combo ";
         private const string MoneyShowFont = "Money:";
+        private const string MoneyShowFont_Chinese = "货币: ";
 
         private void Awake()
         {
@@ -76,9 +80,25 @@ namespace Adv
 
             MoneyChange.AddListener((Money) =>
             {
-                MoneyShow.text = string.Concat(MoneyShowFont, Money);
+                if (ChineseEnglishShift.language == Language.English)
+                    MoneyShow.text = string.Concat(MoneyShowFont, Money);
+                else if (ChineseEnglishShift.language == Language.Chinese)
+                    MoneyShow.text = string.Concat(MoneyShowFont_Chinese, Money);
             });
             MoneyChange.Broadcast(PlayerAsset.Money);
+
+            languageChange.AddListener((languageC) =>
+            {
+                if (languageC == Language.English)
+                    MoneyShow.text = string.Concat(MoneyShowFont, PlayerAsset.Money);
+                else if (languageC == Language.Chinese)
+                    MoneyShow.text = string.Concat(MoneyShowFont_Chinese, PlayerAsset.Money);
+
+                if (languageC == Language.English)
+                    HealthShow.text = healthShowFont + playerProperty.MaxHealth;
+                else if (languageC == Language.Chinese)
+                    HealthShow.text = healthShowFont_Chinese + playerProperty.MaxHealth;
+            });
         }
 
         private void OnEnable()
@@ -96,7 +116,10 @@ namespace Adv
 
         private void ShowHealth(float health)
         {
-            HealthShow.text = healthShowFont + health;
+            if (ChineseEnglishShift.language == Language.English)
+                HealthShow.text = healthShowFont + health;
+            else if (ChineseEnglishShift.language == Language.Chinese)
+                HealthShow.text = healthShowFont_Chinese + health;
         }
     }
 }

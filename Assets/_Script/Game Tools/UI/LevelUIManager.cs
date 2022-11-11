@@ -17,6 +17,10 @@ namespace Adv
         [SerializeField] PlayerInput input;
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] VoidEventChannel SaveLastBtnBeforeCloseAllUI;
+        [SerializeField] LanguageEventChannel languageChange;
+        [SerializeField] Text MaxLiveTimeShow;
+        [SerializeField] LiveEndUI liveEndUI;
+        [SerializeField] SettingUI settingUI;
 
         private Button Level0Btn;
         private Button Level1EasyBtn;
@@ -70,12 +74,22 @@ namespace Adv
 
         private void Start()
         {
+
+
+            languageChange.AddListener((languageC) =>
+            {
+                if (languageC == Language.Chinese)
+                    MaxLiveTimeShow.text = $"最长存活: {liveEndUI.MaxLiveTime} 秒";
+                else if (languageC == Language.English)
+                    MaxLiveTimeShow.text = $"Longest survived: \n{liveEndUI.MaxLiveTime} seconds";
+            });
             input.onBattle += OpenLevelUI;
         }
 
         private void OpenLevelUI()
         {
-            LevelSelectLabelButton.onClick.Invoke();
+            if (!settingUI.IsOpen)
+                LevelSelectLabelButton.onClick.Invoke();
         }
 
     }

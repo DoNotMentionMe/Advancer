@@ -13,6 +13,7 @@ namespace Adv
         public static bool NotHurtCurrentLevel = true;
         public static bool NotEmptyAttackCurrentLevel = true;
         public float ATK => attack;
+        public float MaxHealth => maxhealth;
 
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] VoidEventChannel LevelStart;

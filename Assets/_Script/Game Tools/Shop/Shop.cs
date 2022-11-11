@@ -21,6 +21,7 @@ namespace Adv
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] VoidEventChannel SaveLastBtnBeforeCloseAllUI;
         [SerializeField] LabelOptionsUI ShopLabel;
+        [SerializeField] SettingUI settingUI;
 
         private Button HealthPlus1Btn;
         private Button LastSelectBtn;
@@ -114,7 +115,8 @@ namespace Adv
 
         private void OpenShop()
         {
-            ShopBtn.onClick.Invoke();
+            if (!settingUI.IsOpen)
+                ShopBtn.onClick.Invoke();
         }
 
     }
