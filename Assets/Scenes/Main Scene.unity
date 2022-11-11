@@ -345,11 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.2
+  ImpulseAmplitudeGain: 0.17
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.06
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.2
+  PauseStartTimeScale: 0.15
 --- !u!61 &11375828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6317,7 +6317,10 @@ MonoBehaviour:
   Level0Tage2Duration: 15
   Tips: {fileID: 1393475526}
   tage1Tips: "\u6309\u4E0B\u653B\u51FB\u952E\n\uFF08A/W/D\u6216\u2190/\u2191/\u2192\uFF09\n\u51FB\u9000\u9762\u524D\u7684\u653B\u51FB"
+  tage1Tips_English: "Press the attack key\n\uFF08A/W/D or \u2190/\u2191/\u2192\uFF09\nRepel
+    the enemy before you"
   tage2Tips: "\u52A0\u5FEB\u4E00\u70B9\u901F\u5EA6\u770B\u770B\u5427"
+  tage2Tips_English: Let's speed it up a bit
   TipsShowTime: 5
 --- !u!1 &216660842
 GameObject:
@@ -12140,16 +12143,16 @@ MonoBehaviour:
   Level1EasyMoney: 100
   Level1Money: 500
   Level1ProMoney: 2000
-  Level2EasyMoney: 100
-  Level2Money: 500
-  Level2ProMoney: 2000
-  Level3EasyMoney: 100
-  Level3Money: 500
-  Level3ProMoney: 2000
+  Level2EasyMoney: 150
+  Level2Money: 600
+  Level2ProMoney: 2200
+  Level3EasyMoney: 200
+  Level3Money: 700
+  Level3ProMoney: 2400
   LevelKIA1Money: 3000
-  Level4EasyMoney: 100
-  Level4Money: 500
-  Level4ProMoney: 2000
+  Level4EasyMoney: 250
+  Level4Money: 800
+  Level4ProMoney: 2600
   Level0ExtraMoney: 100
   Level1EasyExtraMoney: 100
   Level1ExtraMoney: 500
@@ -15774,7 +15777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.026343895, g: 0.12563412, b: 0.1509434, a: 0.4862745}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -28263,11 +28266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.2
+  ImpulseAmplitudeGain: 0.17
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.06
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.2
+  PauseStartTimeScale: 0.15
 --- !u!58 &1856046678
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29893,11 +29896,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.2
+  ImpulseAmplitudeGain: 0.17
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.06
+  AttackPauseRecoverTime: 0.067
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.2
+  PauseStartTimeScale: 0.17
 --- !u!58 &2057863986
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30225,11 +30228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.2
+  ImpulseAmplitudeGain: 0.17
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.06
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.2
+  PauseStartTimeScale: 0.15
 --- !u!70 &2133874443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

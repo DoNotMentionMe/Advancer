@@ -18,6 +18,7 @@ namespace Adv
         private PlayerProperty playerProperty;
         private PlayerAudio playerAudio;
         private HashSet<GameObject> EnemySet = new HashSet<GameObject>();
+        private HashSet<Collider2D> colSet = new HashSet<Collider2D>();
         private Coroutine AttackPauseCoroutine;
 
         public void StopAttackPauseCoroutine()
@@ -41,6 +42,8 @@ namespace Adv
                     StopCoroutine(AttackPauseCoroutine);
                     AttackPauseCoroutine = null;
                 }
+                colSet.Clear();
+                EnemySet.Clear();
             });
         }
 
@@ -65,6 +68,8 @@ namespace Adv
         {
             if (col.tag.Equals(EnemyTag) || col.tag.Equals(EnemyAttackTag))
             {
+                if (colSet.Contains(col)) return;
+                colSet.Add(col);
                 //最近的点
                 var contactPoint = col.ClosestPoint(transform.position);
                 //震动
@@ -78,8 +83,9 @@ namespace Adv
                     Time.timeScale = 1;
                     AttackPauseCoroutine = StartCoroutine(nameof(AttackPause));
                 }
-                else
+                else if ((AttackPauseCoroutine != null))
                 {
+                    Time.timeScale = 1;
                     StopCoroutine(AttackPauseCoroutine);
                     AttackPauseCoroutine = null;
                     Time.timeScale = 1;
@@ -134,6 +140,8 @@ namespace Adv
             {
                 EnemySet.Remove(col.gameObject);
             }
+            if (colSet.Contains(col))
+                colSet.Remove(col);
         }
 
         IEnumerator AttackPause()

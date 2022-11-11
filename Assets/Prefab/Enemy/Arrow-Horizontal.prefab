@@ -151,3 +151,4 @@ MonoBehaviour:
   attack: 1
   moveSpeed: 13
   RotationSpeed: 8
+  LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}

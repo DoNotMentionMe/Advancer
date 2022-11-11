@@ -13,6 +13,7 @@ namespace Adv
         [SerializeField] float attack = 1f;
         [SerializeField] float moveSpeed;
         [SerializeField] float RotationSpeed;
+        [SerializeField] VoidEventChannel LevelEnd;
 
         private int moveDirection;
         private string PlayerTag = "Player";
@@ -52,6 +53,11 @@ namespace Adv
             mTransform = GetComponent<Transform>();
             InitRotation = new Quaternion(0, 0, 0, 0);
             waitForLiveTime = new WaitForSeconds(2);
+
+            LevelEnd.AddListener(() =>
+            {
+                gameObject.SetActive(false);
+            });
         }
 
         private void OnDestroy()

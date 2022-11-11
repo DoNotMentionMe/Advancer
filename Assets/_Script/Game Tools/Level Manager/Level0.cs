@@ -17,7 +17,9 @@ namespace Adv
         [SerializeField] float Level0Tage2Duration;
         [SerializeField] Text Tips;
         [SerializeField, TextArea(2, 5)] string tage1Tips;
+        [SerializeField, TextArea(2, 5)] string tage1Tips_English;
         [SerializeField, TextArea(2, 5)] string tage2Tips;
+        [SerializeField, TextArea(2, 5)] string tage2Tips_English;
         [SerializeField] float TipsShowTime;
 
         private WaitForSeconds waitForReleaseInterval1;
@@ -52,7 +54,10 @@ namespace Adv
             var nullObj = new GameObject();
             liveEnemyList.Add(nullObj);//防止提前结束
 
-            yield return StartCoroutine(ShowTipsSeconds(tage1Tips));
+            if (ChineseEnglishShift.language == Language.Chinese)
+                yield return StartCoroutine(ShowTipsSeconds(tage1Tips));
+            if (ChineseEnglishShift.language == Language.English)
+                yield return StartCoroutine(ShowTipsSeconds(tage1Tips_English));
             //1
             ReleaseEnemy(Enemy01, EnemyGenerationPosition1.transform.position);
             yield return waitForReleaseInterval1;
@@ -64,7 +69,10 @@ namespace Adv
             {
                 yield return null;
             }
-            yield return StartCoroutine(ShowTipsSeconds(tage2Tips));
+            if (ChineseEnglishShift.language == Language.Chinese)
+                yield return StartCoroutine(ShowTipsSeconds(tage2Tips));
+            if (ChineseEnglishShift.language == Language.English)
+                yield return StartCoroutine(ShowTipsSeconds(tage2Tips_English));
             GameObject obj = null;
             GameObject GenerationPos = null;
             var startTime = Time.time;
