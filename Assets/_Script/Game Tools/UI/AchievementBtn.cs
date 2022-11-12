@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using BayatGames.SaveGameFree;
 using UnityEngine.UI;
 
 namespace Adv
@@ -13,6 +14,45 @@ namespace Adv
                                 ISelectHandler,
                                 IDeselectHandler
     {
+        [SerializeField] Sprite Unlock;
+        [SerializeField] Sprite Lock;
+        private bool IsUnlocked = false;
+        private Image image;
+
+        private void Awake()
+        {
+            image = GetComponent<Image>();
+        }
+
+        private void Start()
+        {
+            SaveGame.SavePath = SaveGamePath.DataPath;
+            if (SaveGame.Exists(gameObject.name + "IsUnlocked"))
+                IsUnlocked = SaveGame.Load<bool>(gameObject.name + "IsUnlocked");
+            if (IsUnlocked)
+                image.sprite = Unlock;
+            else
+                image.sprite = Lock;
+        }
+
+        //解锁steam成就时同步调用
+        public void UnlockAchievementIcon()
+        {
+            IsUnlocked = true;
+            image.sprite = Unlock;
+            SaveGame.SavePath = SaveGamePath.DataPath;
+            SaveGame.Save<bool>(gameObject.name + "IsUnlocked", IsUnlocked);
+        }
+
+        public void LockAchievementIcon()
+        {
+            IsUnlocked = false;
+            image.sprite = Lock;
+            SaveGame.SavePath = SaveGamePath.DataPath;
+            SaveGame.Save<bool>(gameObject.name + "IsUnlocked", IsUnlocked);
+        }
+
+
         [SerializeField] Text Comment;
         [SerializeField, TextArea(3, 8)] string commentChinese;
         [SerializeField, TextArea(3, 8)] string commentEnglish;
@@ -36,33 +76,5 @@ namespace Adv
         {
             Comment.text = ChineseEnglishShift.language == Language.Chinese ? commentChinese : commentEnglish;
         }
-
-        // private void StartIntervalExit()
-        // {
-        //     if (IntervalExitCoroutine != null)
-        //         StopCoroutine(IntervalExitCoroutine);
-        //     IntervalExitCoroutine = StartCoroutine(nameof(IntervalExit));
-        // }
-
-        // private void StopIntervalExit()
-        // {
-        //     if (IntervalExitCoroutine != null)
-        //         StopCoroutine(IntervalExitCoroutine);
-        // }
-
-        // private WaitForSeconds waitForInterval;
-        // private static Coroutine IntervalExitCoroutine;
-
-        // private void Awake()
-        // {
-        //     waitForInterval = new WaitForSeconds(0.5f);
-        // }
-
-        // IEnumerator IntervalExit()
-        // {
-        //     yield return waitForInterval;
-        //     Comment.text = "";
-        //     IntervalExitCoroutine = null;
-        // }
     }
 }

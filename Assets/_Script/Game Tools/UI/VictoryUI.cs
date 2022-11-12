@@ -126,18 +126,22 @@ namespace Adv
             if (lastLevelKey == nameof(Level1Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level1Hard_AllCombo);
+                SteamAchievement.Instance.achievementList[7].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level2Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level2Hard_AllCombo);
+                SteamAchievement.Instance.achievementList[8].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level3Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level3Hard_AllCombo);
+                SteamAchievement.Instance.achievementList[9].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level4Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_AllCombo);
+                SteamAchievement.Instance.achievementList[10].UnlockAchievementIcon();
             }
         }
 
@@ -147,18 +151,22 @@ namespace Adv
             if (lastLevelKey == nameof(Level1Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level1Hard_NotDamage);
+                SteamAchievement.Instance.achievementList[11].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level2Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level2Hard_NotDamage);
+                SteamAchievement.Instance.achievementList[12].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level3Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level3Hard_NotDamage);
+                SteamAchievement.Instance.achievementList[13].UnlockAchievementIcon();
             }
             else if (lastLevelKey == nameof(Level4Pro))
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_NotDamage);
+                SteamAchievement.Instance.achievementList[14].UnlockAchievementIcon();
             }
         }
     }

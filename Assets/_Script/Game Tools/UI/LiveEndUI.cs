@@ -81,14 +81,17 @@ namespace Adv
             if (currentLevelLiveTime >= 35)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_35seconds);
+                SteamAchievement.Instance.achievementList[15].UnlockAchievementIcon();
             }
             if (currentLevelLiveTime >= 60)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_60seconds);
+                SteamAchievement.Instance.achievementList[16].UnlockAchievementIcon();
             }
             if (currentLevelLiveTime >= 85)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_85seconds);
+                SteamAchievement.Instance.achievementList[17].UnlockAchievementIcon();
             }
         }
     }

@@ -43,6 +43,7 @@ namespace Adv
         {
             //Level4Passed.Broadcast();
             SteamAchievement.Instance.Reach_Achievement(AchievementType.Level3Hard_Clearance);
+            SteamAchievement.Instance.achievementList[5].UnlockAchievementIcon();
         }
 
         IEnumerator Release()

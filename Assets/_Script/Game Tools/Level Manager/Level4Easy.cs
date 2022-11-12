@@ -35,6 +35,7 @@ namespace Adv
         protected override void RunAfterEnemysDied()
         {
             SteamAchievement.Instance.Reach_Achievement(AchievementType.AllEasy_Clearance);
+            SteamAchievement.Instance.achievementList[0].UnlockAchievementIcon();
         }
 
         IEnumerator ReleaseEnemy()

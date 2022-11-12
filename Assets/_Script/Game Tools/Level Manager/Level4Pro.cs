@@ -38,6 +38,8 @@ namespace Adv
             //Level4Passed.Broadcast();
             SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_Clearance);
             SteamAchievement.Instance.Reach_Achievement(AchievementType.AllHard_Clearance);
+            SteamAchievement.Instance.achievementList[2].UnlockAchievementIcon();
+            SteamAchievement.Instance.achievementList[6].UnlockAchievementIcon();
         }
 
         IEnumerator ReleaseEnemy()

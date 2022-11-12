@@ -34,6 +34,7 @@ namespace Adv
         {
             //Level4Passed.Broadcast();
             SteamAchievement.Instance.Reach_Achievement(AchievementType.Level2Hard_Clearance);
+            SteamAchievement.Instance.achievementList[4].UnlockAchievementIcon();
         }
 
         IEnumerator RandomReleaseLevel2Enemy()

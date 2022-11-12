@@ -301,24 +301,24 @@ namespace Adv
         {
             Comment.text = "";
 
-            // achievementList[0].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通关所有简单难度关卡" : "Clear all easy difficulty levels"; });//AllEasy
-            // achievementList[1].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通关所有普通难度关卡" : "Clear all medium difficulty levels"; });//AllMedium
-            // achievementList[2].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通关所有困难难度关卡" : "Clear all hard difficulty levels"; });//AllHard
-            // achievementList[3].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通过了困难难度的“刀”" : "Cleared Level1Hard"; });//Clear1
-            // achievementList[4].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通过了困难难度的“刀与箭”" : "Cleared Level2Hard"; });//Clear2
-            // achievementList[5].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通过了困难难度的“枪”" : "Cleared Level3Hard"; });//Clear3
-            // achievementList[6].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "通过了困难难度的“枪与箭”" : "Cleared Level4Hard"; });//Clear4
-            // achievementList[7].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“刀”困难中全部连击" : "Complete all combos in Level1Hard"; });//AC1
-            // achievementList[8].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“刀与箭”困难中全部连击" : "Complete all combos in Level2Hard"; });//AC2
-            // achievementList[9].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“枪”困难中全部连击" : "Complete all combos in Level3Hard"; });//AC3
-            // achievementList[10].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“枪与箭”困难中全部连击" : "Complete all combos in Level4Hard"; });//AC4
-            // achievementList[11].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“刀”困难中无伤通关" : "Clear Level1Hard without taking any damage"; });//ND1
-            // achievementList[12].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“刀与箭”困难中无伤通关" : "Clear Level2Hard without taking any damage"; });//ND2
-            // achievementList[13].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“枪”困难中无伤通关" : "Clear Level3Hard without taking any damage"; });//ND3
-            // achievementList[14].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在“枪与箭”困难中无伤通关" : "Clear Level4Hard without taking any damage"; });//ND4
-            // achievementList[15].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在无限关卡中生存35秒" : "Survive in the InfiniteLevel for 35 seconds"; });//35
-            // achievementList[16].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在无限关卡中生存60秒" : "Survive in the InfiniteLevel for 60 seconds"; });//60
-            // achievementList[17].onClick.AddListener(() => { Comment.text = ChineseEnglishShift.language == Language.Chinese ? "在无限关卡中生存85秒" : "Survive in the InfiniteLevel for 85 seconds"; });//85
+            // 0---AllEasy
+            // 1---AllMedium
+            // 2---AllHard
+            // 3---Clear1
+            // 4---Clear2
+            // 5---Clear3
+            // 6---Clear4
+            // 7---AC1
+            // 8---AC2
+            // 9---AC3
+            // 10---AC4
+            // 11---ND1
+            // 12---ND2
+            // 13---ND3
+            // 14---ND4
+            // 15---35
+            // 16---60
+            // 17---85
 
             for (var i = 0; i < achievementList.Count; i++)
             {

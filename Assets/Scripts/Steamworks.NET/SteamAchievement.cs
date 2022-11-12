@@ -9,6 +9,26 @@ namespace Adv
 
     public class SteamAchievement : PersistentSingleton<SteamAchievement>
     {
+        // 0---AllEasy
+        // 1---AllMedium
+        // 2---AllHard
+        // 3---Clear1
+        // 4---Clear2
+        // 5---Clear3
+        // 6---Clear4
+        // 7---AC1
+        // 8---AC2
+        // 9---AC3
+        // 10---AC4
+        // 11---ND1
+        // 12---ND2
+        // 13---ND3
+        // 14---ND4
+        // 15---35
+        // 16---60
+        // 17---85
+        public List<AchievementBtn> achievementList;
+
         public void Reach_Achievement(AchievementType ach_type)
         {
             Complete_Achievement(ach_type.ToString());
@@ -57,6 +77,10 @@ namespace Adv
                 {
                     if (SteamUserStats.ClearAchievement(achievementName))
                         SteamUserStats.StoreStats();
+                }
+                for (var i = 0; i < achievementList.Count; i++)
+                {
+                    achievementList[i].LockAchievementIcon();
                 }
             }
         }
