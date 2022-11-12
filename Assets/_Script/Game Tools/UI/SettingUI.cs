@@ -16,6 +16,7 @@ namespace Adv
         [SerializeField] GameObject EvenSystem_NotMouse;
         [SerializeField] GameObject EvenSystem_Mouse;
         [SerializeField] BoolEventChannel CloseAllLabelOption;
+        [SerializeField] Button 清除所有成就;
 
         public bool IsOpen = false;
 
@@ -35,6 +36,7 @@ namespace Adv
         {
             input.onCloseUI += SwitchSettingUI;
             StartCall_InterfaceIcon();
+            清除所有成就.enabled = false;
         }
 
         private void SwitchSettingUI()
@@ -78,6 +80,7 @@ namespace Adv
             {
                 achievementList[i].enabled = IsOpen;
             }
+            清除所有成就.enabled = IsOpen;
         }
 
         private void OnDestroy()

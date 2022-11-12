@@ -297,11 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.17
+  ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.08
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.1
+  PauseStartTimeScale: 0.15
 --- !u!61 &11375828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12965,16 +12965,16 @@ MonoBehaviour:
   Level1EasyExtraMoney: 100
   Level1ExtraMoney: 500
   Level1ProExtraMoney: 2000
-  Level2EasyExtraMoney: 100
-  Level2ExtraMoney: 500
-  Level2ProExtraMoney: 2000
-  Level3EasyExtraMoney: 100
-  Level3ExtraMoney: 500
-  Level3ProExtraMoney: 2000
+  Level2EasyExtraMoney: 150
+  Level2ExtraMoney: 600
+  Level2ProExtraMoney: 2200
+  Level3EasyExtraMoney: 200
+  Level3ExtraMoney: 700
+  Level3ProExtraMoney: 2400
   LevelKIA1ExtraMoney: 3000
-  Level4EasyExtraMoney: 100
-  Level4ExtraMoney: 500
-  Level4ProExtraMoney: 2000
+  Level4EasyExtraMoney: 250
+  Level4ExtraMoney: 800
+  Level4ProExtraMoney: 2600
 --- !u!1 &351332302
 GameObject:
   m_ObjectHideFlags: 0
@@ -15871,7 +15871,7 @@ GameObject:
   - component: {fileID: 590690909}
   - component: {fileID: 590690908}
   m_Layer: 5
-  m_Name: "\u6E05\u9664\u6240\u6709\u6309\u952E"
+  m_Name: "\u6E05\u9664\u6240\u6709\u6210\u5C31"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19424,6 +19424,7 @@ MonoBehaviour:
   EvenSystem_NotMouse: {fileID: 657527105}
   EvenSystem_Mouse: {fileID: 1903834888}
   CloseAllLabelOption: {fileID: 11400000, guid: 34b02a68779c7944a86edccb49473061, type: 2}
+  "\u6E05\u9664\u6240\u6709\u6210\u5C31": {fileID: 590690908}
   IsOpen: 0
   Englishbtn: {fileID: 629604671}
   Chinesebtn: {fileID: 84777792}
@@ -33212,7 +33213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Unlock: {fileID: 21300000, guid: 5142ca90dd8c5f5408448da461d9452b, type: 3}
-  Lock: {fileID: 21300000, guid: e51c8c5e9866e71408b1ea0ec9d02e13, type: 3}
+  Lock: {fileID: 21300000, guid: 111d678928ea3dc4bb8d94d4965ea0ec, type: 3}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u5200\u201D\u56F0\u96BE\u4E2D\u5168\u90E8\u8FDE\u51FB"
   commentEnglish: Complete all combos in Level1Hard
@@ -33642,11 +33643,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.17
+  ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.08
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.1
+  PauseStartTimeScale: 0.15
 --- !u!58 &1856046678
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36008,11 +36009,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.17
+  ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.08
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.1
+  PauseStartTimeScale: 0.15
 --- !u!58 &2057863986
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36555,11 +36556,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a80cc8a240784493987ec76f5fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseAmplitudeGain: 0.17
+  ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.08
+  AttackPauseRecoverTime: 0.07
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
-  PauseStartTimeScale: 0.1
+  PauseStartTimeScale: 0.15
 --- !u!70 &2133874443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
