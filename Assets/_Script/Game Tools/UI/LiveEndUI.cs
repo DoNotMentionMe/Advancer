@@ -37,6 +37,7 @@ namespace Adv
         {
             //获取当局生存时间CurrentLevelLiveTime
             CurrentLevelLiveTime = currentLiveTimeShow.liveTime;
+            CheckLiveTime(CurrentLevelLiveTime);
             //显示时间
             if (ChineseEnglishShift.language == Language.Chinese)
                 LiveTimeShow.text = string.Concat(liveTimeShowStart, CurrentLevelLiveTime, liveTimeShowEnd);
@@ -73,6 +74,22 @@ namespace Adv
             }
 
             GameSaver.Instance.SaveAllData();
+        }
+
+        private void CheckLiveTime(float currentLevelLiveTime)
+        {
+            if (currentLevelLiveTime >= 35)
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_35seconds);
+            }
+            if (currentLevelLiveTime >= 60)
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_60seconds);
+            }
+            if (currentLevelLiveTime >= 85)
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_85seconds);
+            }
         }
     }
 }

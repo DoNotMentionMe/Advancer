@@ -36,6 +36,8 @@ namespace Adv
         protected override void RunAfterEnemysDied()
         {
             //Level4Passed.Broadcast();
+            SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_Clearance);
+            SteamAchievement.Instance.Reach_Achievement(AchievementType.AllHard_Clearance);
         }
 
         IEnumerator ReleaseEnemy()

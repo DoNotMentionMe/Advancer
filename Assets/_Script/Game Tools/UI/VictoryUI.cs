@@ -96,26 +96,69 @@ namespace Adv
                 else if (ChineseEnglishShift.language == Language.English)
                     MoneyGetShow.text += "\nClear:" + MoneyWithLevelKey[lastLevelKey];
 
-                if (PlayerProperty.NotEmptyAttackCurrentLevel)
+                if (PlayerProperty.NotEmptyAttackCurrentLevel)//全连
                 {
                     plusMoney += ExtraMoneyWithLevelKey[lastLevelKey];
                     if (ChineseEnglishShift.language == Language.Chinese)
                         MoneyGetShow.text += "\n全连:" + ExtraMoneyWithLevelKey[lastLevelKey];
                     else if (ChineseEnglishShift.language == Language.English)
                         MoneyGetShow.text += "\nAll Combo:" + ExtraMoneyWithLevelKey[lastLevelKey];
+                    NotEmptyAttackCheck(lastLevelKey);
                 }
 
-                if (PlayerProperty.NotHurtCurrentLevel)
+                if (PlayerProperty.NotHurtCurrentLevel)//无伤
                 {
                     plusMoney += ExtraMoneyWithLevelKey[lastLevelKey];
                     if (ChineseEnglishShift.language == Language.Chinese)
                         MoneyGetShow.text += "\n无伤:" + ExtraMoneyWithLevelKey[lastLevelKey];
                     else if (ChineseEnglishShift.language == Language.English)
                         MoneyGetShow.text += "\nNo Damage:" + ExtraMoneyWithLevelKey[lastLevelKey];
+                    NotDamageCheck(lastLevelKey);
                 }
 
                 PlayerAsset.Money += plusMoney;
                 MoneyChange.Broadcast(PlayerAsset.Money);
+            }
+        }
+
+        private void NotEmptyAttackCheck(string lastLevelKey)
+        {
+            if (lastLevelKey == nameof(Level1Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level1Hard_AllCombo);
+            }
+            else if (lastLevelKey == nameof(Level2Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level2Hard_AllCombo);
+            }
+            else if (lastLevelKey == nameof(Level3Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level3Hard_AllCombo);
+            }
+            else if (lastLevelKey == nameof(Level4Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_AllCombo);
+            }
+        }
+
+
+        private void NotDamageCheck(string lastLevelKey)
+        {
+            if (lastLevelKey == nameof(Level1Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level1Hard_NotDamage);
+            }
+            else if (lastLevelKey == nameof(Level2Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level2Hard_NotDamage);
+            }
+            else if (lastLevelKey == nameof(Level3Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level3Hard_NotDamage);
+            }
+            else if (lastLevelKey == nameof(Level4Pro))
+            {
+                SteamAchievement.Instance.Reach_Achievement(AchievementType.Level4Hard_NotDamage);
             }
         }
     }
