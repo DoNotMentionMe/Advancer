@@ -17,6 +17,7 @@ namespace Adv
         [SerializeField] GameObject EvenSystem_Mouse;
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] Button 清除所有成就;
+        [SerializeField] Button 退出游戏;
 
         public bool IsOpen = false;
 
@@ -30,6 +31,14 @@ namespace Adv
             AwakeCall_Music();
             AwakeCall_SFX();
             AwakeCall_Achievement();
+            退出游戏.onClick.AddListener(() =>
+            {
+#if UNITY_EDITOR //编辑器中退出游戏
+                UnityEditor.EditorApplication.isPlaying = false;
+#else //应用程序中退出游戏
+	            UnityEngine.Application.Quit();
+#endif
+            });
         }
 
         private void Start()
@@ -37,6 +46,7 @@ namespace Adv
             input.onCloseUI += SwitchSettingUI;
             StartCall_InterfaceIcon();
             清除所有成就.enabled = false;
+            退出游戏.enabled = false;
         }
 
         private void SwitchSettingUI()
@@ -81,6 +91,7 @@ namespace Adv
                 achievementList[i].enabled = IsOpen;
             }
             清除所有成就.enabled = IsOpen;
+            退出游戏.enabled = IsOpen;
         }
 
         private void OnDestroy()
