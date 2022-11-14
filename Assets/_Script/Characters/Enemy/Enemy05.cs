@@ -30,6 +30,7 @@ namespace Adv
         private const string PlayerTag = "Player";
         private const string PlayerAttackTag = "PlayerAttack";
 
+        private bool HasAttackOnce = false;
         private int faceRandom = 0;
         private int faceDirection = 0;
         private float AttackLength;
@@ -42,6 +43,7 @@ namespace Adv
         private Collider2D mColl;
         private WaitForSeconds waitForAttackLength;
         private Coroutine HittedBackCoroutine;
+        private Coroutine AttackCoroutine;
 
         private void Awake()
         {
@@ -57,13 +59,15 @@ namespace Adv
 
         private void OnEnable()
         {
+            HasAttackOnce = false;
             LevelEnd.AddListener(SetActiveFalse);
-            StartCoroutine(nameof(AttackCor));
+            AttackCoroutine = StartCoroutine(nameof(AttackCor));
             WeaponRenderer.enabled = true;
         }
 
         private void OnDisable()
         {
+            HasAttackOnce = false;
             LevelEnd.RemoveListenner(SetActiveFalse);
             EnemyDied.Broadcast(gameObject);
             if (faceRandom != 0)
@@ -72,6 +76,12 @@ namespace Adv
                 faceRandom = 0;
             }
             HittedBackCoroutine = null;
+
+            if (AttackCoroutine != null)
+            {
+                StopCoroutine(AttackCoroutine);
+                AttackCoroutine = null;
+            }
         }
 
         private void OnDestroy()
@@ -113,11 +123,10 @@ namespace Adv
             }
             var startTime = Time.time;
             anim.Play(AttackName);
-            while (Time.time - startTime < AttackLength * 1 / 8)
-            { yield return null; }
             mColl.enabled = true;
             while (Time.time - startTime < AttackLength)
             { yield return null; }
+            //结尾
             mColl.enabled = false;
             anim.Play("Idle");
             if (faceRandom != 0)
@@ -128,6 +137,7 @@ namespace Adv
                 faceRandom = 0;
             }
 
+            AttackCoroutine = null;
             if (!DontSetFalse)
                 gameObject.SetActive(false);
             //整个流程耗时: 1.67s
@@ -135,8 +145,9 @@ namespace Adv
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.tag.Equals(PlayerTag))
+            if (col.tag.Equals(PlayerTag) && !HasAttackOnce)
             {
+                HasAttackOnce = true;
                 mColl.enabled = false;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {

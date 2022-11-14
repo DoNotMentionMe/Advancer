@@ -11763,7 +11763,7 @@ GameObject:
   - component: {fileID: 269982909}
   - component: {fileID: 269982910}
   m_Layer: 5
-  m_Name: 85
+  m_Name: 80
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11883,11 +11883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73ca3fe03691744580cb098733e2ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlock: {fileID: 21300000, guid: eda827cc9e0f8ee46b0c416ba611f7ee, type: 3}
-  Lock: {fileID: 21300000, guid: d1b3b979a0bf4e54a976e0c80b3a4d49, type: 3}
+  Unlock: {fileID: 21300000, guid: b95c4fcdd01e93844ac550fe03a388a2, type: 3}
+  Lock: {fileID: 21300000, guid: 43ffd7d42210c24448fbe906b9c42906, type: 3}
   Comment: {fileID: 269709129}
-  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5885\u79D2"
-  commentEnglish: Survive in the InfiniteLevel for 85 seconds
+  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5880\u79D2"
+  commentEnglish: Survive in the InfiniteLevel for 80 seconds
 --- !u!1 &272122358
 GameObject:
   m_ObjectHideFlags: 0
@@ -16094,7 +16094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &590690907
 RectTransform:
   m_ObjectHideFlags: 0

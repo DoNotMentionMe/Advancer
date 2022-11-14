@@ -88,7 +88,7 @@ namespace Adv
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_60seconds);
                 SteamAchievement.Instance.achievementList[16].UnlockAchievementIcon();
             }
-            if (currentLevelLiveTime >= 85)
+            if (currentLevelLiveTime >= 80)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_85seconds);
                 SteamAchievement.Instance.achievementList[17].UnlockAchievementIcon();

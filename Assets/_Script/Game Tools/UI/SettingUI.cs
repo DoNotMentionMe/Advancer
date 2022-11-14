@@ -90,7 +90,8 @@ namespace Adv
             {
                 achievementList[i].enabled = IsOpen;
             }
-            清除所有成就.enabled = IsOpen;
+            if (清除所有成就.gameObject.activeSelf)
+                清除所有成就.enabled = IsOpen;
             退出游戏.enabled = IsOpen;
         }
 
