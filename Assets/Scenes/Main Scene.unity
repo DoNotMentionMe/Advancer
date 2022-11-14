@@ -1052,7 +1052,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1480828704}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1408,6 +1408,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChineseText: "\u5200 \u666E\u901A"
   EnglishText: Level1 Medium
+--- !u!1 &197607743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197607744}
+  - component: {fileID: 197607746}
+  - component: {fileID: 197607745}
+  m_Layer: 5
+  m_Name: Goods Comment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &197607744
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197607743}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1480828704}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 939, y: 13}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &197607745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197607743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 0, g: 1, b: 0.9642856, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Press the attack key\nduring the attack\nto immediately \nattack again"
+--- !u!222 &197607746
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197607743}
+  m_CullTransparentMesh: 1
 --- !u!1 &201016448
 GameObject:
   m_ObjectHideFlags: 0
@@ -12070,6 +12150,7 @@ GameObject:
   - component: {fileID: 277248843}
   - component: {fileID: 277248842}
   - component: {fileID: 277248841}
+  - component: {fileID: 277248844}
   m_Layer: 5
   m_Name: "\u8D2D\u4E70\u952E"
   m_TagString: Untagged
@@ -12180,6 +12261,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277248839}
   m_CullTransparentMesh: 1
+--- !u!114 &277248844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277248839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46f1abfbf06b2949ae76942c48c0b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommnetText: {fileID: 197607745}
+  CommentChinese: "\u653B\u51FB\u8FC7\u7A0B\u4E2D\u518D\u6B21\u653B\u51FB\n\u53EF\u4EE5\u76F4\u63A5\u6253\u65AD\u540E\u7ACB\u5373\u653B\u51FB"
+  CommentEnglish: "Press the attack key\nduring the attack\nto immediately \nattack
+    again"
 --- !u!1 &279919088
 GameObject:
   m_ObjectHideFlags: 0
@@ -12988,6 +13085,7 @@ GameObject:
   - component: {fileID: 351332306}
   - component: {fileID: 351332305}
   - component: {fileID: 351332304}
+  - component: {fileID: 351332307}
   m_Layer: 5
   m_Name: "\u8D2D\u4E70\u952E"
   m_TagString: Untagged
@@ -13098,6 +13196,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351332302}
   m_CullTransparentMesh: 1
+--- !u!114 &351332307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351332302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46f1abfbf06b2949ae76942c48c0b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommnetText: {fileID: 197607745}
+  CommentChinese: "\u6FC0\u6D3B\u62A4\u76FE\u6240\u9700\u8FDE\u51FB\u6570-1"
+  CommentEnglish: "Reduce the number of \ncombos required to \nactivate shields by
+    1"
 --- !u!1 &362100107
 GameObject:
   m_ObjectHideFlags: 0
@@ -19066,6 +19180,7 @@ GameObject:
   - component: {fileID: 853625426}
   - component: {fileID: 853625425}
   - component: {fileID: 853625424}
+  - component: {fileID: 853625427}
   m_Layer: 5
   m_Name: "\u8D2D\u4E70\u952E"
   m_TagString: Untagged
@@ -19176,6 +19291,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853625422}
   m_CullTransparentMesh: 1
+--- !u!114 &853625427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853625422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46f1abfbf06b2949ae76942c48c0b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommnetText: {fileID: 197607745}
+  CommentChinese: "\u6700\u5927\u8840\u91CF\u503C+1"
+  CommentEnglish: Max health +1
 --- !u!1 &864007057
 GameObject:
   m_ObjectHideFlags: 0
@@ -19899,7 +20029,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017409056, y: -0.024946094}
+  m_Offset: {x: -0.024742603, y: -0.024946094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19910,7 +20040,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5738008, y: 1.9501073}
+  m_Size: {x: 1.6178019, y: 1.9501073}
   m_EdgeRadius: 0
 --- !u!1 &978796166
 GameObject:
@@ -20168,6 +20298,7 @@ GameObject:
   - component: {fileID: 1025580838}
   - component: {fileID: 1025580837}
   - component: {fileID: 1025580836}
+  - component: {fileID: 1025580839}
   m_Layer: 5
   m_Name: "\u8D2D\u4E70\u952E"
   m_TagString: Untagged
@@ -20278,6 +20409,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025580834}
   m_CullTransparentMesh: 1
+--- !u!114 &1025580839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025580834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46f1abfbf06b2949ae76942c48c0b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommnetText: {fileID: 197607745}
+  CommentChinese: "\u8FDE\u51FB\u6FC0\u6D3B\u62B5\u6321\n\u4E00\u6B21\u653B\u51FB\u7684\u62A4\u76FE"
+  CommentEnglish: "Combo activates a \nshieldthat resists\nan attack"
 --- !u!1 &1027081157
 GameObject:
   m_ObjectHideFlags: 0
@@ -24705,6 +24851,7 @@ RectTransform:
   - {fileID: 435389007}
   - {fileID: 688646712}
   - {fileID: 2014520633}
+  - {fileID: 197607744}
   - {fileID: 152188126}
   - {fileID: 1588416501}
   m_Father: {fileID: 436147252}
@@ -24760,6 +24907,7 @@ MonoBehaviour:
   - {fileID: 2014520635}
   - {fileID: 874373473}
   - {fileID: 588922943}
+  - {fileID: 197607745}
   LevelStart: {fileID: 11400000, guid: eba6fd05f17c67a4abd8f918ac4dbf16, type: 2}
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
   LevelClosing: {fileID: 11400000, guid: c731027416d78084b956736c125bd9f2, type: 2}
@@ -24867,6 +25015,7 @@ MonoBehaviour:
   Background_Font: {fileID: 688646710}
   Money: {fileID: 1588416502}
   BtnTips: {fileID: 152188127}
+  GoodsComment: {fileID: 197607745}
   Level4Passed: {fileID: 11400000, guid: ce72f9bf7ebc8404285290631cb09e7b, type: 2}
   ShopBtn: {fileID: 1480828707}
   HealthPlus1: {fileID: 534762695}
@@ -26194,7 +26343,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1480828704}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -34988,7 +35137,7 @@ Transform:
   m_GameObject: {fileID: 1978992734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2133874439}
