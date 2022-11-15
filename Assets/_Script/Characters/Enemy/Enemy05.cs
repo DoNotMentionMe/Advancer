@@ -30,6 +30,7 @@ namespace Adv
         private const string PlayerTag = "Player";
         private const string PlayerAttackTag = "PlayerAttack";
 
+        private bool IsTirggerEnter = false;
         private bool HasAttackOnce = false;
         private int faceRandom = 0;
         private int faceDirection = 0;
@@ -59,8 +60,8 @@ namespace Adv
 
         private void OnEnable()
         {
-            mColl.enabled = true;
             HasAttackOnce = false;
+            IsTirggerEnter = false;
             LevelEnd.AddListener(SetActiveFalse);
             if (AttackCoroutine != null)
             {
@@ -75,6 +76,7 @@ namespace Adv
         {
             mColl.enabled = false;
             HasAttackOnce = false;
+            IsTirggerEnter = false;
             LevelEnd.RemoveListenner(SetActiveFalse);
             EnemyDied.Broadcast(gameObject);
             if (faceRandom != 0)
@@ -129,7 +131,8 @@ namespace Adv
             }
             var startTime = Time.time;
             anim.Play(AttackName);
-            
+            if (!IsTirggerEnter)
+                mColl.enabled = true;
             while (Time.time - startTime < AttackLength)
             { yield return null; }
             //结尾
@@ -151,10 +154,11 @@ namespace Adv
 
         private void OnTriggerEnter2D(Collider2D col)
         {
+            IsTirggerEnter = true;
             if (col.tag.Equals(PlayerTag) && !HasAttackOnce)
             {
-                HasAttackOnce = true;
                 mColl.enabled = false;
+                HasAttackOnce = true;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
                     playerProperty.Hitted(attack);
@@ -168,10 +172,10 @@ namespace Adv
             }
             else if (col.tag.Equals(PlayerAttackTag))//被命中
             {
+                mColl.enabled = false;
                 StopAllCoroutines();
                 AttackCoroutine = null;
                 attackHit.Broadcast();
-                mColl.enabled = false;
                 //anim.Play("Idle");
                 int random = 0;
                 if (faceRandom != 0)
