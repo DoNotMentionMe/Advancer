@@ -59,14 +59,21 @@ namespace Adv
 
         private void OnEnable()
         {
+            mColl.enabled = true;
             HasAttackOnce = false;
             LevelEnd.AddListener(SetActiveFalse);
+            if (AttackCoroutine != null)
+            {
+                StopCoroutine(AttackCoroutine);
+                AttackCoroutine = null;
+            }
             AttackCoroutine = StartCoroutine(nameof(AttackCor));
             WeaponRenderer.enabled = true;
         }
 
         private void OnDisable()
         {
+            mColl.enabled = false;
             HasAttackOnce = false;
             LevelEnd.RemoveListenner(SetActiveFalse);
             EnemyDied.Broadcast(gameObject);
@@ -109,7 +116,6 @@ namespace Adv
             if (DebugText)
                 Debug.Log("取出位置：" + faceRandom + "faceList: " + ForEachList(faceList));
             SetAppearPos(faceRandom);
-            mColl.enabled = false;
             anim.Play("Idle");
             float t = 0f;
             var color = spriteRenderer.color;
@@ -123,7 +129,7 @@ namespace Adv
             }
             var startTime = Time.time;
             anim.Play(AttackName);
-            mColl.enabled = true;
+            
             while (Time.time - startTime < AttackLength)
             { yield return null; }
             //结尾
@@ -163,6 +169,7 @@ namespace Adv
             else if (col.tag.Equals(PlayerAttackTag))//被命中
             {
                 StopAllCoroutines();
+                AttackCoroutine = null;
                 attackHit.Broadcast();
                 mColl.enabled = false;
                 //anim.Play("Idle");
