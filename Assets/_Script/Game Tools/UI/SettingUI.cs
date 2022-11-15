@@ -25,6 +25,11 @@ namespace Adv
         {
             SettingUICanvas.enabled = IsOpen;
             SaveGame.SavePath = SaveGamePath.DataPath;
+#if UNITY_EDITOR//编辑器中显示按钮
+            清除所有成就.gameObject.SetActive(true);
+#else //客户端内隐藏按钮
+	        清除所有成就.gameObject.SetActive(false);  
+#endif
             AwakeCall_LanguageChange();
             AwakeCall_ScreenChange();
             AwakeCall_InterfaceIcon();
@@ -316,6 +321,11 @@ namespace Adv
         {
             Comment.text = "";
 
+            for (var i = 0; i < achievementList.Count; i++)
+            {
+                achievementList[i].enabled = false;
+            }
+
             // 0---AllEasy
             // 1---AllMedium
             // 2---AllHard
@@ -334,11 +344,6 @@ namespace Adv
             // 15---35
             // 16---60
             // 17---85
-
-            for (var i = 0; i < achievementList.Count; i++)
-            {
-                achievementList[i].enabled = false;
-            }
         }
 
 
