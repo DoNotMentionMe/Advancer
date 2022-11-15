@@ -13918,8 +13918,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1954317406}
-  - {fileID: 1958266310}
   - {fileID: 1393475525}
+  - {fileID: 1958266310}
   - {fileID: 244333998}
   - {fileID: 1801016805}
   - {fileID: 1430547999}
@@ -13955,6 +13955,7 @@ MonoBehaviour:
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
   EarlyOutLevel: {fileID: 11400000, guid: 36568a88dd126b143a56b5ab1c9f71d8, type: 2}
   LevelClosing: {fileID: 11400000, guid: c731027416d78084b956736c125bd9f2, type: 2}
+  ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   healtChange: {fileID: 11400000, guid: 22bb66253d29bb147874091b57f8c632, type: 2}
   ComboChange: {fileID: 11400000, guid: efbcaa70a3593274398c7f31808a0268, type: 2}
   MoneyChange: {fileID: 11400000, guid: eacc8d5b7d1f50a4a9d397ee5465c08e, type: 2}
@@ -13969,6 +13970,7 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 101795b97698a5b4dbcf48c0141e4039, type: 2}
   languageChange: {fileID: 11400000, guid: d32b820e501c97a41a514d6deaa80476, type: 2}
   playerProperty: {fileID: 1978992741}
+  ComboShow_Anim: {fileID: 1958266311}
 --- !u!114 &436147254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23742,7 +23744,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436147252}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34797,6 +34799,7 @@ GameObject:
   - component: {fileID: 1958266310}
   - component: {fileID: 1958266309}
   - component: {fileID: 1958266308}
+  - component: {fileID: 1958266311}
   m_Layer: 5
   m_Name: Combo Show
   m_TagString: Untagged
@@ -34817,7 +34820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
-  m_Color: {r: 1, g: 0.9094448, b: 0, a: 1}
+  m_Color: {r: 0.6132076, g: 0.48050022, b: 0.34420612, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34859,13 +34862,34 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436147252}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 352, y: 131}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1958266311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958266307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838c826ff4ae5734d9d920a397564154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTransform: {fileID: 1958266310}
+  showText: {fileID: 1958266308}
+  MaxLocalScale: {x: 1.5, y: 1.5, z: 1}
+  animLength: 0.2
+  StartColorA: 0.5
+  MaxColorA: 1
+  ComboChange: {fileID: 11400000, guid: efbcaa70a3593274398c7f31808a0268, type: 2}
+  SetDownValue: 0.3
+  SetDownWaitTime: 1
 --- !u!1 &1960057656
 GameObject:
   m_ObjectHideFlags: 0

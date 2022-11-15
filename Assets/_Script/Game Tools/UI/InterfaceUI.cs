@@ -13,6 +13,7 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel EarlyOutLevel;
         [SerializeField] VoidEventChannel LevelClosing;
+        [SerializeField] VoidEventChannel ClearingUIClose;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
         [SerializeField] FloatEventChannel MoneyChange;
@@ -27,12 +28,15 @@ namespace Adv
         [SerializeField] PlayerInput input;
         [SerializeField] LanguageEventChannel languageChange;
         [SerializeField] PlayerProperty playerProperty;
+        [SerializeField] ComboShow ComboShow_Anim;
 
         private const string healthShowFont = "Health: ";
         private const string healthShowFont_Chinese = "生命值: ";
         private const string ComboShowFont = "Combo ";
         private const string MoneyShowFont = "Money:";
         private const string MoneyShowFont_Chinese = "货币: ";
+
+        private float currentCombo = 0;
 
         private void Awake()
         {
@@ -53,6 +57,7 @@ namespace Adv
                 {
                     CurrentLiveTimeShow.SetActive(false);
                 }
+                currentCombo = 0;
             });
 
             LevelClosing.AddListener(() =>
@@ -72,10 +77,24 @@ namespace Adv
                 else
                     失败界面.SetActive(true);
             });
+            ClearingUIClose.AddListener(() =>
+            {
+                currentCombo = 0;
+            });
 
             ComboChange.AddListener((Combo) =>
             {
                 ComboShow.text = string.Concat(ComboShowFont, Combo);
+                if (Combo > currentCombo)//连击数增加了
+                {
+                    //播放增加动画
+                    ComboShow_Anim.PlayComboAnim();
+                }
+                else if (Combo < currentCombo)
+                {
+                    ComboShow_Anim.ImmediatelySetDown();
+                }
+                currentCombo = Combo;
             });
 
             MoneyChange.AddListener((Money) =>
