@@ -29,6 +29,7 @@ namespace Adv
         [SerializeField] LanguageEventChannel languageChange;
         [SerializeField] PlayerProperty playerProperty;
         [SerializeField] ComboShow ComboShow_Anim;
+        [SerializeField] HealthShow HealthShowAnim;
 
         private const string healthShowFont = "Health: ";
         private const string healthShowFont_Chinese = "生命值: ";
@@ -37,6 +38,7 @@ namespace Adv
         private const string MoneyShowFont_Chinese = "货币: ";
 
         private float currentCombo = 0;
+        private float currentHealth = 0;
 
         private void Awake()
         {
@@ -139,6 +141,14 @@ namespace Adv
                 HealthShow.text = healthShowFont + health;
             else if (ChineseEnglishShift.language == Language.Chinese)
                 HealthShow.text = healthShowFont_Chinese + health;
+
+            if (health < currentHealth)
+            {
+                //扣血动画
+                HealthShowAnim.PlayReduceHealthAnim();
+            }
+
+            currentHealth = health;
         }
     }
 }
