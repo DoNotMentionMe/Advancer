@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.066
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
 --- !u!61 &11375828
@@ -34015,7 +34015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.066
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
 --- !u!58 &1856046678
@@ -36422,7 +36422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.066
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
 --- !u!58 &2057863986
@@ -36969,7 +36969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseAmplitudeGain: 0.16
   ImpulseFrequencyGain: 0.85
-  AttackPauseRecoverTime: 0.07
+  AttackPauseRecoverTime: 0.066
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
 --- !u!70 &2133874443

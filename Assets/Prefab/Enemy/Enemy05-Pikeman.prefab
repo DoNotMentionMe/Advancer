@@ -247,7 +247,7 @@ MonoBehaviour:
   HittedWeapon_upRight: {fileID: 2943974098176852050, guid: 2259ce72d860f4e42a62ec1720929a0e, type: 3}
   HittedSFX:
     audioClip: {fileID: 8300000, guid: fa0a31a320b9cd64591ca88209c70d5a, type: 3}
-    volume: 0.37
+    volume: 0.32
 --- !u!58 &2695085471150049070
 CircleCollider2D:
   m_ObjectHideFlags: 0
