@@ -85,3 +85,4 @@ crashlytics-build.properties
 
 /Assets/SaveData/*
 /Assets/SaveData.meta
+steam_appid.txt

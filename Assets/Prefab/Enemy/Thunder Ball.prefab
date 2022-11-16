@@ -105,7 +105,7 @@ MonoBehaviour:
   hitBackSpeed: 25
   hitBall:
     audioClip: {fileID: 8300000, guid: 46207bf432b820f44904258e417dca61, type: 3}
-    volume: 1.15
+    volume: 1.81
 --- !u!58 &689416981511372005
 CircleCollider2D:
   m_ObjectHideFlags: 0

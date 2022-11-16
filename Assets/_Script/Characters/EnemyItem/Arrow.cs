@@ -14,6 +14,7 @@ namespace Adv
         [SerializeField] float moveSpeed;
         [SerializeField] float RotationSpeed;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] AudioData ArrowHittedSFX;
 
         private int moveDirection;
         private string PlayerTag = "Player";
@@ -36,6 +37,8 @@ namespace Adv
             }
             if (col.tag.Equals(PlayerAttackTag))//被命中
             {
+                //音效
+                AudioManager.Instance.PlayRandomSFX(ArrowHittedSFX);
                 //特效
                 var contactPoint = col.ClosestPoint(transform.position);
                 if (attackDirection == AttackDirection.Horizontal)

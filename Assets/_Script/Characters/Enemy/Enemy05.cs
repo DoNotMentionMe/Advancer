@@ -25,6 +25,7 @@ namespace Adv
         [SerializeField] GameObject HittedWeapon_left;
         [SerializeField] GameObject HittedWeapon_upLeft;
         [SerializeField] GameObject HittedWeapon_upRight;
+        [SerializeField] AudioData HittedSFX;
 
         private const string Idle = "Idle";
         private const string PlayerTag = "Player";
@@ -175,6 +176,7 @@ namespace Adv
                 mColl.enabled = false;
                 StopAllCoroutines();
                 AttackCoroutine = null;
+                AudioManager.Instance.PlayRandomSFX(HittedSFX);
                 attackHit.Broadcast();
                 //anim.Play("Idle");
                 int random = 0;
