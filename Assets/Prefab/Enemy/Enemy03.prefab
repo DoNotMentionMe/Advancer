@@ -138,7 +138,7 @@ MonoBehaviour:
   mCollider2D: {fileID: 379383038444346966}
   HitKnife:
     audioClip: {fileID: 8300000, guid: 46d9ce5f2a7b6f440a335e073ab98746, type: 3}
-    volume: 1.25
+    volume: 1
 --- !u!50 &379383038444346967
 Rigidbody2D:
   serializedVersion: 4
