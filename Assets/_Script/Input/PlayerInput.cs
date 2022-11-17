@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Adv
@@ -18,6 +19,7 @@ namespace Adv
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel ClearingUIClose;
         [SerializeField] VoidEventChannel EarlyOutLevel;
+        [SerializeField] AudioData BtnSubmitSound;
         PlayerInputActions playerInput;
 
         //---作废-----
@@ -212,7 +214,11 @@ namespace Adv
                 var obj = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
                 if (obj == null) return;
                 if (obj.activeSelf)
-                    obj.GetComponent<UnityEngine.UI.Button>().OnSubmit(null);
+                {
+                    var btn = obj.GetComponent<UnityEngine.UI.Button>();
+                    btn.OnSubmit(null);
+                    AudioManager.Instance.PlayRandomSFX(BtnSubmitSound);
+                }
             }
         }
 
