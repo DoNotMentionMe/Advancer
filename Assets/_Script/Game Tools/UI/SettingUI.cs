@@ -18,6 +18,7 @@ namespace Adv
         [SerializeField] BoolEventChannel CloseAllLabelOption;
         [SerializeField] Button 清除所有成就;
         [SerializeField] Button 退出游戏;
+        [SerializeField] Button About;
 
         public bool IsOpen = false;
 
@@ -52,6 +53,7 @@ namespace Adv
             StartCall_InterfaceIcon();
             清除所有成就.enabled = false;
             退出游戏.enabled = false;
+            About.enabled = false;
         }
 
         private void SwitchSettingUI()
@@ -98,6 +100,7 @@ namespace Adv
             if (清除所有成就.gameObject.activeSelf)
                 清除所有成就.enabled = IsOpen;
             退出游戏.enabled = IsOpen;
+            About.enabled = IsOpen;
         }
 
         private void OnDestroy()

@@ -20201,6 +20201,7 @@ MonoBehaviour:
   CloseAllLabelOption: {fileID: 11400000, guid: 34b02a68779c7944a86edccb49473061, type: 2}
   "\u6E05\u9664\u6240\u6709\u6210\u5C31": {fileID: 590690908}
   "\u9000\u51FA\u6E38\u620F": {fileID: 534162943}
+  About: {fileID: 1769911855}
   IsOpen: 0
   Englishbtn: {fileID: 629604671}
   Chinesebtn: {fileID: 84777792}
