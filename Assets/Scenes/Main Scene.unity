@@ -18401,6 +18401,7 @@ GameObject:
   - component: {fileID: 767904739}
   - component: {fileID: 767904741}
   - component: {fileID: 767904740}
+  - component: {fileID: 767904742}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -18461,7 +18462,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.28
-  m_Text: "\u8FD9\u662F\u6211\u7684\u7B2C\u4E00\u90E8\u6E38\u620F\n\u611F\u8C22\u6E38\u73A9\uFF0C\u6B22\u8FCE\u63D0\u51FA\u60A8\u7684\u5EFA\u8BAE\n\nB\u7AD9ID\uFF1A\u5C31\u4E0D\u63D0\u4E86\u4E86\nQQ\u7FA4\uFF1A587188644"
+  m_Text: "This is my first game\r\nThanks for playing and \nwelcome to put forward
+    your suggestions\r.\n\r\nBiliBili Homepage: \nhttps://space.bilibili.com/107857176\nQQ
+    group: 587188644"
 --- !u!222 &767904741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18470,6 +18473,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767904738}
   m_CullTransparentMesh: 1
+--- !u!114 &767904742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767904738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChineseText: "\u8FD9\u662F\u6211\u7684\u7B2C\u4E00\u90E8\u6E38\u620F\n\u611F\u8C22\u6E38\u73A9\uFF0C\u6B22\u8FCE\u63D0\u51FA\u60A8\u7684\u5EFA\u8BAE\n\nB\u7AD9ID\uFF1A\u5C31\u4E0D\u63D0\u4E86\u4E86\nQQ\u7FA4\uFF1A587188644"
+  EnglishText: "This is my first game\r\nThanks for playing and \nwelcome to put
+    forward your suggestions\r.\n\r\nBiliBili Homepage: \nhttps://space.bilibili.com/107857176\nQQ
+    group: 587188644"
 --- !u!1 &770850779
 GameObject:
   m_ObjectHideFlags: 0
@@ -27374,7 +27393,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642267613}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
