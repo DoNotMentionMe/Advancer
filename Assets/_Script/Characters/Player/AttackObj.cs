@@ -49,7 +49,7 @@ namespace Adv
 
         private void OnEnable()
         {
-            AudioManager.Instance.PlaySFX(playerAudio.AttackAudio);
+            AudioManager.Instance.PlayRandomSFX(playerAudio.AttackAudio);
             //fixedFrameDuration = 0;
         }
 

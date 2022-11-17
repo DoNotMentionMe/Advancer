@@ -16,6 +16,7 @@ namespace Adv
     {
         [SerializeField] Sprite Unlock;
         [SerializeField] Sprite Lock;
+        [SerializeField] AudioData EnterSound;
         private bool IsUnlocked = false;
         private Image image;
 
@@ -74,6 +75,7 @@ namespace Adv
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            AudioManager.Instance.PlayRandomSFX(EnterSound);
             Comment.text = ChineseEnglishShift.language == Language.Chinese ? commentChinese : commentEnglish;
         }
     }

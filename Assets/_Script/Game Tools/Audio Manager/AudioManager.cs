@@ -73,9 +73,9 @@ namespace Adv
         public void PlaySFX(AudioData audioData)
         {
             if (!sFXPlayer.enabled) return;
-            sFXPlayer.pitch = 1;
             if (audioData.audioClip != null)
-                sFXPlayer.PlayOneShot(audioData.audioClip, audioData.volume);
+                sFXPlayer.pitch = 1;
+            Play(audioData);
         }
 
         //Used for repeat_play SFX
@@ -84,7 +84,15 @@ namespace Adv
             if (!sFXPlayer.enabled) return;
             if (audioData.audioClip != null)
                 sFXPlayer.pitch = UnityEngine.Random.Range(MIN_PITCH, MAX_PITCH);
-            PlaySFX(audioData);
+            Play(audioData);
+        }
+
+        private void Play(AudioData audioData)
+        {
+            if (!sFXPlayer.enabled) return;
+            //sFXPlayer.pitch = 1;
+            if (audioData.audioClip != null)
+                sFXPlayer.PlayOneShot(audioData.audioClip, audioData.volume);
         }
 
         public void PlayRandomSFX(AudioData[] audioDatas)
