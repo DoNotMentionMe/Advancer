@@ -15,6 +15,10 @@ namespace Adv
         public float ATK => attack;
         public float MaxHealth => maxhealth;
 
+        [SerializeField] Renderer mRenderer;
+        [SerializeField] Material PlayerMaterial;
+        [SerializeField] FlashController flashController;
+        [SerializeField] float flashInterval;
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
@@ -135,6 +139,7 @@ namespace Adv
             ShieldCombo = 0;
             health -= damage;
             healtChange.Broadcast(health);
+            flashController.flashEffect(mRenderer, PlayerMaterial, 1, flashInterval);
             hurtBlackFlash.StartBlackFlash();
             if (health <= 0)
             {
