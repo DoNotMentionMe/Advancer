@@ -43,6 +43,7 @@ namespace Adv
                 AttackStateStartTime = Time.time;
                 anim.Play(RightAttackStart);
                 attackState = AttackStates.Start;
+                playerController.dust.StartDustLeft();
             }
         }
 

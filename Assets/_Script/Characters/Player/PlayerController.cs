@@ -18,6 +18,8 @@ namespace Adv
         public AttackObj UpAttackObj;
         public AttackObj LeftAttackObj;
         public AttackObj RightAttackObj;
+        public ParticleEffect_Dust dust;
+        public ParticleSystem DustMid;
         //------作废-----
         //[SerializeField] float moveSpeed = 15f;
         //--------------

@@ -40,6 +40,7 @@ namespace Adv
                 AttackStateStartTime = Time.time;
                 anim.Play(UpAttackStart);
                 attackState = AttackStates.Start;
+                playerController.DustMid.Play();
             }
         }
 
