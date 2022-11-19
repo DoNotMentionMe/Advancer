@@ -34,9 +34,15 @@ namespace Adv
                 {
                     var contactPoint = col.ClosestPoint(transform.position);
                     if (contactPoint.x > 0)
-                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    {
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right, contactPoint);
+                        //PlayerHittedEffect_Right.Instance.Effect_Right(contactPoint);
+                    }
                     else
-                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
+                    {
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left, contactPoint);
+                        //PlayerHittedEffect_Left.Instance.Effect_Left(contactPoint);
+                    }
                     playerProperty.Hitted(attack);
                 }
                 gameObject.SetActive(false);

@@ -21,7 +21,7 @@ namespace Adv
         {
             material = mSR.material;
 
-            playerHitted.AddListener((playerHitted) =>
+            playerHitted.AddListener((playerHitted, ContactPoint) =>
             {
                 if (playerHitted == PlayerHitted.Hitted_Right)
                 {

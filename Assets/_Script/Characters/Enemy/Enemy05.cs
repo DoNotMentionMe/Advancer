@@ -165,9 +165,15 @@ namespace Adv
                 {
                     var contactPoint = col.ClosestPoint(transform.position);
                     if (contactPoint.x > 0)
-                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    {
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right, contactPoint);
+                        //PlayerHittedEffect_Right.Instance.Effect_Right(contactPoint);
+                    }
                     else
-                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
+                    {
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left, contactPoint);
+                        //PlayerHittedEffect_Left.Instance.Effect_Left(contactPoint);
+                    }
                     playerProperty.Hitted(attack);
                     //碰到玩家时已经时生命周期结尾了 不需要在做一个次结尾
                     //StopAllCoroutines();

@@ -11,6 +11,8 @@ namespace Adv
         [SerializeField] float AttackPauseRecoverTime = 0.2f;
         [SerializeField] VoidEventChannel ClearingUIClose;
         [SerializeField] float PauseStartTimeScale = 0.2f;
+        [SerializeField] GameObject enemyHittedEffect;
+        [SerializeField] GameObject HitEffect;
 
         //private int fixedFrameDuration;
         private string EnemyTag = "Enemy";
@@ -20,6 +22,7 @@ namespace Adv
         private HashSet<GameObject> EnemySet = new HashSet<GameObject>();
         private HashSet<Collider2D> colSet = new HashSet<Collider2D>();
         private Coroutine AttackPauseCoroutine;
+        private Vector2 PlayerMidPoint = new Vector2(0, -2.3f);
 
         public void StopAttackPauseCoroutine()
         {
@@ -75,7 +78,11 @@ namespace Adv
                 //震动
                 ImpulseController.Instance.ProduceImpulse(contactPoint, ImpulseAmplitudeGain, ImpulseFrequencyGain);
                 //特效
-                ParticleEffectController.Instance.PlayHitEffect(contactPoint);
+                PoolManager.Instance.Release(HitEffect, contactPoint);
+                //ParticleEffectController.Instance.PlayHitEffect(contactPoint);
+                // var direction = contactPoint - PlayerMidPoint;
+                // var angle = Vector2.Angle(Vector2.right, direction);
+                // PoolManager.Instance.Release(enemyHittedEffect, contactPoint, Quaternion.Euler(180 - angle, 90, 0));
                 //停顿
                 if (AttackPauseCoroutine == null)
                 {

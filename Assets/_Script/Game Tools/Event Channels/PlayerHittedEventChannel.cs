@@ -10,7 +10,7 @@ namespace Adv
         Hitted_Left,
     }
     [CreateAssetMenu(menuName = "Data/EventChannels/PlayerHittedEventChannels", fileName = "PlayerHittedEventChannel_")]
-    public class PlayerHittedEventChannel : OneParameterEventChannel<PlayerHitted>
+    public class PlayerHittedEventChannel : TwoParameterEventChannel<PlayerHitted, Vector2>
     {
 
     }
