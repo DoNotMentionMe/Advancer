@@ -32,7 +32,7 @@ namespace Adv
                 i++;
                 yield return waitForPlayInterval;
             }
-            AudioManager.Instance.PlaySFX(CionGetSFX);
+            AudioManager.Instance.PlaySFX(CionGetSFX, 1.15f);
         }
     }
 }

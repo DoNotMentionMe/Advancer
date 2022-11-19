@@ -41,6 +41,8 @@ namespace Adv
                 anim.Play(UpAttackStart);
                 attackState = AttackStates.Start;
                 playerController.DustMid.Play();
+                playerController.LeftAttackObj.StopAttackPauseCoroutine();
+                Time.timeScale = 1;
             }
         }
 

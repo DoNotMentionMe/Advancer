@@ -44,6 +44,8 @@ namespace Adv
                 anim.Play(RightAttackStart);
                 attackState = AttackStates.Start;
                 playerController.dust.StartDustRight();
+                playerController.LeftAttackObj.StopAttackPauseCoroutine();
+                Time.timeScale = 1;
             }
         }
 

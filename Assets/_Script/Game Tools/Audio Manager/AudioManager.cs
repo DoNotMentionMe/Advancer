@@ -78,6 +78,14 @@ namespace Adv
             Play(audioData);
         }
 
+        public void PlaySFX(AudioData audioData, float pitch)
+        {
+            if (!sFXPlayer.enabled) return;
+            if (audioData.audioClip != null)
+                sFXPlayer.pitch = pitch;
+            Play(audioData);
+        }
+
         //Used for repeat_play SFX
         public void PlayRandomSFX(AudioData audioData)
         {

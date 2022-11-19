@@ -18623,7 +18623,7 @@ MonoBehaviour:
   CionGetSFX:
     audioClip: {fileID: 8300000, guid: 866d49b688bc39b40b1d4b7df0f417c9, type: 3}
     volume: 1
-  PlayCount: 8
+  PlayCount: 6
   playInterval: 0.12
 --- !u!4 &767779370
 Transform:
@@ -20413,7 +20413,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881018994}
   serializedVersion: 8
-  lengthInSec: 0.05
+  lengthInSec: 0.07
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -20657,8 +20657,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.25
-      minScalar: 0.1
+      scalar: 0.3
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -26829,7 +26829,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126748757}
   serializedVersion: 8
-  lengthInSec: 0.05
+  lengthInSec: 0.07
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -27073,8 +27073,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.25
-      minScalar: 0.1
+      scalar: 0.3
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
