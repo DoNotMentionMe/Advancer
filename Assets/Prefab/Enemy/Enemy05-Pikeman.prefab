@@ -237,7 +237,7 @@ MonoBehaviour:
   HittedBackSpeed: 5
   AppearPosLeft: {x: -2.58, y: -2.212}
   AppearPosRight: {x: 2.58, y: -2.212}
-  AppearPosUp: {x: 0.036, y: 0.5}
+  AppearPosUp: {x: 0.036, y: 0.49}
   AttackClip: {fileID: 7400000, guid: e0abe00c5504eb64eb6a4b6b309668c8, type: 2}
   WeaponRenderer: {fileID: 2695085471258211723}
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}

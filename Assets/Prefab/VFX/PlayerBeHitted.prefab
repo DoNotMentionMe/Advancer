@@ -118,7 +118,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.55
+      scalar: 0.45
       minScalar: 0.0001
       maxCurve:
         serializedVersion: 2
@@ -979,7 +979,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 40
+        scalar: 25
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4897,4 +4897,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroy: 0
-  LifeTime: 0.55
+  LifeTime: 0.45

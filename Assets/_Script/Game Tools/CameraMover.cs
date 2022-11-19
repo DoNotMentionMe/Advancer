@@ -16,6 +16,7 @@ namespace Adv
 
         private void Awake()
         {
+            Application.targetFrameRate = 120;
             UpAttack.AddListener(() =>
             {
                 StartMoveY();
