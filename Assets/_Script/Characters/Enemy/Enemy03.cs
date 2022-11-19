@@ -9,6 +9,7 @@ namespace Adv
         [SerializeField] VoidEventChannel attackHit;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] GameObjectEventChannel EnemyDied;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
         [SerializeField] float attack;
         [SerializeField] float moveSpeed;
         [SerializeField] float JumpForce;
@@ -176,6 +177,11 @@ namespace Adv
                 mCollider2D.enabled = false;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
+                    var contactPoint = col.ClosestPoint(transform.position);
+                    if (contactPoint.x > 0)
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    else
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
                     playerProperty.Hitted(attack);
                 }
             }

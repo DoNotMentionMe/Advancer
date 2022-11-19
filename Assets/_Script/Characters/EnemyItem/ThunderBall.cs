@@ -7,6 +7,7 @@ namespace Adv
     public class ThunderBall : MonoBehaviour
     {
         [SerializeField] VoidEventChannel attackHit;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
         [SerializeField] float attack = 1f;
         [SerializeField] float moveSpeed = 3f;
         [SerializeField] float hitBackSpeed = 6f;
@@ -22,6 +23,11 @@ namespace Adv
             {
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
+                    var contactPoint = col.ClosestPoint(transform.position);
+                    if (contactPoint.x > 0)
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    else
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
                     playerProperty.Hitted(attack);
                 }
                 gameObject.SetActive(false);

@@ -21,6 +21,7 @@ namespace Adv
         [SerializeField] AnimationClip AttackClip;
         [SerializeField] SpriteRenderer WeaponRenderer;
         [SerializeField] VoidEventChannel attackHit;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
         [SerializeField] GameObject HittedWeapon_right;
         [SerializeField] GameObject HittedWeapon_left;
         [SerializeField] GameObject HittedWeapon_upLeft;
@@ -162,6 +163,11 @@ namespace Adv
                 HasAttackOnce = true;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
+                    var contactPoint = col.ClosestPoint(transform.position);
+                    if (contactPoint.x > 0)
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    else
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
                     playerProperty.Hitted(attack);
                     //碰到玩家时已经时生命周期结尾了 不需要在做一个次结尾
                     //StopAllCoroutines();

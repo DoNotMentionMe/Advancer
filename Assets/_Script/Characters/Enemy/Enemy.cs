@@ -8,6 +8,7 @@ namespace Adv
     {
         [SerializeField] protected float maxHealth = 5;
         [SerializeField] protected float health;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
 
         private bool HasAttacked = false;
         private string PlayerTag = "Player";
@@ -45,6 +46,11 @@ namespace Adv
                 HasAttacked = true;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
+                    var contactPoint = col.ClosestPoint(transform.position);
+                    if (contactPoint.x > 0)
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    else
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
                     playerProperty.Hitted(1);
                 }
             }

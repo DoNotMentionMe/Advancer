@@ -12,6 +12,7 @@ namespace Adv
         [SerializeField] float ScrollXTimeEveryTime;
         [SerializeField] VoidEventChannel RightAttack;
         [SerializeField] VoidEventChannel LeftAttack;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
 
         private Material material;
         private Coroutine ScrollXCoroutine;
@@ -19,6 +20,22 @@ namespace Adv
         private void Awake()
         {
             material = mSR.material;
+
+            playerHitted.AddListener((playerHitted) =>
+            {
+                if (playerHitted == PlayerHitted.Hitted_Right)
+                {
+                    if (ScrollXCoroutine != null)
+                        StopCoroutine(ScrollXCoroutine);
+                    ScrollXCoroutine = StartCoroutine(ScrollX(-1));
+                }
+                else if (playerHitted == PlayerHitted.Hitted_Left)
+                {
+                    if (ScrollXCoroutine != null)
+                        StopCoroutine(ScrollXCoroutine);
+                    ScrollXCoroutine = StartCoroutine(ScrollX(1));
+                }
+            });
 
             RightAttack.AddListener(() =>
             {

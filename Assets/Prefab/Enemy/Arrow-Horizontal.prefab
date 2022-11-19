@@ -152,6 +152,7 @@ MonoBehaviour:
   moveSpeed: 13
   RotationSpeed: 8
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
   ArrowHittedSFX:
     audioClip: {fileID: 8300000, guid: 02cf3932cb0d8cc498dc912fe936b04f, type: 3}
     volume: 0.24

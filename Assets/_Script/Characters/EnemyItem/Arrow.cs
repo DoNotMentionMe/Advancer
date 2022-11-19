@@ -14,6 +14,7 @@ namespace Adv
         [SerializeField] float moveSpeed;
         [SerializeField] float RotationSpeed;
         [SerializeField] VoidEventChannel LevelEnd;
+        [SerializeField] PlayerHittedEventChannel playerHitted;
         [SerializeField] AudioData ArrowHittedSFX;
 
         private int moveDirection;
@@ -31,6 +32,11 @@ namespace Adv
             {
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {
+                    var contactPoint = col.ClosestPoint(transform.position);
+                    if (contactPoint.x > 0)
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Right);
+                    else
+                        playerHitted.Broadcast(PlayerHitted.Hitted_Left);
                     playerProperty.Hitted(attack);
                 }
                 gameObject.SetActive(false);

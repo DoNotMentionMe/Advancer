@@ -985,6 +985,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &152138332
 GameObject:
   m_ObjectHideFlags: 0
@@ -32288,6 +32289,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &1191153362
 GameObject:
   m_ObjectHideFlags: 0
@@ -34618,6 +34620,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &1424161616
 GameObject:
   m_ObjectHideFlags: 0
@@ -35871,6 +35874,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &1517287261
 GameObject:
   m_ObjectHideFlags: 0
@@ -46717,6 +46721,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &2001544572
 GameObject:
   m_ObjectHideFlags: 0
@@ -47080,6 +47085,7 @@ MonoBehaviour:
   ScrollXTimeEveryTime: 0.1
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
+  playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
 --- !u!1 &2020266681
 GameObject:
   m_ObjectHideFlags: 0
