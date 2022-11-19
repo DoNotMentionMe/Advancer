@@ -19,6 +19,7 @@ namespace Adv
         [SerializeField] FloatEventChannel MoneyChange;
         [SerializeField] AudioData SuccessSFX;
         [SerializeField] AudioData DeidSFX;
+        [SerializeField] CionGetSound cionGetSound;
         [SerializeField] Text HealthShow;
         [SerializeField] Text ComboShow;
         [SerializeField] Text MoneyShow;
@@ -68,7 +69,8 @@ namespace Adv
             {
                 if (BaseLevelModule.IsVictory)
                 {
-                    AudioManager.Instance.PlaySFX(SuccessSFX);
+                    //AudioManager.Instance.PlaySFX(SuccessSFX);
+                    cionGetSound.StartCionGetSound();
                     if (BaseLevelModule.CurrentRunningLevelKey.Equals(nameof(Level0)))
                         教程完成界面.SetActive(true);
                     else
@@ -76,6 +78,7 @@ namespace Adv
                 }
                 else if (BaseLevelModule.CurrentRunningLevelKey.Equals(nameof(LevelInfinite)))
                 {
+                    cionGetSound.StartCionGetSound();
                     生存结束界面.SetActive(true);
                     CurrentLiveTimeShow.SetActive(false);
                 }

@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2695085471150049056
 Transform:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2695085471150049061}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.55, z: 0}
+  m_LocalPosition: {x: 0, y: 0.51, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -237,7 +237,7 @@ MonoBehaviour:
   HittedBackSpeed: 5
   AppearPosLeft: {x: -2.58, y: -2.212}
   AppearPosRight: {x: 2.58, y: -2.212}
-  AppearPosUp: {x: 0.036, y: 0.55}
+  AppearPosUp: {x: 0.036, y: 0.5}
   AttackClip: {fileID: 7400000, guid: e0abe00c5504eb64eb6a4b6b309668c8, type: 2}
   WeaponRenderer: {fileID: 2695085471258211723}
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
