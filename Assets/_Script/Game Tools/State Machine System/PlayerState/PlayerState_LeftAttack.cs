@@ -13,7 +13,7 @@ namespace Adv
         private float AttackEndTime;//攻击后摇
         private float AttackStateStartTime;
         private float AttackStateDurationTime => Time.time - AttackStateStartTime;
-        private AttackStates attackState;
+        private AttackStates attackState = AttackStates.Not;
         private CacheType cacheType;
 
         public enum AttackStates

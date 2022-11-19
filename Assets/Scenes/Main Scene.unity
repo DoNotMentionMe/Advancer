@@ -14192,6 +14192,12 @@ MonoBehaviour:
   healtChange: {fileID: 11400000, guid: 22bb66253d29bb147874091b57f8c632, type: 2}
   ComboChange: {fileID: 11400000, guid: efbcaa70a3593274398c7f31808a0268, type: 2}
   MoneyChange: {fileID: 11400000, guid: eacc8d5b7d1f50a4a9d397ee5465c08e, type: 2}
+  SuccessSFX:
+    audioClip: {fileID: 8300000, guid: f399c23d49b60834e9d578f295492b83, type: 3}
+    volume: 0.65
+  DeidSFX:
+    audioClip: {fileID: 8300000, guid: a7c9e125f4c148b4cbdeed09b7b961f9, type: 3}
+    volume: 0.65
   HealthShow: {fileID: 1954317407}
   ComboShow: {fileID: 1958266308}
   MoneyShow: {fileID: 1588416502}
@@ -25212,7 +25218,7 @@ MonoBehaviour:
   LevelStartSet: 0
   LevelEndSet: 0
   LevelClosingSet: 0
-  EarlyOutLevelSet: 0
+  EarlyOutLevelSet: 1
   ClearingUICloseSet: 1
   ComponentList:
   - {fileID: 430357023}
@@ -25244,6 +25250,8 @@ MonoBehaviour:
   "\u6E05\u9664\u6240\u6709\u6210\u5C31": {fileID: 590690908}
   "\u9000\u51FA\u6E38\u620F": {fileID: 534162943}
   About: {fileID: 1769911855}
+  Tips: {fileID: 430357023}
+  Icon: {fileID: 1322369055}
   IsOpen: 0
   Englishbtn: {fileID: 629604671}
   Chinesebtn: {fileID: 84777792}

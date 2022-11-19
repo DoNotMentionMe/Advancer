@@ -17,6 +17,8 @@ namespace Adv
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
         [SerializeField] FloatEventChannel MoneyChange;
+        [SerializeField] AudioData SuccessSFX;
+        [SerializeField] AudioData DeidSFX;
         [SerializeField] Text HealthShow;
         [SerializeField] Text ComboShow;
         [SerializeField] Text MoneyShow;
@@ -66,6 +68,7 @@ namespace Adv
             {
                 if (BaseLevelModule.IsVictory)
                 {
+                    AudioManager.Instance.PlaySFX(SuccessSFX);
                     if (BaseLevelModule.CurrentRunningLevelKey.Equals(nameof(Level0)))
                         教程完成界面.SetActive(true);
                     else
@@ -77,7 +80,10 @@ namespace Adv
                     CurrentLiveTimeShow.SetActive(false);
                 }
                 else
+                {
+                    AudioManager.Instance.PlaySFX(DeidSFX);
                     失败界面.SetActive(true);
+                }
             });
             ClearingUIClose.AddListener(() =>
             {

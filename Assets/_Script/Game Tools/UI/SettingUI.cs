@@ -19,12 +19,16 @@ namespace Adv
         [SerializeField] Button 清除所有成就;
         [SerializeField] Button 退出游戏;
         [SerializeField] Button About;
+        [SerializeField] Text Tips;
+        [SerializeField] Image Icon;
 
         public bool IsOpen = false;
 
         private void Awake()
         {
             SettingUICanvas.enabled = IsOpen;
+            Tips.enabled = true;
+            Icon.enabled = true;
             SaveGame.SavePath = SaveGamePath.DataPath;
 #if UNITY_EDITOR//编辑器中显示按钮
             清除所有成就.gameObject.SetActive(true);
