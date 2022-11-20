@@ -22,14 +22,20 @@ namespace Adv
     {
 
         [SerializeField] Transform mTransform;
+        [Header("拉扯参数")]
         [SerializeField] bool DontChangeScale = false;//置true时将无法进行动态拉扯
         [SerializeField] float PullDifference;
         [SerializeField] float ChangePeriod;
         [Space]
+        [Header("旋转参数")]
         [SerializeField] float RotateSpeed;
+        [Space]
+        [Header("缩小")]
+        [SerializeField] float ScaleSmallTime;
 
         private Coroutine DynamicChangeCoroutine;
         private Coroutine RotationCoroutine;
+        private Coroutine ScaleSmallCoroutine;
 
         private void OnDisable()
         {
@@ -40,6 +46,7 @@ namespace Adv
             if (!DontChangeScale)
                 mTransform.localScale = Vector3.one;
             mTransform.rotation = Quaternion.Euler(0, 0, 0);
+            ScaleSmallCoroutine = null;
         }
 
         #region 循环动态拉扯
@@ -152,6 +159,19 @@ namespace Adv
                 RotationCoroutine = StartCoroutine(Rotation(direction));
         }
 
+        public void StartRotation(RotationDirection direction, float count)
+        {
+            if (RotationCoroutine == null)
+                RotationCoroutine = StartCoroutine(RotationCount(direction, count));
+        }
+
+        public void StartRotationWithSpeed(RotationDirection direction, float RotationSpeed)
+        {
+            if (RotationCoroutine == null)
+                RotationCoroutine = StartCoroutine(RotationSetSpeed(direction, RotationSpeed));
+        }
+
+
         public void StopRotation()
         {
             if (RotationCoroutine != null)
@@ -180,6 +200,77 @@ namespace Adv
 
                 yield return null;
             }
+        }
+
+        IEnumerator RotationSetSpeed(RotationDirection direction, float RotationSpeed)
+        {
+            int value = 0;
+            if (direction == RotationDirection.Clockwise)
+            {
+                value = -1;
+            }
+            else if (direction == RotationDirection.Anticlockwise)
+            {
+                value = 1;
+            }
+
+            //mTransform.rotation = Quaternion.Euler(0, 0, 0);
+            while (true)
+            {
+                mTransform.Rotate(Vector3.forward, value * RotationSpeed * Time.deltaTime);
+
+                yield return null;
+            }
+        }
+
+        IEnumerator RotationCount(RotationDirection direction, float count)
+        {
+            int value = 0;
+            if (direction == RotationDirection.Clockwise)
+            {
+                value = -1;
+            }
+            else if (direction == RotationDirection.Anticlockwise)
+            {
+                value = 1;
+            }
+            float t = count * (360 / RotateSpeed);
+
+            while (t > 0)
+            {
+                mTransform.Rotate(Vector3.forward, value * RotateSpeed * Time.deltaTime);
+                t -= Time.deltaTime;
+                yield return null;
+            }
+            mTransform.rotation = Quaternion.Euler(0, 0, 0);
+            RotationCoroutine = null;
+        }
+
+        #endregion
+
+        #region 缩小
+
+        public void StartScaleSmall()
+        {
+            if (ScaleSmallCoroutine == null)
+                ScaleSmallCoroutine = StartCoroutine(nameof(ScaleSmall));
+        }
+
+        IEnumerator ScaleSmall()
+        {
+            float t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / ScaleSmallTime;
+                var scale = mTransform.localScale;
+                var scaleX = scale.x;
+                var scaelY = scale.y;
+                scale.x = Mathf.Lerp(scaleX, 0f, t);
+                scale.y = Mathf.Lerp(scaelY, 0f, t);
+                mTransform.localScale = scale;
+                yield return null;
+            }
+            ScaleSmallCoroutine = null;
         }
 
         #endregion

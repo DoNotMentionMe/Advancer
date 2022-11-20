@@ -21,11 +21,14 @@ namespace Adv
         [SerializeField] float HitBackMoveSpeed;
         [SerializeField] Collider2D mCollider2D;
         [SerializeField] AudioData HitKnife;
+        [SerializeField] CharacterDynamicController animController;
         private const string Idle = "Idle";
         private const string Jump = "Jump";
         private const string Attack = "Attack";
         private const string PlayerTag = "Player";
         private const string PlayerAttackTag = "PlayerAttack";
+
+        private bool IsAttackedPlayer = false;
         private Animator anim;
         private Transform mTransform;
         private Rigidbody2D mRigidbody2D;
@@ -53,6 +56,7 @@ namespace Adv
 
         private void OnEnable()
         {
+            IsAttackedPlayer = false;
             //Fail.AddListener(SetActiveFalse);
             LevelEnd.AddListener(SetActiveFalse);
             if (AttackCorotine == null)
@@ -66,6 +70,8 @@ namespace Adv
             EnemyDied.Broadcast(gameObject);
             StopCoroutine(AttackCorotine);
             AttackCorotine = null;
+            IsAttackedPlayer = false;
+            mTransform.localScale = Vector3.one;
         }
 
         private void Update()
@@ -136,10 +142,22 @@ namespace Adv
                 }
                 yield return null;
             }
+
             if (!mCollider2D.enabled)//被击中
+            {
                 anim.Play(Jump);
+                //旋转一周
+                mCollider2D.enabled = false;
+                if (mTransform.localScale.x > 0)
+                    animController.StartRotation(RotationDirection.Anticlockwise, 1f);
+                else
+                    animController.StartRotation(RotationDirection.Clockwise, 1f);
+            }
             else
                 anim.Play(Idle);
+
+
+
             t = 2 * LeaveJumpForce / (mRigidbody2D.gravityScale * -Physics2D.gravity.y);
             var StartPoint = mCollider2D.enabled ? 8 : 5f;
             var backJumpForce = mCollider2D.enabled ? LeaveJumpForce : HitBackJumpForce;
@@ -165,15 +183,35 @@ namespace Adv
             {
                 yield return null;
             }
+            if (IsAttackedPlayer)
+            {
+                //转身跳出，缩小
+                anim.Play(Idle);
+                mRigidbody2D.velocity = Vector2.right * HitBackMoveSpeed / 2f * -moveDirection + Vector2.up * backJumpForce * 3;
+                var scale = mTransform.localScale;
+                scale.x *= -1;
+                mTransform.localScale = scale;
+                animController.StartScaleSmall();
+            }
+            else
+            {
+                //旋转飞出屏幕
+                anim.Play(Jump);
+                mRigidbody2D.velocity = Vector2.right * HitBackMoveSpeed / 1.5f * -moveDirection + Vector2.up * backJumpForce * 2;
+                mCollider2D.enabled = false;
+                if (mTransform.localScale.x > 0)
+                    animController.StartRotationWithSpeed(RotationDirection.Clockwise, 1300f);
+                else
+                    animController.StartRotationWithSpeed(RotationDirection.Anticlockwise, 1300f);
+            }
 
-            anim.Play(Jump);
-            mRigidbody2D.velocity = Vector2.right * HitBackMoveSpeed * -moveDirection;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.tag.Equals(PlayerTag))
             {
+                IsAttackedPlayer = true;
                 mCollider2D.enabled = false;
                 if (col.gameObject.TryGetComponent<PlayerProperty>(out PlayerProperty playerProperty))
                 {

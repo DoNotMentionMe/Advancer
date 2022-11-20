@@ -9,6 +9,9 @@ namespace Adv
         [SerializeField] protected float maxHealth = 5;
         [SerializeField] protected float health;
         [SerializeField] PlayerHittedEventChannel playerHitted;
+        [SerializeField] Collider2D AttackCol;
+        [SerializeField] SpriteRenderer spriteRenderer;
+        [SerializeField] float disappearTime;
 
         private bool HasAttacked = false;
         private string PlayerTag = "Player";
@@ -16,6 +19,11 @@ namespace Adv
         protected virtual void OnEnable()
         {
             health = maxHealth;
+            AttackCol.enabled = true;
+
+            var color = spriteRenderer.color;
+            color.a = 1f;
+            spriteRenderer.color = color;
         }
 
         protected virtual void OnDisable()
@@ -57,9 +65,28 @@ namespace Adv
                         playerHitted.Broadcast(PlayerHitted.Hitted_Left, contactPoint);
                         //PlayerHittedEffect_Left.Instance.Effect_Left(contactPoint);
                     }
+
                     playerProperty.Hitted(1);
+
+                    //逐渐消失
+                    StartCoroutine(nameof(Disappear));
                 }
             }
+        }
+
+        IEnumerator Disappear()
+        {
+            //AttackCol.enabled = false;
+            float t = 0f;
+            var color = spriteRenderer.color;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / disappearTime;
+                color.a = Mathf.Lerp(1f, 0f, t);
+                spriteRenderer.color = color;
+                yield return null;
+            }
+            gameObject.SetActive(false);
         }
     }
 }

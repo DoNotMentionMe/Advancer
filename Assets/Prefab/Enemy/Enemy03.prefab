@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 379383038444346968}
   - component: {fileID: 379383038444346967}
   - component: {fileID: 379383038444346966}
+  - component: {fileID: 7025337143640373290}
   m_Layer: 3
   m_Name: Enemy03
   m_TagString: Enemy
@@ -140,6 +141,7 @@ MonoBehaviour:
   HitKnife:
     audioClip: {fileID: 8300000, guid: 46d9ce5f2a7b6f440a335e073ab98746, type: 3}
     volume: 1
+  animController: {fileID: 7025337143640373290}
 --- !u!50 &379383038444346967
 Rigidbody2D:
   serializedVersion: 4
@@ -187,6 +189,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13197994, y: 0.09203434}
   m_EdgeRadius: 0
+--- !u!114 &7025337143640373290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379383038444346965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd052da31335ff45bf259fc92e137ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTransform: {fileID: 379383038444346971}
+  DontChangeScale: 1
+  PullDifference: 0
+  ChangePeriod: 0
+  RotateSpeed: 1500
+  ScaleSmallTime: 2
 --- !u!1 &379383038480134969
 GameObject:
   m_ObjectHideFlags: 0
