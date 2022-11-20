@@ -6505,7 +6505,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u67AA \u56F0\u96BE"
+  m_Text: "\u621F \u56F0\u96BE"
 --- !u!222 &205919217
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6526,7 +6526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA \u56F0\u96BE"
+  ChineseText: "\u621F \u56F0\u96BE"
   EnglishText: Level3 Hard
 --- !u!1 &216644363
 GameObject:
@@ -15109,7 +15109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA\u4E0E\u7BAD \u7B80\u5355"
+  ChineseText: "\u621F\u4E0E\u7BAD \u7B80\u5355"
   EnglishText: Level4Easy
 --- !u!1 &519376475
 GameObject:
@@ -16875,7 +16875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA\u4E0E\u7BAD \u56F0\u96BE"
+  ChineseText: "\u621F\u4E0E\u7BAD \u56F0\u96BE"
   EnglishText: Level4 Hard
 --- !u!1 &613685650
 GameObject:
@@ -30521,7 +30521,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.024742603, y: -0.024946094}
+  m_Offset: {x: -0.01785943, y: -0.05870974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -30532,7 +30532,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6178019, y: 1.9501073}
+  m_Size: {x: 1.2066286, y: 1.88258}
   m_EdgeRadius: 0
 --- !u!1 &978796166
 GameObject:
@@ -39362,7 +39362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u5200\u4E0E\u7BAD \u7B80\u5355"
+  m_Text: "\u7BAD \u7B80\u5355"
 --- !u!222 &1402493246
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39383,7 +39383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u5200\u4E0E\u7BAD \u7B80\u5355"
+  ChineseText: "\u7BAD \u7B80\u5355"
   EnglishText: Level2 Easy
 --- !u!1 &1420259246
 GameObject:
@@ -54707,7 +54707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u67AA \u7B80\u5355"
+  m_Text: "\u621F \u7B80\u5355"
 --- !u!222 &1848207644
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54728,7 +54728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA \u7B80\u5355"
+  ChineseText: "\u621F \u7B80\u5355"
   EnglishText: Level3 Easy
 --- !u!1 &1856046673
 GameObject:
@@ -54870,7 +54870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u67AA \u666E\u901A"
+  m_Text: "\u621F \u666E\u901A"
 --- !u!222 &1858759057
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54891,7 +54891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA \u666E\u901A"
+  ChineseText: "\u621F \u666E\u901A"
   EnglishText: Level3 Medium
 --- !u!1 &1860397641
 GameObject:
@@ -55957,7 +55957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA\u4E0E\u7BAD \u666E\u901A"
+  ChineseText: "\u621F\u4E0E\u7BAD \u666E\u901A"
   EnglishText: Level4 Medium
 --- !u!1 &1978992734
 GameObject:
@@ -56168,8 +56168,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0047954917, y: -0.6559265}
-  m_Size: {x: 0.7777473, y: 1.3971654}
+  m_Offset: {x: 0.023455948, y: -0.72514534}
+  m_Size: {x: 0.5582085, y: 1.2587278}
   m_Direction: 0
 --- !u!114 &1978992744
 MonoBehaviour:
@@ -57308,6 +57308,7 @@ GameObject:
   - component: {fileID: 2057863982}
   - component: {fileID: 2057863985}
   - component: {fileID: 2057863986}
+  - component: {fileID: 2057863987}
   m_Layer: 0
   m_Name: Right Attack
   m_TagString: PlayerAttack
@@ -57356,15 +57357,41 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057863981}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.09}
+  serializedVersion: 2
+  m_Radius: 0.77495724
+--- !u!61 &2057863987
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057863981}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05401972, y: 0.02224344}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5465425
+  m_Size: {x: 1.4003816, y: 1.3114079}
+  m_EdgeRadius: 0
 --- !u!1 &2058329089
 GameObject:
   m_ObjectHideFlags: 0
@@ -57860,6 +57887,7 @@ GameObject:
   - component: {fileID: 2133874439}
   - component: {fileID: 2133874442}
   - component: {fileID: 2133874443}
+  - component: {fileID: 2133874444}
   m_Layer: 0
   m_Name: Up Attack
   m_TagString: PlayerAttack
@@ -57908,15 +57936,41 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133874438}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.0001, y: 0.0001}
+  m_Direction: 0
+--- !u!61 &2133874444
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133874438}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0.06}
-  m_Size: {x: 0.85, y: 1.17}
-  m_Direction: 0
+  m_Offset: {x: 0.1584481, y: 0.037886202}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1481419, y: 1.5453967}
+  m_EdgeRadius: 0
 --- !u!1 &2136224934
 GameObject:
   m_ObjectHideFlags: 0
@@ -57989,7 +58043,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u67AA \u7279\u522B\u7248"
+  m_Text: "\u621F \u7279\u522B\u7248"
 --- !u!222 &2136224937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58010,5 +58064,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChineseText: "\u67AA \u7279\u522B\u7248"
+  ChineseText: "\u621F \u7279\u522B\u7248"
   EnglishText: Level3 Special

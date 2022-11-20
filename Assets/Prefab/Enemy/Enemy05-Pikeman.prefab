@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2695085471150049056
 Transform:
   m_ObjectHideFlags: 0
@@ -256,15 +256,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2695085471150049061}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8529487, y: 0}
+  m_Offset: {x: 0.7945478, y: 0.0000000053105134}
   serializedVersion: 2
-  m_Radius: 0.36927336
+  m_Radius: 0.3108725
 --- !u!1 &2695085471258211725
 GameObject:
   m_ObjectHideFlags: 0

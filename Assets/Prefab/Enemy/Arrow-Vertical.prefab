@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4050896800789850145
 Transform:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81248915, y: 0.37525982}
+  m_Offset: {x: 0.75, y: 0.37642503}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20835519, y: 0.23007238}
+  m_Size: {x: 0.058906555, y: 0.053115368}
   m_EdgeRadius: 0
 --- !u!50 &4050896800789850156
 Rigidbody2D:
@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.4
+  m_GravityScale: 1.6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
   attackHit: {fileID: 11400000, guid: 49bca708fa8e5274ebb1285f1659a2bc, type: 2}
   attack: 1
   moveSpeed: 13
-  RotationSpeed: 80
+  RotationSpeed: 90
   LevelEnd: {fileID: 11400000, guid: e4931e0b178601c4b9f02dd35bb696e1, type: 2}
   playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
   ArrowHittedSFX:
