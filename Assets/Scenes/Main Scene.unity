@@ -303,7 +303,7 @@ MonoBehaviour:
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
   enemyHittedEffect: {fileID: 5530386271470391666, guid: 0de2ceca04398344e8f7e74c68510856, type: 3}
-  HitEffect: {fileID: 846299104398378445, guid: c02c3f8fbf1addd45bb97c1baf12a259, type: 3}
+  HitEffect: {fileID: 846299104398378445, guid: 141a747f3ffaa344db1686c806d23c68, type: 3}
 --- !u!61 &11375828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54781,7 +54781,7 @@ MonoBehaviour:
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
   enemyHittedEffect: {fileID: 5530386271470391666, guid: 0de2ceca04398344e8f7e74c68510856, type: 3}
-  HitEffect: {fileID: 846299104398378445, guid: c02c3f8fbf1addd45bb97c1baf12a259, type: 3}
+  HitEffect: {fileID: 846299104398378445, guid: 141a747f3ffaa344db1686c806d23c68, type: 3}
 --- !u!58 &1856046678
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -57348,7 +57348,7 @@ MonoBehaviour:
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
   enemyHittedEffect: {fileID: 5530386271470391666, guid: 0de2ceca04398344e8f7e74c68510856, type: 3}
-  HitEffect: {fileID: 846299104398378445, guid: c02c3f8fbf1addd45bb97c1baf12a259, type: 3}
+  HitEffect: {fileID: 846299104398378445, guid: 141a747f3ffaa344db1686c806d23c68, type: 3}
 --- !u!58 &2057863986
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -57900,7 +57900,7 @@ MonoBehaviour:
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
   PauseStartTimeScale: 0.15
   enemyHittedEffect: {fileID: 5530386271470391666, guid: 0de2ceca04398344e8f7e74c68510856, type: 3}
-  HitEffect: {fileID: 846299104398378445, guid: c02c3f8fbf1addd45bb97c1baf12a259, type: 3}
+  HitEffect: {fileID: 846299104398378445, guid: 141a747f3ffaa344db1686c806d23c68, type: 3}
 --- !u!70 &2133874443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

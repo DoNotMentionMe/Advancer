@@ -43,6 +43,8 @@ namespace Adv
                 playerController.DustMid.Play();
                 playerController.LeftAttackObj.StopAttackPauseCoroutine();
                 Time.timeScale = 1;
+                playerController.AttackEnd(3);
+                playerController.AttackEnd(2);
             }
         }
 

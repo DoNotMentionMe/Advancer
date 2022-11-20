@@ -262,7 +262,7 @@ namespace Adv
             while (t < 1f)
             {
                 t += Time.deltaTime * 1.2f / AppearTime;
-                color.a = Mathf.Lerp(1f, 0f, t);
+                color.a = Mathf.Lerp(1f, 0.6f, t);
                 spriteRenderer.color = color;
                 if (faceRandom == 3)
                     mTransform.Translate(Vector3.right * HittedBackSpeed * Time.deltaTime);
