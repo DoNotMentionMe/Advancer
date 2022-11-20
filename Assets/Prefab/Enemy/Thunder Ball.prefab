@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 689416981511372004}
   - component: {fileID: 689416981511372005}
   - component: {fileID: 689416981511372006}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Thunder Ball
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3968891}
+  m_Offset: {x: 0, y: -0.28}
   serializedVersion: 2
   m_Radius: 0.1031109
 --- !u!50 &689416981511372006

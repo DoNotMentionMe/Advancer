@@ -1285,7 +1285,7 @@ MonoBehaviour:
   CanDestroy: 1
   DestroyCount: 1
   MaxLevel: 1
-  InitalValue: 1500
+  InitalValue: 700
   ValueIncreaseRate: 1
   BugButton: {fileID: 1025580836}
   Value: {fileID: 1377094969}
@@ -1554,7 +1554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Press the attack key\nduring the attack\nto immediately \nattack again"
+  m_Text: "Combo 10 activates a \nshieldthat resists\nan attack"
 --- !u!222 &197607746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16009,9 +16009,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanDestroy: 0
   DestroyCount: 0
-  MaxLevel: 4
+  MaxLevel: 5
   InitalValue: 100
-  ValueIncreaseRate: 4
+  ValueIncreaseRate: 3
   BugButton: {fileID: 853625424}
   Value: {fileID: 1672045307}
   MoneyChange: {fileID: 11400000, guid: eacc8d5b7d1f50a4a9d397ee5465c08e, type: 2}
@@ -30920,8 +30920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommnetText: {fileID: 197607745}
-  CommentChinese: "\u8FDE\u51FB\u6FC0\u6D3B\u62B5\u6321\n\u4E00\u6B21\u653B\u51FB\u7684\u62A4\u76FE"
-  CommentEnglish: "Combo activates a \nshieldthat resists\nan attack"
+  CommentChinese: "\u8FDE\u51FB10\u6FC0\u6D3B\u62B5\u6321\n\u4E00\u6B21\u653B\u51FB\u7684\u62A4\u76FE"
+  CommentEnglish: "Combo 10 activates a \nshieldthat resists\nan attack"
 --- !u!114 &1025580840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40513,7 +40513,6 @@ MonoBehaviour:
   - {fileID: 534762699}
   - {fileID: 153246246}
   - {fileID: 493400770}
-  - {fileID: 1791880160}
   Background_Font: {fileID: 688646710}
   Money: {fileID: 1588416502}
   BtnTips: {fileID: 152188127}
@@ -53711,7 +53710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1791880157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53730,9 +53729,9 @@ RectTransform:
   m_Father: {fileID: 2014520633}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 408.65, y: -552.825}
   m_SizeDelta: {x: 700, y: 98.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791880158
@@ -56090,7 +56089,7 @@ MonoBehaviour:
   RightAttackObj: {fileID: 2057863985}
   dust: {fileID: 1126748761}
   DustMid: {fileID: 881018997}
-  attackCanBreak: 0
+  attackCanBreak: 1
   doubleAttack: 0
   LongAttack: 0
   doubleAttackEffectiveTime: 0.03
@@ -56132,7 +56131,7 @@ MonoBehaviour:
   CanGetShield: 0
   CountComboToGetShield: 10
   attack: 5
-  maxhealth: 3
+  maxhealth: 5
 --- !u!114 &1978992742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57379,7 +57378,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05401972, y: 0.02224344}
+  m_Offset: {x: -0.020054817, y: 0.02224344}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57390,7 +57389,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4003816, y: 1.3114079}
+  m_Size: {x: 1.5860319, y: 1.3114079}
   m_EdgeRadius: 0
 --- !u!1 &2058329089
 GameObject:
@@ -57958,7 +57957,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1584481, y: 0.037886202}
+  m_Offset: {x: 0.00067025423, y: 0.046350747}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57969,7 +57968,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1481419, y: 1.5453967}
+  m_Size: {x: 1.3490378, y: 1.667089}
   m_EdgeRadius: 0
 --- !u!1 &2136224934
 GameObject:
