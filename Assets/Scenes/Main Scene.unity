@@ -432,7 +432,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -713,7 +713,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -882,8 +882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level1 Easy
+  EnglishText_Controller: 
 --- !u!1 &112024475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,8 +1191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u9009\u62E9:AS/\u2191\u2193 \u8D2D\u4E70:F/Enter"
+  ChineseText_Controller: "\u9009\u62E9:\u65B9\u5411\u952E \u8D2D\u4E70:A\u952E"
   EnglishText: "Select:AS/\u2191\u2193 Buy:F/Enter"
+  EnglishText_Controller: Select:Left Stick Buy:Btn Sounth
 --- !u!1 &153246242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,8 +1392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6700\u5927\u8840\u91CF+1 \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Health+1 Price:'
+  EnglishText_Controller: 
 --- !u!1 &192621882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,8 +1490,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level1 Medium
+  EnglishText_Controller: 
 --- !u!1 &197607743
 GameObject:
   m_ObjectHideFlags: 0
@@ -6526,8 +6538,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level3 Hard
+  EnglishText_Controller: 
 --- !u!1 &216644363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6971,8 +6986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: "\u6309A\u7EE7\u7EED"
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: Btn Sounth To Continue
 --- !u!1 &255357074
 GameObject:
   m_ObjectHideFlags: 0
@@ -12027,7 +12045,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12202,7 +12220,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12693,8 +12711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: "\u6309A\u7EE7\u7EED"
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: Btn Sounth To Continue
 --- !u!1 &308739106
 GameObject:
   m_ObjectHideFlags: 0
@@ -12927,7 +12948,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322598029}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -13411,8 +13432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u9000\u51FA\u6E38\u620F"
+  ChineseText_Controller: 
   EnglishText: Quit Game
+  EnglishText_Controller: 
 --- !u!114 &362100110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13520,7 +13544,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -13698,7 +13722,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -13791,8 +13815,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "ESC\u5173\u95ED\u754C\u9762"
+  ChineseText_Controller: "B\u952E\u5173\u95ED\u754C\u9762"
   EnglishText: ESC To Close
+  EnglishText_Controller: Btn East To Close
 --- !u!114 &412205329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13846,6 +13873,7 @@ GameObject:
   - component: {fileID: 430357022}
   - component: {fileID: 430357024}
   - component: {fileID: 430357023}
+  - component: {fileID: 430357025}
   m_Layer: 5
   m_Name: Tips
   m_TagString: Untagged
@@ -13870,7 +13898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41, y: -76}
+  m_AnchoredPosition: {x: -1.5, y: -76}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430357023
@@ -13900,7 +13928,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -13915,6 +13943,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430357021}
   m_CullTransparentMesh: 1
+--- !u!114 &430357025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430357021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
+  ChineseText: (Esc)
+  ChineseText_Controller: (B)
+  EnglishText: (Esc)
+  EnglishText_Controller: (Btn East)
 --- !u!1 &435287103
 GameObject:
   m_ObjectHideFlags: 0
@@ -14088,8 +14133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "(E\u952E)"
+  ChineseText_Controller: (RB)
   EnglishText: (Btn E)
+  EnglishText_Controller: (RB)
 --- !u!1 &436147248
 GameObject:
   m_ObjectHideFlags: 0
@@ -15109,8 +15157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F\u4E0E\u7BAD \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level4Easy
+  EnglishText_Controller: 
 --- !u!1 &519376475
 GameObject:
   m_ObjectHideFlags: 0
@@ -15521,7 +15572,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15839,7 +15890,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.73916644, b: 0.8679245, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16155,8 +16206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6559\u7A0B\u5173\u5361"
+  ChineseText_Controller: 
   EnglishText: Level 0
+  EnglishText_Controller: 
 --- !u!1 &572121587
 GameObject:
   m_ObjectHideFlags: 0
@@ -16433,7 +16487,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16875,8 +16929,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F\u4E0E\u7BAD \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level4 Hard
+  EnglishText_Controller: 
 --- !u!1 &613685650
 GameObject:
   m_ObjectHideFlags: 0
@@ -16928,8 +16985,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5168\u5C4F"
+  ChineseText_Controller: 
   EnglishText: FullScreen
+  EnglishText_Controller: 
 --- !u!114 &613685653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17421,7 +17481,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -17548,8 +17608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u754C\u9762\u56FE\u6807\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'InterfaceIcon:'
+  EnglishText_Controller: 
 --- !u!114 &633625696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17796,8 +17859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!1 &657527105
 GameObject:
   m_ObjectHideFlags: 0
@@ -17940,7 +18006,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -18083,7 +18149,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -18486,8 +18552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u663E\u793A"
+  ChineseText_Controller: 
   EnglishText: Display
+  EnglishText_Controller: 
 --- !u!114 &714929309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23507,8 +23576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200\u4E0E\u7BAD \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level2 Medium
+  EnglishText_Controller: 
 --- !u!1 &767779368
 GameObject:
   m_ObjectHideFlags: 0
@@ -23653,10 +23725,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8FD9\u662F\u6211\u7684\u7B2C\u4E00\u90E8\u6E38\u620F\n\u611F\u8C22\u6E38\u73A9\uFF0C\u6B22\u8FCE\u63D0\u51FA\u60A8\u7684\u5EFA\u8BAE\n\nB\u7AD9ID\uFF1A\u5C31\u4E0D\u63D0\u4E86\u4E86\nQQ\u7FA4\uFF1A587188644"
+  ChineseText_Controller: 
   EnglishText: "This is my first game\r\nThanks for playing and \nwelcome to put
     forward your suggestions\r.\n\r\nBiliBili Homepage: \nhttps://space.bilibili.com/107857176\nQQ
     group: 587188644"
+  EnglishText_Controller: 
 --- !u!1 &770850779
 GameObject:
   m_ObjectHideFlags: 0
@@ -23839,7 +23914,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -24518,8 +24593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u65E0\u9650 \u4E0D\u53EF\u80FD"
+  ChineseText_Controller: 
   EnglishText: Infinite
+  EnglishText_Controller: 
 --- !u!1 &816289806
 GameObject:
   m_ObjectHideFlags: 0
@@ -30357,8 +30435,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!1 &933180789
 GameObject:
   m_ObjectHideFlags: 0
@@ -30741,7 +30822,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -31118,7 +31199,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -31251,8 +31332,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62B5\u5FA1\u6210\u529F"
+  ChineseText_Controller: 
   EnglishText: "Victory\r"
+  EnglishText_Controller: 
 --- !u!1 &1074628056
 GameObject:
   m_ObjectHideFlags: 0
@@ -31521,8 +31605,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u4E27\u547D"
+  ChineseText_Controller: 
   EnglishText: Get Killed
+  EnglishText_Controller: 
 --- !u!1 &1085709436
 GameObject:
   m_ObjectHideFlags: 0
@@ -31574,8 +31661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5F00"
+  ChineseText_Controller: 
   EnglishText: On
+  EnglishText_Controller: 
 --- !u!114 &1085709439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36670,7 +36760,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -36812,7 +36902,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -37318,7 +37408,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -37560,7 +37650,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -37932,8 +38022,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!1 &1243736064
 GameObject:
   m_ObjectHideFlags: 0
@@ -38126,8 +38219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5173"
+  ChineseText_Controller: 
   EnglishText: Off
+  EnglishText_Controller: 
 --- !u!114 &1292032709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38554,7 +38650,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -38772,7 +38868,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -39090,7 +39186,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -39383,8 +39479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u7BAD \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level2 Easy
+  EnglishText_Controller: 
 --- !u!1 &1420259246
 GameObject:
   m_ObjectHideFlags: 0
@@ -39478,8 +39577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u653B\u51FB\u53EF\u6253\u65AD \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'QuickATK Price:'
+  EnglishText_Controller: 
 --- !u!1 &1423224791
 GameObject:
   m_ObjectHideFlags: 0
@@ -39686,7 +39788,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -39918,8 +40020,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u662F\u5426\u9000\u51FA\u5F53\u524D\u5173\u5361?"
+  ChineseText_Controller: 
   EnglishText: Leave the level?
+  EnglishText_Controller: 
 --- !u!1 &1438517608
 GameObject:
   m_ObjectHideFlags: 0
@@ -40013,8 +40118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u9009\u62E9:WASD/\u65B9\u5411\u952E \u6311\u6218:F/Enter"
+  ChineseText_Controller: "\u9009\u62E9:\u65B9\u5411\u952E \u6311\u6218:A\u952E"
   EnglishText: "Select:WASD/\u2191\u2190\u2193\u2192 Challenge:F/Enter"
+  EnglishText_Controller: Select:Left Stick Challenge:Btn Sounth
 --- !u!1 &1439495054
 GameObject:
   m_ObjectHideFlags: 0
@@ -40108,8 +40216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200\u4E0E\u7BAD \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level2 Hard
+  EnglishText_Controller: 
 --- !u!1 &1468161954
 GameObject:
   m_ObjectHideFlags: 0
@@ -40203,8 +40314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62A4\u76FE\u89E3\u9501   \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Shield   Price:'
+  EnglishText_Controller: 
 --- !u!1 &1477954541
 GameObject:
   m_ObjectHideFlags: 0
@@ -40689,8 +40803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5C4F\u5E55\u8BBE\u7F6E\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Resolution:'
+  EnglishText_Controller: 
 --- !u!114 &1505473368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41181,8 +41298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62A4\u76FE\u5347\u7EA7   \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'ShieldUp Price:'
+  EnglishText_Controller: 
 --- !u!1 &1534601217
 GameObject:
   m_ObjectHideFlags: 0
@@ -41234,8 +41354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5173"
+  ChineseText_Controller: 
   EnglishText: Off
+  EnglishText_Controller: 
 --- !u!114 &1534601220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41405,8 +41528,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u7A97\u53E3"
+  ChineseText_Controller: 
   EnglishText: Windowed
+  EnglishText_Controller: 
 --- !u!114 &1544635379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41542,8 +41668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u53D6\u6D88"
+  ChineseText_Controller: 
   EnglishText: Cancel
+  EnglishText_Controller: 
 --- !u!1 &1549320569
 GameObject:
   m_ObjectHideFlags: 0
@@ -41736,8 +41865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: "\u6309A\u7EE7\u7EED"
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: Btn Sounth To Continue
 --- !u!1 &1578135531
 GameObject:
   m_ObjectHideFlags: 0
@@ -41831,8 +41963,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "(Q\u952E)"
+  ChineseText_Controller: (LB)
   EnglishText: (Btn Q)
+  EnglishText_Controller: (LB)
 --- !u!1 &1588416500
 GameObject:
   m_ObjectHideFlags: 0
@@ -41978,7 +42113,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -47153,8 +47288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!1 &1642267613
 GameObject:
   m_ObjectHideFlags: 0
@@ -47611,8 +47749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level1 Hard
+  EnglishText_Controller: 
 --- !u!1 &1688492580
 GameObject:
   m_ObjectHideFlags: 0
@@ -47706,8 +47847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 1
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: "\u6309A\u7EE7\u7EED"
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: Btn Sounth To Continue
 --- !u!1 &1702337583
 GameObject:
   m_ObjectHideFlags: 0
@@ -47810,7 +47954,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -47903,8 +48047,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5206\u8FA8\u7387\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Resolution:'
+  EnglishText_Controller: 
 --- !u!114 &1707399087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48117,7 +48264,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -48338,7 +48485,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -48674,7 +48821,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.73916644, b: 0.8679245, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -53888,8 +54035,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u4F60\u662F\u4E00\u4E2A\u5408\u683C\u7684\u6218\u58EB\u4E86\n\u5FEB\u53BB\u6D6A\u5427"
+  ChineseText_Controller: 
   EnglishText: Go and fight alone!
+  EnglishText_Controller: 
 --- !u!1 &1800469705
 GameObject:
   m_ObjectHideFlags: 0
@@ -54289,7 +54439,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -54394,7 +54544,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -54727,8 +54877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level3 Easy
+  EnglishText_Controller: 
 --- !u!1 &1856046673
 GameObject:
   m_ObjectHideFlags: 0
@@ -54890,8 +55043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level3 Medium
+  EnglishText_Controller: 
 --- !u!1 &1860397641
 GameObject:
   m_ObjectHideFlags: 0
@@ -54943,8 +55099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5173\u4E8E"
+  ChineseText_Controller: 
   EnglishText: About
+  EnglishText_Controller: 
 --- !u!114 &1860397644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55352,8 +55511,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u97F3\u6548\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'SoundEffect:'
+  EnglishText_Controller: 
 --- !u!114 &1934245279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55622,8 +55784,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5F00"
+  ChineseText_Controller: 
   EnglishText: On
+  EnglishText_Controller: 
 --- !u!114 &1957677084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55956,8 +56121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F\u4E0E\u7BAD \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level4 Medium
+  EnglishText_Controller: 
 --- !u!1 &1978992734
 GameObject:
   m_ObjectHideFlags: 0
@@ -56663,8 +56831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u786E\u5B9A"
+  ChineseText_Controller: 
   EnglishText: Confirm
+  EnglishText_Controller: 
 --- !u!1 &2002367559
 GameObject:
   m_ObjectHideFlags: 0
@@ -56985,8 +57156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u97F3\u4E50\uFF1A"
+  ChineseText_Controller: 
   EnglishText: "BGM\uFF1A"
+  EnglishText_Controller: 
 --- !u!114 &2020266684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57122,8 +57296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u9690\u85CF"
+  ChineseText_Controller: 
   EnglishText: Hide
+  EnglishText_Controller: 
 --- !u!1 &2054511981
 GameObject:
   m_ObjectHideFlags: 0
@@ -57227,7 +57404,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
     m_HighlightedColor: {r: 0, g: 0.77933854, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.04705883, g: 0.10980393, b: 0.1254902, a: 1}
-    m_SelectedColor: {r: 0.003921569, g: 0.6117647, b: 0.7176471, a: 0.4745098}
+    m_SelectedColor: {r: 0, g: 0.8509803, b: 1, a: 0.9019608}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -57484,8 +57661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5B8C\u6210\u6559\u7A0B\u5173\u5361~"
+  ChineseText_Controller: 
   EnglishText: You are a warrior~
+  EnglishText_Controller: 
 --- !u!1 &2090344411
 GameObject:
   m_ObjectHideFlags: 0
@@ -57588,7 +57768,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -58063,5 +58243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u621F \u7279\u522B\u7248"
+  ChineseText_Controller: 
   EnglishText: Level3 Special
+  EnglishText_Controller: 

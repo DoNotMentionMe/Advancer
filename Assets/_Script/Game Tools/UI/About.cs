@@ -24,7 +24,21 @@ namespace Adv
             input.onCloseUI += CloseCanvas;
             mButton.onClick.AddListener(() =>
             {
-                EventSystem.current.SetSelectedGameObject(null);
+                if (!isClick && AboutCanvas.enabled == true)
+                {
+                    isClick = true;
+                    return;
+                }
+                else if (!isClick)
+                {
+                    isClick = true;
+                }
+                else if (isClick)
+                {
+                    isClick = false;
+                }
+                AboutCanvas.enabled = !AboutCanvas.enabled;
+                //EventSystem.current.SetSelectedGameObject(null);
             });
         }
 
@@ -35,20 +49,7 @@ namespace Adv
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!isClick && AboutCanvas.enabled == true)
-            {
-                isClick = true;
-                return;
-            }
-            else if (!isClick)
-            {
-                isClick = true;
-            }
-            else if (isClick)
-            {
-                isClick = false;
-            }
-            AboutCanvas.enabled = !AboutCanvas.enabled;
+
         }
 
         public void OnPointerEnter(PointerEventData eventData)

@@ -79,11 +79,14 @@ namespace Adv
             {
                 EvenSystem_NotMouse.SetActive(!IsOpen);
                 EvenSystem_Mouse.SetActive(IsOpen);
+                //选中中文
+                EventSystem.current.SetSelectedGameObject(Chinesebtn.gameObject);
             }
             else if (!IsOpen)
             {
                 EvenSystem_Mouse.SetActive(IsOpen);
                 EvenSystem_NotMouse.SetActive(!IsOpen);
+                EventSystem.current.SetSelectedGameObject(null);
             }
             Englishbtn.enabled = IsOpen;
             Chinesebtn.enabled = IsOpen;
@@ -127,14 +130,14 @@ namespace Adv
                 ChineseEnglishShift.language = Language.English;
                 SaveGame.Save<Language>("language", ChineseEnglishShift.language);
                 LanguageChange.Broadcast(ChineseEnglishShift.language);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Chinesebtn.onClick.AddListener(() =>
             {
                 ChineseEnglishShift.language = Language.Chinese;
                 SaveGame.Save<Language>("language", ChineseEnglishShift.language);
                 LanguageChange.Broadcast(ChineseEnglishShift.language);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
 
             //关闭按键
@@ -165,14 +168,14 @@ namespace Adv
                 Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.FullScreenWindow);
                 currentScreenSet = FullScreenMode.FullScreenWindow;
                 SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Windowed.onClick.AddListener(() =>
             {
                 Screen.SetResolution(currentScreenWidth, currentScreenHeight, FullScreenMode.Windowed);
                 currentScreenSet = FullScreenMode.Windowed;
                 SaveGame.Save<FullScreenMode>("currentScreenSet", currentScreenSet);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Resolution1920X1080.onClick.AddListener(() =>
             {
@@ -181,7 +184,7 @@ namespace Adv
                 currentScreenHeight = 1080;
                 SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
                 SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Resolution1366X768.onClick.AddListener(() =>
             {
@@ -190,7 +193,7 @@ namespace Adv
                 currentScreenHeight = 768;
                 SaveGame.Save<int>("currentScreenWidth", currentScreenWidth);
                 SaveGame.Save<int>("currentScreenHeight", currentScreenHeight);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             FullScreen.enabled = false;
             Windowed.enabled = false;
@@ -215,12 +218,12 @@ namespace Adv
             Display.onClick.AddListener(() =>
             {
                 DisplaySet(true);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Hide.onClick.AddListener(() =>
             {
                 DisplaySet(false);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             Display.enabled = false;
             Hide.enabled = false;
@@ -278,14 +281,14 @@ namespace Adv
                 AudioManager.Instance.canBGM = true;
                 SaveGame.Save<bool>("canBGM", AudioManager.Instance.canBGM);
                 AudioManager.Instance.BGMSwitch(true);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             MusicOff.onClick.AddListener(() =>
             {
                 AudioManager.Instance.canBGM = false;
                 SaveGame.Save<bool>("canBGM", AudioManager.Instance.canBGM);
                 AudioManager.Instance.BGMSwitch(false);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
 
             MusicOn.enabled = false;
@@ -306,14 +309,14 @@ namespace Adv
                 AudioManager.Instance.canSFX = true;
                 SaveGame.Save<bool>("canSFX", AudioManager.Instance.canSFX);
                 AudioManager.Instance.SFXSwitch(true);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             SFXOff.onClick.AddListener(() =>
             {
                 AudioManager.Instance.canSFX = false;
                 SaveGame.Save<bool>("canSFX", AudioManager.Instance.canSFX);
                 AudioManager.Instance.SFXSwitch(false);
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             });
             SFXOn.enabled = false;
             SFXOff.enabled = false;
