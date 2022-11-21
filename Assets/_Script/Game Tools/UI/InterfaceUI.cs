@@ -9,6 +9,8 @@ namespace Adv
 {
     public class InterfaceUI : MonoBehaviour
     {
+        public static bool IsController;
+
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel EarlyOutLevel;
@@ -17,6 +19,7 @@ namespace Adv
         [SerializeField] FloatEventChannel healtChange;
         [SerializeField] FloatEventChannel ComboChange;
         [SerializeField] FloatEventChannel MoneyChange;
+        [SerializeField] VoidEventChannel IsControllerChange;
         [SerializeField] AudioData SuccessSFX;
         [SerializeField] AudioData DeidSFX;
         [SerializeField] CionGetSound cionGetSound;
@@ -158,6 +161,29 @@ namespace Adv
             }
 
             currentHealth = health;
+        }
+
+        private void Update()
+        {
+            string[] names = Input.GetJoystickNames();
+            bool IsEnterController = false;
+            for (var i = 0; i < names.Length; i++)
+            {
+                if (names[i].StartsWith("Controller"))
+                {
+                    if (!IsController)//插入手柄事件
+                    {
+                        IsController = true;
+                        IsControllerChange.Broadcast();
+                    }
+                    IsEnterController = true;
+                }
+                if (i == 2 && IsController && !IsEnterController)//拔出手柄事件
+                {
+                    IsController = false;
+                    IsControllerChange.Broadcast();
+                }
+            }
         }
     }
 }

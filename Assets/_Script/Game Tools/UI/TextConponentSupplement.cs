@@ -20,84 +20,25 @@ namespace Adv
         [SerializeField, TextArea(3, 8)] string EnglishText_Controller;
 
         private LanguageEventChannel LanguageChange;
+        private VoidEventChannel IsControllerChange;
         private Text mText;
-        private bool IsController;
-
-        private void Update()
-        {
-            if (!ChangeWithControllerInput) return;
-            string[] names = Input.GetJoystickNames();
-            bool IsEnterController = false;
-            for (var i = 0; i < names.Length; i++)
-            {
-                if (names[i].StartsWith("Controller"))
-                {
-                    if (!IsController)//插入手柄事件
-                    {
-                        IsController = true;
-                        SetTextWihtController();
-                    }
-                    IsEnterController = true;
-                }
-                if (i == 2 && IsController && !IsEnterController)//拔出手柄事件
-                {
-                    IsController = false;
-                    SetTextWihtController();
-                }
-            }
-            // if (!IsController && names.Length > 0)
-            // {
-            //     SetTextWihtController();
-            //     IsController = true;
-            // }
-            // else if (IsController && names.Length == 0)
-            // {
-            //     SetTextWihtController();
-            //     IsController = false;
-            // }
-        }
-
-        private void SetTextWihtController()
-        {
-            if (!ChangeWithControllerInput) return;
-            if (IsController)
-            {
-                //切换文本
-                if (ChineseEnglishShift.language == Language.Chinese)
-                {
-                    mText.text = ChineseText_Controller;
-                }
-                else if (ChineseEnglishShift.language == Language.English)
-                {
-                    mText.text = EnglishText_Controller;
-                }
-            }
-            else
-            {
-                if (ChineseEnglishShift.language == Language.Chinese)
-                {
-                    mText.text = ChineseText;
-                }
-                else if (ChineseEnglishShift.language == Language.English)
-                {
-                    mText.text = EnglishText;
-                }
-            }
-        }
 
         private void Awake()
         {
             mText = GetComponent<Text>();
             LanguageChange = Resources.Load<LanguageEventChannel>("EventChannels/LanguageEventChannel_LanguageChange");
+            IsControllerChange = Resources.Load<VoidEventChannel>("EventChannels/VoidEventChannel_IsControllerChange");
 
-            string[] names = Input.GetJoystickNames();
-            for (var i = 0; i < names.Length; i++)
-            {
-                if (names[i].StartsWith("Controller"))
-                {
-                    IsController = true;
-                }
-            }
+
+
+            // string[] names = Input.GetJoystickNames();
+            // for (var i = 0; i < names.Length; i++)
+            // {
+            //     if (names[i].StartsWith("Controller"))
+            //     {
+            //         IsController = true;
+            //     }
+            // }
 
             if (ChineseEnglishShift.language == Language.Chinese)
             {
@@ -122,6 +63,39 @@ namespace Adv
                     SetTextWihtController();
                 }
             });
+
+            IsControllerChange.AddListener(() =>
+            {
+                SetTextWihtController();
+            });
+        }
+
+        private void SetTextWihtController()
+        {
+            if (!ChangeWithControllerInput) return;
+            if (InterfaceUI.IsController)
+            {
+                //切换文本
+                if (ChineseEnglishShift.language == Language.Chinese)
+                {
+                    mText.text = ChineseText_Controller;
+                }
+                else if (ChineseEnglishShift.language == Language.English)
+                {
+                    mText.text = EnglishText_Controller;
+                }
+            }
+            else
+            {
+                if (ChineseEnglishShift.language == Language.Chinese)
+                {
+                    mText.text = ChineseText;
+                }
+                else if (ChineseEnglishShift.language == Language.English)
+                {
+                    mText.text = EnglishText;
+                }
+            }
         }
     }
 }
