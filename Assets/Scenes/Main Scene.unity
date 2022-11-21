@@ -13484,7 +13484,7 @@ RectTransform:
   - {fileID: 1960057657}
   - {fileID: 845165338}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14603,8 +14603,8 @@ RectTransform:
   - {fileID: 244333998}
   - {fileID: 1801016805}
   - {fileID: 1430547999}
-  - {fileID: 1549320570}
   - {fileID: 332516213}
+  - {fileID: 1549320570}
   - {fileID: 1347082334}
   - {fileID: 1159154474}
   - {fileID: 279919089}
@@ -16426,9 +16426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanDestroy: 0
   DestroyCount: 0
-  MaxLevel: 5
+  MaxLevel: 8
   InitalValue: 100
-  ValueIncreaseRate: 3
+  ValueIncreaseRate: 2
   BugButton: {fileID: 853625424}
   Value: {fileID: 1672045307}
   MoneyChange: {fileID: 11400000, guid: eacc8d5b7d1f50a4a9d397ee5465c08e, type: 2}
@@ -24092,7 +24092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChangeWithControllerInput: 0
-  ChineseText: "\u8FD9\u662F\u6211\u7684\u7B2C\u4E00\u90E8\u6E38\u620F\n\u611F\u8C22\u6E38\u73A9\uFF0C\u6B22\u8FCE\u63D0\u51FA\u60A8\u7684\u5EFA\u8BAE\n\nB\u7AD9ID\uFF1A\u5C31\u4E0D\u63D0\u4E86\u4E86\nQQ\u7FA4\uFF1A587188644"
+  ChineseText: "\u8FD9\u662F\u6211\u7684\u7B2C\u4E00\u90E8\u6E38\u620F\n\u611F\u8C22\u6E38\u73A9\uFF0C\u6B22\u8FCE\u63D0\u51FA\u60A8\u7684\u5EFA\u8BAE\n\nB\u7AD9ID\uFF1A\u5C31\u4E0D\u63D0\u4E86\nQQ\u7FA4\uFF1A587188644"
   ChineseText_Controller: 
   EnglishText: "This is my first game\r\nThanks for playing and \nwelcome to put
     forward your suggestions\r.\n\r\nBiliBili Homepage: \nhttps://space.bilibili.com/107857176\nQQ
@@ -30760,6 +30760,7 @@ MonoBehaviour:
   "\u6E05\u9664\u6240\u6709\u6210\u5C31": {fileID: 590690908}
   "\u9000\u51FA\u6E38\u620F": {fileID: 534162943}
   About: {fileID: 1769911855}
+  BtnTips: {fileID: 104551401}
   Tips: {fileID: 430357023}
   Icon: {fileID: 1322369055}
   IsOpen: 0
@@ -42163,7 +42164,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549320569}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -42174,7 +42175,7 @@ RectTransform:
   - {fileID: 1078791488}
   - {fileID: 2112367490}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -56763,7 +56764,7 @@ MonoBehaviour:
   CanGetShield: 0
   CountComboToGetShield: 10
   attack: 5
-  maxhealth: 5
+  maxhealth: 10
 --- !u!114 &1978992742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58369,7 +58370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
-  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  m_Color: {r: 0.764151, g: 0.73816097, b: 0.5154415, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -58389,7 +58390,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.62
-  m_Text: "Level1 \n\u672C\u6B21\u8FDE\u51FB\u657099\n\u5386\u53F2\u6700\u9AD8\u8FDE\u51FB\u6570101"
+  m_Text: "\u9002\u5F53\u901A\u5173\u524D\u9762\u7684\u5173\u5361\u83B7\u53D6\n\u8D27\u5E01\u5728\u5546\u5E97\u4E2D\u63D0\u5347\u80FD\u529B\r"
 --- !u!222 &2112367492
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58407,11 +58408,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2112367489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8baaa619494e7b14b9eb0fc467d55e30, type: 3}
+  m_Script: {fileID: 11500000, guid: ffb5f9d622df7f3438431dda482e7d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u8BE6\u7EC6": {fileID: 2112367491}
-  levelManager: {fileID: 436147254}
+  tips: {fileID: 2112367491}
+  tips1: "\u53EF\u4EE5\u9002\u5F53\u901A\u5173\u524D\u9762\u7684\u5173\u5361\n\u83B7\u53D6\u8D27\u5E01\u5728\u5546\u5E97\u4E2D\u63D0\u5347\u80FD\u529B\r"
+  tips1_English: 'Complete previous levels properly to
+
+    earn money to boost your
+    ability in the store'
+  tips2: "\u5173\u5361\u5168\u8FDE\u548C\u65E0\u4F24\u6709\u591A\u500D\u5956\u52B1"
+  tips2_English: 'All Combo and No Damage will be
+
+    awarded multiple times in
+    the Level'
+  tips3: "\u5FEB\u901F\u6309\u653B\u51FB\u952E\u53EF\u4EE5\u91CD\u7F6E\u653B\u51FB\uFF0C\u5F25\u8865\u5931\u8BEF"
+  tips3_English: 'Quickly press the attack key to reset
+
+    the attack and make
+    up for the mistake'
 --- !u!1 &2116387754
 GameObject:
   m_ObjectHideFlags: 0

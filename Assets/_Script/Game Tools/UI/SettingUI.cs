@@ -19,6 +19,7 @@ namespace Adv
         [SerializeField] Button 清除所有成就;
         [SerializeField] Button 退出游戏;
         [SerializeField] Button About;
+        [SerializeField] Button BtnTips;
         [SerializeField] Text Tips;
         [SerializeField] Image Icon;
 
@@ -58,6 +59,7 @@ namespace Adv
             清除所有成就.enabled = false;
             退出游戏.enabled = false;
             About.enabled = false;
+            BtnTips.enabled = false;
         }
 
         private void SwitchSettingUI()
@@ -108,6 +110,7 @@ namespace Adv
                 清除所有成就.enabled = IsOpen;
             退出游戏.enabled = IsOpen;
             About.enabled = IsOpen;
+            BtnTips.enabled = IsOpen;
         }
 
         private void OnDestroy()
