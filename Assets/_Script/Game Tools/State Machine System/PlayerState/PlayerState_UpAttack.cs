@@ -108,7 +108,7 @@ namespace Adv
                 attackState = AttackStates.Not;
 
                 //没有命中
-                if (StartCombo == PlayerProperty.Combo)
+                if (StartCombo == PlayerProperty.Combo && StartCombo != 0)
                 {
                     PlayerProperty.NotEmptyAttackCurrentLevel = false;
                     PlayerProperty.ResetCombo();
