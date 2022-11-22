@@ -19,7 +19,7 @@ namespace Adv
         [SerializeField] Material PlayerMaterial;
         [SerializeField] FlashController flashController;
         [SerializeField] float flashInterval;
-        [SerializeField] FloatEventChannel healtChange;
+        public FloatEventChannel healtChange;
         [SerializeField] VoidEventChannel LevelStart;
         [SerializeField] VoidEventChannel LevelEnd;
         [SerializeField] VoidEventChannel LevelClosing;
@@ -34,7 +34,7 @@ namespace Adv
         [SerializeField] float maxhealth;
 
         private bool IsHitted = false;//用于护盾功能连击
-        private float health;
+        public float health;
         private PlayerAudio playerAudio;
 
         private void Awake()

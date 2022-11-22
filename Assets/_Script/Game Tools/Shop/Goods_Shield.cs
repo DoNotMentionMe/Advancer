@@ -9,6 +9,7 @@ namespace Adv
         public override bool IsUnlocked { get; set; } = true;
         [SerializeField] PlayerProperty playerProperty;
         [SerializeField] Goods_ShieldLevelUp shieldLevelUp;
+        [SerializeField] Goods_BtnDownRecover shieldRecover;
 
         protected override void Awake()
         {
@@ -49,6 +50,7 @@ namespace Adv
                 BugButton.enabled = false;
                 gameObject.SetActive(false);
                 shieldLevelUp.IsUnlocked = true;
+                shieldRecover.IsUnlocked = true;
                 return true;
             }
             return false;

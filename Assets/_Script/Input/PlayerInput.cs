@@ -28,6 +28,7 @@ namespace Adv
         private Vector2 axes;
         //-----------
 
+        public event UnityAction onDown = delegate { };
         public event UnityAction onLeft_Long = delegate { };
         public event UnityAction onRight_Long = delegate { };
         public event UnityAction onEsc = delegate { };
@@ -156,6 +157,14 @@ namespace Adv
             else if (context.canceled)
             {
                 left = false;
+            }
+        }
+
+        public void OnDown(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onDown?.Invoke();
             }
         }
 

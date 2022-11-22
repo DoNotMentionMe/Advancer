@@ -98,6 +98,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""4468270f-8dbb-4f17-8776-f9762cc38f7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,61 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7f90c14-0ef7-4c92-b20d-9456f255d882"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2327d3fa-b4f3-40b9-8067-cd06aa8577ff"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45eb62f9-72e6-4b33-ba91-353e807a9314"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22810bcf-b154-4342-a555-8b50674e2a7f"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14c2299a-e6f9-4b6c-9427-d346262066d3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -515,6 +579,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Left_Long = m_Gameplay.FindAction("Left_Long", throwIfNotFound: true);
         m_Gameplay_Right_Long = m_Gameplay.FindAction("Right_Long", throwIfNotFound: true);
         m_Gameplay_Esc = m_Gameplay.FindAction("Esc", throwIfNotFound: true);
+        m_Gameplay_Down = m_Gameplay.FindAction("Down", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Battle = m_UI.FindAction("Battle", throwIfNotFound: true);
@@ -593,6 +658,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Left_Long;
     private readonly InputAction m_Gameplay_Right_Long;
     private readonly InputAction m_Gameplay_Esc;
+    private readonly InputAction m_Gameplay_Down;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -605,6 +671,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Left_Long => m_Wrapper.m_Gameplay_Left_Long;
         public InputAction @Right_Long => m_Wrapper.m_Gameplay_Right_Long;
         public InputAction @Esc => m_Wrapper.m_Gameplay_Esc;
+        public InputAction @Down => m_Wrapper.m_Gameplay_Down;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -638,6 +705,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Esc.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
                 @Esc.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
                 @Esc.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
+                @Down.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDown;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -666,6 +736,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Esc.started += instance.OnEsc;
                 @Esc.performed += instance.OnEsc;
                 @Esc.canceled += instance.OnEsc;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
             }
         }
     }
@@ -795,6 +868,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLeft_Long(InputAction.CallbackContext context);
         void OnRight_Long(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
