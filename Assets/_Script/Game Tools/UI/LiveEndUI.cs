@@ -78,17 +78,17 @@ namespace Adv
 
         private void CheckLiveTime(float currentLevelLiveTime)
         {
-            if (currentLevelLiveTime >= 35)
+            if (currentLevelLiveTime >= 50)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_35seconds);
                 SteamAchievement.Instance.achievementList[15].UnlockAchievementIcon();
             }
-            if (currentLevelLiveTime >= 60)
+            if (currentLevelLiveTime >= 80)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_60seconds);
                 SteamAchievement.Instance.achievementList[16].UnlockAchievementIcon();
             }
-            if (currentLevelLiveTime >= 80)
+            if (currentLevelLiveTime >= 110)
             {
                 SteamAchievement.Instance.Reach_Achievement(AchievementType.Survive_85seconds);
                 SteamAchievement.Instance.achievementList[17].UnlockAchievementIcon();

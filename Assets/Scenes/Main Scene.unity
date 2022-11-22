@@ -12440,16 +12440,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73ca3fe03691744580cb098733e2ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlock: {fileID: 21300000, guid: b95c4fcdd01e93844ac550fe03a388a2, type: 3}
-  Lock: {fileID: 21300000, guid: 43ffd7d42210c24448fbe906b9c42906, type: 3}
+  Unlock: {fileID: 21300000, guid: 144bef8dbc2bb8347a917b0ea5df2846, type: 3}
+  Lock: {fileID: 21300000, guid: 9d1c94009a0233241b8d48c2b2cfe958, type: 3}
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
   Comment: {fileID: 269709129}
-  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5880\u79D2"
+  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B58110\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
 
-    for 80 seconds'
+    for 110 seconds'
 --- !u!1 &272122358
 GameObject:
   m_ObjectHideFlags: 0
@@ -24312,16 +24312,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73ca3fe03691744580cb098733e2ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlock: {fileID: 21300000, guid: aacbc4b6f796794459e84c9a3f10fa93, type: 3}
-  Lock: {fileID: 21300000, guid: b3722f5ad7b714841a1491ee3e11564c, type: 3}
+  Unlock: {fileID: 21300000, guid: b95c4fcdd01e93844ac550fe03a388a2, type: 3}
+  Lock: {fileID: 21300000, guid: 43ffd7d42210c24448fbe906b9c42906, type: 3}
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
   Comment: {fileID: 269709129}
-  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5860\u79D2"
+  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5880\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
 
-    for 60 seconds'
+    for 80 seconds'
 --- !u!1 &780441607
 GameObject:
   m_ObjectHideFlags: 0
@@ -48451,16 +48451,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73ca3fe03691744580cb098733e2ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlock: {fileID: 21300000, guid: c89864647ab175249b9003eafaab5f75, type: 3}
-  Lock: {fileID: 21300000, guid: f5f985c0d31a6034e87e79e8fb0bdc8a, type: 3}
+  Unlock: {fileID: 21300000, guid: 02a8fccbe1e3eac48966575b2b20baa7, type: 3}
+  Lock: {fileID: 21300000, guid: f383d48a6140a314485f69fdeff576f0, type: 3}
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
   Comment: {fileID: 269709129}
-  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5835\u79D2"
+  commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5850\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
 
-    for 35 seconds'
+    for 50 seconds'
 --- !u!1 &1707399084
 GameObject:
   m_ObjectHideFlags: 0
@@ -58427,6 +58427,8 @@ MonoBehaviour:
 
     the attack and make
     up for the mistake'
+  tips4: "\u65E0\u9650\u5173\u5361\u5956\u52B1\u662F\u6839\u636E\u751F\u5B58\u65F6\u95F4\u63D0\u5347\u7684"
+  tips4_English: Infinite level rewards are increased based on survival time
 --- !u!1 &2116387754
 GameObject:
   m_ObjectHideFlags: 0

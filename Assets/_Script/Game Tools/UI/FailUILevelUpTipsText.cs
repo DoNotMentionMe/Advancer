@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace Adv
         [SerializeField, TextArea(3, 5)] string tips2_English;
         [SerializeField, TextArea(3, 5)] string tips3;
         [SerializeField, TextArea(3, 5)] string tips3_English;
+        [SerializeField, TextArea(3, 5)] string tips4;
+        [SerializeField, TextArea(3, 5)] string tips4_English;
 
         private int currentIndex = 1;
 
@@ -34,6 +37,10 @@ namespace Adv
                         break;
                     case 3:
                         tips.text = tips3;
+                        currentIndex++;
+                        break;
+                    case 4:
+                        tips.text = tips4;
                         currentIndex = 1;
                         break;
                     default:
@@ -54,6 +61,10 @@ namespace Adv
                         break;
                     case 3:
                         tips.text = tips3_English;
+                        currentIndex++;
+                        break;
+                    case 4:
+                        tips.text = tips4_English;
                         currentIndex = 1;
                         break;
                     default:
