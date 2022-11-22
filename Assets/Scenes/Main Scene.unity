@@ -179,12 +179,14 @@ MonoBehaviour:
     WASD/\u2191\u2193\u2190\u2192        \u6447\u6746/\u5341\u5B57\u952E\n\u786E\u8BA4      
     F/Enter            A\u952E\n\u8FD4\u56DE         ESC              B\u952E\n\u653B\u51FB      
     AWD/\u2190\u2191\u2192    \u6447\u6746/\u5341\u5B57\u952E/LT Y\u952E RT\n\u5173\u5361\u754C\u9762    
-    Q\u952E               LB\n\u5546\u5E97         E\u952E               RB"
+    Q\u952E               LB\n\u5546\u5E97         E\u952E               RB\n\u6062\u590D       
+    S/\u2193\u952E      \u6447\u6746\u4E0B/\u5341\u5B57\u952E\u4E0B/X\u952E"
   ChineseText_Controller: 
   EnglishText: "           Keyboard         Controller\nMove      WASD/\u2191\u2193\u2190\u2192      
     LeftStick/D-Pad\nSubmit      F/Enter            Btn A\nReturn        ESC             
     Btn B\nAttack     AWD/\u2190\u2191\u2192  LeftStick/D-Pad/LT Y RT\nLevel       
-    Btn Q               LB\nShop         Btn E               RB"
+    Btn Q               LB\nShop         Btn E               RB\nRecover    Btn S/\u2193      
+    LeftStick-Down/X"
   EnglishText_Controller: 
 --- !u!114 &174278
 MonoBehaviour:
@@ -219,10 +221,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.28
-  m_Text: "           Keyboard         Controller\nMove      WASD/\u2191\u2193\u2190\u2192      
-    LeftStick/D-Pad\nSubmit      F/Enter            Btn A\nReturn        ESC             
-    Btn B\nAttack     AWD/\u2190\u2191\u2192  LeftStick/D-Pad/LT Y RT\nLevel       
-    Btn Q               LB\nShop         Btn E               RB"
+  m_Text: "            \u952E\u76D8              \u624B\u67C4\n\u79FB\u52A8     
+    WASD/\u2191\u2193\u2190\u2192        \u6447\u6746/\u5341\u5B57\u952E\n\u786E\u8BA4      
+    F/Enter            A\u952E\n\u8FD4\u56DE         ESC              B\u952E\n\u653B\u51FB      
+    AWD/\u2190\u2191\u2192    \u6447\u6746/\u5341\u5B57\u952E/LT Y\u952E RT\n\u5173\u5361\u754C\u9762    
+    Q\u952E               LB\n\u5546\u5E97         E\u952E               RB\n\u6062\u590D       
+    S/\u2193\u952E      \u6447\u6746\u4E0B/\u5341\u5B57\u952E\u4E0B/X\u952E"
 --- !u!222 &174279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -679,6 +683,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u5173\u6240\u6709\u666E\u901A\u96BE\u5EA6\u5173\u5361"
   commentEnglish: Clear all medium difficulty levels
@@ -2110,7 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
-  m_Color: {r: 0, g: 1, b: 0.9642856, a: 1}
+  m_Color: {r: 0, g: 0.9811321, b: 0.7822069, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2120,7 +2125,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
     m_FontSize: 26
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2129,8 +2134,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "Reduce the number of \ncombos required to \nactivate shields by 1"
+    m_LineSpacing: 1.24
+  m_Text: "\u5B58\u5728\u62A4\u76FE\u65F6\u6309S/\u2193\u62A4\u76FE\u4E34\u65F6\n\u8F6C\u5316\u4E3A\u751F\u547D\u503C\uFF0C\u62A4\u76FE\u6D88\u5931"
 --- !u!222 &197607746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12646,6 +12651,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B58110\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
@@ -12821,6 +12827,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u67AA\u201D\u56F0\u96BE\u4E2D\u65E0\u4F24\u901A\u5173"
   commentEnglish: 'Clear Level3Hard without
@@ -13926,9 +13933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommnetText: {fileID: 197607745}
-  CommentChinese: "\u6FC0\u6D3B\u62A4\u76FE\u6240\u9700\u8FDE\u51FB\u6570-1"
-  CommentEnglish: "Reduce the number of \ncombos required to \nactivate shields by
-    1"
+  CommentChinese: "\u7269\u54C1\u63CF\u8FF0:\n\u6FC0\u6D3B\u62A4\u76FE\u6240\u9700\u8FDE\u51FB\u6570-1"
+  CommentEnglish: "Description:\nReduce the number of \ncombos required to \nactivate
+    shields by 1"
 --- !u!114 &351332308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14325,6 +14332,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u5200\u201D\u56F0\u96BE\u4E2D\u65E0\u4F24\u901A\u5173"
   commentEnglish: 'Clear Level1Hard without
@@ -14812,6 +14820,7 @@ RectTransform:
   - {fileID: 499551969}
   - {fileID: 1480828704}
   - {fileID: 925228096}
+  - {fileID: 1011963359}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17091,6 +17100,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u8FC7\u4E86\u56F0\u96BE\u96BE\u5EA6\u7684\u201C\u5200\u201D"
   commentEnglish: Cleared Level1Hard
@@ -18648,6 +18658,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u5173\u6240\u6709\u7B80\u5355\u96BE\u5EA6\u5173\u5361"
   commentEnglish: Clear all easy difficulty levels
@@ -24518,6 +24529,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5880\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
@@ -25562,8 +25574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommnetText: {fileID: 197607745}
-  CommentChinese: "\u6700\u5927\u8840\u91CF\u503C+1"
-  CommentEnglish: Max health +1
+  CommentChinese: "\u7269\u54C1\u63CF\u8FF0:\n\u6700\u5927\u8840\u91CF\u503C+1"
+  CommentEnglish: 'Description:
+
+    Max health +1'
 --- !u!114 &853625428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31469,6 +31483,101 @@ MonoBehaviour:
   LevelClosing: {fileID: 11400000, guid: c731027416d78084b956736c125bd9f2, type: 2}
   EarlyOutLevel: {fileID: 11400000, guid: 36568a88dd126b143a56b5ab1c9f71d8, type: 2}
   ClearingUIClose: {fileID: 11400000, guid: 1d5e5470269d9a94da754d5ac16a5efc, type: 2}
+--- !u!1 &1011963358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011963359}
+  - component: {fileID: 1011963361}
+  - component: {fileID: 1011963360}
+  - component: {fileID: 1011963362}
+  m_Layer: 5
+  m_Name: "\u6210\u5C31\u8FBE\u6210\u663E\u793A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1011963359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011963358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1997837281}
+  - {fileID: 1600152783}
+  - {fileID: 1732475203}
+  m_Father: {fileID: 436147252}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 116}
+  m_SizeDelta: {x: 500, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1011963360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011963358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.00093449844, g: 0.13482127, b: 0.1981132, a: 0.83137256}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1011963361
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011963358}
+  m_CullTransparentMesh: 1
+--- !u!114 &1011963362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011963358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e16b63ac4575874ba9ca3df39e86520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u63CF\u8FF0": {fileID: 1997837282}
+  Icon: {fileID: 1600152784}
+  showTime: 2
 --- !u!1 &1020978138
 GameObject:
   m_ObjectHideFlags: 0
@@ -31608,6 +31717,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u67AA\u4E0E\u7BAD\u201D\u56F0\u96BE\u4E2D\u65E0\u4F24\u901A\u5173"
   commentEnglish: 'Clear Level4Hard without
@@ -31750,8 +31860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommnetText: {fileID: 197607745}
-  CommentChinese: "\u8FDE\u51FB10\u6FC0\u6D3B\u62B5\u6321\n\u4E00\u6B21\u653B\u51FB\u7684\u62A4\u76FE"
-  CommentEnglish: "Combo 10 activates a \nshieldthat resists\nan attack"
+  CommentChinese: "\u7269\u54C1\u63CF\u8FF0:\n\u8FDE\u51FB10\u6FC0\u6D3B\u62B5\u6321\n\u4E00\u6B21\u653B\u51FB\u7684\u62A4\u76FE"
+  CommentEnglish: "Description:\nCombo 10 activates a \nshieldthat resists\nan attack"
 --- !u!114 &1025580840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31985,6 +32095,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u8FC7\u4E86\u56F0\u96BE\u96BE\u5EA6\u7684\u201C\u5200\u4E0E\u7BAD\u201D"
   commentEnglish: Cleared Level2Hard
@@ -37644,6 +37755,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u8FC7\u4E86\u56F0\u96BE\u96BE\u5EA6\u7684\u201C\u67AA\u201D"
   commentEnglish: Cleared Level3Hard
@@ -37786,6 +37898,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u5200\u4E0E\u7BAD\u201D\u56F0\u96BE\u4E2D\u5168\u90E8\u8FDE\u51FB"
   commentEnglish: Complete all combos in Level2Hard
@@ -39534,6 +39647,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u67AA\u201D\u56F0\u96BE\u4E2D\u5168\u90E8\u8FDE\u51FB"
   commentEnglish: Complete all combos in Level3Hard
@@ -39752,6 +39866,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u5200\u4E0E\u7BAD\u201D\u56F0\u96BE\u4E2D\u65E0\u4F24\u901A\u5173"
   commentEnglish: 'Clear Level2Hard without
@@ -40070,6 +40185,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u8FC7\u4E86\u56F0\u96BE\u96BE\u5EA6\u7684\u201C\u67AA\u4E0E\u7BAD\u201D"
   commentEnglish: Cleared Level4Hard
@@ -40672,6 +40788,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u901A\u5173\u6240\u6709\u56F0\u96BE\u96BE\u5EA6\u5173\u5361"
   commentEnglish: Clear all hard difficulty levels
@@ -42895,6 +43012,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588416500}
+  m_CullTransparentMesh: 1
+--- !u!1 &1600152782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600152783}
+  - component: {fileID: 1600152785}
+  - component: {fileID: 1600152784}
+  m_Layer: 5
+  m_Name: "\u56FE\u6807"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1600152783
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600152782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1011963359}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 58, y: 38}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1600152784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600152782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: f4de8b4a566f21c45b4c404fdab6d802, type: 2}
+  m_Color: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 144bef8dbc2bb8347a917b0ea5df2846, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1600152785
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600152782}
   m_CullTransparentMesh: 1
 --- !u!1 &1603540292
 GameObject:
@@ -48839,6 +49032,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u65E0\u9650\u5173\u5361\u4E2D\u751F\u5B5850\u79D2"
   commentEnglish: 'Survive in the InfiniteLevel
@@ -49015,8 +49209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommnetText: {fileID: 197607745}
-  CommentChinese: "\u5B58\u5728\u62A4\u76FE\u65F6\u6309S/\u2193\u62A4\u76FE\u4E34\u65F6\n\u8F6C\u5316\u4E3A\u751F\u547D\u503C\uFF0C\u62A4\u76FE\u6D88\u5931"
-  CommentEnglish: "When a shield exists, \npress S/\u2193 to temporarily\ntransform
+  CommentChinese: "\u7269\u54C1\u63CF\u8FF0:\n\u5B58\u5728\u62A4\u76FE\u65F6\u6309S/\u2193\u62A4\u76FE\u4E34\u65F6\n\u8F6C\u5316\u4E3A\u751F\u547D\u503C\uFF0C\u62A4\u76FE\u6D88\u5931"
+  CommentEnglish: "Description:\nWhen a shield exists, \npress S/\u2193 to temporarily\ntransform
     the shield \ninto health,\nand the shield disappear"
 --- !u!114 &1716584264
 MonoBehaviour:
@@ -49425,6 +49619,104 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728090208}
+  m_CullTransparentMesh: 1
+--- !u!1 &1732475202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732475203}
+  - component: {fileID: 1732475206}
+  - component: {fileID: 1732475205}
+  - component: {fileID: 1732475204}
+  m_Layer: 5
+  m_Name: "\u8FBE\u6210\u6210\u5C31"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1732475203
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732475202}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1011963359}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -66.3, y: 38}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1732475204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732475202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
+  ChineseText: "\u8FBE\u6210\u6210\u5C31\uFF1A"
+  ChineseText_Controller: 
+  EnglishText: "Achieve\r\uFF1A"
+  EnglishText_Controller: 
+--- !u!114 &1732475205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732475202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\u8FBE\u6210\u6210\u5C31\uFF1A"
+--- !u!222 &1732475206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732475202}
   m_CullTransparentMesh: 1
 --- !u!1 &1735531647
 GameObject:
@@ -55482,6 +55774,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u5200\u201D\u56F0\u96BE\u4E2D\u5168\u90E8\u8FDE\u51FB"
   commentEnglish: Complete all combos in Level1Hard
@@ -57745,6 +58038,88 @@ MonoBehaviour:
   RightAttack: {fileID: 11400000, guid: 57f53283444c6eb4f979124f012a870a, type: 2}
   LeftAttack: {fileID: 11400000, guid: db9351195eedf0348b6b5125dc84b473, type: 2}
   playerHitted: {fileID: 11400000, guid: 51ae2c578fe525c4db4e43a03f809c72, type: 2}
+--- !u!1 &1997837280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997837281}
+  - component: {fileID: 1997837283}
+  - component: {fileID: 1997837282}
+  m_Layer: 5
+  m_Name: "\u63CF\u8FF0"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1997837281
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997837280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1011963359}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1997837282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997837280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Survive in the InfiniteLevel
+
+    for 35 seconds'
+--- !u!222 &1997837283
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997837280}
+  m_CullTransparentMesh: 1
 --- !u!1 &2001544572
 GameObject:
   m_ObjectHideFlags: 0
@@ -58813,6 +59188,7 @@ MonoBehaviour:
   EnterSound:
     audioClip: {fileID: 8300000, guid: f7a64c23218d84943b60b1ad0490af06, type: 3}
     volume: 1
+  achiveveShow: {fileID: 1011963362}
   Comment: {fileID: 269709129}
   commentChinese: "\u5728\u201C\u67AA\u4E0E\u7BAD\u201D\u56F0\u96BE\u4E2D\u5168\u90E8\u8FDE\u51FB"
   commentEnglish: Complete all combos in Level4Hard

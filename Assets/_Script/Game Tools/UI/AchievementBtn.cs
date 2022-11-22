@@ -17,6 +17,7 @@ namespace Adv
         [SerializeField] Sprite Unlock;
         [SerializeField] Sprite Lock;
         [SerializeField] AudioData EnterSound;
+        [SerializeField] AchiveveShow achiveveShow;
         private bool IsUnlocked = false;
         private Image image;
 
@@ -39,6 +40,8 @@ namespace Adv
         //解锁steam成就时同步调用
         public void UnlockAchievementIcon()
         {
+            // if (IsUnlocked == false)
+            //     achiveveShow.StartShowAchieve(ChineseEnglishShift.language == Language.Chinese ? commentChinese : commentEnglish, Unlock);
             IsUnlocked = true;
             image.sprite = Unlock;
             SaveGame.SavePath = SaveGamePath.DataPath;
