@@ -20,9 +20,20 @@ namespace Adv
         private bool IsFirst;
 
         [SerializeField] Canvas LanguageSelectMenu;
+        [SerializeField] Canvas TipsCanvas;
         [SerializeField] Button ChineseBtn;
         [SerializeField] Button EnglishBtn;
+        [SerializeField] Button TipsBtn;
         [SerializeField] LanguageEventChannel LanguageChange;
+        [SerializeField] Text Title;
+        [SerializeField] Text Tips;
+        [SerializeField] Text TipsBtnText;
+        [SerializeField, TextArea(3, 8)] string ChineseTitle;
+        [SerializeField, TextArea(3, 8)] string EnglishTitle;
+        [SerializeField, TextArea(3, 8)] string ChineseText;
+        [SerializeField, TextArea(3, 8)] string EnglishText;
+        [SerializeField] string ChineseTipsBtnText;
+        [SerializeField] string EnglishTipsBtnText;
 
         private const string MainScene = "Main Scene";
 
@@ -108,12 +119,14 @@ namespace Adv
         {
             ChineseBtn.onClick.AddListener(SwitchChinese);
             EnglishBtn.onClick.AddListener(SwitchEnglish);
+            TipsBtn.onClick.AddListener(TipsBtnAction);
         }
 
         private void OnDisable()
         {
             ChineseBtn.onClick.RemoveListener(SwitchChinese);
             EnglishBtn.onClick.RemoveListener(SwitchEnglish);
+            TipsBtn.onClick.RemoveListener(TipsBtnAction);
         }
 
         private void SwitchChinese()
@@ -124,8 +137,12 @@ namespace Adv
             LanguageSelectMenu.enabled = false;
             EnglishBtn.enabled = false;
             ChineseBtn.enabled = false;
-            //跳转主界面
-            SceneManager.LoadScene(MainScene);
+            //跳转到警告页面
+            TipsBtn.enabled = true;
+            TipsCanvas.enabled = true;
+            Title.text = ChineseTitle;
+            Tips.text = ChineseText;
+            TipsBtnText.text = ChineseTipsBtnText;
         }
 
         private void SwitchEnglish()
@@ -136,7 +153,18 @@ namespace Adv
             LanguageSelectMenu.enabled = false;
             ChineseBtn.enabled = false;
             EnglishBtn.enabled = false;
+            //跳转到警告页面
+            TipsBtn.enabled = true;
+            TipsCanvas.enabled = true;
+            Title.text = EnglishTitle;
+            Tips.text = EnglishText;
+            TipsBtnText.text = EnglishTipsBtnText;
+        }
 
+        private void TipsBtnAction()
+        {
+            TipsBtn.enabled = false;
+            TipsCanvas.enabled = false;
             //跳转主界面
             SceneManager.LoadScene(MainScene);
         }

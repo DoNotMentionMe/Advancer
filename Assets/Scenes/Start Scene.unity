@@ -174,8 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level1 Easy
+  EnglishText_Controller: 
 --- !u!114 &8398687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +220,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8398684}
+  m_CullTransparentMesh: 1
+--- !u!1 &67199184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67199185}
+  - component: {fileID: 67199188}
+  - component: {fileID: 67199187}
+  m_Layer: 5
+  m_Name: Tips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &67199185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67199184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1405625404}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: 379.6, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &67199187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67199184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 23
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1.81
+  m_Text: "\u6E38\u620F\u73A9\u6CD5\u6838\u5FC3\u662F\u5FEB\u901F\u53CD\u5E94\n\u683C\u6321\u653B\u51FB\uFF0C\u6240\u4EE5\r\u672C\u8EAB\u5177\u6709\n\u4E00\u5B9A\u96BE\u5EA6\uFF0C\u4E0A\u624B\u5E76\u4E0D\u8F7B\u677E\n\u751A\u81F3\u4F1A\u53D7\u82E6\u3002"
+--- !u!222 &67199188
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67199184}
   m_CullTransparentMesh: 1
 --- !u!1 &104220536
 GameObject:
@@ -293,6 +376,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104220536}
+  m_CullTransparentMesh: 1
+--- !u!1 &125615294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125615295}
+  - component: {fileID: 125615298}
+  - component: {fileID: 125615297}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &125615295
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125615294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1405625404}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 145}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &125615297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125615294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 0.7830189, g: 0.77193844, b: 0.77193844, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 38
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 2.09
+  m_Text: "\u63D0\u9192"
+--- !u!222 &125615298
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125615294}
   m_CullTransparentMesh: 1
 --- !u!1 &128474284
 GameObject:
@@ -526,6 +689,7 @@ MonoBehaviour:
   healtChange: {fileID: 11400000, guid: 22bb66253d29bb147874091b57f8c632, type: 2}
   ComboChange: {fileID: 11400000, guid: efbcaa70a3593274398c7f31808a0268, type: 2}
   MoneyChange: {fileID: 11400000, guid: eacc8d5b7d1f50a4a9d397ee5465c08e, type: 2}
+  IsControllerChange: {fileID: 0}
   SuccessSFX:
     audioClip: {fileID: 0}
     volume: 0
@@ -692,8 +856,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200\u4E0E\u7BAD \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level2 Hard
+  EnglishText_Controller: 
 --- !u!114 &141073060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,8 +1611,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5B8C\u6210\u6559\u7A0B\u5173\u5361~"
+  ChineseText_Controller: 
   EnglishText: You are a warrior~
+  EnglishText_Controller: 
 --- !u!114 &256372991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,8 +1930,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200\u4E0E\u7BAD \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level2 Easy
+  EnglishText_Controller: 
 --- !u!114 &295823101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,8 +2108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level3 Easy
+  EnglishText_Controller: 
 --- !u!114 &356543665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,8 +2206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level3 Hard
+  EnglishText_Controller: 
 --- !u!114 &386410443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2116,6 +2295,7 @@ MonoBehaviour:
   shop: {fileID: 763113766}
   playerProperty: {fileID: 0}
   shieldLevelUp: {fileID: 705447857}
+  shieldRecover: {fileID: 0}
 --- !u!114 &401524818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,8 +2665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA \u7279\u522B\u7248"
+  ChineseText_Controller: 
   EnglishText: Level3 Special
+  EnglishText_Controller: 
 --- !u!114 &437992548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,8 +2763,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62B5\u5FA1\u6210\u529F"
+  ChineseText_Controller: 
   EnglishText: "Victory\r"
+  EnglishText_Controller: 
 --- !u!114 &451474580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2675,8 +2861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u4E27\u547D"
+  ChineseText_Controller: 
   EnglishText: Get Killed
+  EnglishText_Controller: 
 --- !u!114 &454331721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,8 +3009,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "(Q\u952E)"
+  ChineseText_Controller: 
   EnglishText: (Btn Q)
+  EnglishText_Controller: 
 --- !u!114 &488668212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,8 +3107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level1 Hard
+  EnglishText_Controller: 
 --- !u!114 &513465040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3461,9 +3656,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LanguageSelectMenu: {fileID: 564805786}
+  TipsCanvas: {fileID: 1405625403}
   ChineseBtn: {fileID: 1236376988}
   EnglishBtn: {fileID: 1930053345}
+  TipsBtn: {fileID: 1498232808}
   LanguageChange: {fileID: 11400000, guid: d32b820e501c97a41a514d6deaa80476, type: 2}
+  Title: {fileID: 125615297}
+  Tips: {fileID: 67199187}
+  TipsBtnText: {fileID: 830227726}
+  ChineseTitle: "\u63D0\u9192"
+  EnglishTitle: Remind
+  ChineseText: "\u6E38\u620F\u73A9\u6CD5\u6838\u5FC3\u662F\u5FEB\u901F\u53CD\u5E94\n\u683C\u6321\u653B\u51FB\uFF0C\u6240\u4EE5\r\u672C\u8EAB\u5177\u6709\n\u4E00\u5B9A\u96BE\u5EA6\uFF0C\u4E0A\u624B\u5E76\u4E0D\u8F7B\u677E\n\u751A\u81F3\u4F1A\u53D7\u82E6\u3002"
+  EnglishText: "The core of the gameplay is quick reaction blocking attacks,\r so
+    it is difficult, not easy to learn and even painful"
+  ChineseTipsBtnText: "\u786E\u5B9A"
+  EnglishTipsBtnText: Confirm
   TestText: {fileID: 0}
 --- !u!1 &570187192
 GameObject:
@@ -4350,8 +4557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: 
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: 
 --- !u!114 &736640457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4904,8 +5114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level3 Medium
+  EnglishText_Controller: 
 --- !u!114 &798775333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5070,6 +5283,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &830227723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830227724}
+  - component: {fileID: 830227727}
+  - component: {fileID: 830227726}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &830227724
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830227723}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1498232807}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &830227726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830227723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: d6f32e650c4eb254bab24326de43f457, type: 2}
+  m_Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fe83f5b2005e1b3488e9a0cb45c5c7cc, type: 3}
+    m_FontSize: 27
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\u786E\u5B9A"
+--- !u!222 &830227727
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830227723}
+  m_CullTransparentMesh: 1
 --- !u!1 &839712870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,8 +5494,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: 
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: 
 --- !u!114 &843510500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5748,8 +6044,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA\u4E0E\u7BAD \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level4 Medium
+  EnglishText_Controller: 
 --- !u!114 &899223428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5843,8 +6142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62A4\u76FE\u89E3\u9501   \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Shield   Price:'
+  EnglishText_Controller: 
 --- !u!114 &900055700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5938,8 +6240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA\u4E0E\u7BAD \u7B80\u5355"
+  ChineseText_Controller: 
   EnglishText: Level4Easy
+  EnglishText_Controller: 
 --- !u!114 &905705614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,8 +6338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u786E\u5B9A"
+  ChineseText_Controller: 
   EnglishText: Confirm
+  EnglishText_Controller: 
 --- !u!114 &911505941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6257,8 +6565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6700\u5927\u8840\u91CF+1 \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'Health+1 Price:'
+  EnglishText_Controller: 
 --- !u!114 &911658037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6344,6 +6655,7 @@ MonoBehaviour:
   "\u6E05\u9664\u6240\u6709\u6210\u5C31": {fileID: 0}
   "\u9000\u51FA\u6E38\u620F": {fileID: 0}
   About: {fileID: 0}
+  BtnTips: {fileID: 0}
   Tips: {fileID: 0}
   Icon: {fileID: 0}
   IsOpen: 0
@@ -7132,8 +7444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: 
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: 
 --- !u!114 &1089683894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8500,6 +8815,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1270227219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270227220}
+  - component: {fileID: 1270227222}
+  - component: {fileID: 1270227221}
+  m_Layer: 5
+  m_Name: Background (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1270227220
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270227219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1405625404}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1270227221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270227219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1270227222
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270227219}
+  m_CullTransparentMesh: 1
 --- !u!1 &1282786707
 GameObject:
   m_ObjectHideFlags: 0
@@ -13913,8 +14304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "(E\u952E)"
+  ChineseText_Controller: 
   EnglishText: (Btn E)
+  EnglishText_Controller: 
 --- !u!114 &1355509109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14172,6 +14566,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404930280}
   m_CullTransparentMesh: 1
+--- !u!1 &1405625400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405625404}
+  - component: {fileID: 1405625403}
+  - component: {fileID: 1405625402}
+  - component: {fileID: 1405625401}
+  m_Layer: 5
+  m_Name: Tips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1405625401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405625400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1405625402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405625400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1405625403
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405625400}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1405625404
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405625400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1270227220}
+  - {fileID: 1498232807}
+  - {fileID: 67199185}
+  - {fileID: 125615295}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1406196867
 GameObject:
   m_ObjectHideFlags: 0
@@ -14223,8 +14721,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6559\u7A0B\u5173\u5361"
+  ChineseText_Controller: 
   EnglishText: Level 0
+  EnglishText_Controller: 
 --- !u!114 &1406196870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14318,8 +14819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u62A4\u76FE\u5347\u7EA7   \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'ShieldUp Price:'
+  EnglishText_Controller: 
 --- !u!114 &1408953385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14413,8 +14917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!114 &1416114240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14508,8 +15015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u6309F/Enter\u7EE7\u7EED"
+  ChineseText_Controller: 
   EnglishText: F/Enter To Continue
+  EnglishText_Controller: 
 --- !u!114 &1439313699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19729,6 +20239,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465938278}
   m_CullTransparentMesh: 1
+--- !u!1 &1498232806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498232807}
+  - component: {fileID: 1498232810}
+  - component: {fileID: 1498232809}
+  - component: {fileID: 1498232808}
+  m_Layer: 5
+  m_Name: TipsBtn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1498232807
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498232806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 830227724}
+  m_Father: {fileID: 1405625404}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: -166}
+  m_SizeDelta: {x: 160, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1498232808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498232806}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 0.3647059, g: 0.3647059, b: 0.3647059, a: 1}
+    m_HighlightedColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    m_PressedColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    m_SelectedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+    m_DisabledColor: {r: 0.3647059, g: 0.3647059, b: 0.3647059, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1498232809}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1498232809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498232806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1498232810
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498232806}
+  m_CullTransparentMesh: 1
 --- !u!1 &1507796078
 GameObject:
   m_ObjectHideFlags: 0
@@ -20041,8 +20673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200 \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level1 Medium
+  EnglishText_Controller: 
 --- !u!114 &1527412830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20249,8 +20884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!114 &1530323358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20344,8 +20982,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u5200\u4E0E\u7BAD \u666E\u901A"
+  ChineseText_Controller: 
   EnglishText: Level2 Medium
+  EnglishText_Controller: 
 --- !u!114 &1544731941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20594,8 +21235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!114 &1595352520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20944,8 +21588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u9009\u62E9:WASD/\u65B9\u5411\u952E \u6311\u6218:F/Enter"
+  ChineseText_Controller: 
   EnglishText: "Select:WASD/\u2191\u2190\u2193\u2192 Challenge:F/Enter"
+  EnglishText_Controller: 
 --- !u!114 &1647123491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21039,8 +21686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u662F\u5426\u9000\u51FA\u5F53\u524D\u5173\u5361?"
+  ChineseText_Controller: 
   EnglishText: Leave the level?
+  EnglishText_Controller: 
 --- !u!114 &1647707133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21616,8 +22266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u4F60\u662F\u4E00\u4E2A\u5408\u683C\u7684\u6218\u58EB\u4E86\n\u5FEB\u53BB\u6D6A\u5427"
+  ChineseText_Controller: 
   EnglishText: Go and fight alone!
+  EnglishText_Controller: 
 --- !u!114 &1705481184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21888,8 +22541,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u65E0\u9650 \u4E0D\u53EF\u80FD"
+  ChineseText_Controller: 
   EnglishText: Infinite
+  EnglishText_Controller: 
 --- !u!114 &1761557944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23221,8 +23877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u53D6\u6D88"
+  ChineseText_Controller: 
   EnglishText: Cancel
+  EnglishText_Controller: 
 --- !u!114 &1889555845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23316,8 +23975,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u653B\u51FB\u53EF\u6253\u65AD \u4EF7\u683C\uFF1A"
+  ChineseText_Controller: 
   EnglishText: 'QuickATK Price:'
+  EnglishText_Controller: 
 --- !u!114 &1902086661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23491,8 +24153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u67AA\u4E0E\u7BAD \u56F0\u96BE"
+  ChineseText_Controller: 
   EnglishText: Level4 Hard
+  EnglishText_Controller: 
 --- !u!114 &1911775870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23865,8 +24530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u8D2D\u4E70"
+  ChineseText_Controller: 
   EnglishText: BUY
+  EnglishText_Controller: 
 --- !u!114 &1941775900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24559,8 +25227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e090b4b209af4783da5059a52165d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangeWithControllerInput: 0
   ChineseText: "\u9009\u62E9:AS/\u2191\u2193 \u8D2D\u4E70:F/Enter"
+  ChineseText_Controller: 
   EnglishText: "Select:AS/\u2191\u2193 Buy:F/Enter"
+  EnglishText_Controller: 
 --- !u!114 &2037256960
 MonoBehaviour:
   m_ObjectHideFlags: 0
