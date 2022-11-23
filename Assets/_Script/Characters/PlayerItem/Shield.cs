@@ -13,6 +13,8 @@ namespace Adv
         [SerializeField] AudioData ShieldBroken;
         [SerializeField] PlayerInput input;
         [SerializeField] PlayerProperty playerProperty;
+        [SerializeField] AudioData RecoverSound;
+        [SerializeField] ParticleSystem RecoverVFX;
         private const string EnemyTag = "Enemy";
         private const string EnemyAttackTag = "EnemyAttack";
 
@@ -37,6 +39,8 @@ namespace Adv
             if (!canRecover) return;
             if (gameObject.activeSelf)
             {
+                AudioManager.Instance.PlaySFX(RecoverSound);
+                RecoverVFX.Play();
                 playerProperty.health += 1;
                 playerProperty.healtChange.Broadcast(playerProperty.health);
                 gameObject.SetActive(false);
