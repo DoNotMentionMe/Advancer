@@ -18,6 +18,8 @@ namespace Adv
         [SerializeField, TextArea(3, 5)] string tips3_English;
         [SerializeField, TextArea(3, 5)] string tips4;
         [SerializeField, TextArea(3, 5)] string tips4_English;
+        [SerializeField, TextArea(3, 5)] string tips5;
+        [SerializeField, TextArea(3, 5)] string tips5_English;
 
         private int currentIndex = 1;
 
@@ -41,6 +43,10 @@ namespace Adv
                         break;
                     case 4:
                         tips.text = tips4;
+                        currentIndex++;
+                        break;
+                    case 5:
+                        tips.text = tips5;
                         currentIndex = 1;
                         break;
                     default:
@@ -65,6 +71,10 @@ namespace Adv
                         break;
                     case 4:
                         tips.text = tips4_English;
+                        currentIndex++;
+                        break;
+                    case 5:
+                        tips.text = tips5_English;
                         currentIndex = 1;
                         break;
                     default:
