@@ -21,7 +21,7 @@ namespace Adv
         [SerializeField, TextArea(3, 5)] string tips5;
         [SerializeField, TextArea(3, 5)] string tips5_English;
 
-        private int currentIndex = 1;
+        private static int currentIndex = 1;
 
         private void OnEnable()
         {

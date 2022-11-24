@@ -13693,7 +13693,7 @@ RectTransform:
   - {fileID: 997284444}
   - {fileID: 845165338}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14811,10 +14811,10 @@ RectTransform:
   - {fileID: 1958266310}
   - {fileID: 1954317406}
   - {fileID: 244333998}
-  - {fileID: 1801016805}
-  - {fileID: 1430547999}
   - {fileID: 332516213}
   - {fileID: 1549320570}
+  - {fileID: 1801016805}
+  - {fileID: 1430547999}
   - {fileID: 1347082334}
   - {fileID: 1159154474}
   - {fileID: 279919089}
@@ -31559,8 +31559,11 @@ MonoBehaviour:
   tips4_English: 'Infinite level rewards are increased
 
     based on survival time'
-  tips5: "\u8BBE\u7F6E\u754C\u9762\u4E2D\u53EF\u4EE5\u67E5\u770B\u6210\u5C31\u8FBE\u6210\u60C5\u51B5"
-  tips5_English: You can view the achievement status on the Setting
+  tips5: "\u901A\u5173\u53EA\u662F\u6E38\u620F\u7684\u5F00\u59CB\n\u8BBE\u7F6E\u754C\u9762\u4E2D\u53EF\u4EE5\u67E5\u770B\u6210\u5C31\u8FBE\u6210\u60C5\u51B5"
+  tips5_English: 'Customs clearance is just the beginning
+
+    You can view the achievement
+    status on the Setting'
 --- !u!114 &997284446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31594,7 +31597,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Infinite level rewards are increased \nbased on survival time"
+  m_Text: 'Customs clearance is just the beginning
+
+    You can view the achievement
+    status on the Setting'
 --- !u!222 &997284447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45799,7 +45805,7 @@ RectTransform:
   - {fileID: 2058329090}
   - {fileID: 1793828529}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -47607,7 +47613,7 @@ RectTransform:
   - {fileID: 1078791488}
   - {fileID: 2112367490}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -60429,7 +60435,7 @@ RectTransform:
   - {fileID: 1517287262}
   - {fileID: 581622076}
   m_Father: {fileID: 436147252}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -64241,7 +64247,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.62
-  m_Text: You can view the achievement status on the Setting
+  m_Text: 'Customs clearance is just the beginning
+
+    You can view the achievement
+    status on the Setting'
 --- !u!222 &2112367492
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64280,8 +64289,11 @@ MonoBehaviour:
     up for the mistake'
   tips4: "\u65E0\u9650\u5173\u5361\u5956\u52B1\u662F\u6839\u636E\u751F\u5B58\u65F6\u95F4\u63D0\u5347\u7684"
   tips4_English: Infinite level rewards are increased based on survival time
-  tips5: "\u8BBE\u7F6E\u754C\u9762\u4E2D\u53EF\u4EE5\u67E5\u770B\u6210\u5C31\u8FBE\u6210\u60C5\u51B5"
-  tips5_English: You can view the achievement status on the Setting
+  tips5: "\u901A\u5173\u53EA\u662F\u6E38\u620F\u7684\u5F00\u59CB\n\u8BBE\u7F6E\u754C\u9762\u4E2D\u53EF\u4EE5\u67E5\u770B\u6210\u5C31\u8FBE\u6210\u60C5\u51B5"
+  tips5_English: 'Customs clearance is just the beginning
+
+    You can view the achievement
+    status on the Setting'
 --- !u!1 &2116387754
 GameObject:
   m_ObjectHideFlags: 0
