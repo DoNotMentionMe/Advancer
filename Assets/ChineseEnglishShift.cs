@@ -89,6 +89,7 @@ namespace Adv
                 LanguageSelectMenu.enabled = true;
                 ChineseBtn.enabled = true;
                 EnglishBtn.enabled = true;
+                EventSystem.current.SetSelectedGameObject(ChineseBtn.gameObject);
             }
             else
             {
@@ -140,6 +141,7 @@ namespace Adv
             //跳转到警告页面
             TipsBtn.enabled = true;
             TipsCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(TipsBtn.gameObject);
             Title.text = ChineseTitle;
             Tips.text = ChineseText;
             TipsBtnText.text = ChineseTipsBtnText;
@@ -156,6 +158,7 @@ namespace Adv
             //跳转到警告页面
             TipsBtn.enabled = true;
             TipsCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(TipsBtn.gameObject);
             Title.text = EnglishTitle;
             Tips.text = EnglishText;
             TipsBtnText.text = EnglishTipsBtnText;
